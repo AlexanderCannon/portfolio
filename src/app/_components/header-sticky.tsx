@@ -29,9 +29,9 @@ const HeaderSticky: React.FC = () => {
           <Link href="/contact" className="text-gray-700 hover:text-primary">
             Contact
           </Link>
-          <Link href="/blog" className="text-gray-700 hover:text-primary">
+          {/* <Link href="/blog" className="text-gray-700 hover:text-primary">
             Blog
-          </Link>
+          </Link> */}
         </nav>
 
         {/* CTA Button */}
