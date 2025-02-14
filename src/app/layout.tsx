@@ -45,7 +45,7 @@ export default function RootLayout({
           <HeaderSticky />
           {children}
           <Footer />
-          <LiveChatButton />
+          {/* <LiveChatButton /> */}
           <CookiePopup />
         </TRPCReactProvider>
       </body>
