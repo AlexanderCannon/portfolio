@@ -1,16 +1,20 @@
 import { notFound } from "next/navigation";
+// import { Metadata } from "next/types";
 import { api } from "~/trpc/server";
 
-interface PageProps {
-  params: {
-    slug: string;
-  };
-}
 
 type Post = Awaited<ReturnType<typeof api.post.getPostBySlug>>;
 
-export default async function PostPage({ params }: PageProps) {
-  const { slug } = params;
+
+type BlogPageProps = Promise<{ slug: string }>;
+
+
+export default async function PostPage({
+  params,
+}: {
+  params: BlogPageProps
+}) {
+  const { slug } = await params;
   let post: Post | null = null;
 
   try {
@@ -62,24 +66,26 @@ export default async function PostPage({ params }: PageProps) {
   );
 }
 
-// Generate metadata for the page
-export async function generateMetadata({ params }: PageProps) {
-  const { slug } = params;
-  let post: Post | null = null;
+// // Generate metadata for the page
+// export async function generateMetadata(,
+// ): Promise<Metadata> {
+//   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+//   const { slug } = props.params as any;
+//   let post: Post | null = null;
 
-  try {
-    post = await api.post.getPostBySlug({ slug });
-    if (!post) {
-      throw new Error('Post not found');
-    }
-    return {
-      title: post.name,
-      description: post.body?.slice(0, 155),
-    };
-  } catch {
-    return {
-      title: 'Post Not Found',
-      description: 'The requested post could not be found.',
-    };
-  }
-}
+//   try {
+//     post = await api.post.getPostBySlug({ slug });
+//     if (!post) {
+//       throw new Error('Post not found');
+//     }
+//     return {
+//       title: post.name,
+//       description: post.body?.slice(0, 155),
+//     };
+//   } catch {
+//     return {
+//       title: 'Post Not Found',
+//       description: 'The requested post could not be found.',
+//     };
+//   }
+// }

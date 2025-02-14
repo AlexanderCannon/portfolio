@@ -28,10 +28,10 @@ const AboutPage = () => {
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-4">About Me</h2>
         <p className="text-gray-700 mb-4">
-          I'm an engineering leader with a passion for building innovative technology solutions. With extensive experience in video streaming platforms, blockchain technologies, and AI/ML applications, I've led teams to deliver high-impact products across various industries. Currently, I'm focused on developing LLM-based AI tools and managing enterprise-level AI solutions at Kellog, Brown & Root.
+          I&apos;m an engineering leader with a passion for building innovative technology solutions. With extensive experience in video streaming platforms, blockchain technologies, and AI/ML applications, I&apos;ve led teams to deliver high-impact products across various industries. Currently, I&apos;m focused on developing LLM-based AI tools and managing enterprise-level AI solutions at Kellog, Brown & Root.
         </p>
         <p className="text-gray-700 mb-4">
-          Throughout my career, I've founded multiple successful ventures, including Winston App, a regulated fintech application, and Farpoint Labs, a DevOps consultancy. I have a proven track record of building and leading engineering teams, setting technical standards, and driving innovation.
+          Throughout my career, I&apos;ve founded multiple successful ventures, including Winston App, a regulated fintech application, and Farpoint Labs, a DevOps consultancy. I have a proven track record of building and leading engineering teams, setting technical standards, and driving innovation.
         </p>
       </section>
 
@@ -76,7 +76,7 @@ const AboutPage = () => {
           </div>
           <div className="bg-gray-50 p-4 rounded-lg">
             <h3 className="text-xl font-semibold mb-2">Streaming Platform</h3>
-            <p className="text-gray-700">Developed Discovery Network's first online streaming platform, supporting live Olympic events for millions of viewers.</p>
+            <p className="text-gray-700">Developed Discovery Network&apos;s first online streaming platform, supporting live Olympic events for millions of viewers.</p>
           </div>
           <div className="bg-gray-50 p-4 rounded-lg">
             <h3 className="text-xl font-semibold mb-2">Blockchain Development</h3>

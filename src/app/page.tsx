@@ -1,13 +1,13 @@
-import Link from "next/link";
-
-import { LatestPost } from "~/app/_components/post";
 import { api, HydrateClient } from "~/trpc/server";
 import HomePage from "~/app/_components/sections/home-page";
 
 export default async function Home() {
-  // const hello = await api.post.hello({ text: "from tRPC" });
-
-  void api.post.getLatest.prefetch();
+  try {
+    // Optional prefetch – remove if it fails at build time
+    await api.post.getLatest.prefetch();
+  } catch (error) {
+    console.error("Prefetch error:", error);
+  }
 
   return (
     <HydrateClient>
