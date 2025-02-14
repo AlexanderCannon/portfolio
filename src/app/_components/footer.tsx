@@ -5,18 +5,18 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-primary text-white py-12 px-4">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        
+
         {/* Contact Information */}
         <div>
           <h4 className="text-lg font-semibold mb-4">Contact Information</h4>
           <p className="text-sm">
-            1234 Ethos AI Ave, Suite 100<br />
+            1234 Coolville AI Ave, Suite 100<br />
             Cityville, State 12345
           </p>
           <p className="text-sm mt-2">Phone: (123) 456-7890</p>
-          <p className="text-sm">Email: contact@ethosai.com</p>
+          <p className="text-sm">Email: contact@cool.com</p>
         </div>
-        
+
         {/* Quick Links */}
         <div>
           <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
             </li>
           </ul>
         </div>
-        
+
         {/* Social Media Icons */}
         <div className="text-center md:text-left">
           <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
 
       {/* Copyright Notice */}
       <div className="text-center mt-8 text-sm">
-        © 2024 Ethos AI. All rights reserved.
+        © {new Date().getFullYear()} Alexander Cannon. All rights reserved.
       </div>
     </footer>
   );

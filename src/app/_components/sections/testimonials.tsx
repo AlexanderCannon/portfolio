@@ -5,7 +5,7 @@ import React from 'react';
 const testimonials = [
   {
     id: 1,
-    quote: "Ethos AI transformed our data strategy, unlocking insights we didn't know were possible.",
+    quote: "Alexander transformed our data strategy, unlocking insights we didn't know were possible.",
     name: 'Jane Doe',
     position: 'Chief Data Officer',
     logoPath: '/logos/1.svg',

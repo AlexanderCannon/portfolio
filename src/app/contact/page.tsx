@@ -11,7 +11,7 @@ const ContactPage: React.FC = () => {
         <section className="text-center">
           <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            Whether you have questions about our services, need a consultation, or just want to say hello, we&apos;d love to hear from you. Reach out to Ethos AI today!
+            Whether you have questions about our services, need a consultation, or just want to say hello, we&apos;d love to hear from you. Reach out to Alexander today!
           </p>
         </section>
 
@@ -23,9 +23,9 @@ const ContactPage: React.FC = () => {
         {/* Contact Information */}
         <section className="text-center">
           <h2 className="text-2xl font-semibold mb-4">Our Contact Details</h2>
-          <p className="text-gray-700">1234 Ethos AI Ave, Suite 100<br />Cityville, State 12345</p>
+          <p className="text-gray-700">1234 Coolville AI Ave, Suite 100<br />Cityville, State 12345</p>
           <p className="text-gray-700 mt-2">Phone: (123) 456-7890</p>
-          <p className="text-gray-700">Email: contact@ethosai.com</p>
+          <p className="text-gray-700">Email: contact@cool.com</p>
         </section>
 
         {/* Social Media Links */}

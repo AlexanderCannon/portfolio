@@ -59,19 +59,16 @@ const HeaderSticky: React.FC = () => {
               <span className="material-icons">close</span>
             </button>
           </div>
-          <h1 className="text-4xl font-bold text-center text-primary">Ethos AI</h1>
+          <h1 className="text-4xl font-bold text-center text-primary">Alexander Cannon</h1>
           <nav className="flex flex-col items-center justify-center h-full space-y-16">
             <Link href="/about">
               <button className="text-primary text-6xl" onClick={toggleMenu}>About</button>
             </Link>
-            <Link href="/services">
-              <button className="text-primary text-6xl" onClick={toggleMenu}>Services</button>
-            </Link>
             <Link href="/contact">
               <button className="text-primary text-6xl" onClick={toggleMenu}>Contact</button>
             </Link>
-            <Link href="/case-studies">
-              <button className="text-primary text-6xl" onClick={toggleMenu}>Case Studies</button>
+            <Link href="/blog">
+              <button className="text-primary text-6xl" onClick={toggleMenu}>Blog</button>
             </Link>
           </nav>
         </div>
