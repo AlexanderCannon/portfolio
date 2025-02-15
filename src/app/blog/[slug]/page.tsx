@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { NewComment } from "~/app/_components/forms/new-comment";
 // import { Metadata } from "next/types";
 import { api } from "~/trpc/server";
 
@@ -49,9 +50,8 @@ export default async function PostPage({
                   key={comment.id}
                   className="rounded-lg border border-gray-200 p-4"
                 >
-                  {comment.name && (
-                    <div className="mb-2 font-semibold">{comment.name}</div>
-                  )}
+
+                  <div className="mb-2 font-semibold">{comment.name ?? "Anonymous"}</div>
                   <div className="text-gray-700">{comment.body}</div>
                   <div className="mt-2 text-sm text-gray-500">
                     {new Date(comment.createdAt).toLocaleDateString()}
@@ -60,6 +60,7 @@ export default async function PostPage({
               ))}
             </div>
           )}
+          <NewComment postId={post.id} />
         </section>
       </article>
     </main>

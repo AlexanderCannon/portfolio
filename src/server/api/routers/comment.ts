@@ -17,6 +17,7 @@ export const commentRouter = createTRPCRouter({
       await ctx.db.insert(comments).values({
         postId: input.postId,
         body: input.body,
+        name: input.name,
       });
     }),
 
