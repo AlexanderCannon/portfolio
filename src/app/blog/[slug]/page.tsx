@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { NewComment } from "~/app/_components/forms/new-comment";
+import { MarkdownRenderer } from "~/app/_components/ui/markdown-renderer";
 // import { Metadata } from "next/types";
 import { api } from "~/trpc/server";
 
@@ -36,9 +37,7 @@ export default async function PostPage({
         <div className="mb-8 text-gray-600">
           {new Date(post.createdAt).toLocaleDateString()}
         </div>
-
-        <div className="mb-12 whitespace-pre-wrap">{post.body}</div>
-
+        {post.body && <MarkdownRenderer content={post.body} />}
         <section className="mt-16">
           <h2 className="mb-6 text-2xl font-bold">Comments</h2>
           {post.comments.length === 0 ? (
