@@ -60,7 +60,9 @@ export default async function PostPage({
               ))}
             </div>
           )}
-          <NewComment postId={post.id} />
+          {
+            post.slug && (<NewComment postId={post.id} slug={post.slug} />)
+          }
         </section>
       </article>
     </main>

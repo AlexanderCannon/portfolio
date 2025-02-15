@@ -6,9 +6,10 @@ import { FaSpinner, FaPaperPlane } from "react-icons/fa";
 
 interface NewCommentProps {
   postId: number;
+  slug: string;
 }
 
-export function NewComment({ postId }: NewCommentProps) {
+export function NewComment({ postId, slug }: NewCommentProps) {
   const [name, setName] = useState("");
   const [body, setBody] = useState("");
   const [error, setError] = useState("");
@@ -21,7 +22,8 @@ export function NewComment({ postId }: NewCommentProps) {
       setBody("");
       setError("");
       // Invalidate queries to refresh the comments list
-      void utils.post.getPostBySlug.invalidate();
+      void utils.post.getPostBySlug.invalidate({ slug });
+      void utils.post.getPostsWithLimit.invalidate();
     },
     onError: (e) => {
       setError(e.message);
