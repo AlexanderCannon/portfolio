@@ -158,13 +158,14 @@ const HeaderSticky = () => {
 
       {/* Mobile Menu */}
       <MobileMenu
+        toggleDarkMode={toggleDarkMode}
         isOpen={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}
         menuItems={menuItems}
         title="Alexander Cannon"
         isDark={isDark}
       />
-    </header>
+    </header >
   );
 };
 

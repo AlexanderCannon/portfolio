@@ -69,22 +69,22 @@ const HomePage = () => {
   const experiences = [
     {
       title: 'AI & LLM Solutions',
-      icon: <FaBrain className="w-12 h-12 text-blue-500" />,
+      icon: <FaBrain className="w-12 h-12 text-purple-600" />,
       description: 'Leading development of enterprise LLM-based AI tools and solutions.'
     },
     {
       title: 'Cloud Architecture',
-      icon: <FaCloud className="w-12 h-12 text-blue-500" />,
+      icon: <FaCloud className="w-12 h-12 text-purple-600" />,
       description: 'Expertise in AWS, Azure, and GCP, building scalable solutions.'
     },
     {
       title: 'Technical Leadership',
-      icon: <FaRocket className="w-12 h-12 text-blue-500" />,
+      icon: <FaRocket className="w-12 h-12 text-purple-600" />,
       description: 'Managing and mentoring engineering teams to deliver high-impact products.'
     },
     {
       title: 'Full-Stack Development',
-      icon: <FaCode className="w-12 h-12 text-blue-500" />,
+      icon: <FaCode className="w-12 h-12 text-purple-600" />,
       description: 'Building complex applications with modern technology stacks.'
     }
   ];
@@ -102,8 +102,8 @@ const HomePage = () => {
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold mb-4">Alexander Cannon</h1>
           <div className="h-8">
-            <span className="text-xl text-blue-400">{typedText}</span>
-            <span className={`inline-block w-2 h-6 ml-1 bg-blue-400 ${isTyping ? 'animate-pulse' : ''}`}></span>
+            <span className="text-xl text-purple-600">{typedText}</span>
+            <span className={`inline-block w-2 h-6 ml-1 g-gradient-to-r from-primary to-purple-600 dark:from-blue-500 dark:to-purple-600 ${isTyping ? 'animate-pulse' : ''}`}></span>
           </div>
         </div>
 
@@ -138,7 +138,7 @@ const HomePage = () => {
                 </div>
                 <div className="w-full bg-gray-700 rounded-full h-2">
                   <div
-                    className="bg-blue-500 rounded-full h-2 transition-all duration-1000 ease-out"
+                    className="bg-purple-600 rounded-full h-2 transition-all duration-1000 ease-out"
                     style={{
                       width: isSkillsVisible ? `${tech.level}%` : '0%',
                       transitionDelay: `${index * 200}ms`

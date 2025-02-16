@@ -44,7 +44,7 @@ const LeadCaptureFormSection: React.FC = () => {
         </div>
       ) : (
         // Lead Capture Form
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white shadow-lg rounded-lg p-8">
+        <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8">
           {/* Name Field */}
           <div className="mb-4">
             <label htmlFor="name" className="block text-text font-medium mb-2">

@@ -47,7 +47,7 @@ export function NewComment({ postId, slug }: NewCommentProps) {
   };
 
   return (
-    <div className="space-y-4 rounded-lg bg-gray-50 p-4">
+    <div className="space-y-4 rounded-lg bg-gray-50 p- mt-8 p-8">
       <h3 className="text-lg font-semibold">Add a Comment</h3>
 
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -89,10 +89,9 @@ export function NewComment({ postId, slug }: NewCommentProps) {
               Posting...
             </>
           ) : (
-            <>
-              <FaPaperPlane className="h-4 w-4" />
-              Post Comment
-            </>
+            <span className="flex items-center gap-4">
+              <FaPaperPlane className="h-4 w-4" /> Post Comment
+            </span>
           )}
         </Button>
       </form>

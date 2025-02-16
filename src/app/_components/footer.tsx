@@ -3,18 +3,18 @@ import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/f
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-primary text-white py-12 px-4">
+    <footer className="bg-gradient-to-r from-primary to-purple-600 dark:from-blue-500 dark:to-purple-500 text-white dark:text-black py-12 px-4">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
 
         {/* Contact Information */}
         <div>
-          <h4 className="text-lg font-semibold mb-4">Contact Information</h4>
-          <p className="text-sm">
+          <h4 className="text-lg font-semibold mb-4 text-white dark:text-black">Contact Information</h4>
+          <p className="text-sm text-white dark:text-black">
             1234 Coolville AI Ave, Suite 100<br />
             Cityville, State 12345
           </p>
-          <p className="text-sm mt-2">Phone: (123) 456-7890</p>
-          <p className="text-sm">Email: contact@cool.com</p>
+          <p className="text-sm mt-2 dark:text-black">Phone: (123) 456-7890</p>
+          <p className="text-sm dark:text-black">Email: contact@cool.com</p>
         </div>
 
         {/* Quick Links */}
@@ -41,16 +41,16 @@ const Footer: React.FC = () => {
           <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
           <div className="flex justify-center md:justify-start space-x-4">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <FaFacebookF className="text-white text-xl hover:text-accent transition" />
+              <FaFacebookF className="text-white dark:text-black text-xl hover:text-accent transition" />
             </a>
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-              <FaTwitter className="text-white text-xl hover:text-accent transition" />
+              <FaTwitter className="text-white dark:text-black text-xl hover:text-accent transition" />
             </a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <FaLinkedinIn className="text-white text-xl hover:text-accent transition" />
+              <FaLinkedinIn className="text-white text-xl hover:text-accent transition dark:text-black" />
             </a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <FaInstagram className="text-white text-xl hover:text-accent transition" />
+              <FaInstagram className="text-white  dark:text-black text-xl hover:text-accent transition" />
             </a>
           </div>
         </div>

@@ -14,7 +14,10 @@ import {
   Linkedin,
   Twitter,
   Apple,
+  Moon,
+  Sun,
 } from 'lucide-react';
+import Button from './button';
 
 const socialLinks = [
   { icon: Github, href: '#', label: 'GitHub' },
@@ -31,6 +34,7 @@ interface MobileMenuProps {
   }>;
   title: string;
   isDark: boolean;
+  toggleDarkMode: () => void;
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({
@@ -39,6 +43,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   menuItems,
   title,
   isDark,
+  toggleDarkMode,
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isClosing, setIsClosing] = useState(false);
@@ -144,7 +149,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
 
         {/* Social Links */}
         <div className="absolute bottom-24 left-0 right-0 p-6 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
-          <div className="flex justify-center space-x-6">
+          <div className="flex justify-center items-center space-x-6">
             {socialLinks.map((social) => {
               const Icon = social.icon;
               return (
@@ -158,19 +163,31 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                 </a>
               );
             })}
+            {/* Add vertical separator */}
+            <div className="h-8 w-px bg-gray-200 dark:bg-gray-700" />
+            <button
+              onClick={toggleDarkMode}
+              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 group"
+              aria-label="Toggle theme"
+            >
+              {isDark ? (
+                <Sun className="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors duration-200" />
+              ) : (
+                <Moon className="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors duration-200" />
+              )}
+            </button>
           </div>
         </div>
 
         {/* Footer CTA */}
-        <div className="absolute bottom-0 left-0 right-0 p-6 border-t bg-white">
-          <a
-            href="/contact"
-            className="group block w-full py-3 px-4 text-center text-white bg-primary rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-[1.02] relative overflow-hidden"
+        <div className="w-full absolute bottom-0 left-0 right-0 p-6 border-t bg-white dark:bg-gray-900">
+          <Button
+          className='w-full'
+            link="/contact"
             onClick={handleClose}
           >
-            <span className="relative z-10">Get in Touch</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </a>
+            Get in Touch
+          </Button>
         </div>
       </div>
     </div>
