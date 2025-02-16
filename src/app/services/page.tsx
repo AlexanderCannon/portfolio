@@ -1,24 +1,17 @@
 "use client";
 
 import React, { useState, useRef } from 'react'; 'react';
-import { CardHeader, CardTitle, CardContent } from '~/app/_components/ui/card';
+import { CardHeader, CardTitle, CardContent, Card } from '~/app/_components/ui/card';
 import { BrainCircuit, Code, Database, Cloud, Workflow, Blocks, Building2, LineChart } from 'lucide-react';
 
-interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  // Add any extra props here if needed
+interface IconProps extends React.SVGProps<SVGSVGElement> {
+  className?: string;
 }
 
-export function Card({ className = "", children, ...props }: CardProps) {
-  return (
-    <div className={`rounded-md shadow-sm bg-white ${className}`} {...props}>
-      {children}
-    </div>
-  );
-}
 
 interface Service {
   id: string;
-  icon: React.FC;
+  icon: React.FC<IconProps>;
   title: string;
   shortDesc: string;
   longDesc: string;
