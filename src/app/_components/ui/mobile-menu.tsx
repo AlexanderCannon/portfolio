@@ -1,8 +1,7 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-// todo find a home for this sort of static data
-import { socialLinks } from '~/app/_components/ui/header-sticky';
+import { usePathname } from 'next/navigation';
 import {
   X,
   ChevronRight,
@@ -17,8 +16,7 @@ import {
   Sun,
 } from 'lucide-react';
 import Button from './button';
-
-
+import { socialLinks } from '~/app/_components/ui/header-sticky';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -40,8 +38,16 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   isDark,
   toggleDarkMode,
 }) => {
+  const pathname = usePathname();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isClosing, setIsClosing] = useState(false);
+
+  // Handle route changes
+  useEffect(() => {
+    if (isOpen) {
+      handleClose();
+    }
+  }, [pathname]); // Listen for pathname changes
 
   const handleClose = () => {
     setIsClosing(true);
@@ -190,28 +196,5 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
     </div>
   );
 };
-
-// Add these custom animations to your global CSS
-const styles = `
-@keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient 3s ease infinite;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.animate-fadeIn {
-  animation: fadeIn 0.5s ease-out forwards;
-}
-`;
 
 export default MobileMenu;
