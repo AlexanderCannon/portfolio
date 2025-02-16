@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Button from "~/app/_components/ui/button";
 // import { api } from "~/utils/api";
 
 interface Message {
@@ -66,9 +67,9 @@ const LiveChat: React.FC = () => {
         onChange={(e) => setInput(e.target.value)}
         className="w-full p-2 border rounded"
       />
-      <button onClick={handleSend} className="w-full mt-2 bg-blue-500 text-white p-2 rounded">
+      <Button onClick={handleSend} className="w-full mt-2 bg-blue-500 text-white p-2 rounded">
         Send
-      </button>
+      </Button>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 "use client";
 import { useState } from 'react';
+import Button from "~/app/_components/ui/button";
 // import { api } from "~/utils/api";
 
 const LeadCaptureFormSection: React.FC = () => {
@@ -122,13 +123,13 @@ const LeadCaptureFormSection: React.FC = () => {
           </div>
 
           {/* Submit Button */}
-          <button
+          <Button
             type="submit"
 
             className="w-full bg-accent text-slate-800 py-3 px-6 rounded-lg font-medium hover:bg-green-600 transition duration-300"
           >
             Get in touch
-          </button>
+          </Button>
         </form>
       )}
     </section>

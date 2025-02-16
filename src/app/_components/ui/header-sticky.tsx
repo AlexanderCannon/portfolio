@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, Sun, Moon, Github, Linkedin, Twitter } from 'lucide-react';
 import MobileMenu from '~/app/_components/ui/mobile-menu';
+import Button from "~/app/_components/ui/button";
 
 const menuItems = [
   { title: 'About', path: '/about' },
@@ -139,14 +140,9 @@ const HeaderSticky = () => {
             </button>
 
             {/* CTA Button */}
-            <a
-              href="/contact"
-              className="group relative inline-flex items-center justify-center px-6 py-2 font-medium text-white transition-all duration-200 ease-in-out"
-            >
-              <span className="absolute inset-0 w-full h-full rounded-lg bg-gradient-to-r from-primary to-purple-600 dark:from-blue-500 dark:to-purple-500 group-hover:translate-x-1 group-hover:translate-y-1"></span>
-              <span className="absolute inset-0 w-full h-full rounded-lg bg-gradient-to-r from-primary to-purple-600 dark:from-blue-500 dark:to-purple-500 group-hover:bg-opacity-0"></span>
-              <span className="relative">Get in touch</span>
-            </a>
+            <Button link="/contact">
+              Get in touch
+            </Button>
           </nav>
 
           {/* Mobile Menu Button */}

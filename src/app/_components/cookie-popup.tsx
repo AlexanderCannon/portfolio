@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Cookies from "js-cookie";
+import Button from "~/app/_components/ui/button";
 
 const CookiePopup: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -39,12 +40,12 @@ const CookiePopup: React.FC = () => {
         </p>
 
         {/* Accept Button */}
-        <button
+        <Button
           onClick={handleAccept}
           className="bg-accent hover:bg-green-600 text-white text-sm font-medium py-2 px-4 rounded-lg transition duration-300 ml-4"
         >
           Accept
-        </button>
+        </Button>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import Button from "~/app/_components/ui/button";
 // import { api } from "~/utils/api";
 
 const EmailCaptureForm = () => {
@@ -29,12 +30,12 @@ const EmailCaptureForm = () => {
                 placeholder="Enter your email"
                 className="w-full sm:w-auto p-3 rounded-lg text-gray-900"
               />
-              <button
+              <Button
                 type="submit"
                 className="bg-accent text-slate-800 py-3 px-6 rounded-lg font-medium hover:bg-green-600 transition duration-300"
               >
                 Sign up
-              </button>
+              </Button>
             </form>
           </>
         ) : (

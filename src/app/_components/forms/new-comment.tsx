@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { api } from "~/trpc/react";
 import { FaSpinner, FaPaperPlane } from "react-icons/fa";
+import Button from "~/app/_components/ui/button";
 
 interface NewCommentProps {
   postId: number;
@@ -77,7 +78,7 @@ export function NewComment({ postId, slug }: NewCommentProps) {
           </div>
         )}
 
-        <button
+        <Button
           type="submit"
           disabled={createComment.isPending || !body.trim()}
           className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
@@ -93,7 +94,7 @@ export function NewComment({ postId, slug }: NewCommentProps) {
               Post Comment
             </>
           )}
-        </button>
+        </Button>
       </form>
     </div>
   );
