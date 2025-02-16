@@ -30,6 +30,7 @@ interface MobileMenuProps {
     path: string;
   }>;
   title: string;
+  isDark: boolean;
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({
@@ -37,6 +38,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   onClose,
   menuItems,
   title,
+  isDark,
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isClosing, setIsClosing] = useState(false);
@@ -69,26 +71,26 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
       {/* Backdrop with blur */}
       <div
         className={`absolute inset-0 bg-black transition-opacity duration-500 backdrop-blur-sm
-          ${isClosing ? 'opacity-0' : 'opacity-50'}`}
+        ${isClosing ? 'opacity-0' : 'opacity-50'}`}
         onClick={handleClose}
       />
 
       {/* Menu Panel */}
       <div
-        className={`absolute inset-y-0 right-0 w-full max-w-sm bg-white shadow-2xl transform transition-transform duration-500 ease-out
-          ${isClosing ? 'translate-x-full' : 'translate-x-0'}`}
+        className={`absolute inset-y-0 right-0 w-full max-w-sm bg-white dark:bg-gray-900 shadow-2xl transform transition-transform duration-500 ease-out
+        ${isClosing ? 'translate-x-full' : 'translate-x-0'}`}
       >
         {/* Header with animated gradient border */}
-        <div className="relative p-6 border-b overflow-hidden">
+        <div className="relative p-6 border-b border-gray-200 dark:border-gray-800 overflow-hidden">
           <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient" />
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold text-primary animate-fadeIn">{title}</h2>
+            <h2 className="text-2xl font-bold text-primary dark:text-blue-400 animate-fadeIn">{title}</h2>
             <button
               onClick={handleClose}
-              className="p-2 rounded-full hover:bg-gray-100 transition-all duration-200 group hover:rotate-90"
+              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 group hover:rotate-90"
               aria-label="Close menu"
             >
-              <X className="w-6 h-6 text-gray-500 group-hover:text-primary transition-colors duration-200" />
+              <X className="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors duration-200" />
             </button>
           </div>
         </div>
@@ -109,22 +111,30 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                   className="flex items-center justify-between p-4 rounded-lg transition-all duration-300 ease-out"
                   style={{
                     transform: `translateX(${hoveredIndex === index ? '8px' : '0'})`,
-                    background: hoveredIndex === index ? 'linear-gradient(to right, #f3f4f6, white)' : 'white',
+                    background: hoveredIndex === index
+                      ? isDark ? 'linear-gradient(to right, #1f2937, #111827)' : 'linear-gradient(to right, #f3f4f6, white)'
+                      : 'transparent',
                     transitionDelay: `${index * 50}ms`
                   }}
                 >
                   <div className="flex items-center space-x-3">
                     <Icon className={`w-5 h-5 transition-colors duration-200
-                      ${hoveredIndex === index ? 'text-primary' : 'text-gray-400'}`}
+                    ${hoveredIndex === index
+                        ? isDark ? 'text-blue-400' : 'text-primary'
+                        : 'text-gray-400 dark:text-gray-500'}`}
                     />
                     <span className={`text-xl font-medium transition-colors duration-200
-                      ${hoveredIndex === index ? 'text-primary' : 'text-gray-700'}`}>
+                    ${hoveredIndex === index
+                        ? isDark ? 'text-blue-400' : 'text-primary'
+                        : 'text-gray-700 dark:text-gray-300'}`}>
                       {item.title}
                     </span>
                   </div>
                   <ChevronRight
                     className={`w-5 h-5 transition-all duration-200
-                      ${hoveredIndex === index ? 'text-primary translate-x-1' : 'text-gray-400'}`}
+                    ${hoveredIndex === index
+                        ? 'text-primary dark:text-blue-400 translate-x-1'
+                        : 'text-gray-400 dark:text-gray-500'}`}
                   />
                 </div>
               </Link>
@@ -133,18 +143,18 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
         </nav>
 
         {/* Social Links */}
-        <div className="absolute bottom-24 left-0 right-0 p-6 border-t bg-white">
+        <div className="absolute bottom-24 left-0 right-0 p-6 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
           <div className="flex justify-center space-x-6">
-            {socialLinks.map((social, index) => {
+            {socialLinks.map((social) => {
               const Icon = social.icon;
               return (
                 <a
                   key={social.label}
                   href={social.href}
-                  className="p-3 rounded-full hover:bg-gray-100 transition-transform duration-200 hover:scale-110"
+                  className="p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 hover:scale-110"
                   aria-label={social.label}
                 >
-                  <Icon className="w-6 h-6 text-gray-600 hover:text-primary transition-colors duration-200" />
+                  <Icon className="w-6 h-6 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-400 transition-colors duration-200" />
                 </a>
               );
             })}

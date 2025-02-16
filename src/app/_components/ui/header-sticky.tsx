@@ -23,6 +23,27 @@ const HeaderSticky = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isDark, setIsDark] = useState(false);
 
+  // Initialize dark mode from localStorage
+  useEffect(() => {
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    setIsDark(isDarkMode);
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    }
+  }, []);
+
+  // Handle dark mode toggle
+  const toggleDarkMode = () => {
+    setIsDark(!isDark);
+    if (!isDark) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('darkMode', 'true');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('darkMode', 'false');
+    }
+  };
+
   // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
@@ -46,16 +67,12 @@ const HeaderSticky = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300
         ${scrolled
-          ? 'bg-white/80 backdrop-blur-lg shadow-lg'
-          : 'bg-white'}`}
+          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-lg'
+          : 'bg-white dark:bg-gray-900'}`}
     >
       {/* Animated gradient line */}
       <div className="h-1 w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient" />
@@ -67,10 +84,10 @@ const HeaderSticky = () => {
             href="/"
             className="relative group"
           >
-            <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600">
+            <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600 dark:from-blue-400 dark:to-purple-400">
               Alexander Cannon
             </span>
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-purple-600 transition-all group-hover:w-full"></span>
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-purple-600 dark:from-blue-400 dark:to-purple-400 transition-all group-hover:w-full"></span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -81,16 +98,16 @@ const HeaderSticky = () => {
                 <Link
                   key={item.path}
                   href={item.path}
-                  className="relative py-2 text-gray-700 hover:text-primary transition-colors duration-200 group"
+                  className="relative py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-colors duration-200 group"
                 >
                   <span>{item.title}</span>
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary dark:bg-blue-400 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
                 </Link>
               ))}
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center space-x-4 border-l pl-4">
+            <div className="flex items-center space-x-4 border-l border-gray-200 dark:border-gray-700 pl-4">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
@@ -99,10 +116,10 @@ const HeaderSticky = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-200 group"
+                    className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 group"
                     aria-label={social.label}
                   >
-                    <Icon className="w-5 h-5 text-gray-600 group-hover:text-primary transition-colors duration-200" />
+                    <Icon className="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors duration-200" />
                   </a>
                 );
               })}
@@ -110,14 +127,14 @@ const HeaderSticky = () => {
 
             {/* Theme Toggle */}
             <button
-              onClick={() => setIsDark(!isDark)}
-              className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-200"
+              onClick={toggleDarkMode}
+              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 group"
               aria-label="Toggle theme"
             >
               {isDark ? (
-                <Sun className="w-5 h-5 text-gray-600 hover:text-primary transition-colors duration-200" />
+                <Sun className="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors duration-200" />
               ) : (
-                <Moon className="w-5 h-5 text-gray-600 hover:text-primary transition-colors duration-200" />
+                <Moon className="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors duration-200" />
               )}
             </button>
 
@@ -126,19 +143,19 @@ const HeaderSticky = () => {
               href="/contact"
               className="group relative inline-flex items-center justify-center px-6 py-2 font-medium text-white transition-all duration-200 ease-in-out"
             >
-              <span className="absolute inset-0 w-full h-full rounded-lg bg-gradient-to-r from-primary to-purple-600 group-hover:translate-x-1 group-hover:translate-y-1"></span>
-              <span className="absolute inset-0 w-full h-full rounded-lg bg-gradient-to-r from-primary to-purple-600 group-hover:bg-opacity-0"></span>
+              <span className="absolute inset-0 w-full h-full rounded-lg bg-gradient-to-r from-primary to-purple-600 dark:from-blue-500 dark:to-purple-500 group-hover:translate-x-1 group-hover:translate-y-1"></span>
+              <span className="absolute inset-0 w-full h-full rounded-lg bg-gradient-to-r from-primary to-purple-600 dark:from-blue-500 dark:to-purple-500 group-hover:bg-opacity-0"></span>
               <span className="relative">Get in touch</span>
             </a>
           </nav>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 group"
-            onClick={toggleMenu}
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 group"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
-            <Menu className="w-6 h-6 text-gray-600 group-hover:text-primary transition-colors duration-200" />
+            <Menu className="w-6 h-6 text-gray-600 dark:text-gray-400 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors duration-200" />
           </button>
         </div>
       </div>
@@ -146,26 +163,13 @@ const HeaderSticky = () => {
       {/* Mobile Menu */}
       <MobileMenu
         isOpen={isMenuOpen}
-        onClose={toggleMenu}
+        onClose={() => setIsMenuOpen(false)}
         menuItems={menuItems}
         title="Alexander Cannon"
+        isDark={isDark}
       />
     </header>
   );
 };
-
-// Add this keyframe to your global CSS
-const styles = `
-@keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient 3s ease infinite;
-}
-`;
 
 export default HeaderSticky;
