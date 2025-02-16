@@ -21,7 +21,7 @@ const projectsData = [
     tags: ["Next.js", "React", "Tailwind CSS"],
     image: "/images/portfolio.png",
     github: "https://github.com/alexandercannon/portfolio",
-    live: "https://alexanderville.vercel.app/contact",
+    live: "https://www.alexandercannon.dev",
     category: "Full Stack"
   },
   {
