@@ -1,8 +1,17 @@
 'use client';
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { Menu } from 'lucide-react';
+import MobileMenu from '~/app/_components/mobile-menu';
 
-const HeaderSticky: React.FC = () => {
+const menuItems = [
+  { title: 'About', path: '/about' },
+  { title: 'Blog', path: '/blog' },
+  { title: 'Contact', path: '/contact' },
+  { title: 'Experience', path: '/experience' }
+];
+
+const HeaderSticky = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -12,7 +21,6 @@ const HeaderSticky: React.FC = () => {
   return (
     <header className="sticky top-0 bg-white shadow-md z-50">
       <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-
         {/* Logo */}
         <Link href="/" className="text-2xl font-bold text-primary">
           Alexander Cannon
@@ -20,21 +28,15 @@ const HeaderSticky: React.FC = () => {
 
         {/* Navigation Links */}
         <nav className="hidden md:flex space-x-6">
-          <Link href="/about" className="text-gray-700 hover:text-primary">
-            About
-          </Link>
-          <Link href="/blog" className="text-gray-700 hover:text-primary">
-            Blog
-          </Link>
-          <Link href="/contact" className="text-gray-700 hover:text-primary">
-            Contact
-          </Link>
-          <Link href="/experience" className="text-gray-700 hover:text-primary">
-            Experience
-          </Link>
-          {/* <Link href="/blog" className="text-gray-700 hover:text-primary">
-            Blog
-          </Link> */}
+          {menuItems.map((item) => (
+            <Link
+              key={item.path}
+              href={item.path}
+              className="text-gray-700 hover:text-primary"
+            >
+              {item.title}
+            </Link>
+          ))}
         </nav>
 
         {/* CTA Button */}
@@ -46,39 +48,21 @@ const HeaderSticky: React.FC = () => {
         </a>
 
         {/* Mobile Menu Icon */}
-        <button className="md:hidden text-primary" onClick={toggleMenu}>
-          {/* Simple icon, replace with an actual icon like Hamburger */}
-          <span className="material-icons">menu</span>
+        <button
+          className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          <Menu className="w-6 h-6 text-primary" />
         </button>
       </div>
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div
-          className={`fixed inset-0 bg-white z-40 transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-            } transition-transform duration-300 ease-in-out`}
-        >
-          <div className="flex justify-end p-4">
-            <button onClick={toggleMenu} className="text-primary">
-              <span className="material-icons">close</span>
-            </button>
-          </div>
-          <h1 className="text-4xl font-bold text-center text-primary">Alexander Cannon</h1>
-          <nav className="flex flex-col items-center justify-center h-full space-y-16">
-            <Link href="/about">
-              <button className="text-primary text-6xl" onClick={toggleMenu}>About</button>
-            </Link>
-            <Link href="/contact">
-              <button className="text-primary text-6xl" onClick={toggleMenu}>Contact</button>
-            </Link>
-            <Link href="/blog">
-              <button className="text-primary text-6xl" onClick={toggleMenu}>Blog</button>
-            </Link>
-            <Link href="/experience">
-              <button className="text-primary text-6xl" onClick={toggleMenu}>Experience</button>
-            </Link>
-          </nav>
-        </div>
-      )}
+
+      <MobileMenu
+        isOpen={isMenuOpen}
+        onClose={toggleMenu}
+        menuItems={menuItems}
+        title="Alexander Cannon"
+      />
     </header>
   );
 };
