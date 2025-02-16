@@ -22,7 +22,7 @@ export const socialLinks = [
 const HeaderSticky = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   // Initialize dark mode from localStorage
   useEffect(() => {
