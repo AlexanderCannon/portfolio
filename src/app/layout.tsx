@@ -3,7 +3,7 @@ import "~/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 import Script from "next/script"
-import HeaderSticky from "~/app/_components/header-sticky";
+import HeaderSticky from "~/app/_components/ui/header-sticky";
 import Footer from "~/app/_components/footer";
 // import LiveChatButton from "~/app/_components/live-chat";
 import CookiePopup from "./_components/cookie-popup";
