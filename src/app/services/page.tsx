@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from 'react'; 'react';
+import React, { useState } from 'react';
 import { CardHeader, CardTitle, CardContent, Card } from '~/app/_components/ui/card';
 import { BrainCircuit, Code, Database, Cloud, Workflow, Blocks, Building2, LineChart } from 'lucide-react';
 
@@ -21,11 +21,7 @@ interface Service {
 
 const ServicesPage = () => {
   const [activeService, setActiveService] = useState<string | null>(null);
-  const timelineRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
-
-  const handleDivRef = (el: HTMLDivElement | null, year: string) => {
-    timelineRefs.current[year] = el;
-  };
+  // const timelineRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   const services: Array<Service> = [
     {

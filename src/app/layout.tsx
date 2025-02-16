@@ -5,7 +5,7 @@ import { type Metadata } from "next";
 import Script from "next/script"
 import HeaderSticky from "~/app/_components/header-sticky";
 import Footer from "~/app/_components/footer";
-import LiveChatButton from "~/app/_components/live-chat";
+// import LiveChatButton from "~/app/_components/live-chat";
 import CookiePopup from "./_components/cookie-popup";
 
 import { TRPCReactProvider } from "~/trpc/react";

@@ -96,10 +96,10 @@ const timingMiddleware = t.middleware(async ({ next, path }) => {
   return result;
 });
 
-const protectedMiddleware = t.middleware(async ({ ctx, path, next }) => {
-  // if (!ctx.session.userId) {
-  //   throw new Error("Unauthorized");
-  // }
+const protectedMiddleware = t.middleware(async ({ ctx, next }) => {
+  if (!ctx) {
+    throw new Error("Unauthorized");
+  }
 
   return next();
 });
