@@ -8,7 +8,9 @@ const menuItems = [
   { title: 'About', path: '/about' },
   { title: 'Blog', path: '/blog' },
   { title: 'Contact', path: '/contact' },
-  { title: 'Experience', path: '/experience' }
+  { title: 'Experience', path: '/experience' },
+  { title: 'Services', path: '/services' },
+  { title: 'Projects', path: '/projects' },
 ];
 
 const HeaderSticky = () => {

@@ -12,7 +12,8 @@ import {
   ExternalLink,
   Github,
   Linkedin,
-  Twitter
+  Twitter,
+  Apple,
 } from 'lucide-react';
 
 const socialLinks = [
@@ -58,6 +59,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
       case 'blog': return Newspaper;
       case 'contact': return Phone;
       case 'experience': return Briefcase;
+      case 'services': return Apple;
       default: return ExternalLink;
     }
   };
