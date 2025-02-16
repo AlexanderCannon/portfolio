@@ -7,6 +7,7 @@ import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import typescript from "react-syntax-highlighter/dist/esm/languages/prism/typescript";
 import javascript from "react-syntax-highlighter/dist/esm/languages/prism/javascript";
 import remarkGfm from "remark-gfm";
+import remarkSuperscript from "remark-supersub";
 
 // Register languages for syntax highlighting
 SyntaxHighlighter.registerLanguage("typescript", typescript);
@@ -28,7 +29,7 @@ export function MarkdownRenderer({ content, className = "" }: MarkdownRendererPr
   return (
     <ReactMarkdown
       className={`prose dark:prose-invert max-w-none ${className}`}
-      remarkPlugins={[remarkGfm]}
+      remarkPlugins={[remarkGfm, remarkSuperscript]}
       components={{
         h1: ({ children }) => (
           <h1 className="mb-4 text-3xl font-bold">{children}</h1>
@@ -91,6 +92,11 @@ export function MarkdownRenderer({ content, className = "" }: MarkdownRendererPr
             </SyntaxHighlighter>
           );
         },
+
+        sup: ({ children }) => (
+          <sup className="text-xs">{children}</sup>
+        ),
+
 
         table: ({ children }) => (
           <div className="mb-4 overflow-x-auto">
