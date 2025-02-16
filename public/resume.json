@@ -9,7 +9,7 @@
   "experience": [
     {
       "company": "Kellog, Brown & Root",
-      "location": "Los Angeles",
+      "location": "Los Angeles, California, United States",
       "title": "Engineering Manager",
       "period": "Dec 2023 - Present",
       "responsibilities": [
@@ -21,13 +21,24 @@
         "Conducting evaluations and comparisons of various models for optimal performance",
         "Mentoring team members on capabilities, deployment strategies, and ethical considerations"
       ],
-      "technologies": ["OpenAI", "Azure", "LLMs", "OpenAI", "Python", "TensorFlow", "PyTorch", "Scikit-learn", "Keras", "NLP"],
+      "technologies": [
+        "OpenAI",
+        "Azure",
+        "LLMs",
+        "OpenAI",
+        "Python",
+        "TensorFlow",
+        "PyTorch",
+        "Scikit-learn",
+        "Keras",
+        "NLP"
+      ],
       "year": 2023
     },
     {
       "company": "Zinguist",
       "title": "CTO",
-      "location": "Remote",
+      "location": "Berlin, Germany",
       "period": "Nov 2023 - Present",
       "responsibilities": [
         "Automated workflows, improving operational efficiency by 30%",
@@ -47,7 +58,7 @@
     },
     {
       "company": "Mishcon De Reya (MDRX)",
-      "location": "London",
+      "location": "London, England, United Kingdom",
       "title": "Head of Engineering",
       "period": "April 2022 - Nov 2023",
       "responsibilities": [
@@ -73,7 +84,7 @@
     },
     {
       "company": "Winston App",
-      "location": "London",
+      "location": "London, England, United Kingdom",
       "title": "Founder & CEO",
       "period": "Jan 2020 - April 2022",
       "responsibilities": [
@@ -96,7 +107,7 @@
     },
     {
       "company": "Farpoint Labs",
-      "location": "London",
+      "location": "London, England, United Kingdom",
       "title": "Founder & CEO",
       "period": "Jan 2019 - April 2022",
       "responsibilities": [
@@ -125,7 +136,7 @@
     },
     {
       "company": "Lloyds Banking Group",
-      "location": "London",
+      "location": "London, England, United Kingdom",
       "title": "Engineering Lead",
       "period": "July 2017 - Dec 2018",
       "responsibilities": [
@@ -147,7 +158,7 @@
     },
     {
       "company": "Accenture",
-      "location": "Dublin",
+      "location": "Dublin, Ireland",
       "title": "Software Engineer",
       "period": "August 2014 - June 2017",
       "responsibilities": [
@@ -166,7 +177,7 @@
     },
     {
       "company": "Buddi",
-      "location": "London",
+      "location": "London, England, United Kingdom",
       "title": "Software Engineer",
       "period": "Jan 2014 - June 2014",
       "responsibilities": [

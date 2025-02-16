@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaGithub } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
   return (
@@ -40,17 +40,17 @@ const Footer: React.FC = () => {
         <div className="text-center md:text-left">
           <h4 className="text-lg font-semibold mb-4">Follow Me</h4>
           <div className="flex justify-center md:justify-start space-x-4">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <FaFacebookF className="text-white dark:text-black text-xl hover:text-accent transition" />
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+            <a href="https://twitter.com/alexmcan" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
               <FaTwitter className="text-white dark:text-black text-xl hover:text-accent transition" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a href="https://linkedin.com/in/alexandermcannon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <FaLinkedinIn className="text-white text-xl hover:text-accent transition dark:text-black" />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <a href="https://instagram.com/alexander.cannon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <FaInstagram className="text-white  dark:text-black text-xl hover:text-accent transition" />
+            </a>
+            <a href="github.com/alexandercannon" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <FaGithub className="text-white dark:text-black text-xl hover:text-accent transition" />
             </a>
           </div>
         </div>

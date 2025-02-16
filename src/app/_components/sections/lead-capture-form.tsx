@@ -30,7 +30,7 @@ const LeadCaptureFormSection: React.FC = () => {
   };
 
   return (
-    <section className="bg-background py-16 px-4 min-w-full">
+    <>
       {/* Section Heading */}
       <h2 className="text-3xl font-bold text-center text-text mb-8">Get in touch</h2>
 
@@ -132,7 +132,7 @@ const LeadCaptureFormSection: React.FC = () => {
           </Button>
         </form>
       )}
-    </section>
+    </>
   );
 };
 

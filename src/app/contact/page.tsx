@@ -9,9 +9,9 @@ const ContactPage: React.FC = () => {
 
         {/* Page Heading */}
         <section className="text-center">
-          <h1 className="text-4xl font-bold mb-4">Say Hello 👋</h1>
+          <h1 className="text-4xl font-bold mb-4">Say Hello</h1>
           <p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
-            Whether you have questions about our services, need a consultation, or just want to say hello, we&apos;d love to hear from you. Reach out to Alexander today!
+            What&apos;s on your mind? Got a question or just want to say hi? <br />Feel free to drop me a message and I&apos;ll get back to you as soon as possible!
           </p>
         </section>
 
