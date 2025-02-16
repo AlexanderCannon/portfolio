@@ -127,12 +127,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                   <div className="flex items-center space-x-3">
                     <Icon className={`w-5 h-5 transition-colors duration-200
                     ${hoveredIndex === index
-                        ? isDark ? 'text-blue-400' : 'text-primary'
-                        : 'text-gray-400 dark:text-gray-500'}`}
+                        ? 'text-blue-400'
+                        : 'text-gray-400 dark:text-gray-800'}`}
                     />
                     <span className={`text-xl font-medium transition-colors duration-200
                     ${hoveredIndex === index
-                        ? isDark ? 'text-blue-400' : 'text-primary'
+                        ? 'text-blue-400'
                         : 'text-gray-700 dark:text-gray-300'}`}>
                       {item.title}
                     </span>
