@@ -9,7 +9,7 @@ const AboutPage = () => {
         <h1 className="text-4xl font-bold mb-4 ">Alexander Cannon</h1>
         <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">Engineering Leader & Technology Innovator</p>
         <div className="flex justify-center gap-4">
-          <a href="mailto:a.m.t.cannon@gmail.com" className="flex items-center gap-2 text-purple-600 hover:text-blue-800">
+          <a href="mailto:alexander@farpointlabs.com" className="flex items-center gap-2 text-purple-600 hover:text-blue-800">
             <FaCommentAlt size={20} />
             <span>Email</span>
           </a>

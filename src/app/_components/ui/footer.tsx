@@ -10,11 +10,11 @@ const Footer: React.FC = () => {
         <div>
           <h4 className="text-lg font-semibold mb-4 text-white dark:text-black">Contact Information</h4>
           <p className="text-sm text-white dark:text-black">
-            1234 Coolville AI Ave, Suite 100<br />
-            Cityville, State 12345
+            Beverly Hills, California<br />
+             90210, United States
           </p>
-          <p className="text-sm mt-2 dark:text-black">Phone: (123) 456-7890</p>
-          <p className="text-sm dark:text-black">Email: contact@cool.com</p>
+          <p className="text-sm mt-2 dark:text-black">Phone: +1 (840) 233-2754</p>
+          <p className="text-sm dark:text-black">Email: alexander@farpointlabs.com</p>
         </div>
 
         {/* Quick Links */}

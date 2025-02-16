@@ -12,9 +12,9 @@ const ExperiencePage = () => {
   const resumeData = {
     personalInfo: {
       name: "Alexander Cannon",
-      location: "Claremont, CA 91711",
+      location: "Beverly Hills, CA 90210",
       phone: "+1 840 233 2754",
-      email: "a.m.t.cannon@gmail.com"
+      email: "alexander@farpointlabs.com",
     },
     skills: {
       programmingLanguages: [

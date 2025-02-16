@@ -176,7 +176,7 @@ const HomePage = () => {
         {/* Contact Section */}
         <div className="text-center mt-20">
           <div className="flex justify-center space-x-6">
-            <a href="mailto:a.m.t.cannon@gmail.com" className="hover:text-blue-400 transition-colors">
+            <a href="mailto:alexander@farpointlabs.com" className="hover:text-blue-400 transition-colors">
               <FaEnvelope className="w-8 h-8" />
             </a>
             <a href="#" className="hover:text-blue-400 transition-colors">
