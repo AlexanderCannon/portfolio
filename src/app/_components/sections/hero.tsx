@@ -80,9 +80,9 @@ const HeroSection: React.FC = () => {
             />
             <button
               type="submit"
-              className="bg-accent text-white py-3 px-6 rounded-lg font-medium hover:bg-green-600 transition duration-300"
+              className="bg-accent text-slate-800 py-3 px-6 rounded-lg font-medium hover:bg-green-600 transition duration-300"
             >
-              Request a free Consultation
+              Get in touch
             </button>
           </form>
         ) : (

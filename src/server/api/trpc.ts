@@ -96,6 +96,14 @@ const timingMiddleware = t.middleware(async ({ next, path }) => {
   return result;
 });
 
+const protectedMiddleware = t.middleware(async ({ ctx, path, next }) => {
+  // if (!ctx.session.userId) {
+  //   throw new Error("Unauthorized");
+  // }
+
+  return next();
+});
+
 /**
  * Public (unauthenticated) procedure
  *
@@ -104,3 +112,7 @@ const timingMiddleware = t.middleware(async ({ next, path }) => {
  * are logged in.
  */
 export const publicProcedure = t.procedure.use(timingMiddleware);
+
+export const protectedProcedure = t.procedure
+  .use(timingMiddleware)
+  .use(protectedMiddleware);

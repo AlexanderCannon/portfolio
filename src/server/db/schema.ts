@@ -63,6 +63,24 @@ export const comments = createTable(
   }),
 );
 
+export const contacts = createTable(
+  "contact",
+  {
+    id: integer("id").primaryKey().generatedByDefaultAsIdentity(),
+    email: varchar("email", { length: 256 }).notNull(),
+    name: varchar("name", { length: 256 }),
+    company: varchar("company", { length: 256 }),
+    jobTitle: varchar("job_title", { length: 256 }),
+    message: text("message"),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .default(sql`CURRENT_TIMESTAMP`)
+      .notNull(),
+  },
+  (example) => ({
+    emailIndex: index("email_idx").on(example.email),
+  }),
+);
+
 // Relations
 export const postsRelations = relations(posts, ({ many }) => ({
   comments: many(comments),

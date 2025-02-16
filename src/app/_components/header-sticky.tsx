@@ -29,6 +29,9 @@ const HeaderSticky: React.FC = () => {
           <Link href="/contact" className="text-gray-700 hover:text-primary">
             Contact
           </Link>
+          <Link href="/experience" className="text-gray-700 hover:text-primary">
+            Experience
+          </Link>
           {/* <Link href="/blog" className="text-gray-700 hover:text-primary">
             Blog
           </Link> */}
@@ -37,9 +40,9 @@ const HeaderSticky: React.FC = () => {
         {/* CTA Button */}
         <a
           href="/contact"
-          className="hidden md:inline-block bg-accent text-white py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300"
+          className="hidden md:inline-block bg-accent text-slate-800 py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300"
         >
-          Request Free Consultation
+          Get in touch
         </a>
 
         {/* Mobile Menu Icon */}
@@ -69,6 +72,9 @@ const HeaderSticky: React.FC = () => {
             </Link>
             <Link href="/blog">
               <button className="text-primary text-6xl" onClick={toggleMenu}>Blog</button>
+            </Link>
+            <Link href="/experience">
+              <button className="text-primary text-6xl" onClick={toggleMenu}>Experience</button>
             </Link>
           </nav>
         </div>

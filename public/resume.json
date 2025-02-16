@@ -1,0 +1,207 @@
+{
+  "personalInfo": {
+    "name": "Alexander Cannon",
+    "location": "Claremont, CA 91711",
+    "phone": "+1 840 233 2754",
+    "email": "a.m.t.cannon@gmail.com"
+  },
+  "professionalSummary": "Engineering leader with experience building video streaming platforms, and blockchain technologies with extensive experience in mobile technologies, mobile development and delivering high-impact products. Expert in TypeScript, Golang and Python, with strong communication skills and a robust track record in problem-solving, performance management, and cross-functional collaboration.",
+  "experience": [
+    {
+      "company": "Kellog, Brown & Root",
+      "location": "London/Los Angeles",
+      "title": "Engineering Manager",
+      "period": "Dec 2023 - Present",
+      "responsibilities": [
+        "Leading the development of an AI tool to enhance enterprise-level capabilities",
+        "Managing a team of engineers to design, build, and deploy AI solutions",
+        "Overseeing the integration and optimization of language models for various use cases",
+        "Collaborating with cross-functional teams to define requirements and implement solutions",
+        "Building rapid prototypes of AI-based products for clients",
+        "Conducting evaluations and comparisons of various models for optimal performance",
+        "Mentoring team members on capabilities, deployment strategies, and ethical considerations"
+      ],
+      "technologies": ["OpenAI", "Azure", "LLMs"],
+      "year": 2023
+    },
+    {
+      "company": "Mishcon De Reya (MDRX)",
+      "location": "London",
+      "title": "Head of Engineering",
+      "period": "April 2022 - Nov 2023",
+      "responsibilities": [
+        "Recruited and led a 30-person engineering team",
+        "Delivered 10+ high-impact projects and prototypes",
+        "Created and launched 3 new crypto tokens and ICOs",
+        "Motivated team to deliver quality work and contribute to open-source projects",
+        "Set technical and architectural standards",
+        "Developed a performance management framework"
+      ],
+      "technologies": [
+        "React",
+        "React Native",
+        "Flutter",
+        "Node.js",
+        "DynamoDB",
+        "AWS",
+        "Blockchain",
+        "AI/ML",
+        "GIS"
+      ],
+      "year": 2022
+    },
+    {
+      "company": "Winston App",
+      "location": "London",
+      "title": "Founder & CEO",
+      "period": "Jan 2020 - April 2022",
+      "responsibilities": [
+        "Obtained a banking license and launched a regulated fintech application",
+        "Led business strategy and decision making",
+        "Focused on team building and problem-solving",
+        "Managed mobile app launch as a licensed financial institution"
+      ],
+      "technologies": [
+        "AWS",
+        "Golang",
+        "Kafka",
+        "Docker",
+        "Kubernetes",
+        "React Native",
+        "DynamoDB",
+        "GraphQL"
+      ],
+      "year": 2020
+    },
+    {
+      "company": "Farpoint Labs",
+      "location": "London",
+      "title": "Founder & CEO",
+      "period": "Jan 2019 - April 2022",
+      "responsibilities": [
+        "Founded and operated DevOps consultancy",
+        "Delivered video game asset pipeline automation",
+        "Built GP application infrastructure",
+        "Developed streaming video file processing solution",
+        "Implemented oil company telemetrics project"
+      ],
+      "technologies": [
+        "C#",
+        "GCP",
+        "Python",
+        "Kubernetes",
+        "AWS",
+        "Terraform",
+        "Kafka",
+        "Docker",
+        "Node.js",
+        "C",
+        "Azure",
+        "React",
+        "Redux"
+      ],
+      "year": 2019
+    },
+    {
+      "company": "Lloyds Banking Group",
+      "location": "London",
+      "title": "Engineering Lead",
+      "period": "July 2017 - Dec 2018",
+      "responsibilities": [
+        "Oversaw development of loan platform processing £360M annually",
+        "Enhanced team communication and stakeholder engagement",
+        "Developed Data Science platform for onboarding",
+        "Led technical architecture decisions"
+      ],
+      "technologies": [
+        "Python",
+        "React",
+        "Redux",
+        "Node.js",
+        "TypeScript",
+        "Linux",
+        "Golang"
+      ],
+      "year": 2017
+    },
+    {
+      "company": "Accenture",
+      "location": "London/Dublin",
+      "title": "Software Engineer",
+      "period": "August 2014 - June 2017",
+      "responsibilities": [
+        "Developed Discovery Network's first online streaming platform",
+        "Supported live Olympic and sports events for millions of viewers",
+        "Worked on data science and ML projects for major clients"
+      ],
+      "technologies": ["React", "DynamoDB", "Elasticsearch", "Redis", "MongoDB"],
+      "year": 2014
+    },
+    {
+      "company": "Buddi",
+      "location": "London",
+      "title": "Software Engineer",
+      "period": "Jan 2014 - June 2014",
+      "responsibilities": [
+        "Developed real-time webservers for IoT devices",
+        "Collaborated with embedded systems team on GPS and mobile mast triangulation",
+        "Implemented fall-detection software"
+      ],
+      "technologies": ["Node.js", "IoT", "GPS", "Embedded Systems"],
+      "year": 2014
+    },
+    {
+      "company": "Previous Experience",
+      "location": "London",
+      "title": "Software Developer",
+      "period": "2009 - 2014",
+      "responsibilities": [
+        "Developed web applications for clients",
+        "Created tools for piracy detection",
+        "Built REST APIs for embedded systems"
+      ],
+      "technologies": [
+        "MooTools",
+        "Python",
+        "Django",
+        "Node.js",
+        "PostgreSQL",
+        "TDD"
+      ],
+      "year": 2009
+    }
+  ],
+  "skills": {
+    "programmingLanguages": [
+      "Python",
+      "TypeScript",
+      "Node.js",
+      "JavaScript",
+      "Golang",
+      "C",
+      "C++",
+      "Rust",
+      "COBOL"
+    ],
+    "cloudPlatforms": ["AWS", "Azure", "Google Cloud"],
+    "expertise": [
+      "Performance Management",
+      "Team Leadership",
+      "Conflict Resolution",
+      "Communication Skills",
+      "Problem-Solving",
+      "Team Building",
+      "Linux",
+      "CICD",
+      "Git"
+    ]
+  },
+  "education": {
+    "institution": "University of Oxford",
+    "location": "Oxford",
+    "degree": "BSc Computer Science",
+    "graduationYear": 2012,
+    "honors": "Second Class Honors (2:1)",
+    "focus": ["Web Technologies", "Distributed Ledgers", "Digital Scarcity"]
+  }
+}

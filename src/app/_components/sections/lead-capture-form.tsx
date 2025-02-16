@@ -31,7 +31,7 @@ const LeadCaptureFormSection: React.FC = () => {
   return (
     <section className="bg-background py-16 px-4 min-w-full">
       {/* Section Heading */}
-      <h2 className="text-3xl font-bold text-center text-text mb-8">Request a Consultation</h2>
+      <h2 className="text-3xl font-bold text-center text-text mb-8">Get in touch</h2>
 
       {/* Thank You Message */}
       {submitted ? (
@@ -124,9 +124,10 @@ const LeadCaptureFormSection: React.FC = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-accent text-white py-3 px-6 rounded-lg font-medium hover:bg-green-600 transition duration-300"
+
+            className="w-full bg-accent text-slate-800 py-3 px-6 rounded-lg font-medium hover:bg-green-600 transition duration-300"
           >
-            Request Free Consultation
+            Get in touch
           </button>
         </form>
       )}

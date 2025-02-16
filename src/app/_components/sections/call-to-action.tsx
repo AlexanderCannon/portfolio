@@ -6,7 +6,7 @@ export const CallToAction = () => (
             href="/contact"
             className="bg-accent text-white py-3 px-6 rounded-lg font-medium hover:bg-green-600 transition duration-300"
         >
-            Contact Us
+            Say Hello
         </a>
     </section>
 );

@@ -1,0 +1,1 @@
+ALTER TABLE "alexander-cannon-personal_contact" ALTER COLUMN "message" DROP NOT NULL;

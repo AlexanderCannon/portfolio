@@ -12,6 +12,8 @@ import {
   FaLinkedin,
   FaEnvelope
 } from 'react-icons/fa';
+import HeroSection from './hero';
+import EmailCaptureForm from '../forms/email-capture-form';
 
 const HomePage = () => {
   const [activeSection, setActiveSection] = useState(0);
@@ -147,6 +149,9 @@ const HomePage = () => {
               </div>
             ))}
           </div>
+        </div>
+        <div className="max-w-4xl mx-auto mb-20">
+          <EmailCaptureForm />
         </div>
 
         {/* Experience Cards */}
