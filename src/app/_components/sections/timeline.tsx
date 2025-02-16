@@ -4,6 +4,15 @@ import { Card, CardContent, CardHeader, CardTitle } from '~/app/_components/ui/c
 
 import resumeData from 'public/resume.json';
 
+interface Experience {
+  company: string;
+  title: string;
+  location: string;
+  period: string;
+  responsibilities: string[];
+  technologies: string[];
+}
+
 const Timeline = () => {
   // Sample resume data
 
@@ -27,20 +36,20 @@ const Timeline = () => {
             {resumeData.experience.map((exp, index) => (
               <div key={index} className="relative pl-16">
                 {/* Timeline dot */}
-                <div className="absolute left-7 -translate-x-1/2 bg-white">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-blue-500 bg-white">
-                    <FaBriefcase className="h-4 w-4 text-blue-500" />
+                <div className="absolute left-7 -translate-x-1/2 bg-white dark:bg-black">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-purple-600 bg-white">
+                    <FaBriefcase className="h-4 w-4 text-purple-600" />
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+                <div className="rounded-lg border border-gray-200 bg-white dark:bg-black p-4 shadow-sm">
                   <div className="flex flex-col space-y-2">
                     <div className="flex items-center justify-between">
                       <h3 className="text-lg font-semibold">{exp.company}</h3>
-                      <span className="text-sm text-gray-500">{exp.period}</span>
+                      <span className="text-sm text-gray-500 dark:text-gray-300">{exp.period}</span>
                     </div>
-                    <div className="flex items-center text-gray-600">
+                    <div className="flex items-center text-gray-600 dark:text-gray-400">
                       <span className="font-medium">{exp.title}</span>
                       <FaChevronRight className="h-4 w-4 mx-2" />
                       <span>{exp.location}</span>
@@ -51,7 +60,7 @@ const Timeline = () => {
                       <h4 className="font-medium mb-2">Key Responsibilities:</h4>
                       <ul className="list-disc pl-5 space-y-1">
                         {exp.responsibilities.map((resp, idx) => (
-                          <li key={idx} className="text-sm text-gray-600">
+                          <li key={idx} className="text-sm text-gray-600 dark:text-gray-300">
                             {resp}
                           </li>
                         ))}

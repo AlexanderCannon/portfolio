@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
 
         {/* Social Media Icons */}
         <div className="text-center md:text-left">
-          <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
+          <h4 className="text-lg font-semibold mb-4">Follow Me</h4>
           <div className="flex justify-center md:justify-start space-x-4">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <FaFacebookF className="text-white dark:text-black text-xl hover:text-accent transition" />

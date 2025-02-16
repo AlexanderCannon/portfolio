@@ -4,7 +4,7 @@ import LeadCaptureForm from '~/app/_components/sections/lead-capture-form';
 
 const ContactPage: React.FC = () => {
   return (
-    <main className="bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white py-16 px-4">
+    <main className=" text-gray-900 dark:text-white py-16 px-4">
       <div className="max-w-6xl mx-auto space-y-16">
 
         {/* Page Heading */}

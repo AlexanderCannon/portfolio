@@ -26,7 +26,7 @@ const AboutPage = () => {
 
       {/* About Section */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4 text-purple-600">About Me</h2>
+        <h2 className="text-2xl font-bold mb-4">About Me</h2>
         <p className="text-gray-700 dark:text-gray-300  mb-4">
           I&apos;m an engineering leader with a passion for building innovative technology solutions. With extensive experience in video streaming platforms, blockchain technologies, and AI/ML applications, I&apos;ve led teams to deliver high-impact products across various industries. Currently, I&apos;m focused on developing LLM-based AI tools and managing enterprise-level AI solutions at Kellog, Brown & Root.
         </p>
@@ -37,10 +37,10 @@ const AboutPage = () => {
 
       {/* Expertise Section */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4 text-purple-600">Technical Expertise</h2>
+        <h2 className="text-2xl font-bold mb-4">Technical Expertise</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h3 className="text-xl font-semibold mb-2 text-purple-600">Core Technologies</h3>
+            <h3 className="text-xl font-semibold mb-2">Core Technologies</h3>
             <ul className="list-disc list-inside text-gray-700 dark:text-gray-300">
               <li>TypeScript & JavaScript Ecosystem</li>
               <li>Golang & Python Development</li>
@@ -50,7 +50,7 @@ const AboutPage = () => {
             </ul>
           </div>
           <div>
-            <h3 className="text-xl font-semibold mb-2 text-purple-600">Leadership Skills</h3>
+            <h3 className="text-xl font-semibold mb-2">Leadership Skills</h3>
             <ul className="list-disc list-inside text-gray-700 dark:text-gray-300">
               <li>Team Building & Mentorship</li>
               <li>Technical Architecture Design</li>

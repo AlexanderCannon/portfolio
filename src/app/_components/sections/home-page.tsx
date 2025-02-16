@@ -96,11 +96,11 @@ const HomePage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 dark:from-gray-900 to-gray-150 dark:to-gray-800 text-white">
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-20">
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold mb-4">Alexander Cannon</h1>
+          <h1 className="text-5xl font-bold mb-4 text-gray-900 dark:text-white">Alexander Cannon</h1>
           <div className="h-8">
             <span className="text-xl text-purple-600">{typedText}</span>
             <span className={`inline-block w-2 h-6 ml-1 g-gradient-to-r from-primary to-purple-600 dark:from-blue-500 dark:to-purple-600 ${isTyping ? 'animate-pulse' : ''}`}></span>
@@ -128,7 +128,7 @@ const HomePage = () => {
 
         {/* Skills Section */}
         <div className="max-w-4xl mx-auto mb-20" ref={skillsRef}>
-          <h2 className="text-3xl font-bold mb-8 text-center">Technical Expertise</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white">Technical Expertise</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {technologies.map((tech, index) => (
               <div key={index} className="bg-gray-800 p-4 rounded-lg">
@@ -155,7 +155,7 @@ const HomePage = () => {
 
         {/* Experience Cards */}
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center">Areas of Focus</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white">Areas of Focus</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {experiences.map((exp, index) => (
               <div

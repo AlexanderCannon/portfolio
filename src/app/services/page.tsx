@@ -163,13 +163,13 @@ const ServicesPage = () => {
             <Card
               key={service.id}
               className={`cursor-pointer transition-all duration-300 hover:shadow-lg
-                ${activeService === service.id ? 'ring-2 ring-blue-500' : ''}
+                ${activeService === service.id ? 'ring-2 ring-purple-600' : ''}
               `}
               onClick={() => setActiveService(service.id)}
             >
               <CardHeader>
                 <div className="flex items-center space-x-3">
-                  <service.icon className="h-6 w-6 text-blue-500" />
+                  <service.icon className="h-6 w-6 text-purple-600" />
                   <CardTitle className="text-lg">{service.title}</CardTitle>
                 </div>
               </CardHeader>
@@ -190,7 +190,7 @@ const ServicesPage = () => {
                   const ActiveIcon = activeSvc?.icon;
                   return (
                     <>
-                      {ActiveIcon && <ActiveIcon className="h-8 w-8 text-blue-500" />}
+                      {ActiveIcon && <ActiveIcon className="h-8 w-8 text-purple-600" />}
                     </>
                   );
                 })()}
@@ -212,7 +212,7 @@ const ServicesPage = () => {
                   <ul className="space-y-2">
                     {services.find(s => s.id === activeService)?.offerings.map((offering, idx) => (
                       <li key={idx} className="flex items-center space-x-2">
-                        <div className="h-1.5 w-1.5 rounded-full bg-blue-500" />
+                        <div className="h-1.5 w-1.5 rounded-full bg-purple-600" />
                         <span className="text-gray-700">{offering}</span>
                       </li>
                     ))}

@@ -76,7 +76,7 @@ const SplitTimeline = () => {
                     {/* Year marker */}
                     <div className="absolute left-7 -translate-x-1/2 bg-white">
                       <div className={`flex h-8 w-8 items-center justify-center rounded-full border-2 
-                        ${activeYear === exp.year ? 'border-blue-500 bg-blue-50' : 'border-gray-300 bg-white'}`}>
+                        ${activeYear === exp.year ? 'border-purple-600 bg-blue-50' : 'border-gray-300 bg-white'}`}>
                         <span className="text-sm font-medium">{exp.year}</span>
                       </div>
                     </div>

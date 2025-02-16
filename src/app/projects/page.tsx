@@ -19,8 +19,8 @@ const projectsData = [
     description: "A modern portfolio website built with Next.js and Tailwind CSS. Features interactive elements and smooth animations.",
     tags: ["Next.js", "React", "Tailwind CSS"],
     image: "/api/placeholder/600/400",
-    github: "https://github.com/yourusername/portfolio",
-    live: "https://yourwebsite.com",
+    github: "https://github.com/alexandercannon/portfolio",
+    live: "https://alexanderville.vercel.app/contact",
     category: "Web Development"
   },
   {
@@ -74,8 +74,8 @@ const ProjectsPage = () => {
     <div className="max-w-7xl mx-auto px-4 py-12">
       {/* Header */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">My Projects</h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">My Projects</h1>
+        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
           Explore my latest projects and experiments. Each project represents a unique challenge and learning experience.
         </p>
       </div>

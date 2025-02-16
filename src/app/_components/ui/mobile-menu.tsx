@@ -1,6 +1,8 @@
 'use client';
 import React, { useState } from 'react';
 import Link from 'next/link';
+// todo find a home for this sort of static data
+import { socialLinks } from '~/app/_components/ui/header-sticky';
 import {
   X,
   ChevronRight,
@@ -10,20 +12,13 @@ import {
   Phone,
   Briefcase,
   ExternalLink,
-  Github,
-  Linkedin,
-  Twitter,
   Apple,
   Moon,
   Sun,
 } from 'lucide-react';
 import Button from './button';
 
-const socialLinks = [
-  { icon: Github, href: '#', label: 'GitHub' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Twitter, href: '#', label: 'Twitter' }
-];
+
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -156,6 +151,8 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                 <a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 hover:scale-110"
                   aria-label={social.label}
                 >
@@ -182,7 +179,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
         {/* Footer CTA */}
         <div className="w-full absolute bottom-0 left-0 right-0 p-6 border-t bg-white dark:bg-gray-900">
           <Button
-          className='w-full'
+            className='w-full'
             link="/contact"
             onClick={handleClose}
           >

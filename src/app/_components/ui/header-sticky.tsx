@@ -13,10 +13,10 @@ const menuItems = [
   { title: 'Experience', path: '/experience' }
 ];
 
-const socialLinks = [
-  { icon: Github, href: '#', label: 'GitHub' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Twitter, href: '#', label: 'Twitter' }
+export const socialLinks = [
+  { icon: Github, href: 'https://github.com/AlexanderCannon', label: 'GitHub' },
+  { icon: Linkedin, href: 'https://linkedin.com/in/alexandermcannon', label: 'LinkedIn' },
+  { icon: Twitter, href: 'https://x.com/alexmcan', label: 'Twitter' }
 ];
 
 const HeaderSticky = () => {

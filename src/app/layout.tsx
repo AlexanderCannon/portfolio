@@ -22,7 +22,7 @@ export default function RootLayout({
   const title = metadata.title as string;
   const description = metadata.description!;
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
+    <html lang="en" className={`${GeistSans.variable} dark`}>
       <head>
         <title>{title}</title>
         <meta name="description" content={description} />

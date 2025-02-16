@@ -57,56 +57,56 @@ const ExperiencePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen  py-8">
       <div className="container mx-auto px-4">
         {/* Header Section */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
             Professional Experience
           </h1>
-          <p className="text-gray-600">
+          <p className="text-gray-600 dark:text-gray-300">
             {resumeData.personalInfo.name} | {resumeData.personalInfo.location}
           </p>
         </div>
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-          <Card className="bg-white">
+          <Card className="bg-white dark:bg-gray-800">
             <CardContent className="flex items-center p-6">
               <div className="rounded-full bg-blue-100 p-3 mr-4">
                 <BriefcaseIcon className="h-6 w-6 text-blue-600" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-900">10+ Years</h3>
-                <p className="text-sm text-gray-600">Professional Experience</p>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">10+ Years</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">Professional Experience</p>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-white">
+          <Card className="bg-white dark:bg-gray-800">
             <CardContent className="flex items-center p-6">
               <div className="rounded-full bg-green-100 p-3 mr-4">
                 <BookIcon className="h-6 w-6 text-green-600" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-900">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                   {resumeData.skills.programmingLanguages.length} Languages
                 </h3>
-                <p className="text-sm text-gray-600">Programming Expertise</p>
+                <p className="text-sm text-gray-600 dark:text-gray-300">Programming Expertise</p>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-white">
+          <Card className="bg-white dark:bg-gray-800">
             <CardContent className="flex items-center p-6">
               <div className="rounded-full bg-purple-100 p-3 mr-4">
                 <AwardIcon className="h-6 w-6 text-purple-600" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-900">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                   {resumeData.skills.cloudPlatforms.length} Platforms
                 </h3>
-                <p className="text-sm text-gray-600">Cloud Technologies</p>
+                <p className="text-sm text-gray-600 dark:text-gray-300">Cloud Technologies</p>
               </div>
             </CardContent>
           </Card>
@@ -119,7 +119,7 @@ const ExperiencePage = () => {
             <input
               type="text"
               placeholder="Search experiences, skills, or technologies..."
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-purple-600 dark:bg-gray-800 dark:text-white"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -133,7 +133,7 @@ const ExperiencePage = () => {
             <div className="space-y-6">
               {/* Programming Languages */}
               <div>
-                <h3 className="text-sm font-medium text-gray-600 mb-2">
+                <h3 className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
                   Programming Languages
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -147,7 +147,7 @@ const ExperiencePage = () => {
 
               {/* Frameworks */}
               <div>
-                <h3 className="text-sm font-medium text-gray-600 mb-2">
+                <h3 className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
                   Frameworks & Libraries
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -161,7 +161,7 @@ const ExperiencePage = () => {
 
               {/* Databases */}
               <div>
-                <h3 className="text-sm font-medium text-gray-600 mb-2">
+                <h3 className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
                   Databases & Message Queues
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -175,7 +175,7 @@ const ExperiencePage = () => {
 
               {/* DevOps */}
               <div>
-                <h3 className="text-sm font-medium text-gray-600 mb-2">
+                <h3 className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
                   DevOps & Infrastructure
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -189,7 +189,7 @@ const ExperiencePage = () => {
 
               {/* AI/ML */}
               <div>
-                <h3 className="text-sm font-medium text-gray-600 mb-2">
+                <h3 className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
                   AI & Machine Learning
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -203,7 +203,7 @@ const ExperiencePage = () => {
 
               {/* Blockchain */}
               <div>
-                <h3 className="text-sm font-medium text-gray-600 mb-2">
+                <h3 className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
                   Blockchain & Web3
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -217,7 +217,7 @@ const ExperiencePage = () => {
 
               {/* Soft Skills */}
               <div>
-                <h3 className="text-sm font-medium text-gray-600 mb-2">
+                <h3 className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
                   Leadership & Soft Skills
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -231,7 +231,7 @@ const ExperiencePage = () => {
 
               {/* Tools */}
               <div>
-                <h3 className="text-sm font-medium text-gray-600 mb-2">
+                <h3 className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
                   Tools & Platforms
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -246,9 +246,9 @@ const ExperiencePage = () => {
           </CardContent>
         </Card>
         <Card className="mb-8">
-          <CardHeader>Want to know more about my experience?</CardHeader>
+          <CardHeader>Would you like the raw data?</CardHeader>
           <CardContent>
-            <p>You can download the raw JSON for my experience at <Link href="/resume.json" target='_blank'>/resume.json</Link></p>
+            <p>You can download the JSON for my experience at <Link href="/resume.json" target='_blank'>/resume.json</Link></p>
           </CardContent>
         </Card>
 

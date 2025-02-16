@@ -20,7 +20,7 @@ const EmailCaptureForm = () => {
       {
         !submitted ? (
           <>
-            <h2 className="text-3xl font-bold text-center text-text mb-8">Sign up for email updates</h2>
+            <h2 className="text-3xl font-bold text-center text-text mb-8 text-gray-900 dark:text-white">Sign up to my mailing list</h2>
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
               <input
                 type="email"
@@ -28,7 +28,7 @@ const EmailCaptureForm = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 placeholder="Enter your email"
-                className="w-full sm:w-auto p-3 rounded-lg text-gray-900"
+                className="w-full sm:w-auto p-3 rounded-lg text-gray-900 dark:text-white bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:border-primary focus:outline-none transition duration-300"
               />
               <Button
                 type="submit"

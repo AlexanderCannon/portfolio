@@ -21,8 +21,29 @@
         "Conducting evaluations and comparisons of various models for optimal performance",
         "Mentoring team members on capabilities, deployment strategies, and ethical considerations"
       ],
-      "technologies": ["OpenAI", "Azure", "LLMs"],
+      "technologies": ["OpenAI", "Azure", "LLMs", "OpenAI", "Python", "TensorFlow", "PyTorch", "Scikit-learn", "Keras", "NLP"],
       "year": 2023
+    },
+    {
+      "company": "Zinguist",
+      "title": "CTO",
+      "location": "Remote",
+      "period": "Nov 2023 - Present",
+      "responsibilities": [
+        "Automated workflows, improving operational efficiency by 30%",
+        "Scaled infrastructure to support a 200% increase in user activity, integrating video streaming capabilities for online classes",
+        "Led cross-functional teams, enhancing collaboration between engineering, product, and marketing"
+      ],
+      "technologies": [
+        "React",
+        "React Native",
+        "Node.js",
+        "Next.js",
+        "T3 stack",
+        "AWS",
+        "Docker",
+        "MongoDB"
+      ]
     },
     {
       "company": "Mishcon De Reya (MDRX)",
@@ -134,7 +155,13 @@
         "Supported live Olympic and sports events for millions of viewers",
         "Worked on data science and ML projects for major clients"
       ],
-      "technologies": ["React", "DynamoDB", "Elasticsearch", "Redis", "MongoDB"],
+      "technologies": [
+        "React",
+        "DynamoDB",
+        "Elasticsearch",
+        "Redis",
+        "MongoDB"
+      ],
       "year": 2014
     },
     {
@@ -151,24 +178,54 @@
       "year": 2014
     },
     {
-      "company": "Previous Experience",
-      "location": "London",
-      "title": "Software Developer",
-      "period": "2009 - 2014",
+      "company": "Buddi",
+      "title": "Full Stack Developer",
+      "location": "London, England, United Kingdom",
+      "period": "Jan 2014 - May 2014",
       "responsibilities": [
-        "Developed web applications for clients",
-        "Created tools for piracy detection",
-        "Built REST APIs for embedded systems"
+        "Designed and implemented real-time GIS data processing pipelines for IoT devices",
+        "Developed server-side solutions using Node.js for high-volume data streams",
+        "Collaborated with cross-functional teams to ensure robust data collection and analysis"
+      ],
+      "technologies": ["Node.js", "JavaScript", "GIS", "IoT", "REST APIs"]
+    },
+    {
+      "company": "The Federation Against Copyright Theft",
+      "title": "Systems Programmer",
+      "location": "London, England, United Kingdom",
+      "period": "Aug 2013 - Dec 2013",
+      "responsibilities": [
+        "Developed advanced piracy detection tools using Python to automate detection processes",
+        "Implemented web-scraping scripts to monitor and track unauthorized content distribution",
+        "Created and maintained a comprehensive piracy database to facilitate rapid takedowns",
+        "Collaborated with legal teams to provide actionable data-driven insights"
+      ],
+      "technologies": [
+        "Python",
+        "Web Scraping",
+        "Databases (SQL/NoSQL)",
+        "Automation Scripting"
+      ]
+    },
+    {
+      "company": "Altim Software",
+      "title": "Software Developer",
+      "location": "London, England, United Kingdom",
+      "period": "Aug 2009 - Aug 2013",
+      "responsibilities": [
+        "Built and maintained web applications and websites for clients using MooTools, Python, and Django",
+        "Implemented best practices for code quality, testing, and deployment processes",
+        "Optimized database queries and backend logic for improved performance",
+        "Collaborated with designers and stakeholders to deliver user-friendly interfaces"
       ],
       "technologies": [
         "MooTools",
         "Python",
         "Django",
-        "Node.js",
-        "PostgreSQL",
-        "TDD"
-      ],
-      "year": 2009
+        "HTML/CSS",
+        "JavaScript",
+        "SQL"
+      ]
     }
   ],
   "skills": {
@@ -200,7 +257,7 @@
     "institution": "University of Oxford",
     "location": "Oxford",
     "degree": "BSc Computer Science",
-    "graduationYear": 2012,
+    "graduationYear": 2013,
     "honors": "Second Class Honors (2:1)",
     "focus": ["Web Technologies", "Distributed Ledgers", "Digital Scarcity"]
   }

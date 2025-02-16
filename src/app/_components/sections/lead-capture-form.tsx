@@ -38,8 +38,8 @@ const LeadCaptureFormSection: React.FC = () => {
       {submitted ? (
         <div className="text-center text-primary">
           <h3 className="text-2xl font-semibold mb-4">Thank You!</h3>
-          <p className="text-secondary">
-            We’ve received your information. A member of our team will be in touch with you shortly.
+          <p className="text-secondary text-white dark:text-gray-300">
+            Thank you for reaching out! I personally read every message and will get back to you as soon as possible.
           </p>
         </div>
       ) : (
@@ -57,7 +57,7 @@ const LeadCaptureFormSection: React.FC = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg text-slate-800"
+              className="w-full p-3 border border-gray-300 rounded-lg text-slate-800 dark:text-white bg-white dark:bg-gray-900"
             />
           </div>
 
@@ -73,7 +73,7 @@ const LeadCaptureFormSection: React.FC = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg text-slate-800"
+              className="w-full p-3 border border-gray-300 rounded-lg text-slate-800 dark:text-white bg-white dark:bg-gray-900"
             />
           </div>
 
@@ -88,7 +88,7 @@ const LeadCaptureFormSection: React.FC = () => {
               name="company"
               value={formData.company}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-lg text-slate-800"
+              className="w-full p-3 border border-gray-300 rounded-lg text-slate-800 dark:text-white bg-white dark:bg-gray-900"
             />
           </div>
 
@@ -103,7 +103,7 @@ const LeadCaptureFormSection: React.FC = () => {
               name="jobTitle"
               value={formData.jobTitle}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-lg text-slate-800"
+              className="w-full p-3 border border-gray-300 rounded-lg text-slate-800 dark:text-white bg-white dark:bg-gray-900"
             />
           </div>
 
@@ -118,7 +118,7 @@ const LeadCaptureFormSection: React.FC = () => {
               value={formData.message}
               onChange={handleChange}
               rows={4}
-              className="w-full p-3 border border-gray-300 rounded-lg text-slate-800"
+              className="w-full p-3 border border-gray-300 rounded-lg text-slate-800 dark:text-white bg-white dark:bg-gray-900"
             />
           </div>
 
