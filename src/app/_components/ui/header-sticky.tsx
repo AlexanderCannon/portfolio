@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Menu, Sun, Moon, Github, Linkedin, Twitter } from 'lucide-react';
 import MobileMenu from '~/app/_components/ui/mobile-menu';
 import Button from "~/app/_components/ui/button";
+import { withTheme } from '~/app/_components/withTheme';
 
 const menuItems = [
   { title: 'About', path: '/about' },
@@ -22,7 +23,7 @@ export const socialLinks = [
 const HeaderSticky = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   // Initialize dark mode from localStorage
   useEffect(() => {
@@ -169,4 +170,6 @@ const HeaderSticky = () => {
   );
 };
 
-export default HeaderSticky;
+
+
+export default withTheme(HeaderSticky);

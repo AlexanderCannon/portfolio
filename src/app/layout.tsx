@@ -4,11 +4,12 @@ import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 import Script from "next/script"
 import HeaderSticky from "~/app/_components/ui/header-sticky";
-import Footer from "~/app/_components/footer";
+import Footer from "~/app/_components/ui/footer";
 // import LiveChatButton from "~/app/_components/live-chat";
-import CookiePopup from "./_components/cookie-popup";
+import CookiePopup from "./_components/ui/cookie-popup";
 
 import { TRPCReactProvider } from "~/trpc/react";
+import { ThemeProvider } from "./_components/withTheme";
 
 export const metadata: Metadata = {
   title: "Alexander Cannon",
@@ -22,7 +23,7 @@ export default function RootLayout({
   const title = metadata.title as string;
   const description = metadata.description!;
   return (
-    <html lang="en" className={`${GeistSans.variable} dark`}>
+    <html lang="en" className={`${GeistSans.variable}`}>
       <head>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -42,13 +43,15 @@ export default function RootLayout({
       </head>
       <body>
         <TRPCReactProvider>
-          <HeaderSticky />
-          {children}
-          <Footer />
-          {/* <LiveChatButton /> */}
-          <CookiePopup />
+          <ThemeProvider>
+            <HeaderSticky />
+            {children}
+            <Footer />
+            {/* <LiveChatButton /> */}
+            <CookiePopup />
+          </ThemeProvider>
         </TRPCReactProvider>
       </body>
-    </html>
+    </html >
   );
 }

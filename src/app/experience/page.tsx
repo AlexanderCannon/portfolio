@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader } from '~/app/_components/ui/card';
 import { BriefcaseIcon, BookIcon, AwardIcon, SearchIcon } from 'lucide-react';
 import Timeline from '~/app/_components/sections/timeline';
-// import SplitTimeline from '../_components/sections/split-timeline';
 import Link from 'next/link';
 
 

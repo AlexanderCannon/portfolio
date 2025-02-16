@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import Button from './button';
 import { socialLinks } from '~/app/_components/ui/header-sticky';
+import { withTheme } from '~/app/_components/withTheme';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -197,4 +198,4 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   );
 };
 
-export default MobileMenu;
+export default withTheme(MobileMenu)

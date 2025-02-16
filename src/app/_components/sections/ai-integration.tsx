@@ -1,5 +1,5 @@
 import { FaCogs } from 'react-icons/fa';
-import LinkableBox from '../linkable-box';
+import LinkableBox from '~/app/_components/ui/linkable-box';
 
 interface AiIntegrationSectionProps {
   showLink?: boolean;

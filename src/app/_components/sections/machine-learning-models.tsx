@@ -1,5 +1,5 @@
 import { FaRobot } from 'react-icons/fa';
-import LinkableBox from '../linkable-box';
+import LinkableBox from '~/app/_components/ui/linkable-box';
 
 interface MachineLearningModelsSectionProps {
   showLink?: boolean;
