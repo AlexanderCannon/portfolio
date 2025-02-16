@@ -25,9 +25,6 @@ const Footer: React.FC = () => {
               <a href="/about">About</a>
             </li>
             <li className="text-sm mb-2 hover:underline">
-              <a href="/services">Services</a>
-            </li>
-            <li className="text-sm mb-2 hover:underline">
               <a href="/contact">Contact</a>
             </li>
             <li className="text-sm mb-2 hover:underline">
