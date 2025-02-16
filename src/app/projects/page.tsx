@@ -148,7 +148,7 @@ const ProjectsPage = () => {
         {filteredProjects.map((project) => (
           <div
             key={project.id}
-            className="bg-white rounded-xl shadow-md overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+            className="bg-white dark:bg-gray-900 rounded-xl shadow-md overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
           >
             {/* Project Image */}
             <div className="relative">
@@ -185,7 +185,7 @@ const ProjectsPage = () => {
 
             {/* Project Info */}
             <div className="p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                 {project.title}
               </h3>
               <p className="text-gray-600 mb-4">
@@ -195,7 +195,7 @@ const ProjectsPage = () => {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full"
+                    className="px-3 py-1 bg-gray-100 dark:bg-purple-600 text-gray-600 dark:text-white text-sm rounded-full"
                   >
                     {tag}
                   </span>
