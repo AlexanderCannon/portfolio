@@ -177,28 +177,24 @@
     },
     {
       "company": "Buddi",
-      "location": "London, England, United Kingdom",
-      "title": "Software Engineer",
-      "period": "Jan 2014 - June 2014",
-      "responsibilities": [
-        "Developed real-time webservers for IoT devices",
-        "Collaborated with embedded systems team on GPS and mobile mast triangulation",
-        "Implemented fall-detection software"
-      ],
-      "technologies": ["Node.js", "IoT", "GPS", "Embedded Systems"],
-      "year": 2014
-    },
-    {
-      "company": "Buddi",
       "title": "Full Stack Developer",
       "location": "London, England, United Kingdom",
       "period": "Jan 2014 - May 2014",
       "responsibilities": [
         "Designed and implemented real-time GIS data processing pipelines for IoT devices",
         "Developed server-side solutions using Node.js for high-volume data streams",
-        "Collaborated with cross-functional teams to ensure robust data collection and analysis"
+        "Collaborated with embedded systems team on GPS and mobile mast triangulation",
+        "Implemented fall-detection software"
       ],
-      "technologies": ["Node.js", "JavaScript", "GIS", "IoT", "REST APIs"]
+      "technologies": [
+        "Node.js",
+        "JavaScript",
+        "GIS",
+        "IoT",
+        "Embedded Systems",
+        "REST APIs"
+      ],
+      "year": 2014
     },
     {
       "company": "The Federation Against Copyright Theft",

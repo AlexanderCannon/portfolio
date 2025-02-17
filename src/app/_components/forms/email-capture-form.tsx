@@ -2,16 +2,19 @@
 
 import { useState } from 'react';
 import Button from "~/app/_components/ui/button";
+import { api } from '~/trpc/react';
 // import { api } from "~/utils/api";
 
 const EmailCaptureForm = () => {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
+  const emailMutation = api.contact.emailSignup.useMutation();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
-      // signUpMutation.mutate({ email });
+      emailMutation.mutate({ email });
       setSubmitted(true);
     }
   };
@@ -39,7 +42,7 @@ const EmailCaptureForm = () => {
             </form>
           </>
         ) : (
-          <p className="text-green-200 mt-4">Thank you for contacting us! We&apos;ll be in touch soon.</p>
+          <p className="text-purple-600 text-center mt-4 text-3xl font-bold">Thank you for signing up! You&apos;ll hear from me soon.</p>
         )
       }
     </section >

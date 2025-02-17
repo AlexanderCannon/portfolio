@@ -1,6 +1,7 @@
 "use client";
 import { useState } from 'react';
 import Button from "~/app/_components/ui/button";
+import { api } from '~/trpc/react';
 // import { api } from "~/utils/api";
 
 const LeadCaptureFormSection: React.FC = () => {
@@ -14,6 +15,8 @@ const LeadCaptureFormSection: React.FC = () => {
   });
   const [submitted, setSubmitted] = useState(false);
 
+  const contactMutation = api.contact.create.useMutation();
+
   // Handle form input change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -23,10 +26,8 @@ const LeadCaptureFormSection: React.FC = () => {
   // Form submission handler
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // signUpMutation.mutate(formData)
-    // You can add form validation or API submission here
+    contactMutation.mutate(formData);
     setSubmitted(true);
-
   };
 
   return (
