@@ -40,7 +40,7 @@ const projectsData = [
     description: "An LLM powered command line tool that generates and manages ticketing systems for software projects.",
     tags: ["Golang", "LLM", "Command Line", "Jira", "Slack"],
     image: "/images/plannet.png",
-    github: "https://github.com/alexandercannon/plannet",
+    github: "https://github.com/plannet-ai/plannet",
     live: "https://www.plannet.dev/",
     category: "Machine Learning"
   },
