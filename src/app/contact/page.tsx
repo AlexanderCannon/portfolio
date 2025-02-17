@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
+import { FaTwitter, FaLinkedinIn, FaInstagram, FaGithub } from 'react-icons/fa';
 import LeadCaptureForm from '~/app/_components/sections/lead-capture-form';
 
 const ContactPage: React.FC = () => {
@@ -23,24 +23,24 @@ const ContactPage: React.FC = () => {
         {/* Contact Information */}
         <section className="text-center">
           <h2 className="text-2xl font-semibold mb-4">Our Contact Details</h2>
-          <p className="text-gray-700 dark:text-gray-300">1234 Coolville AI Ave, Suite 100<br />Cityville, State 12345</p>
-          <p className="text-gray-700 dark:text-gray-300 mt-2">Phone: (123) 456-7890</p>
-          <p className="text-gray-700 dark:text-gray-300">Email: contact@cool.com</p>
+          <p className="text-gray-700 dark:text-gray-300">Beverley Hills<br />California, 90210</p>
+          <p className="text-gray-700 dark:text-gray-300 mt-2">Phone: (840) 233-27540</p>
+          <p className="text-gray-700 dark:text-gray-300">Email: alexander@farpointlabs.com</p>
         </section>
 
         {/* Social Media Links */}
         <section className="flex justify-center space-x-6 mt-8">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <FaFacebookF className="text-primary text-2xl hover:text-accent transition" />
-          </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+          <a href="https://twitter.com/alexmcan" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
             <FaTwitter className="text-primary text-2xl hover:text-accent transition" />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <a href="https://linkedin.com/in/alexandermcannon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <FaLinkedinIn className="text-primary text-2xl hover:text-accent transition" />
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <a href="https://instagram.com/alexander.cannon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <FaInstagram className="text-primary text-2xl hover:text-accent transition" />
+          </a>
+          <a href="https://github.com/alexander-cannon" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <FaGithub className="text-primary text-2xl hover:text-accent transition" />
           </a>
         </section>
       </div>
