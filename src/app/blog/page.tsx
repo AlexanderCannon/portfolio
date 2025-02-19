@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 export default async function PostsPage() {
-  const posts = await api.post.getPostsWithLimit({ limit: 10 });
+  const posts = await api.post.getPostsWithLimit({ limit: 100 });
 
   return (
     <main className="container mx-auto px-4 py-8">
