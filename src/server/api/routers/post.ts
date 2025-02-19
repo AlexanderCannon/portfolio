@@ -1,4 +1,5 @@
-import { eq } from "drizzle-orm";
+import { count, eq } from "drizzle-orm";
+import { off } from "process";
 import { z } from "zod";
 
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
@@ -36,11 +37,12 @@ export const postRouter = createTRPCRouter({
   }),
 
   getPostsWithLimit: publicProcedure
-    .input(z.object({ limit: z.number() }))
+    .input(z.object({ limit: z.number(), offset: z.number().default(0) }))
     .query(async ({ ctx, input }) => {
       const posts = await ctx.db.query.posts.findMany({
         orderBy: (posts, { desc }) => [desc(posts.createdAt)],
         limit: input.limit,
+        offset: input.offset,
         with: {
           comments: true,
         },
@@ -61,4 +63,8 @@ export const postRouter = createTRPCRouter({
 
       return post ?? null;
     }),
+
+  getTotalPosts: publicProcedure.query(async ({ ctx }) => {
+    return await ctx.db.select({ count: count() }).from(posts);
+  }),
 });
