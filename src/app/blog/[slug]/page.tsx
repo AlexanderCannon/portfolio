@@ -31,6 +31,8 @@ export default async function PostPage({
     notFound();
   }
 
+  void api.post.getPostBySlug.prefetch({ slug });
+
   return (
     <main className="container mx-auto px-4 py-8">
       <Link href="/blog" passHref>
