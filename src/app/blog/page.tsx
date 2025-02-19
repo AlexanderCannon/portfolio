@@ -7,7 +7,21 @@ export const metadata = {
 };
 
 export default async function PostsPage() {
-  const posts = await api.post.getPostsWithLimit({ limit: 100 });
+  const offset = 0;
+  const limit = 100;
+  const [posts, totalPosts] = await Promise.all([
+    api.post.getPostsWithLimit({ limit, offset }),
+    api.post.getTotalPosts(),
+  ]);
+
+  if (!totalPosts?.[0]) {
+    throw new Error('Failed to fetch total posts count');
+  }
+
+  const [{ count }] = totalPosts
+
+  void await api.post.getPostsWithLimit.prefetch({ limit });
+  void api.post.getTotalPosts.prefetch();
 
   return (
     <main className="container mx-auto px-4 py-8">
@@ -48,6 +62,7 @@ export default async function PostsPage() {
           ))}
         </div>
       )}
+      <p>Posts {offset + 1} to {count < offset + limit ? count : offset + limit} of {count}</p>
     </main>
   );
 }

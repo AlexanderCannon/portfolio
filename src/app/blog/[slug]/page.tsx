@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { NewComment } from "~/app/_components/forms/new-comment";
 import { MarkdownRenderer } from "~/app/_components/ui/markdown-renderer";
@@ -32,12 +33,21 @@ export default async function PostPage({
 
   return (
     <main className="container mx-auto px-4 py-8">
+      <Link href="/blog" passHref>
+        <p className="text-purple-600">← Back to blog</p>
+      </Link>
+      <br />
       <article className="prose lg:prose-xl max-w-screen-sm mx-auto">
         <h1 className="mb-4 text-3xl font-bold">{post.name}</h1>
         <div className="mb-8 text-gray-600">
           {new Date(post.createdAt).toLocaleDateString()}
         </div>
         {post.body && <MarkdownRenderer content={post.body} />}
+        <Link href="/blog" passHref>
+          <p className="text-purple-600">← Read more articles</p>
+        </Link>
+
+        {/* {Comments section} */}
         <section className="mt-16">
           <h2 className="mb-6 text-2xl font-bold">Comments</h2>
           {post.comments.length === 0 ? (
