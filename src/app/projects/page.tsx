@@ -74,6 +74,16 @@ const projectsData = [
     live: "https://www.scratcher.zone",
     category: "Full Stack"
   },
+  {
+    id: 7,
+    title: "Eurovision Party",
+    description: "A real-time voting app for Eurovision parties. Features live results, party voting, and a leaderboard.",
+    tags: ["React Native", "Supabase", "Websockets", "Music"],
+    image: "/images/eurovision-party.png",
+    github: "https://github.com/alexandercannon/eurovision.fun",
+    live: "https://www.eurovision.fun",
+    category: "Mobile"
+  }
 ];
 
 const categories = ["All", "Full Stack", "Developer Tools", "Machine Learning", "Mobile"];
@@ -154,7 +164,7 @@ const ProjectsPage = () => {
             <div className="relative">
               <Image
                 width={600}
-                height={400}
+                height={600}
                 src={project.image}
                 alt={project.title}
                 className="w-full h-48 object-cover object-top"
