@@ -28,38 +28,29 @@ interface CodeProps {
 export function MarkdownRenderer({ content, className = "" }: MarkdownRendererProps) {
   return (
     <ReactMarkdown
-      className={`prose dark:prose-invert max-w-none ${className}`}
+      className={`prose prose-lg lg:prose-xl dark:prose-invert max-w-none ${className}`}
       remarkPlugins={[remarkGfm, remarkSuperscript]}
       components={{
         h1: ({ children }) => (
-          <h1 className="mb-4 text-3xl font-bold">{children}</h1>
+          <h1 className="mb-6 text-4xl lg:text-5xl font-bold">{children}</h1>
         ),
         h2: ({ children }) => (
-          <h2 className="mb-3 mt-6 text-2xl font-bold">{children}</h2>
+          <h2 className="mb-4 mt-8 text-3xl lg:text-4xl font-bold">{children}</h2>
         ),
         h3: ({ children }) => (
-          <h3 className="mb-2 mt-4 text-xl font-bold">{children}</h3>
+          <h3 className="mb-3 mt-6 text-2xl lg:text-3xl font-bold">{children}</h3>
         ),
 
-        a: ({ href, children }) => (
-          <a
-            href={href}
-            className="text-blue-600 hover:text-blue-800 underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {children}
-          </a>
+        p: ({ children }) => (
+          <p className="mb-6 text-lg lg:text-xl">{children}</p>
         ),
 
         ul: ({ children }) => (
-          <ul className="mb-4 list-disc pl-6">{children}</ul>
+          <ul className="mb-6 list-disc pl-8 text-lg lg:text-xl">{children}</ul>
         ),
         ol: ({ children }) => (
-          <ol className="mb-4 list-decimal pl-6">{children}</ol>
+          <ol className="mb-6 list-decimal pl-8 text-lg lg:text-xl">{children}</ol>
         ),
-
-        p: ({ children }) => <p className="mb-4">{children}</p>,
 
         blockquote: ({ children }) => (
           <blockquote className="my-4 border-l-4 border-gray-300 pl-4 italic">
@@ -94,7 +85,7 @@ export function MarkdownRenderer({ content, className = "" }: MarkdownRendererPr
         },
 
         sup: ({ children }) => (
-          <sup className="text-xs">{children}</sup>
+          <sup className="text-sm lg:text-base relative -top-1">{children}</sup>
         ),
 
 
@@ -110,6 +101,16 @@ export function MarkdownRenderer({ content, className = "" }: MarkdownRendererPr
         ),
         td: ({ children }) => (
           <td className="border-t px-4 py-2">{children}</td>
+        ),
+        a: ({ children, href }) => (
+          <a 
+            href={href}
+            className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-200 underline"
+            target={href?.startsWith('http') ? '_blank' : undefined}
+            rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}
+          >
+            {children}
+          </a>
         ),
       }}
     >

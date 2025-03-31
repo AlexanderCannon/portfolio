@@ -39,7 +39,7 @@ export default async function PostPage({
         <p className="text-purple-600">← Back to blog</p>
       </Link>
       <br />
-      <article className="prose lg:prose-xl max-w-screen-sm mx-auto">
+      <article className="prose lg:prose-xl max-w-screen-md mx-auto">
         <h1 className="mb-4 text-3xl font-bold">{post.name}</h1>
         <div className="mb-8 text-gray-600">
           {new Date(post.createdAt).toLocaleDateString()}

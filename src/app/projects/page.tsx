@@ -4,11 +4,6 @@ import {
   Github,
   ExternalLink,
   Search,
-  Filter,
-  Code,
-  Laptop,
-  Monitor,
-  Terminal
 } from 'lucide-react';
 import Image from 'next/image';
 
