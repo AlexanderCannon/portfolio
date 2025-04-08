@@ -90,7 +90,7 @@ const HomePage = () => {
   ];
 
   const terminalCommands = [
-    { command: 'skills.list()', output: 'TypeScript, Python, Golang, React, AWS, AI/ML' },
+    { command: 'skills.list()', output: 'Rust, TypeScript, Python, Golang, React, AWS, AI/ML' },
     { command: 'experience.current()', output: 'CTO @ Zinguist' },
     { command: 'projects.latest()', output: 'Productivity tools for 10x devs' }
   ];
