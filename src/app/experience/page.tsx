@@ -18,8 +18,8 @@ const ExperiencePage = () => {
     },
     skills: {
       programmingLanguages: [
-        "Python", "TypeScript", "Node.js", "JavaScript",
-        "Golang", "C", "C++", "Rust", "COBOL"
+        "Rust", "Python", "TypeScript", "Node.js", "JavaScript",
+        "Golang", "C", "C++", "COBOL"
       ],
       cloudPlatforms: ["AWS", "Azure", "Google Cloud"],
       frameworks: [

@@ -90,7 +90,7 @@ const AboutPage = () => {
             <ul className="space-y-2 text-gray-700 dark:text-gray-300">
               {[
                 'TypeScript & JavaScript Ecosystem',
-                'Golang & Python Development',
+                'Rust & Python Development',
                 'Cloud Platforms (AWS, Azure, GCP)',
                 'Blockchain & Smart Contracts',
                 'AI/ML & LLM Integration'
