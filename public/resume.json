@@ -8,10 +8,31 @@
   "professionalSummary": "Engineering leader with experience building video streaming platforms, and blockchain technologies with extensive experience in mobile technologies, mobile development and delivering high-impact products. Expert in TypeScript, Rust and Python, with strong communication skills and a robust track record in problem-solving, performance management, and cross-functional collaboration.",
   "experience": [
     {
+      "company": "Zinguist",
+      "title": "CTO",
+      "location": "Berlin, Germany",
+      "period": "Nov 2023 - Present",
+      "responsibilities": [
+        "Automated workflows, improving operational efficiency by 30%",
+        "Scaled infrastructure to support a 200% increase in user activity, integrating video streaming capabilities for online classes",
+        "Led cross-functional teams, enhancing collaboration between engineering, product, and marketing"
+      ],
+      "technologies": [
+        "React",
+        "React Native",
+        "Node.js",
+        "Next.js",
+        "T3 stack",
+        "AWS",
+        "Docker",
+        "MongoDB"
+      ]
+    },
+    {
       "company": "Kellog, Brown & Root",
       "location": "Los Angeles, California, United States",
       "title": "Engineering Manager",
-      "period": "Dec 2023 - Present",
+      "period": "Dec 2023 - Feb 2025",
       "responsibilities": [
         "Leading the development of an AI tool to enhance enterprise-level capabilities",
         "Managing a team of engineers to design, build, and deploy AI solutions",
@@ -34,27 +55,6 @@
         "NLP"
       ],
       "year": 2023
-    },
-    {
-      "company": "Zinguist",
-      "title": "CTO",
-      "location": "Berlin, Germany",
-      "period": "Nov 2023 - Present",
-      "responsibilities": [
-        "Automated workflows, improving operational efficiency by 30%",
-        "Scaled infrastructure to support a 200% increase in user activity, integrating video streaming capabilities for online classes",
-        "Led cross-functional teams, enhancing collaboration between engineering, product, and marketing"
-      ],
-      "technologies": [
-        "React",
-        "React Native",
-        "Node.js",
-        "Next.js",
-        "T3 stack",
-        "AWS",
-        "Docker",
-        "MongoDB"
-      ]
     },
     {
       "company": "Mishcon De Reya (MDRX)",
