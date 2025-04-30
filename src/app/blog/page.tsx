@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { api } from "~/trpc/server";
+import { type Metadata } from "next";
 
-export const metadata = {
-  title: "Blog Posts",
-  description: "Read all our latest blog posts",
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Read Alexander Cannon's latest blog posts and articles",
 };
 
 export default async function PostsPage() {

@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
+import { type Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Eurovision Party",
-  description: "Eurovision Party Voting App",
+  description: "Join the ultimate Eurovision voting experience with Eurovision.fun",
 };
 
-export default function Layout({
+export default function EurovisionLayout({
   children,
 }: {
   children: React.ReactNode;

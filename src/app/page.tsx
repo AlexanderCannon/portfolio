@@ -1,5 +1,11 @@
 import { api, HydrateClient } from "~/trpc/server";
 import HomePage from "~/app/_components/sections/home-page";
+import { type Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Welcome to Alexander Cannon's portfolio website",
+};
 
 export default async function Home() {
   try {

@@ -8,7 +8,6 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
   className?: string;
 }
 
-
 interface Service {
   id: string;
   icon: React.FC<IconProps>;

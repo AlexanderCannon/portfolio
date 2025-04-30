@@ -6,7 +6,6 @@ import { BriefcaseIcon, BookIcon, AwardIcon, SearchIcon } from 'lucide-react';
 import Timeline from '~/app/_components/sections/timeline';
 import Link from 'next/link';
 
-
 const ExperiencePage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const resumeData = {

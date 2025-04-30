@@ -12,7 +12,10 @@ import { TRPCReactProvider } from "~/trpc/react";
 import { ThemeProvider } from "./_components/withTheme";
 
 export const metadata: Metadata = {
-  title: "Alexander Cannon",
+  title: {
+    default: "Alexander Cannon",
+    template: "%s | Alexander Cannon"
+  },
   description: "Learn about Alexander Cannon",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };

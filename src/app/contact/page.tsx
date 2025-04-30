@@ -1,6 +1,12 @@
 import React from 'react';
 import { FaTwitter, FaLinkedinIn, FaInstagram, FaGithub } from 'react-icons/fa';
 import LeadCaptureForm from '~/app/_components/sections/lead-capture-form';
+import { type Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Get in touch with Alexander Cannon",
+};
 
 const ContactPage: React.FC = () => {
   return (

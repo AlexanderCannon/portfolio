@@ -2,36 +2,39 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { NewComment } from "~/app/_components/forms/new-comment";
 import { MarkdownRenderer } from "~/app/_components/ui/markdown-renderer";
-// import { Metadata } from "next/types";
+import { type Metadata } from "next";
 import { api } from "~/trpc/server";
 
+type BlogPageProps = { params: Promise<{ slug: string }> };
 
-type Post = Awaited<ReturnType<typeof api.post.getPostBySlug>>;
-
-
-type BlogPageProps = Promise<{ slug: string }>;
-
-
-export default async function PostPage({
-  params,
-}: {
-  params: BlogPageProps
-}) {
+// Helper function to get post data
+async function getPostData(params: Promise<{ slug: string }>) {
   const { slug } = await params;
-  let post: Post | null = null;
+  return await api.post.getPostBySlug({ slug });
+}
 
-  try {
-    post = await api.post.getPostBySlug({ slug });
-  } catch (error) {
-    console.error(error);
-    notFound();
+export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
+  const post = await getPostData(params);
+
+  if (!post) {
+    return {
+      title: "Post Not Found",
+      description: "The requested blog post could not be found",
+    };
   }
+
+  return {
+    title: post.name,
+    description: post.body?.slice(0, 160) ?? "Read this blog post by Alexander Cannon",
+  };
+}
+
+export default async function PostPage({ params }: BlogPageProps) {
+  const post = await getPostData(params);
 
   if (!post) {
     notFound();
   }
-
-  void api.post.getPostBySlug.prefetch({ slug });
 
   return (
     <main className="container mx-auto px-4 py-8">
@@ -61,7 +64,6 @@ export default async function PostPage({
                   key={comment.id}
                   className="rounded-lg border border-gray-200 p-4"
                 >
-
                   <div className="mb-2 font-semibold">{comment.name ?? "Anonymous"}</div>
                   <div className="text-gray-700">{comment.body}</div>
                   <div className="mt-2 text-sm text-gray-500">
@@ -76,30 +78,6 @@ export default async function PostPage({
           }
         </section>
       </article>
-    </main >
+    </main>
   );
 }
-
-// // Generate metadata for the page
-// export async function generateMetadata(,
-// ): Promise<Metadata> {
-//   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-//   const { slug } = props.params as any;
-//   let post: Post | null = null;
-
-//   try {
-//     post = await api.post.getPostBySlug({ slug });
-//     if (!post) {
-//       throw new Error('Post not found');
-//     }
-//     return {
-//       title: post.name,
-//       description: post.body?.slice(0, 155),
-//     };
-//   } catch {
-//     return {
-//       title: 'Post Not Found',
-//       description: 'The requested post could not be found.',
-//     };
-//   }
-// }
