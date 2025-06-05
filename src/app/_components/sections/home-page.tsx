@@ -59,8 +59,8 @@ const HomePage = () => {
 
   const technologies = [
     { name: 'TypeScript', level: 100 },
-    { name: 'Python', level: 85 },
-    { name: 'Rust', level: 90 },
+    { name: 'Python', level: 95 },
+    { name: 'Rust', level: 80 },
     { name: 'React', level: 100 },
     { name: 'AWS', level: 100 },
     { name: 'AI/ML', level: 75 }
