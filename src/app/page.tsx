@@ -1,6 +1,7 @@
 import { api, HydrateClient } from "~/trpc/server";
 import HomePage from "~/app/_components/sections/home-page";
 import { type Metadata } from "next";
+import HomePageTerminal from "./_components/sections/home-page-terminal";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -18,7 +19,7 @@ export default async function Home() {
   return (
     <HydrateClient>
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b">
-        <HomePage />
+        <HomePageTerminal />
       </main>
     </HydrateClient>
   );
