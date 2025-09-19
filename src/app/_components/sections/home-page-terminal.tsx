@@ -49,7 +49,30 @@ const HomePageTerminal = () => {
       '  ls         - List directory contents',
       '  cat <file> - Display file contents',
       '  about      - Show detailed about information',
-      '  resume     - Display resume information'
+      '  resume     - Display resume information',
+      '  more       - Show additional fun commands'
+    ],
+
+    more: () => [
+      '🎮 Fun Commands:',
+      '  matrix     - Enter the Matrix',
+      '  snake      - Play Snake game',
+      '  fortune    - Get a random fortune',
+      '  cowsay     - Make a cow say something',
+      '  figlet     - ASCII art text',
+      '  neofetch   - System information',
+      '  weather    - Check the weather',
+      '  joke       - Tell a programming joke',
+      '  coffee     - Check coffee status',
+      '  motivation - Get daily motivation',
+      '',
+      '💡 Pro tip: These commands are perfect for:',
+      '  - Breaking the ice in interviews',
+      '  - Impressing colleagues',
+      '  - Having fun while coding',
+      '  - Getting daily motivation',
+      '',
+      'Try: fortune, joke, or coffee for a quick pick-me-up! ☕'
     ],
 
     whoami: () => [
@@ -230,6 +253,216 @@ const HomePageTerminal = () => {
       }
 
       return [`cat: ${file}: No such file or directory`];
+    },
+
+    // 🎮 Fun Commands
+    matrix: () => [
+      'Wake up, Alexander...',
+      'The Matrix has you...',
+      'Follow the white rabbit.',
+      '',
+      '01001000 01100101 01101100 01101100 01101111 00100000 01010111 01101111 01110010 01101100 01100100',
+      '',
+      'Reality is just a simulation.',
+      'Your code is the only truth.',
+      '',
+      'System Status:',
+      '  - Neural networks: Online',
+      '  - Quantum processors: Active',
+      '  - Reality.exe: Running',
+      '  - Coffee.dll: Critical'
+    ],
+
+    snake: () => [
+      '🐍 Snake Game',
+      '',
+      'Use WASD or arrow keys to control the snake.',
+      'Eat the food (🍎) to grow longer!',
+      'Don\'t hit the walls or yourself.',
+      '',
+      'Game Controls:',
+      '  W/↑ - Move up',
+      '  S/↓ - Move down', 
+      '  A/← - Move left',
+      '  D/→ - Move right',
+      '  Space - Pause',
+      '  R - Restart',
+      '',
+      'High Score: 42 (set by Alexander)',
+      '',
+      'Note: This is a text-based version.',
+      'For the full game, check out my GitHub!'
+    ],
+
+    fortune: () => {
+      const fortunes = [
+        'You will write bug-free code today.',
+        'A great opportunity in AI/ML awaits you.',
+        'Your next commit will be legendary.',
+        'The coffee gods smile upon you.',
+        'Your code will compile on the first try.',
+        'A senior developer will praise your work.',
+        'Your tests will all pass.',
+        'You will discover a new framework.',
+        'Your deployment will be successful.',
+        'The terminal is your friend.',
+        'You will solve a complex algorithm.',
+        'Your code will be featured in a blog post.',
+        'A recruiter will contact you about an amazing opportunity.',
+        'Your side project will gain traction.',
+        'You will learn something new today.'
+      ];
+      return [fortunes[Math.floor(Math.random() * fortunes.length)]];
+    },
+
+    cowsay: (args?: string[]) => {
+      const message = args?.join(' ') || 'Hello from the terminal!';
+      return [
+        ` ________________________`,
+        `< ${message} >`,
+        ` ------------------------`,
+        `        \\   ^__^`,
+        `         \\  (oo)\\_______`,
+        `            (__)\\       )\\/\\`,
+        `                ||----w |`,
+        `                ||     ||`,
+        '',
+        'The cow says: "Moo-ve fast and break things!"'
+      ];
+    },
+
+    figlet: (args?: string[]) => {
+      const text = args?.join(' ') || 'ALEXANDER';
+      return [
+        'ASCII Art Generator:',
+        '',
+        '┌─────────────────────────────────────┐',
+        '│  ╔═══════════════════════════════╗  │',
+        '│  ║                               ║  │',
+        '│  ║    ' + text.toUpperCase() + '    ║  │',
+        '│  ║                               ║  │',
+        '│  ╚═══════════════════════════════╝  │',
+        '└─────────────────────────────────────┘',
+        '',
+        'Try: figlet "YOUR TEXT HERE"'
+      ];
+    },
+
+    neofetch: () => [
+      '╭─────────────────────────────────────────╮',
+      '│  Alexander@Portfolio                    │',
+      '├─────────────────────────────────────────┤',
+      '│  OS: macOS 14.6.0 (Darwin)             │',
+      '│  Kernel: 24.6.0                        │',
+      '│  Shell: /bin/zsh                       │',
+      '│  Terminal: Cursor Terminal              │',
+      '│  CPU: Apple Silicon M2                 │',
+      '│  Memory: 16GB LPDDR5                   │',
+      '│  Storage: 512GB SSD                    │',
+      '│  Uptime: 10+ years (since 2009)        │',
+      '│  Packages: ∞ (always learning)         │',
+      '│  Languages: TypeScript, Python, Rust   │',
+      '│  Editor: Cursor (AI-powered)           │',
+      '│  Theme: Terminal Vibes                 │',
+      '│  Coffee: ☕☕☕☕☕ (Maximum)            │',
+      '│  Status: Building the future            │',
+      '╰─────────────────────────────────────────╯'
+    ],
+
+    weather: () => [
+      '🌤️  Weather Report',
+      '',
+      'Location: Beverly Hills, CA',
+      'Temperature: 72°F (22°C)',
+      'Condition: Perfect for coding',
+      'Humidity: 45%',
+      'Wind: 5 mph',
+      'UV Index: Moderate',
+      '',
+      'Forecast:',
+      '  Today: Sunny with a chance of bugs',
+      '  Tomorrow: Cloudy with a chance of deployment',
+      '  Weekend: Clear skies for side projects',
+      '',
+      'Programming Weather:',
+      '  Code Quality: Excellent',
+      '  Bug Density: Low',
+      '  Coffee Level: Critical',
+      'Motivation: High',
+      '',
+      'Perfect weather for building amazing things! ☀️'
+    ],
+
+    joke: () => {
+      const jokes = [
+        'Why do programmers prefer dark mode? Because light attracts bugs!',
+        'How many programmers does it take to change a light bulb? None, that\'s a hardware problem.',
+        'Why did the programmer quit his job? He didn\'t get arrays.',
+        'What do you call a programmer from Finland? Nerdic.',
+        'Why do Java developers wear glasses? Because they can\'t C#.',
+        'A SQL query goes into a bar, walks up to two tables and asks: "Can I join you?"',
+        'Why did the developer go broke? Because he used up all his cache.',
+        'What\'s a programmer\'s favorite hangout place? The Foo Bar.',
+        'Why do programmers hate nature? It has too many bugs.',
+        'How do you comfort a JavaScript bug? You console it.',
+        'What do you call a programmer who doesn\'t comment their code? A silent partner.',
+        'Why did the programmer get stuck in the shower? The instructions on the shampoo bottle said: Lather, Rinse, Repeat.',
+        'What\'s the object-oriented way to become wealthy? Inheritance.',
+        'Why do programmers prefer iOS development? Because Android has too many fragments.',
+        'What do you call a programmer from the future? A time-traveler.'
+      ];
+      return [jokes[Math.floor(Math.random() * jokes.length)]];
+    },
+
+    coffee: () => [
+      '☕ Coffee Status Report',
+      '',
+      'Current Level: MAXIMUM',
+      'Quality: Premium',
+      'Type: Dark Roast',
+      'Temperature: Perfect',
+      'Caffeine Content: Critical',
+      '',
+      'Coffee Metrics:',
+      '  - Cups consumed today: 8',
+      '  - Productivity boost: +300%',
+      '  - Bug-fixing power: Enhanced',
+      '  - Code quality: Improved',
+      '  - Debugging skills: Supercharged',
+      '',
+      'Coffee Philosophy:',
+      '  "Code without coffee is like a car without fuel."',
+      '  "The best code is written between sips."',
+      '  "Coffee is the fuel of innovation."',
+      '',
+      'Status: Ready to build amazing things! 🚀'
+    ],
+
+    motivation: () => {
+      const motivations = [
+        'Every expert was once a beginner. Every pro was once an amateur.',
+        'The only way to do great work is to love what you do.',
+        'Code is like humor. When you have to explain it, it\'s bad.',
+        'First, solve the problem. Then, write the code.',
+        'The best error message is the one that never shows up.',
+        'Code never lies, comments sometimes do.',
+        'Make it work, make it right, make it fast.',
+        'The best code is the code you don\'t have to write.',
+        'Programming is not about typing, it\'s about thinking.',
+        'Clean code always looks like it was written by someone who cares.',
+        'The only way to go fast is to go well.',
+        'Code is poetry that machines can understand.',
+        'The best way to get a project done faster is to start sooner.',
+        'Simplicity is the ultimate sophistication.',
+        'The best code is written with intention, not by accident.'
+      ];
+      return [
+        '💪 Daily Motivation',
+        '',
+        motivations[Math.floor(Math.random() * motivations.length)],
+        '',
+        'Remember: You\'re building the future, one commit at a time! 🚀'
+      ];
     }
   };
 
