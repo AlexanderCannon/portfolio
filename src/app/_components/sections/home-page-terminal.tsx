@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import EmailCaptureForm from '~/app/_components/forms/email-capture-form';
+import SnakeGame from '~/app/_components/games/snake-game';
 
 // Type definitions
 interface HistoryEntry {
@@ -34,6 +35,34 @@ const HomePageTerminal = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const terminalRef = useRef<HTMLDivElement>(null);
 
+  // Snake game instance
+  const snakeGame = SnakeGame({
+    onGameUpdate: (gameDisplay) => {
+      setHistory(prev => {
+        // Remove previous game display lines
+        const filtered = prev.filter(entry =>
+          !entry.content.includes('🐍 Snake Game') &&
+          !entry.content.includes('Use WASD') &&
+          !entry.content.includes('┌') &&
+          !entry.content.includes('│') &&
+          !entry.content.includes('└') &&
+          !entry.content.includes('Game Active') &&
+          !entry.content.includes('Game Over')
+        );
+
+        // Add new game display
+        const newEntries = gameDisplay.map(line => ({
+          type: 'output' as const,
+          content: line,
+          className: 'text-green-400'
+        }));
+
+        return [...filtered, ...newEntries];
+      });
+    }
+  });
+
+
   const commands: Record<string, CommandFunction> = {
     help: () => [
       'Available commands:',
@@ -50,7 +79,8 @@ const HomePageTerminal = () => {
       '  cat <file> - Display file contents',
       '  about      - Show detailed about information',
       '  resume     - Display resume information',
-      '  more       - Show additional fun commands'
+      '  more       - Show additional fun commands',
+      '  quit       - Quit active snake game'
     ],
 
     more: () => [
@@ -273,26 +303,29 @@ const HomePageTerminal = () => {
       '  - Coffee.dll: Critical'
     ],
 
-    snake: () => [
-      '🐍 Snake Game',
-      '',
-      'Use WASD or arrow keys to control the snake.',
-      'Eat the food (🍎) to grow longer!',
-      'Don\'t hit the walls or yourself.',
-      '',
-      'Game Controls:',
-      '  W/↑ - Move up',
-      '  S/↓ - Move down', 
-      '  A/← - Move left',
-      '  D/→ - Move right',
-      '  Space - Pause',
-      '  R - Restart',
-      '',
-      'High Score: 42 (set by Alexander)',
-      '',
-      'Note: This is a text-based version.',
-      'For the full game, check out my GitHub!'
-    ],
+    snake: () => {
+      // Start the snake game
+      snakeGame.startGame();
+
+      return [
+        '🐍 Snake Game Starting...',
+        '',
+        'Use WASD or arrow keys to control the snake.',
+        'Eat the food (🍎) to grow longer!',
+        'Don\'t hit the walls or yourself.',
+        '',
+        'Game Controls:',
+        '  W/↑ - Move up',
+        '  S/↓ - Move down',
+        '  A/← - Move left',
+        '  D/→ - Move right',
+        '  ESC - Quit game',
+        '',
+        'High Score: 42 (set by Alexander)',
+        '',
+        'Game is now active! Use WASD to move!'
+      ];
+    },
 
     fortune: () => {
       const fortunes = [
@@ -312,11 +345,11 @@ const HomePageTerminal = () => {
         'Your side project will gain traction.',
         'You will learn something new today.'
       ];
-      return [fortunes[Math.floor(Math.random() * fortunes.length)]];
+      return [fortunes[Math.floor(Math.random() * fortunes.length)] ?? 'You will write amazing code today!'];
     },
 
     cowsay: (args?: string[]) => {
-      const message = args?.join(' ') || 'Hello from the terminal!';
+      const message = args?.join(' ') ?? 'Hello from the terminal!';
       return [
         ` ________________________`,
         `< ${message} >`,
@@ -332,7 +365,7 @@ const HomePageTerminal = () => {
     },
 
     figlet: (args?: string[]) => {
-      const text = args?.join(' ') || 'ALEXANDER';
+      const text = args?.join(' ') ?? 'ALEXANDER';
       return [
         'ASCII Art Generator:',
         '',
@@ -411,7 +444,7 @@ const HomePageTerminal = () => {
         'Why do programmers prefer iOS development? Because Android has too many fragments.',
         'What do you call a programmer from the future? A time-traveler.'
       ];
-      return [jokes[Math.floor(Math.random() * jokes.length)]];
+      return [jokes[Math.floor(Math.random() * jokes.length)] ?? 'Why do programmers prefer dark mode? Because light attracts bugs!'];
     },
 
     coffee: () => [
@@ -459,10 +492,18 @@ const HomePageTerminal = () => {
       return [
         '💪 Daily Motivation',
         '',
-        motivations[Math.floor(Math.random() * motivations.length)],
+        motivations[Math.floor(Math.random() * motivations.length)] ?? 'Every expert was once a beginner.',
         '',
         'Remember: You\'re building the future, one commit at a time! 🚀'
       ];
+    },
+
+    quit: () => {
+      if (snakeGame.isGameActive()) {
+        snakeGame.stopGame();
+        return ['Snake game stopped. Thanks for playing!'];
+      }
+      return ['No active game to quit.'];
     }
   };
 
