@@ -80,7 +80,6 @@ const HomePageTerminal = () => {
       '  about      - Show detailed about information',
       '  resume     - Display resume information',
       '  more       - Show additional fun commands',
-      '  quit       - Quit active snake game'
     ],
 
     more: () => [
