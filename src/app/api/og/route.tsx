@@ -6,8 +6,8 @@ export const runtime = 'edge';
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
-    const title = searchParams.get('title') || 'Alexander Cannon';
-    const description = searchParams.get('description') || 'Portfolio and Blog';
+    const title = searchParams.get('title') ?? 'Alexander Cannon';
+    const description = searchParams.get('description') ?? 'Portfolio and Blog';
 
     return new ImageResponse(
       (
