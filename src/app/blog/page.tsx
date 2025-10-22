@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   description: "Read Alexander Cannon's latest blog posts and articles",
 };
 
+// Enable ISR with 1 hour revalidation
+export const revalidate = 3600;
+
 export default async function PostsPage() {
   const offset = 0;
   const limit = 100;
