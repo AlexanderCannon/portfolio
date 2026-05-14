@@ -64,7 +64,7 @@ export default function VolumeAppLandingPage() {
       <section className="mx-auto max-w-5xl px-4 py-16">
         <h2 className="text-center font-serif text-3xl font-bold text-[#132C4B]">What you get</h2>
         <p className="mx-auto mt-3 max-w-2xl text-center text-[#6D7785]">
-          Built as a focused native experience (Expo + React Native) with a small, opinionated surface area — fewer tabs, more
+          Built as a focused experience with a small surface area — fewer tabs, more
           chapters.
         </p>
         <ul className="mt-12 grid gap-6 sm:grid-cols-2">
