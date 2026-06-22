@@ -7,10 +7,42 @@ import { api } from "~/trpc/server";
 
 type BlogPageProps = { params: Promise<{ slug: string }> };
 
-// Helper function to get post data
+// Enable ISR with 1 hour revalidation
+export const revalidate = 3600;
+
+// Generate static params for all blog posts
+export async function generateStaticParams() {
+  try {
+    const posts = await api.post.getPostsWithLimit({ limit: 100, offset: 0 });
+    return posts.map((post) => ({
+      slug: post.slug,
+    }));
+  } catch (error) {
+    console.error("Error generating static params:", error);
+    return [];
+  }
+}
+
+// Helper function to get post data with timeout protection
 async function getPostData(params: Promise<{ slug: string }>) {
   const { slug } = await params;
-  return await api.post.getPostBySlug({ slug });
+
+  // Add timeout protection
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+
+  try {
+    const post = await api.post.getPostBySlug({ slug });
+    clearTimeout(timeoutId);
+    return post;
+  } catch (error) {
+    clearTimeout(timeoutId);
+    if (error instanceof Error && error.name === 'AbortError') {
+      console.error(`Timeout fetching post with slug: ${slug}`);
+      return null;
+    }
+    throw error;
+  }
 }
 
 export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
@@ -23,9 +55,33 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
     };
   }
 
+  const description = post.body?.slice(0, 160) ?? "Read this blog post by Alexander Cannon";
+  const title = post.name ?? "Blog Post";
+
   return {
-    title: post.name,
-    description: post.body?.slice(0, 160) ?? "Read this blog post by Alexander Cannon",
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'article',
+      publishedTime: post.createdAt.toISOString(),
+      authors: ['Alexander Cannon'],
+      images: [
+        {
+          url: `/api/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [`/api/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`],
+    },
   };
 }
 
