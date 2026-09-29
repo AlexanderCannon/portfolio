@@ -10,6 +10,9 @@ interface NewCommentProps {
   slug: string;
 }
 
+const fieldClass =
+  "w-full rounded-md border border-line bg-paper px-3 py-2.5 text-sm text-ink outline-none focus:border-accent focus:ring-1 focus:ring-accent";
+
 export function NewComment({ postId, slug }: NewCommentProps) {
   const [name, setName] = useState("");
   const [body, setBody] = useState("");
@@ -18,11 +21,9 @@ export function NewComment({ postId, slug }: NewCommentProps) {
 
   const createComment = api.comment.create.useMutation({
     onSuccess: () => {
-      // Reset form
       setName("");
       setBody("");
       setError("");
-      // Invalidate queries to refresh the comments list
       void utils.post.getPostBySlug.invalidate({ slug });
       void utils.post.getPostsWithLimit.invalidate();
     },
@@ -38,7 +39,6 @@ export function NewComment({ postId, slug }: NewCommentProps) {
       setError("Comment cannot be empty");
       return;
     }
-    console.log({ name, body })
     createComment.mutate({
       postId,
       body: body.trim(),
@@ -47,51 +47,43 @@ export function NewComment({ postId, slug }: NewCommentProps) {
   };
 
   return (
-    <div className="space-y-4 rounded-lg bg-gray-50 dark:bg-gray-800 p- mt-8 p-8">
-      <h3 className="text-lg font-semibold">Add a Comment</h3>
+    <div className="mt-10 border-t border-line pt-8">
+      <h3 className="font-display text-xl text-ink">Add a comment</h3>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <input
-            type="text"
-            placeholder="Your name (optional)"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="w-full max-w-md rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-purple-600 focus:outline-none focus:ring-1 focus:ring-purple-600 bg:white dark:bg-gray-900"
-          />
-        </div>
+      <form onSubmit={handleSubmit} className="mt-4 space-y-4">
+        <input
+          type="text"
+          placeholder="Your name (optional)"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className={`max-w-md ${fieldClass}`}
+        />
 
-        <div>
-          <textarea
-            placeholder="Write your comment..."
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
-            rows={4}
-            required
-            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-purple-600 focus:outline-none focus:ring-1 focus:ring-purple-600 bg-white dark:bg-gray-900"
-          />
-        </div>
+        <textarea
+          placeholder="Write your comment…"
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+          rows={4}
+          required
+          className={fieldClass}
+        />
 
-        {error && (
-          <div className="text-sm text-red-600">
-            {error}
-          </div>
-        )}
+        {error && <p className="text-sm text-destructive">{error}</p>}
 
         <Button
           type="submit"
           disabled={createComment.isPending || !body.trim()}
-          className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 disabled:opacity-50"
         >
           {createComment.isPending ? (
             <>
               <FaSpinner className="h-4 w-4 animate-spin" />
-              Posting...
+              Posting…
             </>
           ) : (
-            <span className="flex items-center gap-4">
-              <FaPaperPlane className="h-4 w-4" /> Post Comment
-            </span>
+            <>
+              <FaPaperPlane className="h-4 w-4" />
+              Post comment
+            </>
           )}
         </Button>
       </form>

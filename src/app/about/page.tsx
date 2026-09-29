@@ -1,200 +1,187 @@
 "use client";
 
-import Image from 'next/image';
-import React, { useState } from 'react';
-import { FaCommentAlt, FaGithub, FaLinkedin, FaGuitar, FaRunning, FaMountain, FaBookReader, FaBiking } from 'react-icons/fa';
-import { MdTravelExplore } from 'react-icons/md';
+import Image from "next/image";
+import PageShell from "~/app/_components/ui/page-shell";
 
-const AboutPage = () => {
-  const [activeHobby, setActiveHobby] = useState<number | null>(null);
+const hobbies = [
+  {
+    name: "Guitar",
+    blurb:
+      "Left-handed, not especially well, on instruments that take up more air than my playing has earned.",
+    image: "/images/guitar.png",
+  },
+  {
+    name: "Running",
+    blurb:
+      "Most mornings before the day has formed an opinion. Hills when I can, pavement when I cannot.",
+    image: "/images/running.png",
+  },
+  {
+    name: "Hiking",
+    blurb: "A sandwich in a pocket, boots, and weather that refuses to stay on message.",
+    image: "/images/hiking.png",
+  },
+  {
+    name: "Travel",
+    blurb:
+      "Cities arrived at with a loose plan. I wander until hunger becomes a compass.",
+    image: "/images/travel.png",
+  },
+  {
+    name: "Reading",
+    blurb: "Stacks that grow faster than evenings. I buy books the way other people buy intentions.",
+    image: "/images/reading.png",
+  },
+  {
+    name: "Cycling",
+    blurb:
+      "A folding bike for trains, stairwells, and hotels with mixed sincerity about cyclists.",
+    image: "/images/cycling.png",
+  },
+];
 
-  const hobbies = [
-    { icon: FaGuitar, name: 'Guitar', description: 'Finding peace in music and constantly learning new songs', image: "/images/guitar.png" },
-    { icon: FaRunning, name: 'Jogging', description: 'Early morning runs to start the day right', image: "/images/running.png" },
-    { icon: FaMountain, name: 'Hiking', description: 'Exploring trails and finding new perspectives', image: "/images/hiking.png" },
-    { icon: MdTravelExplore, name: 'Traveling', description: 'Discovering new cultures and places', image: "/images/travel.png" },
-    { icon: FaBookReader, name: 'Reading', description: 'Expanding horizons through books', image: "/images/reading.png" },
-    { icon: FaBiking, name: 'Cycling', description: 'Adventures on my bike', image: "/images/cycling.png" }
-  ];
-
+export default function AboutPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
-      {/* Hero Section */}
-      <div className="mb-12 text-center relative">
-        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-full h-2 bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500"></div>
-        <h1 className="text-4xl font-bold mb-4 animate-fade-in">Alexander Cannon</h1>
-        <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">Engineering Leader, Founder & Technology Innovator</p>
-        <div className="flex justify-center gap-4">
-          <a href="mailto:alexander@farpointlabs.com" className="flex items-center gap-2 text-purple-600 hover:text-blue-800 transition-colors duration-300">
-            <FaCommentAlt size={20} />
-            <span>Email</span>
+    <PageShell>
+      <header className="max-w-2xl">
+        <p className="text-xs font-medium uppercase tracking-[0.16em] text-accent">
+          About
+        </p>
+        <h1 className="mt-3 font-display text-4xl tracking-tight text-ink sm:text-5xl">
+          Alexander Cannon
+        </h1>
+        <p className="mt-4 text-lg leading-relaxed text-ink-muted">
+          Engineering leader and founder. I build things people come back to –
+          products with a bit of weight underfoot.
+        </p>
+        <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+          <a
+            href="mailto:alexander@farpointlabs.com"
+            className="text-accent underline-offset-4 hover:underline"
+          >
+            Email
           </a>
-          <a href="#" className="flex items-center gap-2 text-purple-600 hover:text-blue-800 transition-colors duration-300">
-            <FaGithub size={20} />
-            <span>GitHub</span>
+          <a
+            href="https://github.com/AlexanderCannon"
+            className="text-ink-muted underline-offset-4 hover:text-ink hover:underline"
+          >
+            GitHub
           </a>
-          <a href="#" className="flex items-center gap-2 text-purple-600 hover:text-blue-800 transition-colors duration-300">
-            <FaLinkedin size={20} />
-            <span>LinkedIn</span>
+          <a
+            href="https://linkedin.com/in/alexandermcannon"
+            className="text-ink-muted underline-offset-4 hover:text-ink hover:underline"
+          >
+            LinkedIn
           </a>
+          <a
+            href="https://alexandercannon.substack.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-ink-muted underline-offset-4 hover:text-ink hover:underline"
+          >
+            Substack
+          </a>
+        </div>
+      </header>
+
+      <div className="mt-14 grid gap-12 md:grid-cols-[1.2fr_0.8fr] md:gap-16">
+        <div className="space-y-6 text-base leading-relaxed text-ink-muted sm:text-lg">
+          <p>
+            I have spent most of my career in the places where software meets
+            real weather – Discovery&apos;s early live streaming, regulated
+            fintech, blockchain experiments, LLM tools that have to survive
+            production data and a grudge. The job description always said
+            implement and deliver. The actual work was taking ambiguity and
+            bad incentives and somehow producing something sturdy enough that
+            other people could stand on it.
+          </p>
+          <p>
+            These days I split time between shipping my own products and the
+            unglamorous leadership work: noticing the wobble before anyone else
+            does, keeping architecture honest, writing for the next person –
+            including future me, who will be tired and annoyed.
+          </p>
+          <p>
+            Away from the keyboard: strings, early miles, trails, foreign
+            sidewalks, unread spines, and a bike that folds into luggage.
+          </p>
+        </div>
+
+        <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-secondary">
+          <Image
+            src="/images/working.png"
+            alt="Alexander at work"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 40vw"
+          />
         </div>
       </div>
 
-      {/* About Section */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">About Me</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <section className="mt-20 border-t border-line pt-12">
+        <h2 className="font-display text-3xl text-ink">What I reach for</h2>
+        <div className="mt-8 grid gap-8 sm:grid-cols-2">
           <div>
-            <p className="text-gray-700 dark:text-gray-300 mb-4">
-              I&apos;m an engineering leader and founder who thrives on building innovative technology solutions. With extensive experience in video streaming platforms, blockchain technologies, and AI/ML applications, I&apos;ve led teams to deliver high-impact products across various industries. Currently, I&apos;m focused on developing LLM-based AI tools and managing enterprise-level AI solutions at Kellog, Brown & Root.
-            </p>
-          </div>
-          <div className="relative overflow-hidden rounded-lg h-64">
-            <Image
-              width={600}
-              height={400}
-              src="/images/working.png"
-              alt="Alexander working"
-              className="object-cover w-full h-full transform hover:scale-110 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-            <div className="absolute bottom-4 left-4 text-white">
-              <p className="text-sm">Building the future, one line of code at a time</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Journey Section */}
-      <section className="mb-12 relative">
-        <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-purple-500 to-blue-500"></div>
-        <div className="pl-6">
-          <h2 className="text-2xl font-bold mb-4">My Journey</h2>
-          <div className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 p-6 rounded-lg mb-6 transform hover:scale-102 transition-transform duration-300">
-            <p className="text-gray-700 dark:text-gray-300 mb-4">
-              My story in technology began before I could even ride a bicycle. While most kids were learning to balance on two wheels, I was diving into the world of coding, laying the foundation for what would become my life&apos;s passion. Ironically, I later discovered a love for cycling and now proudly own a folding bike that accompanies me on many adventures.
-            </p>
-            <p className="text-gray-700 dark:text-gray-300 mb-4">
-              At 14, my journey took an unexpected turn when I suffered a severe injury that threatened to derail everything. But what could have been a setback became a catalyst for growth. Through determination and resilience, I not only recovered but emerged stronger, with a deepened understanding of perseverance that would later prove invaluable in my entrepreneurial journey.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Expertise Section */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">Technical Expertise</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold mb-2">Core Technologies</h3>
-            <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-              {[
-                'TypeScript & JavaScript Ecosystem',
-                'Rust & Python Development',
-                'Cloud Platforms (AWS, Azure, GCP)',
-                'Blockchain & Smart Contracts',
-                'AI/ML & LLM Integration'
-              ].map((tech, i) => (
-                <li key={i} className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-purple-500"></div>
-                  {tech}
-                </li>
-              ))}
+            <h3 className="text-sm font-medium uppercase tracking-[0.12em] text-ink-muted">
+              Stack
+            </h3>
+            <ul className="mt-3 space-y-2 text-ink-muted">
+              <li>TypeScript, Rust, Python, Go</li>
+              <li>React, React Native, Expo, Next.js</li>
+              <li>AWS, Azure, GCP</li>
+              <li>Postgres, Redis, Kafka</li>
+              <li>LLMs where the pager still rings</li>
             </ul>
           </div>
-          <div className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold mb-2">Leadership Skills</h3>
-            <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-              {[
-                'Team Building & Mentorship',
-                'Technical Architecture Design',
-                'Agile Project Management',
-                'Cross-functional Collaboration',
-                'Performance Management'
-              ].map((skill, i) => (
-                <li key={i} className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                  {skill}
-                </li>
-              ))}
+          <div>
+            <h3 className="text-sm font-medium uppercase tracking-[0.12em] text-ink-muted">
+              How I work
+            </h3>
+            <ul className="mt-3 space-y-2 text-ink-muted">
+              <li>Small teams, clear ownership</li>
+              <li>Ship incremental, keep the joinery honest</li>
+              <li>Boring tech when it wins</li>
+              <li>Write for the next person – including future me</li>
             </ul>
           </div>
         </div>
       </section>
 
-      {/* Notable Projects Section */}
-      <section>
-        <h2 className="text-2xl font-bold mb-4">Notable Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {[
-            {
-              title: 'Enterprise AI Solutions',
-              description: 'Led the development of LLM-based AI tools for enterprise applications, focusing on scalability and performance optimization.',
-              gradient: 'from-purple-500 to-blue-500'
-            },
-            {
-              title: 'Fintech Innovation',
-              description: 'Founded and launched a regulated fintech application, implementing complex financial systems and obtaining banking licenses.',
-              gradient: 'from-blue-500 to-purple-500'
-            },
-            {
-              title: 'Streaming Platform',
-              description: "Developed Discovery Network's first online streaming platform, supporting live Olympic events for millions of viewers.",
-              gradient: 'from-purple-500 to-blue-500'
-            },
-            {
-              title: 'Blockchain Development',
-              description: 'Created multiple crypto tokens and ICOs, building surrounding web applications with modern tech stacks.',
-              gradient: 'from-blue-500 to-purple-500'
-            }
-          ].map((project, _index) => (
-            <div
-              key={project.title}
-              className={`bg-gradient-to-r ${project.gradient} p-6 rounded-lg text-white transform hover:scale-105 transition-all duration-300 hover:shadow-lg`}
-            >
-              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-              <p className="text-gray-100">{project.description}</p>
-            </div>
-          ))}
+      <section className="mt-20 border-t border-line pt-12">
+        <div className="max-w-measure">
+          <h2 className="font-display text-3xl text-ink">Away from the keyboard</h2>
+          <p className="mt-3 text-base leading-relaxed text-ink-muted sm:text-lg">
+            Hours that do not ship, and would be missed if they did.
+          </p>
         </div>
-      </section>
 
-      {/* Hobbies Section */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">Life Beyond Code</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {hobbies.map((hobby, index) => (
-            <div
+        <ul className="mt-10 max-w-2xl divide-y divide-line border-y border-line">
+          {hobbies.map((hobby) => (
+            <li
               key={hobby.name}
-              className="relative group cursor-pointer"
-              onMouseEnter={() => setActiveHobby(index)}
-              onMouseLeave={() => setActiveHobby(null)}
+              className="grid grid-cols-[4.5rem_1fr] items-start gap-4 py-6 sm:grid-cols-[5.5rem_1fr] sm:gap-6"
             >
-              <div className="aspect-square relative overflow-hidden rounded-lg">
+              <div className="relative aspect-square overflow-hidden rounded-md bg-secondary">
                 <Image
-                  width={260}
-                  height={260}
                   src={hobby.image}
                   alt={hobby.name}
-                  className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-500"
+                  fill
+                  className="object-cover"
+                  sizes="88px"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent 
-                             group-hover:from-purple-900/70 group-hover:via-purple-800/50 transition-colors duration-300"></div>
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
-                  <hobby.icon size={activeHobby === index ? 48 : 32} className="transition-all duration-300" />
-                  <h3 className="text-lg font-semibold mt-2">{hobby.name}</h3>
-                  <p className="text-sm text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {hobby.description}
-                  </p>
-                </div>
               </div>
-            </div>
+              <div>
+                <h3 className="font-display text-xl text-ink sm:text-2xl">
+                  {hobby.name}
+                </h3>
+                <p className="mt-2 text-base leading-relaxed text-ink-muted">
+                  {hobby.blurb}
+                </p>
+              </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
-
-    </div>
+    </PageShell>
   );
-};
-
-export default AboutPage;
+}

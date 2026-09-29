@@ -1,6 +1,6 @@
-import React from 'react';
-import { FaTwitter, FaLinkedinIn, FaInstagram, FaGithub } from 'react-icons/fa';
-import LeadCaptureForm from '~/app/_components/sections/lead-capture-form';
+import React from "react";
+import LeadCaptureForm from "~/app/_components/sections/lead-capture-form";
+import PageShell from "~/app/_components/ui/page-shell";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,47 +10,84 @@ export const metadata: Metadata = {
 
 const ContactPage: React.FC = () => {
   return (
-    <main className=" text-gray-900 dark:text-white py-16 px-4">
-      <div className="max-w-6xl mx-auto space-y-16">
+    <PageShell>
+      <header className="max-w-measure">
+        <p className="text-xs font-medium uppercase tracking-[0.16em] text-accent">
+          Contact
+        </p>
+        <h1 className="mt-3 font-display text-4xl tracking-tight text-ink sm:text-5xl">
+          Say hello
+        </h1>
+        <p className="mt-4 text-lg leading-relaxed text-ink-muted">
+          A question, a collaboration, or just a note — I read every message.
+        </p>
+      </header>
 
-        {/* Page Heading */}
-        <section className="text-center">
-          <h1 className="text-4xl font-bold mb-4">Say Hello</h1>
-          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
-            What&apos;s on your mind? Got a question or just want to say hi? <br />Feel free to drop me a message and I&apos;ll get back to you as soon as possible!
-          </p>
-        </section>
+      <div className="mt-12 grid gap-14 lg:grid-cols-[1fr_0.7fr] lg:gap-20">
+        <LeadCaptureForm />
 
-        {/* Lead Capture Form (Contact Form) */}
-        <section>
-          <LeadCaptureForm />
-        </section>
-
-        {/* Contact Information */}
-        <section className="text-center">
-          <h2 className="text-2xl font-semibold mb-4">Our Contact Details</h2>
-          <p className="text-gray-700 dark:text-gray-300">Beverley Hills<br />California, 90210</p>
-          <p className="text-gray-700 dark:text-gray-300 mt-2">Phone: (840) 233-27540</p>
-          <p className="text-gray-700 dark:text-gray-300">Email: alexander@farpointlabs.com</p>
-        </section>
-
-        {/* Social Media Links */}
-        <section className="flex justify-center space-x-6 mt-8">
-          <a href="https://twitter.com/alexmcan" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-            <FaTwitter className="text-primary text-2xl hover:text-accent transition" />
-          </a>
-          <a href="https://linkedin.com/in/alexandermcannon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <FaLinkedinIn className="text-primary text-2xl hover:text-accent transition" />
-          </a>
-          <a href="https://instagram.com/alexander.cannon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <FaInstagram className="text-primary text-2xl hover:text-accent transition" />
-          </a>
-          <a href="https://github.com/alexander-cannon" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <FaGithub className="text-primary text-2xl hover:text-accent transition" />
-          </a>
-        </section>
+        <aside className="space-y-8 text-sm text-ink-muted lg:pt-2">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.14em] text-ink">
+              Email
+            </p>
+            <a
+              href="mailto:alexander@farpointlabs.com"
+              className="mt-2 inline-block text-base text-accent hover:underline"
+            >
+              alexander@farpointlabs.com
+            </a>
+          </div>
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.14em] text-ink">
+              Around the web
+            </p>
+            <ul className="mt-3 space-y-2">
+              <li>
+                <a
+                  href="https://x.com/alexmcan"
+                  className="hover:text-ink"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  X / Twitter
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://linkedin.com/in/alexandermcannon"
+                  className="hover:text-ink"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/AlexanderCannon"
+                  className="hover:text-ink"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://alexandercannon.substack.com/"
+                  className="hover:text-ink"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Substack
+                </a>
+              </li>
+            </ul>
+          </div>
+        </aside>
       </div>
-    </main>
+    </PageShell>
   );
 };
 

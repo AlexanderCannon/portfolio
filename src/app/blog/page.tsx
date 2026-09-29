@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { api } from "~/trpc/server";
 import { type Metadata } from "next";
+import PageShell from "~/app/_components/ui/page-shell";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Read Alexander Cannon's latest blog posts and articles",
+  description: "Notes and articles from Alexander Cannon",
 };
 
 export default async function PostsPage() {
@@ -16,54 +17,73 @@ export default async function PostsPage() {
   ]);
 
   if (!totalPosts?.[0]) {
-    throw new Error('Failed to fetch total posts count');
+    throw new Error("Failed to fetch total posts count");
   }
 
-  const [{ count }] = totalPosts
+  const [{ count }] = totalPosts;
 
-  void await api.post.getPostsWithLimit.prefetch({ limit });
+  void (await api.post.getPostsWithLimit.prefetch({ limit }));
   void api.post.getTotalPosts.prefetch();
 
   return (
-    <main className="container mx-auto px-4 py-8">
-      <h1 className="mb-8 text-4xl font-bold">Blog Posts</h1>
+    <PageShell>
+      <header className="max-w-measure">
+        <p className="text-xs font-medium uppercase tracking-[0.16em] text-accent">
+          Writing
+        </p>
+        <h1 className="mt-3 font-display text-4xl tracking-tight text-ink sm:text-5xl">
+          Blog
+        </h1>
+        <p className="mt-4 text-lg text-ink-muted">
+          New writing lives on{" "}
+          <a
+            href="https://alexandercannon.substack.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-accent underline-offset-4 hover:underline"
+          >
+            Substack
+          </a>
+          . Older notes stay here.
+        </p>
+      </header>
 
       {posts.length === 0 ? (
-        <p className="text-gray-600">No posts yet.</p>
+        <p className="mt-12 text-ink-muted">No posts yet.</p>
       ) : (
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-12 divide-y divide-line border-y border-line">
           {posts.map((post) => (
-            <Link
-              key={post.id}
-              href={`/blog/${post.slug}`}
-              className="group rounded-lg border border-gray-200 p-6 transition-all hover:border-gray-300 hover:shadow-lg"
-            >
-              <article>
-                <h2 className="mb-3 text-2xl font-semibold group-hover:text-blue-600">
+            <li key={post.id}>
+              <Link
+                href={`/blog/${post.slug}`}
+                className="group block py-8 transition-transform duration-200 hover:translate-x-1"
+              >
+                <time
+                  dateTime={post.createdAt.toISOString()}
+                  className="text-xs uppercase tracking-[0.12em] text-ink-muted"
+                >
+                  {new Date(post.createdAt).toLocaleDateString()}
+                </time>
+                <h2 className="mt-2 font-display text-2xl text-ink group-hover:text-accent sm:text-3xl">
                   {post.name}
                 </h2>
-
-                <p className="mb-4 text-gray-600">
-                  {post.body?.slice(0, 150)}
-                  {post.body && post.body.length > 150 ? "..." : ""}
+                <p className="mt-2 max-w-measure text-ink-muted">
+                  {post.body?.slice(0, 160)}
+                  {post.body && post.body.length > 160 ? "…" : ""}
                 </p>
-
-                <div className="mt-4 flex items-center justify-between text-sm text-gray-500">
-                  <time dateTime={post.createdAt.toISOString()}>
-                    {new Date(post.createdAt).toLocaleDateString()}
-                  </time>
-
-                  <div className="flex items-center gap-2">
-                    <span className="text-gray-400">•</span>
-                    <span>{post.comments.length} comments</span>
-                  </div>
-                </div>
-              </article>
-            </Link>
+                <p className="mt-3 text-sm text-ink-muted">
+                  {post.comments.length} comments
+                </p>
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
       )}
-      <p>Posts {offset + 1} to {count < offset + limit ? count : offset + limit} of {count}</p>
-    </main>
+
+      <p className="mt-8 text-sm text-ink-muted">
+        Showing {Math.min(offset + 1, count)}–
+        {Math.min(offset + limit, count)} of {count}
+      </p>
+    </PageShell>
   );
 }

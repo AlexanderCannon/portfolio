@@ -1,36 +1,41 @@
 import "~/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
+import { Instrument_Serif } from "next/font/google";
 import { type Metadata } from "next";
-import Script from "next/script"
+import Script from "next/script";
 import HeaderSticky from "~/app/_components/ui/header-sticky";
 import Footer from "~/app/_components/ui/footer";
-// import LiveChatButton from "~/app/_components/live-chat";
 import CookiePopup from "./_components/ui/cookie-popup";
 
 import { TRPCReactProvider } from "~/trpc/react";
 import { ThemeProvider } from "./_components/withTheme";
 
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-display",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
     default: "Alexander Cannon",
-    template: "%s | Alexander Cannon"
+    template: "%s | Alexander Cannon",
   },
-  description: "Learn about Alexander Cannon",
+  description: "Engineering leader and builder — apps, tools, and systems.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const title = metadata.title as string;
-  const description = metadata.description!;
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
+    <html
+      lang="en"
+      className={`${GeistSans.variable} ${instrumentSerif.variable}`}
+    >
       <head>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        {/* Google Analytics */}
         <Script
           strategy="afterInteractive"
           src={`https://www.googletagmanager.com/gtag/js?id=G-JW1DQC0Z3P`}
@@ -44,17 +49,16 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body>
+      <body className="min-h-screen font-sans">
         <TRPCReactProvider>
           <ThemeProvider>
             <HeaderSticky />
             {children}
             <Footer />
-            {/* <LiveChatButton /> */}
             <CookiePopup />
           </ThemeProvider>
         </TRPCReactProvider>
       </body>
-    </html >
+    </html>
   );
 }

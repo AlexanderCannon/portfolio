@@ -1,61 +1,110 @@
-import React from 'react';
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaGithub } from 'react-icons/fa';
+import React from "react";
+import Link from "next/link";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gradient-to-r from-primary to-purple-600 dark:from-blue-500 dark:to-purple-500 text-white dark:text-black py-12 px-4">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-
-        {/* Contact Information */}
+    <footer className="mt-auto border-t border-line bg-paper">
+      <div className="mx-auto grid max-w-shell gap-10 px-5 py-12 sm:px-8 md:grid-cols-3">
         <div>
-          <h4 className="text-lg font-semibold mb-4 text-white dark:text-black">Contact Information</h4>
-          <p className="text-sm text-white dark:text-black">
-            Beverly Hills, California<br />
-             90210, United States
+          <p className="font-display text-lg text-ink">Alexander Cannon</p>
+          <p className="mt-2 max-w-xs text-sm leading-relaxed text-ink-muted">
+            Engineering leader and builder. Apps, tools, and systems that earn
+            their keep.
           </p>
-          <p className="text-sm mt-2 dark:text-black">Phone: +1 (840) 233-2754</p>
-          <p className="text-sm dark:text-black">Email: alexander@farpointlabs.com</p>
         </div>
 
-        {/* Quick Links */}
         <div>
-          <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-          <ul>
-            <li className="text-sm mb-2 hover:underline">
-              <a href="/about">About</a>
+          <p className="text-xs font-medium uppercase tracking-[0.14em] text-ink-muted">
+            Elsewhere
+          </p>
+          <ul className="mt-3 space-y-2 text-sm">
+            <li>
+              <Link href="/about" className="text-ink hover:text-accent">
+                About
+              </Link>
             </li>
-            <li className="text-sm mb-2 hover:underline">
-              <a href="/contact">Contact</a>
+            <li>
+              <Link href="/projects" className="text-ink hover:text-accent">
+                Projects
+              </Link>
             </li>
-            <li className="text-sm mb-2 hover:underline">
-              <a href="/privacy-policy">Privacy Policy</a>
+            <li>
+              <a
+                href="https://alexandercannon.substack.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ink hover:text-accent"
+              >
+                Substack
+              </a>
+            </li>
+            <li>
+              <Link href="/contact" className="text-ink hover:text-accent">
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/privacy-policy"
+                className="text-ink hover:text-accent"
+              >
+                Privacy
+              </Link>
             </li>
           </ul>
         </div>
 
-        {/* Social Media Icons */}
-        <div className="text-center md:text-left">
-          <h4 className="text-lg font-semibold mb-4">Follow Me</h4>
-          <div className="flex justify-center md:justify-start space-x-4">
-            <a href="https://twitter.com/alexmcan" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-              <FaTwitter className="text-white dark:text-black text-xl hover:text-accent transition" />
+        <div>
+          <p className="text-xs font-medium uppercase tracking-[0.14em] text-ink-muted">
+            Contact
+          </p>
+          <p className="mt-3 text-sm text-ink">
+            <a
+              href="mailto:alexander@farpointlabs.com"
+              className="hover:text-accent"
+            >
+              alexander@farpointlabs.com
             </a>
-            <a href="https://linkedin.com/in/alexandermcannon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <FaLinkedinIn className="text-white text-xl hover:text-accent transition dark:text-black" />
+          </p>
+          <div className="mt-4 flex gap-4 text-sm text-ink-muted">
+            <a
+              href="https://x.com/alexmcan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-ink"
+            >
+              X
             </a>
-            <a href="https://instagram.com/alexander.cannon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <FaInstagram className="text-white  dark:text-black text-xl hover:text-accent transition" />
+            <a
+              href="https://linkedin.com/in/alexandermcannon"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-ink"
+            >
+              LinkedIn
             </a>
-            <a href="github.com/alexandercannon" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <FaGithub className="text-white dark:text-black text-xl hover:text-accent transition" />
+            <a
+              href="https://github.com/AlexanderCannon"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-ink"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://alexandercannon.substack.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-ink"
+            >
+              Substack
             </a>
           </div>
         </div>
       </div>
 
-      {/* Copyright Notice */}
-      <div className="text-center mt-8 text-sm">
-        © {new Date().getFullYear()} Alexander Cannon. All rights reserved.
+      <div className="border-t border-line px-5 py-4 text-center text-xs text-ink-muted sm:px-8">
+        © {new Date().getFullYear()} Alexander Cannon
       </div>
     </footer>
   );

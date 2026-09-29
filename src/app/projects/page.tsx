@@ -1,300 +1,134 @@
-'use client';
-import React, { useState, useEffect } from 'react';
-import {
-  Github,
-  ExternalLink,
-  Search,
-} from 'lucide-react';
-import Image from 'next/image';
+"use client";
 
-// Sample project data - you can replace this with your actual projects
-const projectsData = [
-  {
-    id: 1,
-    title: "Portfolio Website",
-    description: "A modern portfolio website built with Next.js and Tailwind CSS. Features interactive elements and smooth animations.",
-    tags: ["Next.js", "React", "Tailwind CSS"],
-    image: "/images/portfolio.png",
-    github: "https://github.com/alexandercannon/portfolio",
-    live: "https://www.alexandercannon.dev",
-    category: "Full Stack"
-  },
-  {
-    id: 2,
-    title: "Koi CD",
-    description: "A concourse-as-a-service CI/CD platform that enables developers to automate their software delivery pipelines.",
-    tags: ["Golang", "Concourse", "Sqlite", "Docker", "Command Line"],
-    image: "/images/koi-cd.png",
-    github: "https://github.com/farpointlabs/koi-cd",
-    live: "http://farpointlabs.com",
-    category: "Developer Tools"
-  },
-  {
-    id: 3,
-    title: "Plannet.dev",
-    description: "An LLM powered command line tool that generates and manages ticketing systems for software projects.",
-    tags: ["Golang", "LLM", "Command Line", "Jira", "Slack"],
-    image: "/images/plannet.png",
-    github: "https://github.com/plannet-ai/plannet",
-    live: "https://www.plannet.dev/",
-    category: "Machine Learning"
-  },
-  {
-    id: 4,
-    title: "Guitar Visualizer",
-    description: "A mobile app for learning guitar chords and scales. Features a real-time visualizer notes.",
-    tags: ["React Native", "Expo", "Redux", "Firebase", "Music Theory"],
-    image: "/images/guitar-visualiser.png",
-    github: "https://github.com/alexandercannon/guitarvisualizer",
-    live: "https://guitarvisualizer.com",
-    category: "Mobile"
-  },
-  {
-    id: 5,
-    title: "Infraedge",
-    description: "A cloud infrastructure management tool that helps teams visualize and manage their cloud resources.",
-    tags: ["Golang", "AWS", "Graph", "IAC"],
-    image: "/images/infraedge.png",
-    github: "https://github.com/alexandercannon/infraedge",
-    live: "https://www.infraedge.dev",
-    category: "Developer Tools"
-  },
-  {
-    id: 6,
-    title: "Scratcher",
-    description: "A blockchain-based digital publishing platform that enables creators to monetize their content across the internet.",
-    tags: ["React", "Solidity", "Ethereum", "IPFS", "Web3"],
-    image: "/images/scratcher.png",
-    github: "https://github.com/alexandercannon/scratcher",
-    live: "https://www.scratcher.zone",
-    category: "Full Stack"
-  },
-  {
-    id: 7,
-    title: "Eurovision Party",
-    description: "A real-time voting app for Eurovision parties. Features live results, party voting, and a leaderboard.",
-    tags: ["React Native", "Supabase", "Websockets", "Music"],
-    image: "/images/eurovision-party.png",
-    github: "https://github.com/alexandercannon/eurovision.fun",
-    live: "https://www.eurovision.fun",
-    category: "Mobile"
-  },
-  {
-    id: 8,
-    title: "Sophia's Future Doctor Club",
-    description:
-      "Educational habit-building for aspiring future doctors — weekly picks, club notes, badges, and streaks, all on-device.",
-    tags: ["React Native", "Expo", "SQLite", "Education"],
-    image: "/images/sophias-future-doctor-club.png",
-    github: null,
-    live: "https://apps.apple.com/us/app/sophias-future-doctor-club/id6777174145",
-    category: "Mobile"
-  },
-  {
-    id: 9,
-    title: "VOLUME",
-    description:
-      "A reading companion — log sessions, curate your shelf, and keep streaks without losing the joy of the page.",
-    tags: ["React Native", "Expo", "Supabase", "iOS", "Android"],
-    image: "/images/volume-app.png",
-    github: "https://github.com/AlexanderCannon/volume-reading",
-    live: "https://apps.apple.com/us/app/volume-books/id6769268426",
-    category: "Mobile"
-  },
-  {
-    id: 10,
-    title: "Honey Do",
-    description:
-      "Family planner with shared calendars, assigned tasks, role-based access, and a points system for kids.",
-    tags: ["React Native", "Expo", "Firebase", "Family"],
-    image: "/images/honey-do.png",
-    github: "https://github.com/AlexanderCannon/honey-do-app",
-    live: null,
-    category: "Mobile"
-  },
-  {
-    id: 11,
-    title: "lllanguage",
-    description:
-      "Language learning where real communication generates the curriculum — speak, capture gaps, and reuse what you need.",
-    tags: ["React Native", "Expo", "LLM", "Supabase"],
-    image: "/images/lllanguage.png",
-    github: "https://github.com/AlexanderCannon/lllanguage-web",
-    live: "https://lllanguage.com/",
-    category: "Mobile"
-  },
-  {
-    id: 12,
-    title: "PathRanger",
-    description:
-      "Rust CLI that tracks frequent directories, bookmarks with tags, and fuzzy-jumps you where you actually work.",
-    tags: ["Rust", "CLI", "Shell"],
-    image: "/images/pathranger.png",
-    github: "https://github.com/AlexanderCannon/pathranger",
-    live: null,
-    category: "Developer Tools"
-  },
-  {
-    id: 13,
-    title: "CacheClip",
-    description:
-      "Lightweight Rust clipboard history manager — silent capture, fuzzy search, and instant restore from the terminal.",
-    tags: ["Rust", "CLI", "Clipboard"],
-    image: "/images/cacheclip.png",
-    github: "https://github.com/AlexanderCannon/cacheclip",
-    live: "https://github.com/AlexanderCannon/cacheclip/releases",
-    category: "Developer Tools"
-  }
-];
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import PageShell from "~/app/_components/ui/page-shell";
+import { liveLabel, projects, type Thumb } from "~/app/projects/data";
 
-const categories = ["All", "Full Stack", "Developer Tools", "Machine Learning", "Mobile"];
-
-const ProjectsPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  const [searchQuery, setSearchQuery] = useState("");
-  const [filteredProjects, setFilteredProjects] = useState(projectsData);
-
-  // Filter projects based on category and search query
-  useEffect(() => {
-    let filtered = projectsData;
-
-    if (selectedCategory !== "All") {
-      filtered = filtered.filter(project => project.category === selectedCategory);
-    }
-
-    if (searchQuery) {
-      filtered = filtered.filter(project =>
-        project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        project.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
-      );
-    }
-
-    setFilteredProjects(filtered);
-  }, [selectedCategory, searchQuery]);
-
+function ThumbFrame({
+  thumb,
+  image,
+  title,
+}: {
+  thumb: Thumb;
+  image: string;
+  title: string;
+}) {
+  // One footprint for every row → text column never zig-zags.
+  // Phones sit in an accent-soft mat so the empty sides feel intentional.
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
-      {/* Header */}
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">My Projects</h1>
-        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          Explore my latest projects and experiments. Each project represents a unique challenge and learning experience.
-        </p>
-      </div>
-
-      {/* Filters and Search */}
-      <div className="mb-8 space-y-4 md:space-y-0 md:flex md:items-center md:justify-between">
-        {/* Category Filters */}
-        <div className="flex flex-wrap gap-2">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200
-                ${selectedCategory === category
-                  ? 'bg-primary text-white shadow-md hover:bg-primary-600 dark:bg-purple-600 dark:text-white dark:hover:bg-blue-600'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'}'}`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        {/* Search Bar */}
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-          <input
-            type="text"
-            placeholder="Search projects..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-800 dark:border-gray-700 dark:focus:ring-blue-400 dark:text-gray-300"
+    <div
+      className={
+        thumb === "phone"
+          ? "relative aspect-[16/10] w-full overflow-hidden rounded-md border border-line bg-accent-soft"
+          : "relative aspect-[16/10] w-full overflow-hidden rounded-md border border-line bg-secondary"
+      }
+    >
+      {thumb === "phone" ? (
+        <div className="absolute inset-y-2 left-1/2 aspect-[3/4] -translate-x-1/2 overflow-hidden rounded-[0.4rem] border border-line bg-card shadow-sm">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            sizes="(max-width: 768px) 40vw, 120px"
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
           />
         </div>
-      </div>
+      ) : (
+        <Image
+          src={image}
+          alt={title}
+          fill
+          sizes="(max-width: 768px) 100vw, 288px"
+          className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
+        />
+      )}
+    </div>
+  );
+}
 
-      {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredProjects.map((project) => (
-          <div
+export default function ProjectsPage() {
+  return (
+    <PageShell>
+      <header className="max-w-2xl">
+        <p className="text-xs font-medium uppercase tracking-[0.16em] text-accent">
+          Work
+        </p>
+        <h1 className="mt-3 font-display text-4xl tracking-tight text-ink sm:text-5xl">
+          Projects
+        </h1>
+        <p className="mt-4 text-lg leading-relaxed text-ink-muted">
+          Things I have shipped – apps on phones, tools in terminals, and a few
+          experiments that stuck around.
+        </p>
+      </header>
+
+      <ul className="mt-14 divide-y divide-line border-y border-line">
+        {projects.map((project, index) => (
+          <motion.li
             key={project.id}
-            className="bg-white dark:bg-gray-900 rounded-xl shadow-md overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.4, delay: Math.min(index * 0.03, 0.2) }}
+            className="group grid gap-5 py-7 md:grid-cols-[minmax(0,18rem)_1fr] md:items-center md:gap-8"
           >
-            {/* Project Image */}
-            <div className="relative">
-              <Image
-                width={600}
-                height={600}
-                src={project.image}
-                alt={project.title}
-                className="w-full h-48 object-cover object-top"
+            <Link href={`/projects/${project.slug}`} className="block">
+              <ThumbFrame
+                thumb={project.thumb}
+                image={project.image}
+                title={project.title}
               />
-              <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 bg-white rounded-full text-gray-900 hover:text-primary transition-colors duration-200"
-                  >
-                    <Github className="w-6 h-6" />
-                  </a>
-                )}
+            </Link>
+
+            <div className="flex flex-col justify-center">
+              <p className="text-xs uppercase tracking-[0.14em] text-ink-muted">
+                {project.kind}
+              </p>
+              <h2 className="mt-2 font-display text-3xl tracking-tight text-ink sm:text-4xl">
+                <Link
+                  href={`/projects/${project.slug}`}
+                  className="hover:text-accent"
+                >
+                  {project.title}
+                </Link>
+              </h2>
+              <p className="mt-3 max-w-measure text-base leading-relaxed text-ink-muted">
+                {project.description}
+              </p>
+              <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+                <Link
+                  href={`/projects/${project.slug}`}
+                  className="font-medium text-accent underline-offset-4 hover:underline"
+                >
+                  Read more
+                </Link>
                 {project.live && (
                   <a
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 bg-white rounded-full text-gray-900 hover:text-primary transition-colors duration-200"
+                    className="text-ink-muted underline-offset-4 hover:text-ink hover:underline"
                   >
-                    <ExternalLink className="w-6 h-6" />
+                    {liveLabel(project.live)}
+                  </a>
+                )}
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-ink-muted underline-offset-4 hover:text-ink hover:underline"
+                  >
+                    Code
                   </a>
                 )}
               </div>
             </div>
-
-            {/* Project Info */}
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                {project.title}
-              </h3>
-              <p className="text-gray-600 mb-4">
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 bg-gray-100 dark:bg-purple-600 text-gray-600 dark:text-white text-sm rounded-full"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
+          </motion.li>
         ))}
-      </div>
-
-      {/* No Results Message */}
-      {
-        filteredProjects.length === 0 && (
-          <div className="text-center py-12">
-            <div className="text-gray-400 mb-4">
-              <Search className="w-12 h-12 mx-auto" />
-            </div>
-            <h3 className="text-xl font-medium text-gray-900 mb-2">
-              No projects found
-            </h3>
-            <p className="text-gray-600">
-              Try adjusting your search or filter criteria
-            </p>
-          </div>
-        )
-      }
-    </div >
+      </ul>
+    </PageShell>
   );
-};
-
-export default ProjectsPage;
+}
