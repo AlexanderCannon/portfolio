@@ -78,6 +78,72 @@ const projectsData = [
     github: "https://github.com/alexandercannon/eurovision.fun",
     live: "https://www.eurovision.fun",
     category: "Mobile"
+  },
+  {
+    id: 8,
+    title: "Sophia's Future Doctor Club",
+    description:
+      "Educational habit-building for aspiring future doctors — weekly picks, club notes, badges, and streaks, all on-device.",
+    tags: ["React Native", "Expo", "SQLite", "Education"],
+    image: "/images/sophias-future-doctor-club.png",
+    github: null,
+    live: "https://apps.apple.com/us/app/sophias-future-doctor-club/id6777174145",
+    category: "Mobile"
+  },
+  {
+    id: 9,
+    title: "VOLUME",
+    description:
+      "A reading companion — log sessions, curate your shelf, and keep streaks without losing the joy of the page.",
+    tags: ["React Native", "Expo", "Supabase", "iOS", "Android"],
+    image: "/images/volume-app.png",
+    github: "https://github.com/AlexanderCannon/volume-reading",
+    live: "https://apps.apple.com/us/app/volume-books/id6769268426",
+    category: "Mobile"
+  },
+  {
+    id: 10,
+    title: "Honey Do",
+    description:
+      "Family planner with shared calendars, assigned tasks, role-based access, and a points system for kids.",
+    tags: ["React Native", "Expo", "Firebase", "Family"],
+    image: "/images/honey-do.png",
+    github: "https://github.com/AlexanderCannon/honey-do-app",
+    live: null,
+    category: "Mobile"
+  },
+  {
+    id: 11,
+    title: "lllanguage",
+    description:
+      "Language learning where real communication generates the curriculum — speak, capture gaps, and reuse what you need.",
+    tags: ["React Native", "Expo", "LLM", "Supabase"],
+    image: "/images/lllanguage.png",
+    github: "https://github.com/AlexanderCannon/lllanguage-web",
+    live: "https://lllanguage.com/",
+    category: "Mobile"
+  },
+  {
+    id: 12,
+    title: "PathRanger",
+    description:
+      "Rust CLI that tracks frequent directories, bookmarks with tags, and fuzzy-jumps you where you actually work.",
+    tags: ["Rust", "CLI", "Shell"],
+    image: "/images/pathranger.png",
+    github: "https://github.com/AlexanderCannon/pathranger",
+    live: null,
+    category: "Developer Tools"
+  },
+  {
+    id: 13,
+    title: "CacheClip",
+    description:
+      "Lightweight Rust clipboard history manager — silent capture, fuzzy search, and instant restore from the terminal.",
+    tags: ["Rust", "CLI", "Clipboard"],
+    image: "/images/cacheclip.png",
+    github: "https://github.com/AlexanderCannon/cacheclip",
+    live: "https://github.com/AlexanderCannon/cacheclip/releases",
+    category: "Developer Tools"
   }
 ];
 

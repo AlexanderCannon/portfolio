@@ -34,6 +34,9 @@ export default function VolumeAppLayout({ children }: { children: React.ReactNod
             <Link href={`${base}/terms`} className="transition hover:text-[#42C7A1]">
               Terms
             </Link>
+            <Link href={`${base}/go-live`} className="transition hover:text-[#42C7A1]">
+              Go live
+            </Link>
             <Link href="/contact" className="transition hover:text-[#42C7A1]">
               Contact
             </Link>
