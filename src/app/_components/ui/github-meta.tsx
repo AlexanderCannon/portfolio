@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 function parseRepo(url: string): { owner: string; repo: string } | null {
-  const m = url.match(/github\.com\/([^/]+)\/([^/#?]+)/i);
+  const m = /github\.com\/([^/]+)\/([^/#?]+)/i.exec(url);
   if (!m?.[1] || !m[2]) return null;
   return { owner: m[1], repo: m[2].replace(/\.git$/, "") };
 }

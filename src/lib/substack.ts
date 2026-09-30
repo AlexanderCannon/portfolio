@@ -14,14 +14,14 @@ export const getLatestSubstack = cache(async (): Promise<SubstackPost | null> =>
     });
     if (!res.ok) return null;
     const xml = await res.text();
-    const item = xml.match(/<item>([\s\S]*?)<\/item>/)?.[1];
+    const item = /<item>([\s\S]*?)<\/item>/.exec(xml)?.[1];
     if (!item) return null;
-    const title = item
-      .match(/<title><!\[CDATA\[(.*?)\]\]><\/title>|<title>(.*?)<\/title>/)?.[1]
-      ?? item.match(/<title>(.*?)<\/title>/)?.[1]
-      ?? null;
-    const link = item.match(/<link>(.*?)<\/link>/)?.[1] ?? null;
-    const date = item.match(/<pubDate>(.*?)<\/pubDate>/)?.[1] ?? null;
+    const titleMatch =
+      /<title><!\[CDATA\[(.*?)\]\]><\/title>|<title>(.*?)<\/title>/.exec(item) ??
+      /<title>(.*?)<\/title>/.exec(item);
+    const title = titleMatch?.[1] ?? titleMatch?.[2] ?? null;
+    const link = /<link>(.*?)<\/link>/.exec(item)?.[1] ?? null;
+    const date = /<pubDate>(.*?)<\/pubDate>/.exec(item)?.[1] ?? null;
     if (!title || !link) return null;
     return { title: decodeXml(title), link, date };
   } catch {
