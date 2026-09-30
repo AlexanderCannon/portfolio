@@ -19,11 +19,6 @@ const Footer: React.FC = () => {
           <p className="font-label text-ink-muted">Elsewhere</p>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
-              <Link href="/about" className="text-ink hover:text-accent">
-                About
-              </Link>
-            </li>
-            <li>
               <Link href="/projects" className="text-ink hover:text-accent">
                 Projects
               </Link>
@@ -37,6 +32,11 @@ const Footer: React.FC = () => {
               >
                 Substack
               </a>
+            </li>
+            <li>
+              <Link href="/print" className="text-ink hover:text-accent">
+                Print resume
+              </Link>
             </li>
             <li>
               <Link href="/contact" className="text-ink hover:text-accent">

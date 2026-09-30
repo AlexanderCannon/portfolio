@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 
 interface HistoryEntry {
   type: "command" | "output";
@@ -8,7 +9,7 @@ interface HistoryEntry {
   muted?: boolean;
 }
 
-type CommandFn = (args?: string[]) => string[] | "CLEAR";
+type CommandFn = (args?: string[]) => string[] | "CLEAR" | "NAV";
 
 const WELCOME: HistoryEntry[] = [
   {
@@ -17,79 +18,151 @@ const WELCOME: HistoryEntry[] = [
   },
   {
     type: "output",
-    content: 'Type "help" for commands. Arrow keys for history.',
+    content: 'Type "help". Press / anywhere to focus. Arrow keys for history.',
     muted: true,
   },
   { type: "output", content: "" },
 ];
 
-const commands: Record<string, CommandFn> = {
-  help: () => [
-    "Available commands:",
-    "  help        Who you are talking to",
-    "  whoami      Short bio",
-    "  projects    Things I have shipped",
-    "  skills      Stack I reach for",
-    "  contact     How to reach me",
-    "  about       A bit more",
-    "  clear       Wipe the screen",
-    "  date        Current date",
-  ],
-  whoami: () => [
-    "Alexander Cannon",
-    "Engineering leader & builder",
-    "alexander@farpointlabs.com",
-  ],
-  projects: () => [
-    "Featured:",
-    "  VOLUME                     — reading companion (App Store)",
-    "  Sophia's Future Doctor Club — habit app for future doctors",
-    "  Honey Do                   — family planner",
-    "  lllanguage                 — language from real conversation",
-    "  PathRanger / CacheClip     — Rust CLIs",
-    "",
-    "See /projects for the full list.",
-  ],
-  skills: () => [
-    "TypeScript · Rust · Python · Go",
-    "React · React Native · Expo · Next.js",
-    "AWS · Azure · GCP",
-    "Postgres · Redis · Kafka",
-    "LLMs in production, not just demos",
-  ],
-  contact: () => [
-    "Email     alexander@farpointlabs.com",
-    "GitHub    github.com/AlexanderCannon",
-    "LinkedIn  linkedin.com/in/alexandermcannon",
-    "Substack  alexandercannon.substack.com",
-    "Web       /contact",
-  ],
-  about: () => [
-    "I ship products people return to — apps, tools, and systems.",
-    "Background across streaming, fintech, blockchain, and AI.",
-    "These days: hands-on building + the leadership work that",
-    "keeps architecture honest.",
-  ],
-  clear: () => "CLEAR",
-  date: () => [new Date().toString()],
-  ls: () => ["about.txt  projects/  contact.md  skills.json  resume.json"],
-  cat: (args) => {
-    const file = args?.[0]?.toLowerCase();
-    if (file === "about.txt") return commands.about!();
-    if (file === "contact.md") return commands.contact!();
-    if (file === "skills.json") return commands.skills!();
-    if (file === "resume.json") return ["Open /resume.json in the browser."];
-    return [`cat: ${args?.[0] ?? "?"}: No such file`];
-  },
+const NAV: Record<string, string> = {
+  volume: "/projects/volume",
+  sophia: "/projects/sophias-future-doctor-club",
+  "sophias-future-doctor-club": "/projects/sophias-future-doctor-club",
+  honey: "/projects/honey-do",
+  "honey-do": "/projects/honey-do",
+  lllanguage: "/projects/lllanguage",
+  pathranger: "/projects/pathranger",
+  cacheclip: "/projects/cacheclip",
+  eurovision: "/projects/eurovision-party",
+  guitar: "/projects/guitar-visualizer",
+  plannet: "/projects/plannet",
+  projects: "/projects",
+  about: "/#about",
+  contact: "/contact",
+  experience: "/experience",
+  blog: "/blog",
+  resume: "/print",
+  home: "/",
 };
 
+function buildCommands(navigate: (path: string) => void): Record<
+  string,
+  CommandFn
+> {
+  return {
+    help: () => [
+      "Available commands:",
+      "  help / whoami / projects / skills / contact / about",
+      "  open <slug>  Jump to a project (e.g. open volume)",
+      "  resume       Printable resume",
+      "  clear / date / ls / cat <file>",
+      "  cannon       Easter egg",
+    ],
+    whoami: () => [
+      "Alexander Cannon",
+      "Engineering leader & builder",
+      "alexander@farpointlabs.com",
+    ],
+    projects: () => [
+      "Featured:",
+      "  VOLUME                     — reading companion (App Store)",
+      "  Sophia's Future Doctor Club — habit app for future doctors",
+      "  Honey Do                   — family planner (cooking)",
+      "  lllanguage                 — language from real conversation",
+      "  PathRanger / CacheClip     — Rust CLIs",
+      "",
+      'Try: open volume',
+    ],
+    skills: () => [
+      "TypeScript · Rust · Python · Go",
+      "React · React Native · Expo · Next.js",
+      "AWS · Azure · GCP",
+      "Postgres · Redis · Kafka",
+      "LLMs in production, not just demos",
+    ],
+    contact: () => [
+      "Email     alexander@farpointlabs.com",
+      "GitHub    github.com/AlexanderCannon",
+      "LinkedIn  linkedin.com/in/alexandermcannon",
+      "Substack  alexandercannon.substack.com",
+      "Web       /contact",
+    ],
+    about: () => [
+      "I ship products people return to — apps, tools, and systems.",
+      "Background across streaming, fintech, blockchain, and AI.",
+      "These days: hands-on building + the leadership work that",
+      "keeps architecture honest.",
+    ],
+    resume: () => {
+      navigate("/print");
+      return ["Opening printable resume …"];
+    },
+    open: (args) => {
+      const key = (args?.[0] ?? "").toLowerCase();
+      const path = NAV[key];
+      if (!path) {
+        return [
+          `open: unknown target "${args?.[0] ?? ""}"`,
+          "Try: volume, pathranger, cacheclip, eurovision, resume",
+        ];
+      }
+      navigate(path);
+      return [`Opening ${path} …`];
+    },
+    cannon: () => [
+      "",
+      "        __",
+      "    ___/__/___   boom.",
+      "   |  ______  |",
+      "   | |      | |",
+      "   |_|______|_|",
+      "",
+      "You found the easter egg. Hire the gunner.",
+    ],
+    clear: () => "CLEAR",
+    date: () => [new Date().toString()],
+    ls: () => [
+      "about.txt  projects/  contact.md  skills.json  resume.json",
+    ],
+    cat: (args) => {
+      const file = args?.[0]?.toLowerCase();
+      if (file === "about.txt") return buildCommands(navigate).about!();
+      if (file === "contact.md") return buildCommands(navigate).contact!();
+      if (file === "skills.json") return buildCommands(navigate).skills!();
+      if (file === "resume.json") return ["Open /resume.json or /print."];
+      return [`cat: ${args?.[0] ?? "?"}: No such file`];
+    },
+  };
+}
+
+const KONAMI = [
+  "ArrowUp",
+  "ArrowUp",
+  "ArrowDown",
+  "ArrowDown",
+  "ArrowLeft",
+  "ArrowRight",
+  "ArrowLeft",
+  "ArrowRight",
+  "b",
+  "a",
+];
+
 export default function HomeTerminalPanel() {
+  const router = useRouter();
   const [history, setHistory] = useState<HistoryEntry[]>(WELCOME);
   const [currentInput, setCurrentInput] = useState("");
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const konamiRef = useRef(0);
+
+  const navigate = (path: string) => {
+    router.push(path);
+  };
+
+  const commands = buildCommands(navigate);
 
   const executeCommand = (input: string) => {
     const trimmed = input.trim();
@@ -117,7 +190,7 @@ export default function HomeTerminalPanel() {
       const result = handler(args);
       if (result === "CLEAR") {
         setHistory(WELCOME);
-      } else {
+      } else if (result !== "NAV") {
         setHistory((prev) => [
           ...prev,
           ...result.map((line) => ({
@@ -174,8 +247,33 @@ export default function HomeTerminalPanel() {
     }
   }, [history]);
 
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const tag = (e.target as HTMLElement | null)?.tagName;
+      if (e.key === "/" && tag !== "INPUT" && tag !== "TEXTAREA") {
+        e.preventDefault();
+        inputRef.current?.focus();
+      }
+
+      const expected = KONAMI[konamiRef.current];
+      if (e.key === expected) {
+        konamiRef.current += 1;
+        if (konamiRef.current === KONAMI.length) {
+          konamiRef.current = 0;
+          executeCommand("cannon");
+          inputRef.current?.focus();
+        }
+      } else {
+        konamiRef.current = e.key === KONAMI[0] ? 1 : 0;
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [commandHistory, historyIndex, currentInput]);
+
   return (
-    <div className="flex h-full min-h-[28rem] flex-col overflow-hidden rounded-sm border-2 border-ink bg-[#12100e] shadow-none">
+    <div className="flex h-full min-h-[28rem] flex-col overflow-hidden rounded-sm border-2 border-ink bg-[#12100e]">
       <div className="flex items-center gap-2 border-b-2 border-ink bg-[#1c1916] px-3 py-2">
         <span className="h-2.5 w-2.5 rounded-full bg-[#c45c4a]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#c4a35a]" />

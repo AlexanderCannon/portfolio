@@ -1,29 +1,42 @@
 import Link from "next/link";
-import { api } from "~/trpc/server";
+import { count } from "drizzle-orm";
 import { type Metadata } from "next";
 import PageShell from "~/app/_components/ui/page-shell";
+import { db } from "~/server/db";
+import { posts as postsTable } from "~/server/db/schema";
 
 export const metadata: Metadata = {
   title: "Blog",
   description: "Notes and articles from Alexander Cannon",
 };
 
+// ponytail: skip RSC tRPC (headers() → always dynamic + artificial delay). ISR the list.
+export const revalidate = 3600;
+
 export default async function PostsPage() {
-  const offset = 0;
   const limit = 100;
-  const [posts, totalPosts] = await Promise.all([
-    api.post.getPostsWithLimit({ limit, offset }),
-    api.post.getTotalPosts(),
+  const offset = 0;
+
+  const [posts, totals] = await Promise.all([
+    db.query.posts.findMany({
+      orderBy: (p, { desc }) => [desc(p.createdAt)],
+      limit,
+      offset,
+      columns: {
+        id: true,
+        name: true,
+        slug: true,
+        body: true,
+        createdAt: true,
+      },
+      with: {
+        comments: { columns: { id: true } },
+      },
+    }),
+    db.select({ count: count() }).from(postsTable),
   ]);
 
-  if (!totalPosts?.[0]) {
-    throw new Error("Failed to fetch total posts count");
-  }
-
-  const [{ count }] = totalPosts;
-
-  void (await api.post.getPostsWithLimit.prefetch({ limit }));
-  void api.post.getTotalPosts.prefetch();
+  const postCount = totals[0]?.count ?? 0;
 
   return (
     <PageShell>
@@ -52,15 +65,12 @@ export default async function PostsPage() {
         <ul className="mt-12 divide-y divide-line border-y-2 border-ink">
           {posts.map((post) => (
             <li key={post.id}>
-              <Link
-                href={`/blog/${post.slug}`}
-                className="group block py-8"
-              >
+              <Link href={`/blog/${post.slug}`} className="group block py-8">
                 <time
                   dateTime={post.createdAt.toISOString()}
                   className="font-label text-ink-muted"
                 >
-                  {new Date(post.createdAt).toLocaleDateString()}
+                  {post.createdAt.toLocaleDateString()}
                 </time>
                 <h2 className="misregister mt-2 font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
                   {post.name}
@@ -79,8 +89,8 @@ export default async function PostsPage() {
       )}
 
       <p className="mt-8 text-sm text-ink-muted">
-        Showing {Math.min(offset + 1, count)}–
-        {Math.min(offset + limit, count)} of {count}
+        Showing {Math.min(offset + 1, postCount)}–
+        {Math.min(offset + limit, postCount)} of {postCount}
       </p>
     </PageShell>
   );

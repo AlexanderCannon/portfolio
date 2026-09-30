@@ -10,6 +10,7 @@ import Script from "next/script";
 import HeaderSticky from "~/app/_components/ui/header-sticky";
 import Footer from "~/app/_components/ui/footer";
 import CookiePopup from "./_components/ui/cookie-popup";
+import PressStatus from "~/app/_components/ui/press-status";
 
 import { TRPCReactProvider } from "~/trpc/react";
 import { ThemeProvider } from "./_components/withTheme";
@@ -75,6 +76,7 @@ export default function RootLayout({
       <body className="min-h-screen font-sans">
         <TRPCReactProvider>
           <ThemeProvider>
+            <PressStatus />
             <HeaderSticky />
             {children}
             <Footer />

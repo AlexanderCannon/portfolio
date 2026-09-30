@@ -1,4 +1,5 @@
 export type Thumb = "phone" | "wide";
+export type ShipStatus = "shipped" | "cooking";
 
 export type Project = {
   id: number;
@@ -10,6 +11,7 @@ export type Project = {
   challenges: string[];
   role: "solo" | "shared";
   roleNote?: string;
+  status: ShipStatus;
   image: string;
   github: string | null;
   live: string | null;
@@ -43,6 +45,7 @@ export const projects: Project[] = [
       "App Store account deactivation and permanent delete across Supabase data and Clerk.",
     ],
     role: "solo",
+    status: "shipped",
     image: "/images/volume-app.png",
     github: "https://github.com/AlexanderCannon/volume-reading",
     live: "https://apps.apple.com/us/app/volume-books/id6769268426",
@@ -72,6 +75,7 @@ export const projects: Project[] = [
       "Shipping a privacy-first kids' app: everything stays on device; notifications only after the user opts in.",
     ],
     role: "solo",
+    status: "shipped",
     image: "/images/sophias-future-doctor-club.png",
     github: null,
     live: "https://apps.apple.com/us/app/sophias-future-doctor-club/id6777174145",
@@ -102,6 +106,7 @@ export const projects: Project[] = [
       "Multi-household auth state on the client, plus Oban jobs for occurrence sweeps and due-soon notifications with quiet hours.",
     ],
     role: "solo",
+    status: "cooking",
     image: "/images/honey-do.png",
     github: "https://github.com/AlexanderCannon/honey-do-app",
     live: null,
@@ -132,6 +137,7 @@ export const projects: Project[] = [
       "A local Docker inference path so a pilot can run without burning a hosted model budget.",
     ],
     role: "solo",
+    status: "cooking",
     image: "/images/lllanguage.png",
     github: "https://github.com/AlexanderCannon/lllanguage-web",
     live: "https://lllanguage.com/",
@@ -160,6 +166,7 @@ export const projects: Project[] = [
       "Fuzzy search over the visit database with sensible ranking for day-to-day use.",
     ],
     role: "solo",
+    status: "shipped",
     image: "/images/pathranger.png",
     github: "https://github.com/AlexanderCannon/pathranger",
     live: null,
@@ -187,6 +194,7 @@ export const projects: Project[] = [
       "A quiet daemon that polls, dedupes consecutive copies, and caps history without needing a GUI.",
     ],
     role: "solo",
+    status: "shipped",
     image: "/images/cacheclip.png",
     github: "https://github.com/AlexanderCannon/cacheclip",
     live: "https://github.com/AlexanderCannon/cacheclip/releases",
@@ -215,6 +223,7 @@ export const projects: Project[] = [
       "Client-side contest phase filters (semi / final / NQ) driven by wall-clock show times, plus platform-split lyrics and points UX.",
     ],
     role: "solo",
+    status: "shipped",
     image: "/images/eurovision-party.png",
     github: "https://github.com/alexandercannon/eurovision.fun",
     live: "https://www.eurovision.fun",
@@ -241,6 +250,7 @@ export const projects: Project[] = [
       "Turning music theory into geometry: movable voicings, relative frets, muted strings, and multiple tunings in one React neck component that still fits a phone.",
     ],
     role: "solo",
+    status: "shipped",
     image: "/images/guitar-visualiser.png",
     github: "https://github.com/alexandercannon/guitarvisualizer",
     live: "https://guitarvisualizer.com",
@@ -270,6 +280,7 @@ export const projects: Project[] = [
       "Hosted API keys (`pk_…`) verified with bcrypt, cache-aside in Redis, and usage recorded against the proxy.",
     ],
     role: "solo",
+    status: "shipped",
     image: "/images/plannet.png",
     github: "https://github.com/plannet-ai/plannet",
     live: "https://www.plannet.dev/",
@@ -292,6 +303,7 @@ export const projects: Project[] = [
     ],
     role: "shared",
     roleNote: "Built with the Farpoint Labs crew.",
+    status: "shipped",
     image: "/images/koi-cd.png",
     github: "https://github.com/farpointlabs/koi-cd",
     live: "http://farpointlabs.com",
@@ -318,6 +330,7 @@ export const projects: Project[] = [
     ],
     role: "shared",
     roleNote: "Built with the Farpoint Labs crew.",
+    status: "shipped",
     image: "/images/infraedge.png",
     github: "https://github.com/alexandercannon/infraedge",
     live: "https://www.infraedge.dev",
@@ -345,6 +358,7 @@ export const projects: Project[] = [
       "Image pipeline: client upload through sharp resize into Cloudinary without turning every post into a binary blob in the DB.",
     ],
     role: "solo",
+    status: "shipped",
     image: "/images/scratcher.png",
     github: "https://github.com/alexandercannon/scratcher",
     live: "https://www.scratcher.zone",
@@ -372,6 +386,7 @@ export const projects: Project[] = [
       "Editorial redesign without a CMS – voice and layout have to stay coherent across a decade of side projects.",
     ],
     role: "solo",
+    status: "shipped",
     image: "/images/portfolio.png",
     github: "https://github.com/alexandercannon/portfolio",
     live: "https://www.alexandercannon.dev",
@@ -398,3 +413,10 @@ export function roleLabel(project: Project) {
     ? `Shared project. ${project.roleNote}`
     : "Shared project.";
 }
+
+export function plateNumber(index: number) {
+  return String(index + 1).padStart(2, "0");
+}
+
+export const projectKinds = ["All", "App", "CLI", "Tool", "Web"] as const;
+

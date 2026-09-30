@@ -1,10 +1,18 @@
 "use client";
 
+import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import PageShell from "~/app/_components/ui/page-shell";
-import { liveLabel, projects, type Thumb } from "~/app/projects/data";
+import GithubMeta from "~/app/_components/ui/github-meta";
+import {
+  liveLabel,
+  plateNumber,
+  projectKinds,
+  projects,
+  type Thumb,
+} from "~/app/projects/data";
 
 function ThumbFrame({
   thumb,
@@ -15,8 +23,6 @@ function ThumbFrame({
   image: string;
   title: string;
 }) {
-  // One footprint for every row → text column never zig-zags.
-  // Phones sit in an accent-soft mat so the empty sides feel intentional.
   return (
     <div
       className={
@@ -49,27 +55,53 @@ function ThumbFrame({
 }
 
 export default function ProjectsPage() {
+  const [kind, setKind] = useState<(typeof projectKinds)[number]>("All");
+
+  const filtered = useMemo(() => {
+    if (kind === "All") return projects.map((p, i) => ({ project: p, index: i }));
+    return projects
+      .map((p, i) => ({ project: p, index: i }))
+      .filter(({ project }) => project.kind === kind);
+  }, [kind]);
+
   return (
     <PageShell>
       <header className="max-w-2xl">
         <p className="font-label text-accent">Work</p>
-        <h1 className="mt-3 font-display text-4xl font-semibold tracking-tighter text-ink sm:text-5xl">
+        <h1 className="misregister mt-3 font-display text-4xl font-semibold tracking-tighter text-ink sm:text-5xl">
           Projects
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-ink-muted">
-          Things I have shipped – apps on phones, tools in terminals, and a few
-          experiments that stuck around.
+          Catalog of things I have shipped – apps on phones, tools in terminals,
+          and a few experiments that stuck around.
         </p>
       </header>
 
-      <ul className="mt-14 divide-y divide-line border-y-2 border-ink">
-        {projects.map((project, index) => (
+      <div className="mt-10 flex flex-wrap gap-2 border-y-2 border-ink py-3">
+        {projectKinds.map((k) => (
+          <button
+            key={k}
+            type="button"
+            onClick={() => setKind(k)}
+            className={`font-mono text-[11px] uppercase tracking-[0.14em] px-3 py-1.5 transition-colors ${
+              kind === k
+                ? "bg-ink text-paper"
+                : "text-ink-muted hover:text-ink"
+            }`}
+          >
+            {k}
+          </button>
+        ))}
+      </div>
+
+      <ul className="mt-4 divide-y divide-line border-b-2 border-ink">
+        {filtered.map(({ project, index }, i) => (
           <motion.li
             key={project.id}
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.4, delay: Math.min(index * 0.03, 0.2) }}
+            transition={{ duration: 0.4, delay: Math.min(i * 0.03, 0.2) }}
             className="group grid gap-5 py-7 md:grid-cols-[minmax(0,18rem)_1fr] md:items-center md:gap-8"
           >
             <Link href={`/projects/${project.slug}`} className="block">
@@ -81,7 +113,21 @@ export default function ProjectsPage() {
             </Link>
 
             <div className="flex flex-col justify-center">
-              <p className="font-label text-ink-muted">{project.kind}</p>
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span className="font-mono text-sm text-accent">
+                  {plateNumber(index)}
+                </span>
+                <p className="font-label text-ink-muted">{project.kind}</p>
+                <span
+                  className={`font-mono text-[10px] uppercase tracking-[0.14em] ${
+                    project.status === "cooking"
+                      ? "text-accent"
+                      : "text-ink-muted"
+                  }`}
+                >
+                  {project.status === "cooking" ? "● Cooking" : "✓ Shipped"}
+                </span>
+              </div>
               <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
                 <Link
                   href={`/projects/${project.slug}`}
@@ -93,7 +139,7 @@ export default function ProjectsPage() {
               <p className="mt-3 max-w-measure text-base leading-relaxed text-ink-muted">
                 {project.description}
               </p>
-              <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+              <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
                 <Link
                   href={`/projects/${project.slug}`}
                   className="font-medium text-accent underline-offset-4 hover:underline"
@@ -121,6 +167,11 @@ export default function ProjectsPage() {
                   </a>
                 )}
               </div>
+              {project.github && (
+                <div className="mt-3">
+                  <GithubMeta github={project.github} />
+                </div>
+              )}
             </div>
           </motion.li>
         ))}

@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { type Metadata } from "next";
 import PageShell from "~/app/_components/ui/page-shell";
 import Button from "~/app/_components/ui/button";
+import GithubMeta from "~/app/_components/ui/github-meta";
+import ProjectDemo from "~/app/_components/ui/project-demo";
 import {
   getProjectBySlug,
   liveLabel,
@@ -52,8 +54,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
       <article className="mt-8">
         <header className="max-w-2xl">
-          <p className="font-label text-ink-muted">{project.kind}</p>
-          <h1 className="mt-3 font-display text-4xl font-semibold tracking-tighter text-ink sm:text-5xl">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <p className="font-label text-ink-muted">{project.kind}</p>
+            <span
+              className={`font-mono text-[10px] uppercase tracking-[0.14em] ${
+                project.status === "cooking"
+                  ? "text-accent"
+                  : "text-ink-muted"
+              }`}
+            >
+              {project.status === "cooking" ? "● Cooking" : "✓ Shipped"}
+            </span>
+          </div>
+          <h1 className="misregister mt-3 font-display text-4xl font-semibold tracking-tighter text-ink sm:text-5xl">
             {project.title}
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-ink-muted sm:text-xl">
@@ -80,6 +93,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </Button>
             )}
           </div>
+          {project.github && (
+            <div className="mt-3">
+              <GithubMeta github={project.github} />
+            </div>
+          )}
         </header>
 
         <div
@@ -118,8 +136,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           ))}
         </div>
 
+        <ProjectDemo slug={project.slug} />
+
         <section className="mt-16 border-t-2 border-ink pt-12">
-          <h2 className="font-display text-3xl font-semibold tracking-tight text-ink">
+          <h2 className="misregister font-display text-3xl font-semibold tracking-tight text-ink">
             Built with
           </h2>
           <p className="mt-5 max-w-measure text-lg leading-relaxed text-ink sm:text-xl">
@@ -128,7 +148,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </section>
 
         <section className="mt-16 border-t-2 border-ink pt-12">
-          <h2 className="font-display text-3xl font-semibold tracking-tight text-ink">
+          <h2 className="misregister font-display text-3xl font-semibold tracking-tight text-ink">
             Where it got hard
           </h2>
           <ol className="mt-8 max-w-2xl divide-y divide-line border-y-2 border-ink">
@@ -149,7 +169,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </section>
 
         <section className="mt-16 border-t-2 border-ink pt-12">
-          <h2 className="font-display text-3xl font-semibold tracking-tight text-ink">
+          <h2 className="misregister font-display text-3xl font-semibold tracking-tight text-ink">
             Role
           </h2>
           <p className="mt-5 max-w-measure font-display text-2xl font-semibold leading-snug tracking-tight text-ink sm:text-3xl">
