@@ -7,6 +7,7 @@ import {
   getProjectBySlug,
   liveLabel,
   projects,
+  roleLabel,
 } from "~/app/projects/data";
 
 type ProjectPageProps = { params: Promise<{ slug: string }> };
@@ -94,6 +95,40 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <p key={paragraph.slice(0, 48)}>{paragraph}</p>
           ))}
         </div>
+
+        <section className="mt-12 max-w-measure border-t border-line pt-10">
+          <h2 className="text-xs font-medium uppercase tracking-[0.14em] text-ink-muted">
+            Built with
+          </h2>
+          <ul className="mt-4 space-y-2 text-base text-ink-muted sm:text-lg">
+            {project.stack.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="mt-10 max-w-measure">
+          <h2 className="text-xs font-medium uppercase tracking-[0.14em] text-ink-muted">
+            Where it got hard
+          </h2>
+          <ul className="mt-4 space-y-3 text-base leading-relaxed text-ink-muted sm:text-lg">
+            {project.challenges.map((item) => (
+              <li key={item.slice(0, 48)} className="flex gap-2">
+                <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="mt-10 max-w-measure">
+          <h2 className="text-xs font-medium uppercase tracking-[0.14em] text-ink-muted">
+            Role
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-ink sm:text-lg">
+            {roleLabel(project)}
+          </p>
+        </section>
 
         <div className="mt-10 flex flex-wrap gap-x-5 gap-y-2 text-sm">
           {project.live && (

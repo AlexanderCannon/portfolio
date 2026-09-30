@@ -5,7 +5,7 @@
     "phone": "+1 840 233 2754",
     "email": "alexander@farpointlabs.com"
   },
-  "professionalSummary": "Engineering leader with experience building video streaming platforms, and blockchain technologies with extensive experience in mobile technologies, mobile development and delivering high-impact products. Expert in TypeScript, Rust and Python, with strong communication skills and a robust track record in problem-solving, performance management, and cross-functional collaboration.",
+  "professionalSummary": "Engineering leader and founder. I build products people come back to — streaming, fintech, blockchain, and LLM tools that have to survive production.",
   "experience": [
     {
       "company": "Zinguist",
@@ -13,48 +13,35 @@
       "location": "Berlin, Germany",
       "period": "Nov 2023 - Present",
       "responsibilities": [
-        "Automated workflows, improving operational efficiency by 30%",
-        "Scaled infrastructure to support a 200% increase in user activity, integrating video streaming capabilities for online classes",
-        "Led cross-functional teams, enhancing collaboration between engineering, product, and marketing"
+        "Automated the workflows that kept operations stuck in the same three tools",
+        "Scaled infrastructure for a sharp rise in user activity, including video streaming for online classes",
+        "Led engineering alongside product and marketing"
       ],
       "technologies": [
         "React",
         "React Native",
-        "Node.js",
         "Next.js",
-        "T3 stack",
+        "Node.js",
         "AWS",
-        "Docker",
         "MongoDB"
       ]
     },
     {
-      "company": "Kellog, Brown & Root",
+      "company": "Kellogg Brown & Root",
       "location": "Los Angeles, California, United States",
       "title": "Engineering Manager",
       "period": "Dec 2023 - Feb 2025",
       "responsibilities": [
-        "Leading the development of an AI tool to enhance enterprise-level capabilities",
-        "Managing a team of engineers to design, build, and deploy AI solutions",
-        "Overseeing the integration and optimization of language models for various use cases",
-        "Collaborating with cross-functional teams to define requirements and implement solutions",
-        "Building rapid prototypes of AI-based products for clients",
-        "Conducting evaluations and comparisons of various models for optimal performance",
-        "Mentoring team members on capabilities, deployment strategies, and ethical considerations"
+        "Led a team building an enterprise AI tool from prototype through deployment",
+        "Integrated and tuned language models for real client use cases",
+        "Compared models under production constraints and mentored the team on deployment and ethics"
       ],
       "technologies": [
         "OpenAI",
         "Azure",
-        "LLMs",
-        "OpenAI",
         "Python",
-        "TensorFlow",
-        "PyTorch",
-        "Scikit-learn",
-        "Keras",
-        "NLP"
-      ],
-      "year": 2023
+        "PyTorch"
+      ]
     },
     {
       "company": "Mishcon De Reya (MDRX)",
@@ -63,24 +50,17 @@
       "period": "April 2022 - Nov 2023",
       "responsibilities": [
         "Recruited and led a 30-person engineering team",
-        "Delivered 10+ high-impact projects and prototypes",
-        "Created and launched 3 new crypto tokens and ICOs",
-        "Motivated team to deliver quality work and contribute to open-source projects",
-        "Set technical and architectural standards",
-        "Developed a performance management framework"
+        "Delivered 10+ projects and prototypes across the portfolio",
+        "Created and launched 3 crypto tokens and ICOs",
+        "Set technical and architectural standards and a performance management framework"
       ],
       "technologies": [
         "React",
         "React Native",
-        "Flutter",
         "Node.js",
-        "DynamoDB",
         "AWS",
-        "Blockchain",
-        "AI/ML",
-        "GIS"
-      ],
-      "year": 2022
+        "DynamoDB"
+      ]
     },
     {
       "company": "Winston App",
@@ -89,21 +69,16 @@
       "period": "Jan 2020 - April 2022",
       "responsibilities": [
         "Obtained a banking license and launched a regulated fintech application",
-        "Led business strategy and decision making",
-        "Focused on team building and problem-solving",
-        "Managed mobile app launch as a licensed financial institution"
+        "Led strategy, team building, and the mobile launch as a licensed financial institution"
       ],
       "technologies": [
-        "AWS",
+        "React Native",
         "Golang",
         "Kafka",
-        "Docker",
+        "AWS",
         "Kubernetes",
-        "React Native",
-        "DynamoDB",
-        "GraphQL"
-      ],
-      "year": 2020
+        "DynamoDB"
+      ]
     },
     {
       "company": "Farpoint Labs",
@@ -111,28 +86,18 @@
       "title": "Founder & CEO",
       "period": "Jan 2019 - April 2022",
       "responsibilities": [
-        "Founded and operated DevOps consultancy",
-        "Delivered video game asset pipeline automation",
-        "Built GP application infrastructure",
-        "Developed streaming video file processing solution",
-        "Implemented oil company telemetrics project"
+        "Founded and operated a DevOps consultancy",
+        "Delivered video game asset pipeline automation and streaming video file processing",
+        "Built GP application infrastructure and an oil company telemetrics project"
       ],
       "technologies": [
-        "C#",
-        "GCP",
         "Python",
         "Kubernetes",
-        "AWS",
         "Terraform",
-        "Kafka",
-        "Docker",
-        "Node.js",
-        "C",
-        "Azure",
-        "React",
-        "Redux"
-      ],
-      "year": 2019
+        "AWS",
+        "GCP",
+        "Kafka"
+      ]
     },
     {
       "company": "Lloyds Banking Group",
@@ -140,21 +105,17 @@
       "title": "Engineering Lead",
       "period": "July 2017 - Dec 2018",
       "responsibilities": [
-        "Oversaw development of loan platform processing £360M annually",
-        "Enhanced team communication and stakeholder engagement",
-        "Developed Data Science platform for onboarding",
+        "Oversaw a loan platform processing £360M annually",
+        "Built a data science platform for onboarding",
         "Led technical architecture decisions"
       ],
       "technologies": [
+        "TypeScript",
         "Python",
         "React",
-        "Redux",
         "Node.js",
-        "TypeScript",
-        "Linux",
         "Golang"
-      ],
-      "year": 2017
+      ]
     },
     {
       "company": "Accenture",
@@ -162,18 +123,16 @@
       "title": "Software Engineer",
       "period": "August 2014 - June 2017",
       "responsibilities": [
-        "Developed Discovery Network's first online streaming platform",
+        "Built Discovery Network's first online streaming platform",
         "Supported live Olympic and sports events for millions of viewers",
-        "Worked on data science and ML projects for major clients"
+        "Shipped data science and ML work for major clients"
       ],
       "technologies": [
         "React",
         "DynamoDB",
         "Elasticsearch",
-        "Redis",
-        "MongoDB"
-      ],
-      "year": 2014
+        "Redis"
+      ]
     },
     {
       "company": "Buddi",
@@ -181,20 +140,15 @@
       "location": "London, England, United Kingdom",
       "period": "Jan 2014 - May 2014",
       "responsibilities": [
-        "Designed and implemented real-time GIS data processing pipelines for IoT devices",
-        "Developed server-side solutions using Node.js for high-volume data streams",
-        "Collaborated with embedded systems team on GPS and mobile mast triangulation",
+        "Built real-time GIS pipelines for IoT devices",
+        "Handled high-volume streams in Node.js alongside GPS and mast triangulation",
         "Implemented fall-detection software"
       ],
       "technologies": [
         "Node.js",
         "JavaScript",
-        "GIS",
-        "IoT",
-        "Embedded Systems",
-        "REST APIs"
-      ],
-      "year": 2014
+        "GIS"
+      ]
     },
     {
       "company": "The Federation Against Copyright Theft",
@@ -202,16 +156,12 @@
       "location": "London, England, United Kingdom",
       "period": "Aug 2013 - Dec 2013",
       "responsibilities": [
-        "Developed advanced piracy detection tools using Python to automate detection processes",
-        "Implemented web-scraping scripts to monitor and track unauthorized content distribution",
-        "Created and maintained a comprehensive piracy database to facilitate rapid takedowns",
-        "Collaborated with legal teams to provide actionable data-driven insights"
+        "Built Python tools to detect piracy and scrape unauthorized distribution",
+        "Maintained a piracy database for rapid takedowns with the legal team"
       ],
       "technologies": [
         "Python",
-        "Web Scraping",
-        "Databases (SQL/NoSQL)",
-        "Automation Scripting"
+        "SQL"
       ]
     },
     {
@@ -220,45 +170,23 @@
       "location": "London, England, United Kingdom",
       "period": "Aug 2009 - Aug 2013",
       "responsibilities": [
-        "Built and maintained web applications and websites for clients using MooTools, Python, and Django",
-        "Implemented best practices for code quality, testing, and deployment processes",
-        "Optimized database queries and backend logic for improved performance",
-        "Collaborated with designers and stakeholders to deliver user-friendly interfaces"
+        "Built and maintained client web apps in Python, Django, and MooTools",
+        "Optimized queries and backend logic with designers and stakeholders"
       ],
       "technologies": [
-        "MooTools",
         "Python",
         "Django",
-        "HTML/CSS",
         "JavaScript",
         "SQL"
       ]
     }
   ],
   "skills": {
-    "programmingLanguages": [
-      "Python",
-      "TypeScript",
-      "Node.js",
-      "JavaScript",
-      "Golang",
-      "C",
-      "C++",
-      "Rust",
-      "COBOL"
-    ],
-    "cloudPlatforms": ["AWS", "Azure", "Google Cloud"],
-    "expertise": [
-      "Performance Management",
-      "Team Leadership",
-      "Conflict Resolution",
-      "Communication Skills",
-      "Problem-Solving",
-      "Team Building",
-      "Linux",
-      "CICD",
-      "Git"
-    ]
+    "languages": ["TypeScript", "Rust", "Python", "Go"],
+    "frameworks": ["React", "React Native", "Expo", "Next.js"],
+    "cloud": ["AWS", "Azure", "GCP"],
+    "data": ["Postgres", "Redis", "Kafka"],
+    "notes": ["LLMs where the pager still rings"]
   },
   "education": {
     "institution": "University of Oxford",

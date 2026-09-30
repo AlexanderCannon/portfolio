@@ -6,26 +6,26 @@ import { usePathname } from "next/navigation";
 import { X, Moon, Sun } from "lucide-react";
 import Button from "./button";
 import { socialLinks } from "~/app/_components/ui/header-sticky";
-import { withTheme } from "~/app/_components/withTheme";
+import { useTheme } from "~/app/_components/withTheme";
 
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
   menuItems: Array<{ title: string; path: string }>;
   title: string;
-  isDark: boolean;
-  toggleDarkMode: () => void;
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({
+export default function MobileMenu({
   isOpen,
   onClose,
   menuItems,
   title,
-  isDark,
-  toggleDarkMode,
-}) => {
+}: MobileMenuProps) {
   const pathname = usePathname();
+  const {
+    state: { isDark },
+    toggleTheme,
+  } = useTheme();
   const [isClosing, setIsClosing] = useState(false);
 
   useEffect(() => {
@@ -106,7 +106,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
               );
             })}
             <button
-              onClick={toggleDarkMode}
+              onClick={toggleTheme}
               className="text-ink-muted hover:text-ink"
               aria-label="Toggle theme"
               type="button"
@@ -121,6 +121,4 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
       </div>
     </div>
   );
-};
-
-export default withTheme(MobileMenu);
+}

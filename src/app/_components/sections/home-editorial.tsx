@@ -35,14 +35,15 @@ export default function HomeEditorial() {
           className="max-w-xl"
         >
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">
-            Engineering leader · builder
+            Engineering leader · founder
           </p>
           <h1 className="mt-4 font-display text-5xl leading-[1.05] tracking-tight text-ink sm:text-6xl">
             Alexander Cannon
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-ink-muted sm:text-xl">
-            I build products people actually use — reading apps, family tools,
-            language experiments, and CLI utilities that stay out of the way.
+            I build things people come back to – live streaming, regulated
+            fintech, the teams around them, and the smaller products I still
+            write myself.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Button link="/projects">See the work</Button>

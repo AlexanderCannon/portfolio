@@ -7,7 +7,7 @@ import { Menu, Sun, Moon, Github, Linkedin, Twitter } from "lucide-react";
 import MobileMenu from "~/app/_components/ui/mobile-menu";
 import Button from "~/app/_components/ui/button";
 import SubstackIcon from "~/app/_components/ui/substack-icon";
-import { withTheme } from "~/app/_components/withTheme";
+import { useTheme } from "~/app/_components/withTheme";
 
 const menuItems = [
   { title: "Home", path: "/" },
@@ -33,30 +33,14 @@ export const socialLinks = [
   },
 ];
 
-const HeaderSticky = () => {
+export default function HeaderSticky() {
   const pathname = usePathname();
+  const {
+    state: { isDark },
+    toggleTheme,
+  } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const isDarkMode = localStorage.getItem("darkMode") === "true";
-    setIsDark(isDarkMode);
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark");
-    }
-  }, []);
-
-  const toggleDarkMode = () => {
-    setIsDark(!isDark);
-    if (!isDark) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("darkMode", "true");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("darkMode", "false");
-    }
-  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 8);
@@ -98,9 +82,7 @@ const HeaderSticky = () => {
                     key={item.path}
                     href={item.path}
                     className={`relative py-1 text-sm transition-colors ${
-                      active
-                        ? "text-ink"
-                        : "text-ink-muted hover:text-ink"
+                      active ? "text-ink" : "text-ink-muted hover:text-ink"
                     }`}
                   >
                     {item.title}
@@ -131,7 +113,7 @@ const HeaderSticky = () => {
                 );
               })}
               <button
-                onClick={toggleDarkMode}
+                onClick={toggleTheme}
                 className="text-ink-muted transition-colors hover:text-ink"
                 aria-label="Toggle theme"
                 type="button"
@@ -160,15 +142,11 @@ const HeaderSticky = () => {
         </div>
       </header>
       <MobileMenu
-        toggleDarkMode={toggleDarkMode}
         isOpen={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}
         menuItems={menuItems}
         title="Alexander Cannon"
-        isDark={isDark}
       />
     </>
   );
-};
-
-export default withTheme(HeaderSticky);
+}
