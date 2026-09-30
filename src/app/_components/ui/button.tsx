@@ -9,6 +9,8 @@ interface BaseProps {
 interface AnchorProps extends BaseProps {
   link: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+  target?: string;
+  rel?: string;
 }
 
 interface ButtonProps extends BaseProps {
