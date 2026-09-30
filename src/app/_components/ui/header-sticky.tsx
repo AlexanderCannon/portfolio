@@ -59,44 +59,39 @@ export default function HeaderSticky() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 border-b transition-colors duration-300 ${
+        className={`sticky top-0 z-50 border-b-2 transition-colors duration-200 ${
           scrolled
-            ? "border-line bg-paper/90 backdrop-blur-md"
+            ? "border-ink bg-paper/95 backdrop-blur-sm"
             : "border-transparent bg-paper"
         }`}
       >
         <div className="mx-auto flex max-w-shell items-center justify-between px-5 py-4 sm:px-8">
           <Link
             href="/"
-            className="font-display text-xl tracking-tight text-ink transition-colors hover:text-accent sm:text-2xl"
+            className="misregister font-display text-xl font-semibold tracking-tighter text-ink sm:text-2xl"
           >
             Alexander Cannon
           </Link>
 
           <nav className="hidden items-center gap-8 md:flex">
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-5">
               {menuItems.map((item) => {
                 const active = pathname === item.path;
                 return (
                   <Link
                     key={item.path}
                     href={item.path}
-                    className={`relative py-1 text-sm transition-colors ${
-                      active ? "text-ink" : "text-ink-muted hover:text-ink"
+                    className={`font-mono text-[11px] uppercase tracking-[0.14em] transition-colors ${
+                      active ? "text-accent" : "text-ink-muted hover:text-ink"
                     }`}
                   >
                     {item.title}
-                    <span
-                      className={`absolute inset-x-0 -bottom-0.5 h-px bg-accent transition-opacity ${
-                        active ? "opacity-100" : "opacity-0"
-                      }`}
-                    />
                   </Link>
                 );
               })}
             </div>
 
-            <div className="flex items-center gap-3 border-l border-line pl-5">
+            <div className="flex items-center gap-3 border-l-2 border-line pl-5">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (

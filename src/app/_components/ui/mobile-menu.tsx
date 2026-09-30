@@ -53,12 +53,14 @@ export default function MobileMenu({
       />
 
       <div
-        className={`absolute inset-y-0 right-0 flex w-full max-w-sm flex-col border-l border-line bg-paper transition-transform duration-300 ease-out ${
+        className={`absolute inset-y-0 right-0 flex w-full max-w-sm flex-col border-l-2 border-ink bg-paper transition-transform duration-300 ease-out ${
           isClosing ? "translate-x-full" : "translate-x-0"
         }`}
       >
-        <div className="flex items-center justify-between border-b border-line px-5 py-4">
-          <p className="font-display text-xl text-ink">{title}</p>
+        <div className="flex items-center justify-between border-b-2 border-ink px-5 py-4">
+          <p className="font-display text-xl font-semibold tracking-tighter text-ink">
+            {title}
+          </p>
           <button
             onClick={handleClose}
             aria-label="Close menu"
@@ -76,9 +78,9 @@ export default function MobileMenu({
               <Link
                 key={item.path}
                 href={item.path}
-                className={`rounded-md px-3 py-3 text-lg transition-colors ${
+                className={`rounded-sm px-3 py-3 font-mono text-sm uppercase tracking-[0.12em] transition-colors ${
                   active
-                    ? "bg-accent-soft text-ink"
+                    ? "bg-accent-soft text-accent"
                     : "text-ink-muted hover:bg-secondary hover:text-ink"
                 }`}
               >

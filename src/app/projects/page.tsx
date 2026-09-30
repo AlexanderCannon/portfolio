@@ -21,12 +21,12 @@ function ThumbFrame({
     <div
       className={
         thumb === "phone"
-          ? "relative aspect-[16/10] w-full overflow-hidden rounded-md border border-line bg-accent-soft"
-          : "relative aspect-[16/10] w-full overflow-hidden rounded-md border border-line bg-secondary"
+          ? "relative aspect-[16/10] w-full overflow-hidden rounded-sm border-2 border-ink bg-accent-soft"
+          : "relative aspect-[16/10] w-full overflow-hidden rounded-sm border-2 border-ink bg-secondary"
       }
     >
       {thumb === "phone" ? (
-        <div className="absolute inset-y-2 left-1/2 aspect-[3/4] -translate-x-1/2 overflow-hidden rounded-[0.4rem] border border-line bg-card shadow-sm">
+        <div className="absolute inset-y-2 left-1/2 aspect-[3/4] -translate-x-1/2 overflow-hidden rounded-sm border-2 border-ink bg-card">
           <Image
             src={image}
             alt={title}
@@ -52,10 +52,8 @@ export default function ProjectsPage() {
   return (
     <PageShell>
       <header className="max-w-2xl">
-        <p className="text-xs font-medium uppercase tracking-[0.16em] text-accent">
-          Work
-        </p>
-        <h1 className="mt-3 font-display text-4xl tracking-tight text-ink sm:text-5xl">
+        <p className="font-label text-accent">Work</p>
+        <h1 className="mt-3 font-display text-4xl font-semibold tracking-tighter text-ink sm:text-5xl">
           Projects
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-ink-muted">
@@ -64,7 +62,7 @@ export default function ProjectsPage() {
         </p>
       </header>
 
-      <ul className="mt-14 divide-y divide-line border-y border-line">
+      <ul className="mt-14 divide-y divide-line border-y-2 border-ink">
         {projects.map((project, index) => (
           <motion.li
             key={project.id}
@@ -83,13 +81,11 @@ export default function ProjectsPage() {
             </Link>
 
             <div className="flex flex-col justify-center">
-              <p className="text-xs uppercase tracking-[0.14em] text-ink-muted">
-                {project.kind}
-              </p>
-              <h2 className="mt-2 font-display text-3xl tracking-tight text-ink sm:text-4xl">
+              <p className="font-label text-ink-muted">{project.kind}</p>
+              <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
                 <Link
                   href={`/projects/${project.slug}`}
-                  className="hover:text-accent"
+                  className="misregister"
                 >
                   {project.title}
                 </Link>

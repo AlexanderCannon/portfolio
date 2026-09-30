@@ -52,10 +52,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
       <article className="mt-8">
         <header className="max-w-2xl">
-          <p className="text-xs uppercase tracking-[0.14em] text-ink-muted">
-            {project.kind}
-          </p>
-          <h1 className="mt-3 font-display text-4xl tracking-tight text-ink sm:text-5xl">
+          <p className="font-label text-ink-muted">{project.kind}</p>
+          <h1 className="mt-3 font-display text-4xl font-semibold tracking-tighter text-ink sm:text-5xl">
             {project.title}
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-ink-muted sm:text-xl">
@@ -87,12 +85,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div
           className={
             project.thumb === "phone"
-              ? "relative mt-12 aspect-[16/10] max-w-md overflow-hidden rounded-md border border-line bg-accent-soft"
-              : "relative mt-12 aspect-[16/10] max-w-2xl overflow-hidden rounded-md border border-line bg-secondary"
+              ? "relative mt-12 aspect-[16/10] max-w-md overflow-hidden rounded-sm border-2 border-ink bg-accent-soft"
+              : "relative mt-12 aspect-[16/10] max-w-2xl overflow-hidden rounded-sm border-2 border-ink bg-secondary"
           }
         >
           {project.thumb === "phone" ? (
-            <div className="absolute inset-y-3 left-1/2 aspect-[3/4] -translate-x-1/2 overflow-hidden rounded-[0.4rem] border border-line bg-card shadow-sm">
+            <div className="absolute inset-y-3 left-1/2 aspect-[3/4] -translate-x-1/2 overflow-hidden rounded-sm border-2 border-ink bg-card">
               <Image
                 src={project.image}
                 alt={project.title}
@@ -120,22 +118,26 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           ))}
         </div>
 
-        <section className="mt-16 border-t border-line pt-12">
-          <h2 className="font-display text-3xl text-ink">Built with</h2>
+        <section className="mt-16 border-t-2 border-ink pt-12">
+          <h2 className="font-display text-3xl font-semibold tracking-tight text-ink">
+            Built with
+          </h2>
           <p className="mt-5 max-w-measure text-lg leading-relaxed text-ink sm:text-xl">
             {project.stack.join(" · ")}
           </p>
         </section>
 
-        <section className="mt-16 border-t border-line pt-12">
-          <h2 className="font-display text-3xl text-ink">Where it got hard</h2>
-          <ol className="mt-8 max-w-2xl divide-y divide-line border-y border-line">
+        <section className="mt-16 border-t-2 border-ink pt-12">
+          <h2 className="font-display text-3xl font-semibold tracking-tight text-ink">
+            Where it got hard
+          </h2>
+          <ol className="mt-8 max-w-2xl divide-y divide-line border-y-2 border-ink">
             {project.challenges.map((item, index) => (
               <li
                 key={item.slice(0, 48)}
                 className="grid grid-cols-[3rem_1fr] gap-4 py-6 sm:grid-cols-[4rem_1fr] sm:gap-6"
               >
-                <span className="font-display text-2xl text-accent sm:text-3xl">
+                <span className="font-display text-2xl font-semibold tracking-tighter text-accent sm:text-3xl">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <p className="pt-1 text-base leading-relaxed text-ink-muted sm:text-lg">
@@ -146,9 +148,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </ol>
         </section>
 
-        <section className="mt-16 border-t border-line pt-12">
-          <h2 className="font-display text-3xl text-ink">Role</h2>
-          <p className="mt-5 max-w-measure font-display text-2xl leading-snug tracking-tight text-ink sm:text-3xl">
+        <section className="mt-16 border-t-2 border-ink pt-12">
+          <h2 className="font-display text-3xl font-semibold tracking-tight text-ink">
+            Role
+          </h2>
+          <p className="mt-5 max-w-measure font-display text-2xl font-semibold leading-snug tracking-tight text-ink sm:text-3xl">
             {roleLabel(project)}
           </p>
         </section>

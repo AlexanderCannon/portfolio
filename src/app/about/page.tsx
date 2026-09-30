@@ -44,10 +44,8 @@ export default function AboutPage() {
   return (
     <PageShell>
       <header className="max-w-2xl">
-        <p className="text-xs font-medium uppercase tracking-[0.16em] text-accent">
-          About
-        </p>
-        <h1 className="mt-3 font-display text-4xl tracking-tight text-ink sm:text-5xl">
+        <p className="font-label text-accent">About</p>
+        <h1 className="mt-3 font-display text-4xl font-semibold tracking-tighter text-ink sm:text-5xl">
           Alexander Cannon
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-ink-muted">
@@ -118,13 +116,13 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <section className="mt-20 border-t border-line pt-12">
-        <h2 className="font-display text-3xl text-ink">What I reach for</h2>
+      <section className="mt-20 border-t-2 border-ink pt-12">
+        <h2 className="font-display text-3xl font-semibold tracking-tight text-ink">
+          What I reach for
+        </h2>
         <div className="mt-8 grid gap-8 sm:grid-cols-2">
           <div>
-            <h3 className="text-sm font-medium uppercase tracking-[0.12em] text-ink-muted">
-              Stack
-            </h3>
+            <h3 className="font-label text-ink-muted">Stack</h3>
             <ul className="mt-3 space-y-2 text-ink-muted">
               <li>TypeScript, Rust, Python, Go</li>
               <li>React, React Native, Expo, Next.js</li>
@@ -134,9 +132,7 @@ export default function AboutPage() {
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-medium uppercase tracking-[0.12em] text-ink-muted">
-              How I work
-            </h3>
+            <h3 className="font-label text-ink-muted">How I work</h3>
             <ul className="mt-3 space-y-2 text-ink-muted">
               <li>Small teams, clear ownership</li>
               <li>Ship incremental, keep the joinery honest</li>
@@ -147,9 +143,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mt-20 border-t border-line pt-12">
+      <section className="mt-20 border-t-2 border-ink pt-12">
         <div className="max-w-measure">
-          <h2 className="font-display text-3xl text-ink">Away from the keyboard</h2>
+          <h2 className="font-display text-3xl font-semibold tracking-tight text-ink">
+            Away from the keyboard
+          </h2>
           <p className="mt-3 text-base leading-relaxed text-ink-muted sm:text-lg">
             Hours that do not ship, and would be missed if they did.
           </p>
@@ -171,7 +169,7 @@ export default function AboutPage() {
                 />
               </div>
               <div>
-                <h3 className="font-display text-xl text-ink sm:text-2xl">
+                <h3 className="font-display text-xl font-semibold tracking-tight text-ink sm:text-2xl">
                   {hobby.name}
                 </h3>
                 <p className="mt-2 text-base leading-relaxed text-ink-muted">

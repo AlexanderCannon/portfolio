@@ -28,10 +28,8 @@ export default async function PostsPage() {
   return (
     <PageShell>
       <header className="max-w-measure">
-        <p className="text-xs font-medium uppercase tracking-[0.16em] text-accent">
-          Writing
-        </p>
-        <h1 className="mt-3 font-display text-4xl tracking-tight text-ink sm:text-5xl">
+        <p className="font-label text-accent">Writing</p>
+        <h1 className="mt-3 font-display text-4xl font-semibold tracking-tighter text-ink sm:text-5xl">
           Blog
         </h1>
         <p className="mt-4 text-lg text-ink-muted">
@@ -51,20 +49,20 @@ export default async function PostsPage() {
       {posts.length === 0 ? (
         <p className="mt-12 text-ink-muted">No posts yet.</p>
       ) : (
-        <ul className="mt-12 divide-y divide-line border-y border-line">
+        <ul className="mt-12 divide-y divide-line border-y-2 border-ink">
           {posts.map((post) => (
             <li key={post.id}>
               <Link
                 href={`/blog/${post.slug}`}
-                className="group block py-8 transition-transform duration-200 hover:translate-x-1"
+                className="group block py-8"
               >
                 <time
                   dateTime={post.createdAt.toISOString()}
-                  className="text-xs uppercase tracking-[0.12em] text-ink-muted"
+                  className="font-label text-ink-muted"
                 >
                   {new Date(post.createdAt).toLocaleDateString()}
                 </time>
-                <h2 className="mt-2 font-display text-2xl text-ink group-hover:text-accent sm:text-3xl">
+                <h2 className="misregister mt-2 font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
                   {post.name}
                 </h2>
                 <p className="mt-2 max-w-measure text-ink-muted">

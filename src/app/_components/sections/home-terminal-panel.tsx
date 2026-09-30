@@ -175,30 +175,30 @@ export default function HomeTerminalPanel() {
   }, [history]);
 
   return (
-    <div className="flex h-full min-h-[28rem] flex-col overflow-hidden rounded-md border border-line bg-card shadow-[0_24px_60px_-28px_rgba(20,40,35,0.35)]">
-      <div className="flex items-center gap-2 border-b border-line bg-secondary/60 px-3 py-2.5">
-        <span className="h-2.5 w-2.5 rounded-full bg-line" />
-        <span className="h-2.5 w-2.5 rounded-full bg-line" />
-        <span className="h-2.5 w-2.5 rounded-full bg-accent/50" />
-        <span className="ml-2 font-mono text-[11px] tracking-wide text-ink-muted">
-          alexander — zsh
+    <div className="flex h-full min-h-[28rem] flex-col overflow-hidden rounded-sm border-2 border-ink bg-[#12100e] shadow-none">
+      <div className="flex items-center gap-2 border-b-2 border-ink bg-[#1c1916] px-3 py-2">
+        <span className="h-2.5 w-2.5 rounded-full bg-[#c45c4a]" />
+        <span className="h-2.5 w-2.5 rounded-full bg-[#c4a35a]" />
+        <span className="h-2.5 w-2.5 rounded-full bg-[#5a9e6f]" />
+        <span className="ml-2 font-mono text-[11px] tracking-wide text-[#a39e97]">
+          alexander — zsh — terminal
         </span>
       </div>
 
       <div
         ref={scrollRef}
-        className="flex-1 cursor-text overflow-y-auto px-4 py-4 font-mono text-[13px] leading-relaxed"
+        className="flex-1 cursor-text overflow-y-auto px-4 py-4 font-mono text-[13px] leading-relaxed text-[#e8e2d9]"
         onClick={() => inputRef.current?.focus()}
       >
         <div className="space-y-0.5">
           {history.map((entry, i) => (
             <div key={`${i}-${entry.content.slice(0, 12)}`}>
               {entry.type === "command" ? (
-                <p className="text-accent">{entry.content}</p>
+                <p className="text-[#e85d4c]">{entry.content}</p>
               ) : (
                 <pre
                   className={`whitespace-pre-wrap break-words ${
-                    entry.muted ? "text-ink-muted" : "text-ink"
+                    entry.muted ? "text-[#8a847c]" : "text-[#e8e2d9]"
                   }`}
                 >
                   {entry.content}
@@ -208,14 +208,14 @@ export default function HomeTerminalPanel() {
           ))}
 
           <div className="flex items-center gap-2 pt-1">
-            <span className="shrink-0 text-accent">~$</span>
+            <span className="shrink-0 text-[#e85d4c]">~$</span>
             <input
               ref={inputRef}
               type="text"
               value={currentInput}
               onChange={(e) => setCurrentInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              className="min-w-0 flex-1 bg-transparent text-ink outline-none"
+              className="min-w-0 flex-1 bg-transparent text-[#e8e2d9] caret-[#e85d4c] outline-none"
               autoComplete="off"
               spellCheck={false}
               aria-label="Terminal input"

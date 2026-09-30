@@ -1,7 +1,10 @@
 import "~/styles/globals.css";
 
-import { GeistSans } from "geist/font/sans";
-import { Instrument_Serif } from "next/font/google";
+import {
+  Bricolage_Grotesque,
+  IBM_Plex_Sans,
+  IBM_Plex_Mono,
+} from "next/font/google";
 import { type Metadata } from "next";
 import Script from "next/script";
 import HeaderSticky from "~/app/_components/ui/header-sticky";
@@ -11,10 +14,23 @@ import CookiePopup from "./_components/ui/cookie-popup";
 import { TRPCReactProvider } from "~/trpc/react";
 import { ThemeProvider } from "./_components/withTheme";
 
-const instrumentSerif = Instrument_Serif({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  weight: "400",
   variable: "--font-display",
+  display: "swap",
+});
+
+const plexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -33,9 +49,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${instrumentSerif.variable}`}
+      className={`${bricolage.variable} ${plexSans.variable} ${plexMono.variable}`}
     >
       <head>
+        <Script
+          id="theme-boot"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=document.cookie.match(/(?:^|; )preferred-theme=([^;]*)/);var v=t?decodeURIComponent(t[1]):"dark";if(v!=="light")document.documentElement.classList.add("dark");else document.documentElement.classList.remove("dark");}catch(e){document.documentElement.classList.add("dark");}})();`,
+          }}
+        />
         <Script
           strategy="afterInteractive"
           src={`https://www.googletagmanager.com/gtag/js?id=G-JW1DQC0Z3P`}

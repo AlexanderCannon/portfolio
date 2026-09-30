@@ -5,7 +5,7 @@ import Button from "~/app/_components/ui/button";
 import { api } from "~/trpc/react";
 
 const fieldClass =
-  "w-full rounded-md border border-line bg-paper px-3 py-2.5 text-ink outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent";
+  "w-full rounded-sm border-2 border-line bg-paper px-3 py-2.5 text-ink outline-none transition-colors focus:border-accent focus:ring-0";
 
 const LeadCaptureFormSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -33,8 +33,10 @@ const LeadCaptureFormSection: React.FC = () => {
 
   if (submitted) {
     return (
-      <div className="rounded-md border border-line bg-accent-soft px-6 py-10">
-        <h2 className="font-display text-2xl text-ink">Thank you</h2>
+      <div className="rounded-sm border-2 border-ink bg-accent-soft px-6 py-10">
+        <h2 className="font-display text-2xl font-semibold tracking-tight text-ink">
+          Thank you
+        </h2>
         <p className="mt-2 text-ink-muted">
           I personally read every message and will get back to you soon.
         </p>

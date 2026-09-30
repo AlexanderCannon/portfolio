@@ -14,7 +14,7 @@ export default function PageShell({
 }: PageShellProps) {
   return (
     <div
-      className={`mx-auto w-full px-5 py-14 sm:px-8 sm:py-20 ${
+      className={`mx-auto w-full px-5 py-16 sm:px-8 sm:py-24 ${
         narrow ? "max-w-measure" : "max-w-shell"
       } ${className}`}
     >

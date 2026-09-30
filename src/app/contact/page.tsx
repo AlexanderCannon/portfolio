@@ -12,10 +12,8 @@ const ContactPage: React.FC = () => {
   return (
     <PageShell>
       <header className="max-w-measure">
-        <p className="text-xs font-medium uppercase tracking-[0.16em] text-accent">
-          Contact
-        </p>
-        <h1 className="mt-3 font-display text-4xl tracking-tight text-ink sm:text-5xl">
+        <p className="font-label text-accent">Contact</p>
+        <h1 className="mt-3 font-display text-4xl font-semibold tracking-tighter text-ink sm:text-5xl">
           Say hello
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-ink-muted">
@@ -28,9 +26,7 @@ const ContactPage: React.FC = () => {
 
         <aside className="space-y-8 text-sm text-ink-muted lg:pt-2">
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.14em] text-ink">
-              Email
-            </p>
+            <p className="font-label text-ink">Email</p>
             <a
               href="mailto:alexander@farpointlabs.com"
               className="mt-2 inline-block text-base text-accent hover:underline"
@@ -39,9 +35,7 @@ const ContactPage: React.FC = () => {
             </a>
           </div>
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.14em] text-ink">
-              Around the web
-            </p>
+            <p className="font-label text-ink">Around the web</p>
             <ul className="mt-3 space-y-2">
               <li>
                 <a

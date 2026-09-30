@@ -3,10 +3,12 @@ import Link from "next/link";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="mt-auto border-t border-line bg-paper">
+    <footer className="mt-auto border-t-2 border-ink bg-paper">
       <div className="mx-auto grid max-w-shell gap-10 px-5 py-12 sm:px-8 md:grid-cols-3">
         <div>
-          <p className="font-display text-lg text-ink">Alexander Cannon</p>
+          <p className="font-display text-xl font-semibold tracking-tighter text-ink">
+            Alexander Cannon
+          </p>
           <p className="mt-2 max-w-xs text-sm leading-relaxed text-ink-muted">
             Engineering leader and builder. Apps, tools, and systems that earn
             their keep.
@@ -14,9 +16,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div>
-          <p className="text-xs font-medium uppercase tracking-[0.14em] text-ink-muted">
-            Elsewhere
-          </p>
+          <p className="font-label text-ink-muted">Elsewhere</p>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
               <Link href="/about" className="text-ink hover:text-accent">
@@ -55,9 +55,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div>
-          <p className="text-xs font-medium uppercase tracking-[0.14em] text-ink-muted">
-            Contact
-          </p>
+          <p className="font-label text-ink-muted">Contact</p>
           <p className="mt-3 text-sm text-ink">
             <a
               href="mailto:alexander@farpointlabs.com"
@@ -66,7 +64,7 @@ const Footer: React.FC = () => {
               alexander@farpointlabs.com
             </a>
           </p>
-          <div className="mt-4 flex gap-4 text-sm text-ink-muted">
+          <div className="mt-4 flex gap-4 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted">
             <a
               href="https://x.com/alexmcan"
               target="_blank"
@@ -103,7 +101,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      <div className="border-t border-line px-5 py-4 text-center text-xs text-ink-muted sm:px-8">
+      <div className="border-t border-line px-5 py-4 text-center font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted sm:px-8">
         © {new Date().getFullYear()} Alexander Cannon
       </div>
     </footer>
