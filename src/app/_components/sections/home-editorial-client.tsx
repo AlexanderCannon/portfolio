@@ -8,8 +8,11 @@ import PageShell from "~/app/_components/ui/page-shell";
 import Button from "~/app/_components/ui/button";
 import HomeTerminalPanel from "~/app/_components/sections/home-terminal-panel";
 import { projects } from "~/app/projects/data";
+import { type SubstackPost } from "~/lib/substack";
+import resume from "public/resume.json";
 
 const latest = projects[0]!;
+const selectedRoles = resume.experience.slice(0, 4);
 const featured = [
   {
     title: "VOLUME",
@@ -39,7 +42,48 @@ const tools = [
   "Kafka",
 ];
 
-export default function HomeEditorialClient() {
+const hobbies = [
+  {
+    name: "Guitar",
+    blurb:
+      "Left-handed, not especially well, on instruments that take up more air than my playing has earned.",
+    image: "/images/guitar.png",
+  },
+  {
+    name: "Running",
+    blurb:
+      "Most mornings before the day has formed an opinion. Hills when I can, pavement when I cannot.",
+    image: "/images/running.png",
+  },
+  {
+    name: "Hiking",
+    blurb: "A sandwich in a pocket, boots, and weather that refuses to stay on message.",
+    image: "/images/hiking.png",
+  },
+  {
+    name: "Travel",
+    blurb:
+      "Cities arrived at with a loose plan. I wander until hunger becomes a compass.",
+    image: "/images/travel.png",
+  },
+  {
+    name: "Reading",
+    blurb: "Stacks that grow faster than evenings. I buy books the way other people buy intentions.",
+    image: "/images/reading.png",
+  },
+  {
+    name: "Cycling",
+    blurb:
+      "A folding bike for trains, stairwells, and hotels with mixed sincerity about cyclists.",
+    image: "/images/cycling.png",
+  },
+];
+
+export default function HomeEditorialClient({
+  substack,
+}: {
+  substack: SubstackPost | null;
+}) {
   // ponytail: terminal is desktop-only — don't mount (or hint) on mobile
   const [desktop, setDesktop] = useState(false);
   useEffect(() => {
@@ -52,7 +96,7 @@ export default function HomeEditorialClient() {
 
   return (
     <PageShell className="py-12 sm:py-16 lg:py-20">
-      <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-14 lg:min-h-[calc(100vh-14rem)]">
+      <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-14">
         <div className="max-w-2xl">
           <motion.h1
             initial={{
@@ -105,11 +149,38 @@ export default function HomeEditorialClient() {
         )}
       </div>
 
+      <section className="mt-16 border-t-2 border-ink pt-12 lg:mt-20 lg:pt-16">
+        <p className="font-label text-ink-muted">Stack</p>
+        <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 sm:gap-x-8">
+          {languages.map((lang) => (
+            <li
+              key={lang}
+              className="misregister font-display text-[clamp(2.5rem,5.5vw,4rem)] font-semibold leading-none tracking-tighter text-ink"
+            >
+              {lang}
+            </li>
+          ))}
+        </ul>
+        <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-muted sm:text-lg">
+          {tools.join(" · ")}
+        </p>
+        <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">
+          Last ship ·{" "}
+          <Link
+            href={`/projects/${latest.slug}`}
+            className="text-accent hover:underline"
+          >
+            {latest.title}
+          </Link>
+        </p>
+      </section>
+
       <section
         id="about"
         className="mt-16 scroll-mt-24 border-t-2 border-ink pt-12 lg:mt-20 lg:pt-16"
       >
-        <div className="grid gap-12 md:grid-cols-[1.2fr_0.8fr] md:gap-16 md:items-start">
+        <p className="font-label text-ink-muted">About</p>
+        <div className="mt-8 grid gap-12 md:grid-cols-[1.2fr_0.8fr] md:items-start md:gap-16">
           <div className="max-w-measure space-y-5 text-base leading-relaxed text-ink-muted sm:text-lg">
             <p>
               I have spent most of my career in the places where software meets
@@ -138,35 +209,54 @@ export default function HomeEditorialClient() {
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 40vw"
+              priority
             />
           </div>
         </div>
       </section>
 
       <section className="mt-16 border-t-2 border-ink pt-12 lg:mt-20 lg:pt-16">
-        <p className="font-label text-ink-muted">Stack</p>
-        <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 sm:gap-x-8">
-          {languages.map((lang) => (
+        <h2 className="font-display text-3xl font-semibold tracking-tight text-ink">
+          How I work
+        </h2>
+        <ul className="mt-6 max-w-measure space-y-3 text-base leading-relaxed text-ink-muted sm:text-lg">
+          <li>Small teams, clear ownership</li>
+          <li>Ship incremental, keep the joinery honest</li>
+          <li>Boring tech when it wins</li>
+          <li>Write for the next person – including future me</li>
+        </ul>
+      </section>
+
+      <section className="mt-16 border-t-2 border-ink pt-10 lg:mt-20">
+        <div className="flex flex-wrap items-baseline justify-between gap-4">
+          <p className="font-label text-ink-muted">Experience</p>
+          <Link
+            href="/experience"
+            className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent underline-offset-4 hover:underline"
+          >
+            Full timeline
+          </Link>
+        </div>
+        <ul className="mt-6 divide-y divide-line border-b border-line">
+          {selectedRoles.map((role) => (
             <li
-              key={lang}
-              className="misregister font-display text-[clamp(2.5rem,5.5vw,4rem)] font-semibold leading-none tracking-tighter text-ink"
+              key={`${role.company}-${role.period}`}
+              className="flex flex-col gap-1 py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
             >
-              {lang}
+              <div>
+                <p className="misregister font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+                  {role.company}
+                </p>
+                <p className="mt-1 text-sm text-ink-muted sm:text-base">
+                  {role.title}
+                </p>
+              </div>
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted sm:text-right">
+                {role.period}
+              </p>
             </li>
           ))}
         </ul>
-        <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-muted sm:text-lg">
-          {tools.join(" · ")}
-        </p>
-        <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">
-          Last ship ·{" "}
-          <Link
-            href={`/projects/${latest.slug}`}
-            className="text-accent hover:underline"
-          >
-            {latest.title}
-          </Link>
-        </p>
       </section>
 
       <div className="mt-16 border-t-2 border-ink pt-10 lg:mt-20">
@@ -184,11 +274,12 @@ export default function HomeEditorialClient() {
             <motion.li
               key={item.title}
               initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
               transition={{
                 duration: 0.4,
                 ease: "easeOut",
-                delay: 0.22 + index * 0.06,
+                delay: index * 0.06,
               }}
             >
               <Link
@@ -209,6 +300,109 @@ export default function HomeEditorialClient() {
           ))}
         </ul>
       </div>
+
+      {substack && (
+        <div className="mt-16 border-t-2 border-ink pt-10 lg:mt-20">
+          <div className="flex flex-wrap items-baseline justify-between gap-4">
+            <p className="font-label text-ink-muted">From Substack</p>
+            <a
+              href="https://alexandercannon.substack.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent underline-offset-4 hover:underline"
+            >
+              See more
+            </a>
+          </div>
+          <a
+            href={substack.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="misregister mt-4 block font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl"
+          >
+            {substack.title}
+          </a>
+          {substack.date && (
+            <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted">
+              {new Date(substack.date).toLocaleDateString("en-GB", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })}
+            </p>
+          )}
+        </div>
+      )}
+
+      <section className="mt-16 border-t-2 border-ink pt-12 lg:mt-20 lg:pt-16">
+        <div className="max-w-measure">
+          <h2 className="font-display text-3xl font-semibold tracking-tight text-ink">
+            Away from the keyboard
+          </h2>
+          <p className="mt-3 text-base leading-relaxed text-ink-muted sm:text-lg">
+            Hours that do not ship, and would be missed if they did.
+          </p>
+        </div>
+        <ul className="mt-10 max-w-2xl divide-y divide-line border-y border-line">
+          {hobbies.map((hobby) => (
+            <li
+              key={hobby.name}
+              className="grid grid-cols-[4.5rem_1fr] items-start gap-4 py-6 sm:grid-cols-[5.5rem_1fr] sm:gap-6"
+            >
+              <div className="relative aspect-square overflow-hidden rounded-sm border border-ink bg-secondary">
+                <Image
+                  src={hobby.image}
+                  alt={hobby.name}
+                  fill
+                  className="object-cover"
+                  sizes="88px"
+                />
+              </div>
+              <div>
+                <h3 className="font-display text-xl font-semibold tracking-tight text-ink sm:text-2xl">
+                  {hobby.name}
+                </h3>
+                <p className="mt-2 text-base leading-relaxed text-ink-muted">
+                  {hobby.blurb}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mt-16 border-t-2 border-ink pt-12 lg:mt-20 lg:pt-16">
+        <p className="max-w-measure text-lg leading-relaxed text-ink-muted sm:text-xl">
+          Open to interesting work. If that sounds like something you are
+          building, say hello.
+        </p>
+        <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <a
+            href={`mailto:${resume.personalInfo.email}`}
+            className="text-accent underline-offset-4 hover:underline"
+          >
+            {resume.personalInfo.email}
+          </a>
+          <Link
+            href="/contact"
+            className="text-ink-muted underline-offset-4 hover:text-ink hover:underline"
+          >
+            Contact
+          </Link>
+          <Link
+            href="/experience"
+            className="text-ink-muted underline-offset-4 hover:text-ink hover:underline"
+          >
+            Experience
+          </Link>
+          <Link
+            href="/print"
+            className="text-ink-muted underline-offset-4 hover:text-ink hover:underline"
+          >
+            Print resume
+          </Link>
+        </div>
+      </section>
     </PageShell>
   );
 }

@@ -11,6 +11,7 @@ import { useTheme } from "~/app/_components/withTheme";
 
 const menuItems = [
   { title: "Home", path: "/" },
+  { title: "About", path: "/#about" },
   { title: "Projects", path: "/projects" },
   { title: "Blog", path: "/blog" },
   { title: "Contact", path: "/contact" },
