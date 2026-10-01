@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import PageShell from "~/app/_components/ui/page-shell";
 import Button from "~/app/_components/ui/button";
 import Vista from "~/app/_components/ui/vista";
+import ScrollTrail from "~/app/_components/ui/scroll-trail";
 import HomeTerminalPanel from "~/app/_components/sections/home-terminal-panel";
 import { projects } from "~/app/projects/data";
 import { type SubstackPost } from "~/lib/substack";
@@ -175,7 +176,8 @@ function Section({
   return (
     <motion.section
       id={id}
-      className={className}
+      data-trail-section
+      className={`relative z-[1] ${className}`}
       variants={stagger}
       initial="hidden"
       whileInView="show"
@@ -194,6 +196,7 @@ export default function HomeEditorialClient({
   // ponytail: terminal is desktop-only — don't mount (or hint) on mobile
   const [desktop, setDesktop] = useState(false);
   const reduced = useReducedMotion() ?? false;
+  const trailRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 1024px)");
@@ -242,7 +245,9 @@ export default function HomeEditorialClient({
 
       {/* Solid parchment — sits close under the released sticky hero */}
       <div className="relative z-20 -mt-20 bg-background sm:-mt-28">
-        <PageShell className="bg-background pb-12 pt-8 sm:pb-16 sm:pt-10 lg:pb-20 lg:pt-12">
+        <div ref={trailRef} className="relative mx-auto w-full max-w-shell">
+          <ScrollTrail containerRef={trailRef} />
+          <PageShell className="relative z-[1] pb-12 pt-8 sm:pb-16 sm:pt-10 lg:pb-20 lg:pt-12">
           <Section className="border-t-0 pt-0">
             <SectionLabel reduced={reduced}>Field kit</SectionLabel>
             <ContourRule />
@@ -668,7 +673,8 @@ export default function HomeEditorialClient({
               </Link>
             </motion.div>
           </Section>
-        </PageShell>
+          </PageShell>
+        </div>
       </div>
     </>
   );
