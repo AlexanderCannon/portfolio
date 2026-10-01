@@ -23,6 +23,28 @@ type ScrollTrailProps = {
   containerRef: RefObject<HTMLElement | null>;
 };
 
+/** Prefer explicit marks, then headers + sections, then sizable direct children. */
+function collectStops(root: HTMLElement): HTMLElement[] {
+  const tagged = [
+    ...root.querySelectorAll<HTMLElement>("[data-trail-section]"),
+  ];
+  if (tagged.length >= 2) return tagged;
+
+  const sections = [...root.querySelectorAll<HTMLElement>("section")];
+  const headers = [...root.querySelectorAll<HTMLElement>("header")].filter(
+    (h) => !sections.some((s) => s.contains(h)),
+  );
+  const stops = [...headers, ...sections];
+  if (stops.length >= 2) return stops;
+
+  const inner =
+    root.querySelector<HTMLElement>("[data-trail-content]") ?? root;
+  return [...inner.children].filter(
+    (el): el is HTMLElement =>
+      el instanceof HTMLElement && el.offsetHeight > 48,
+  );
+}
+
 /** Orthogonal polyline → quadratic-rounded corners. */
 function roundedOrthoPath(points: Pt[], radius: number): string {
   if (points.length < 2) return "";
@@ -71,9 +93,7 @@ export default function ScrollTrail({ containerRef }: ScrollTrailProps) {
   const rebuild = useCallback(() => {
     const root = containerRef.current;
     if (!root) return;
-    const sections = [
-      ...root.querySelectorAll<HTMLElement>("[data-trail-section]"),
-    ];
+    const sections = collectStops(root);
     if (sections.length < 2) {
       setPath("");
       return;
@@ -116,7 +136,7 @@ export default function ScrollTrail({ containerRef }: ScrollTrailProps) {
 
     const ro = new ResizeObserver(() => rebuild());
     ro.observe(root);
-    for (const el of root.querySelectorAll("[data-trail-section]")) {
+    for (const el of collectStops(root)) {
       ro.observe(el);
     }
 
@@ -133,7 +153,7 @@ export default function ScrollTrail({ containerRef }: ScrollTrailProps) {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 0.75", "end 0.7"],
+    offset: ["start 0.55", "end 0.85"],
   });
 
   const draw = useTransform(scrollYProgress, [0, 1], [0, 1]);

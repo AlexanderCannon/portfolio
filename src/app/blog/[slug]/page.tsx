@@ -63,7 +63,7 @@ export default async function PostPage({ params }: BlogPageProps) {
         </div>
       </article>
 
-      <section className="mt-16 border-t border-dashed border-line pt-10">
+      <section className="mt-16 pt-10">
         <h2 className="engraved font-display text-2xl tracking-tight text-ink">
           Comments
         </h2>

@@ -138,7 +138,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         <ProjectDemo slug={project.slug} />
 
-        <section className="mt-16 border-t border-dashed border-line pt-12">
+        <section className="mt-16 pt-12">
           <h2 className="engraved font-display text-3xl tracking-tight text-ink">
             Built with
           </h2>
@@ -147,7 +147,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </p>
         </section>
 
-        <section className="mt-16 border-t border-dashed border-line pt-12">
+        <section className="mt-16 pt-12">
           <h2 className="engraved font-display text-3xl tracking-tight text-ink">
             Where it got hard
           </h2>
@@ -168,7 +168,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </ol>
         </section>
 
-        <section className="mt-16 border-t border-dashed border-line pt-12">
+        <section className="mt-16 pt-12">
           <h2 className="engraved font-display text-3xl tracking-tight text-ink">
             Role
           </h2>

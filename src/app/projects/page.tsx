@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import PageShell from "~/app/_components/ui/page-shell";
 import GithubMeta from "~/app/_components/ui/github-meta";
+import { ContourRule, SectionLabel } from "~/app/_components/ui/survey-chrome";
 import {
   liveLabel,
   plateNumber,
@@ -61,8 +62,9 @@ export default function ProjectsPage() {
   return (
     <PageShell>
       <header className="max-w-2xl">
-        <p className="font-label text-accent">Catalog</p>
-        <h1 className="engraved mt-3 font-display text-4xl tracking-tight text-ink sm:text-5xl">
+        <SectionLabel>Catalog</SectionLabel>
+        <ContourRule />
+        <h1 className="engraved mt-5 font-display text-4xl tracking-tight text-ink sm:text-5xl">
           Projects
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-ink-muted">
@@ -71,13 +73,13 @@ export default function ProjectsPage() {
         </p>
       </header>
 
-      <div className="mt-10 flex flex-wrap gap-2 border-y border-dashed border-line py-3">
+      <div className="mt-10 flex flex-wrap gap-2 py-3">
         {projectKinds.map((k) => (
           <button
             key={k}
             type="button"
             onClick={() => setKind(k)}
-            className={`font-mono text-[11px] uppercase tracking-[0.14em] px-3 py-1.5 transition-colors ${
+            className={`px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors ${
               kind === k
                 ? "bg-ink text-paper"
                 : "text-ink-muted hover:text-ink"

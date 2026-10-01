@@ -1,13 +1,16 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import PageShell from "~/app/_components/ui/page-shell";
 import Button from "~/app/_components/ui/button";
 import Vista from "~/app/_components/ui/vista";
-import ScrollTrail from "~/app/_components/ui/scroll-trail";
+import {
+  ContourRule,
+  SectionLabel,
+} from "~/app/_components/ui/survey-chrome";
 import HomeTerminalPanel from "~/app/_components/sections/home-terminal-panel";
 import { projects } from "~/app/projects/data";
 import { type SubstackPost } from "~/lib/substack";
@@ -93,77 +96,6 @@ const stagger = {
   show: { transition: { staggerChildren: 0.08, delayChildren: 0.04 } },
 };
 
-/** OS triangulation tick — draws in when the section arrives. */
-function SurveyMark({ reduced }: { reduced: boolean }) {
-  return (
-    <motion.svg
-      width="14"
-      height="14"
-      viewBox="0 0 14 14"
-      aria-hidden
-      className="shrink-0 text-accent"
-      initial={reduced ? false : { opacity: 0, rotate: -25 }}
-      whileInView={{ opacity: 1, rotate: 0 }}
-      viewport={viewport}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-    >
-      <motion.circle
-        cx="7"
-        cy="7"
-        r="5.2"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1"
-        initial={reduced ? false : { pathLength: 0 }}
-        whileInView={{ pathLength: 1 }}
-        viewport={viewport}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      />
-      <path
-        d="M7 1.5V12.5M1.5 7H12.5"
-        stroke="currentColor"
-        strokeWidth="1"
-        strokeLinecap="square"
-      />
-      <circle cx="7" cy="7" r="1.15" fill="currentColor" />
-    </motion.svg>
-  );
-}
-
-function SectionLabel({
-  children,
-  reduced,
-}: {
-  children: ReactNode;
-  reduced: boolean;
-}) {
-  return (
-    <motion.div
-      className="flex items-center gap-2.5"
-      variants={fadeUp}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-    >
-      <SurveyMark reduced={reduced} />
-      <p className="font-label text-ink-muted">{children}</p>
-    </motion.div>
-  );
-}
-
-/** Soft contour hatch under a section eyebrow. */
-function ContourRule() {
-  return (
-    <motion.div
-      aria-hidden
-      className="map-rule mt-3 h-3 max-w-[9rem] opacity-70"
-      initial={{ scaleX: 0, opacity: 0 }}
-      whileInView={{ scaleX: 1, opacity: 0.7 }}
-      viewport={viewport}
-      transition={{ duration: 0.55, ease: "easeOut" }}
-      style={{ originX: 0 }}
-    />
-  );
-}
-
 function Section({
   children,
   className = "",
@@ -196,7 +128,6 @@ export default function HomeEditorialClient({
   // ponytail: terminal is desktop-only — don't mount (or hint) on mobile
   const [desktop, setDesktop] = useState(false);
   const reduced = useReducedMotion() ?? false;
-  const trailRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 1024px)");
@@ -245,11 +176,9 @@ export default function HomeEditorialClient({
 
       {/* Solid parchment — sits close under the released sticky hero */}
       <div className="relative z-20 -mt-20 bg-background sm:-mt-28">
-        <div ref={trailRef} className="relative mx-auto w-full max-w-shell">
-          <ScrollTrail containerRef={trailRef} />
-          <PageShell className="relative z-[1] pb-12 pt-8 sm:pb-16 sm:pt-10 lg:pb-20 lg:pt-12">
+        <PageShell trail className="pb-12 pt-8 sm:pb-16 sm:pt-10 lg:pb-20 lg:pt-12">
           <Section className="pt-0">
-            <SectionLabel reduced={reduced}>Field kit</SectionLabel>
+            <SectionLabel>Field kit</SectionLabel>
             <ContourRule />
             <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 sm:gap-x-8">
               {languages.map((lang) => (
@@ -298,7 +227,7 @@ export default function HomeEditorialClient({
 
           {desktop && (
             <Section className="mt-16 pt-12 lg:mt-20 lg:pt-16">
-              <SectionLabel reduced={reduced}>Field radio</SectionLabel>
+              <SectionLabel>Field radio</SectionLabel>
               <ContourRule />
               <motion.div
                 variants={fadeUp}
@@ -314,7 +243,7 @@ export default function HomeEditorialClient({
             id="about"
             className="mt-16 scroll-mt-24 pt-12 lg:mt-20 lg:pt-16"
           >
-            <SectionLabel reduced={reduced}>Dossier</SectionLabel>
+            <SectionLabel>Dossier</SectionLabel>
             <ContourRule />
             <div className="mt-8 grid gap-12 md:grid-cols-[1.2fr_0.8fr] md:items-start md:gap-16">
               <motion.div
@@ -400,7 +329,7 @@ export default function HomeEditorialClient({
           <Section className="mt-16 pt-10 lg:mt-20">
             <div className="flex flex-wrap items-baseline justify-between gap-4">
               <div>
-                <SectionLabel reduced={reduced}>Expedition log</SectionLabel>
+                <SectionLabel>Expedition log</SectionLabel>
                 <ContourRule />
               </div>
               <motion.div variants={fadeUp}>
@@ -452,7 +381,7 @@ export default function HomeEditorialClient({
           <Section className="mt-16 pt-10 lg:mt-20">
             <div className="flex flex-wrap items-baseline justify-between gap-4">
               <div>
-                <SectionLabel reduced={reduced}>Recent work</SectionLabel>
+                <SectionLabel>Recent work</SectionLabel>
                 <ContourRule />
               </div>
               <motion.div variants={fadeUp}>
@@ -495,7 +424,7 @@ export default function HomeEditorialClient({
             <Section className="mt-16 pt-10 lg:mt-20">
               <div className="flex flex-wrap items-baseline justify-between gap-4">
                 <div>
-                  <SectionLabel reduced={reduced}>From Substack</SectionLabel>
+                  <SectionLabel>From Substack</SectionLabel>
                   <ContourRule />
                 </div>
                 <motion.div variants={fadeUp}>
@@ -666,8 +595,7 @@ export default function HomeEditorialClient({
               </Link>
             </motion.div>
           </Section>
-          </PageShell>
-        </div>
+        </PageShell>
       </div>
     </>
   );

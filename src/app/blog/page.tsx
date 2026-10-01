@@ -40,7 +40,7 @@ export default async function PostsPage() {
 
   return (
     <PageShell>
-      <header className="max-w-measure">
+      <header className="max-w-measure" data-trail-section>
         <p className="font-label text-accent">Field notes</p>
         <h1 className="engraved mt-3 font-display text-4xl tracking-tight text-ink sm:text-5xl">
           Blog
@@ -63,7 +63,10 @@ export default async function PostsPage() {
         <p className="mt-12 text-ink-muted">No posts yet.</p>
       ) : (
         <>
-          <div className="mt-16 flex items-baseline justify-between border-b border-dashed border-ink pb-3">
+          <div
+            className="mt-16 flex items-baseline justify-between border-b border-dashed border-ink pb-3"
+            data-trail-section
+          >
             <h2 className="font-label text-ink">Earlier notes</h2>
             <span className="font-label text-ink-muted">
               {postCount} {postCount === 1 ? "post" : "posts"}

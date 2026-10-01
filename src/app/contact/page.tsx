@@ -1,6 +1,7 @@
 import React from "react";
 import LeadCaptureForm from "~/app/_components/sections/lead-capture-form";
 import PageShell from "~/app/_components/ui/page-shell";
+import { ContourRule, SectionLabel } from "~/app/_components/ui/survey-chrome";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,8 +13,9 @@ const ContactPage: React.FC = () => {
   return (
     <PageShell>
       <header className="max-w-measure">
-        <p className="font-label text-accent">Correspondence</p>
-        <h1 className="engraved mt-3 font-display text-4xl tracking-tight text-ink sm:text-5xl">
+        <SectionLabel>Correspondence</SectionLabel>
+        <ContourRule />
+        <h1 className="engraved mt-5 font-display text-4xl tracking-tight text-ink sm:text-5xl">
           Say hello
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-ink-muted">
@@ -21,22 +23,24 @@ const ContactPage: React.FC = () => {
         </p>
       </header>
 
-      <div className="mt-12 grid gap-14 lg:grid-cols-[1fr_0.7fr] lg:gap-20">
+      <div className="mt-14 grid gap-14 lg:grid-cols-[1fr_0.7fr] lg:gap-20">
         <LeadCaptureForm />
 
         <aside className="space-y-8 text-sm text-ink-muted lg:pt-2">
           <div>
-            <p className="font-label text-ink">Email</p>
+            <SectionLabel>Email</SectionLabel>
+            <ContourRule />
             <a
               href="mailto:alexander@farpointlabs.com"
-              className="mt-2 inline-block text-base text-accent underline decoration-dashed underline-offset-4 hover:underline"
+              className="mt-4 inline-block text-base text-accent underline decoration-dashed underline-offset-4 hover:underline"
             >
               alexander@farpointlabs.com
             </a>
           </div>
           <div>
-            <p className="font-label text-ink">Around the web</p>
-            <ul className="mt-3 space-y-2">
+            <SectionLabel>Around the web</SectionLabel>
+            <ContourRule />
+            <ul className="mt-4 space-y-2">
               <li>
                 <a
                   href="https://x.com/alexmcan"
