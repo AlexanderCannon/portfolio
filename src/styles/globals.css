@@ -12,10 +12,10 @@
     --accent: 32 42% 36%;
     --accent-soft: 42 20% 78%;
     --stamp: 355 42% 32%;
-    --leather: 220 16% 14%;
-    --leather-edge: 220 12% 20%;
+    --leather: 32 16% 16%;
+    --leather-edge: 30 12% 22%;
     --rope: 36 18% 48%;
-    --canvas: 42 14% 68%;
+    --canvas: 38 12% 42%;
 
     --background: var(--paper);
     --foreground: var(--ink);
@@ -42,24 +42,24 @@
     --chart-5: 24 28% 28%;
     --radius: 0.125rem;
 
-    /* Vista — same ochre/sienna/chestnut ramp as the page (no black wedge) */
-    --vista-sky-top: 18 62% 58%;
-    --vista-sky-mid: 32 68% 68%;
-    --vista-sky-bottom: 40 48% 76%;
-    --vista-sun: 44 95% 88%;
-    --vista-cloud: 32 32% 72% / 0.35;
-    --vista-ridge-1: 36 36% 74%;
-    --vista-ridge-2: 34 34% 66%;
-    --vista-ridge-3: 32 32% 58%;
-    --vista-ridge-4: 30 34% 48%;
-    --vista-ridge-5: 28 36% 38%;
-    --vista-ridge-6: 28 38% 28%;
-    --vista-ridge-7: 26 40% 22%;
-    --vista-shadow: 26 40% 16%;
-    --vista-frame: 26 42% 14%;
-    --vista-pine: 48 22% 22%;
-    --vista-text: 24 32% 12%;
-    --vista-text-muted: 28 20% 28%;
+    /* Vista — monochrome survey ink on the same paper family */
+    --vista-sky-top: 220 8% 62%;
+    --vista-sky-mid: 42 10% 74%;
+    --vista-sky-bottom: 42 14% 82%;
+    --vista-sun: 42 12% 92%;
+    --vista-cloud: 220 6% 70% / 0.28;
+    --vista-ridge-1: 40 8% 72%;
+    --vista-ridge-2: 35 8% 64%;
+    --vista-ridge-3: 30 9% 54%;
+    --vista-ridge-4: 28 10% 42%;
+    --vista-ridge-5: 25 12% 32%;
+    --vista-ridge-6: 24 14% 22%;
+    --vista-ridge-7: 22 16% 16%;
+    --vista-shadow: 220 14% 10%;
+    --vista-frame: 220 16% 12%;
+    --vista-pine: 220 10% 18%;
+    --vista-text: 220 18% 12%;
+    --vista-text-muted: 215 10% 28%;
   }
 
   .dark {
@@ -70,10 +70,10 @@
     --accent: 36 38% 52%;
     --accent-soft: 220 12% 14%;
     --stamp: 355 36% 42%;
-    --leather: 220 16% 7%;
-    --leather-edge: 220 12% 14%;
+    --leather: 30 14% 9%;
+    --leather-edge: 28 10% 14%;
     --rope: 34 14% 38%;
-    --canvas: 220 10% 18%;
+    --canvas: 32 8% 22%;
 
     --background: var(--paper);
     --foreground: var(--ink);
@@ -99,24 +99,24 @@
     --chart-4: 42 36% 46%;
     --chart-5: 26 14% 52%;
 
-    /* Hollywood dusk into torchlit leather */
-    --vista-sky-top: 268 28% 14%;
-    --vista-sky-mid: 18 42% 22%;
-    --vista-sky-bottom: 28 38% 18%;
-    --vista-sun: 40 78% 72%;
-    --vista-cloud: 30 22% 36% / 0.22;
-    --vista-ridge-1: 28 26% 36%;
-    --vista-ridge-2: 26 28% 28%;
-    --vista-ridge-3: 24 30% 22%;
-    --vista-ridge-4: 24 30% 17%;
-    --vista-ridge-5: 24 28% 14%;
-    --vista-ridge-6: 22 30% 10%;
-    --vista-ridge-7: 22 32% 8%;
-    --vista-shadow: 22 34% 6%;
-    --vista-frame: 22 36% 5%;
-    --vista-pine: 48 14% 12%;
-    --vista-text: 40 32% 90%;
-    --vista-text-muted: 36 18% 68%;
+    /* Vista — charcoal survey plate */
+    --vista-sky-top: 220 10% 8%;
+    --vista-sky-mid: 220 8% 12%;
+    --vista-sky-bottom: 40 6% 16%;
+    --vista-sun: 42 12% 78%;
+    --vista-cloud: 220 6% 28% / 0.2;
+    --vista-ridge-1: 40 6% 28%;
+    --vista-ridge-2: 35 6% 22%;
+    --vista-ridge-3: 30 7% 18%;
+    --vista-ridge-4: 28 8% 14%;
+    --vista-ridge-5: 25 10% 11%;
+    --vista-ridge-6: 24 12% 8%;
+    --vista-ridge-7: 22 14% 6%;
+    --vista-shadow: 220 16% 4%;
+    --vista-frame: 220 16% 5%;
+    --vista-pine: 220 8% 7%;
+    --vista-text: 42 18% 90%;
+    --vista-text-muted: 40 10% 64%;
   }
 }
 
@@ -298,11 +298,9 @@
     color: hsl(var(--ink));
     border: 1px solid hsl(var(--leather-edge));
     box-shadow:
-      inset 0 0 0 1px hsl(var(--accent) / 0.25),
-      inset 0 0 40px hsl(20 40% 4% / 0.35);
+      inset 0 0 0 1px hsl(var(--canvas) / 0.22),
+      inset 0 0 36px hsl(24 30% 4% / 0.28);
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.18'/%3E%3C/svg%3E");
-    outline: 1px dashed hsl(var(--accent) / 0.35);
-    outline-offset: -6px;
   }
 
   .stamp {
@@ -328,31 +326,21 @@
     position: relative;
   }
 
-  .rivet::before,
-  .rivet::after {
+  /* One map pin, top-left — not a pair of window-chrome dots */
+  .rivet::before {
     content: "";
     position: absolute;
-    width: 7px;
-    height: 7px;
+    top: 10px;
+    left: 10px;
+    width: 6px;
+    height: 6px;
     border-radius: 9999px;
-    background: radial-gradient(
-      circle at 35% 30%,
-      hsl(42 70% 68%),
-      hsl(var(--accent)) 55%,
-      hsl(28 50% 28%) 100%
-    );
-    box-shadow: 0 0 0 1px hsl(24 40% 12% / 0.4);
+    background: hsl(var(--accent));
+    box-shadow:
+      inset 0 1px 0 hsl(42 50% 70% / 0.35),
+      0 0 0 1px hsl(24 40% 10% / 0.55),
+      0 1px 2px hsl(24 40% 4% / 0.4);
     z-index: 2;
-  }
-
-  .rivet::before {
-    top: 8px;
-    left: 8px;
-  }
-
-  .rivet::after {
-    top: 8px;
-    right: 8px;
   }
 
   .rule-dashed {
@@ -428,7 +416,7 @@
   }
 
   .brass-stitch {
-    box-shadow: inset 0 -2px 0 0 hsl(var(--accent) / 0.55);
+    box-shadow: inset 0 -1px 0 0 hsl(var(--ink) / 0.14);
   }
 
   .torn-top {

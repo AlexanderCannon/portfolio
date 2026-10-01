@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { X, Moon, Sun } from "lucide-react";
+import { X, Moon, Sun, Monitor } from "lucide-react";
 import Button from "./button";
 import { socialLinks } from "~/app/_components/ui/header-sticky";
 import { useTheme } from "~/app/_components/withTheme";
@@ -23,7 +23,7 @@ export default function MobileMenu({
 }: MobileMenuProps) {
   const pathname = usePathname();
   const {
-    state: { isDark },
+    state: { preference },
     toggleTheme,
   } = useTheme();
   const [isClosing, setIsClosing] = useState(false);
@@ -110,10 +110,16 @@ export default function MobileMenu({
             <button
               onClick={toggleTheme}
               className="text-ink-muted hover:text-ink"
-              aria-label="Toggle lantern"
+              aria-label={`Theme: ${preference}. Cycle theme.`}
               type="button"
             >
-              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {preference === "system" ? (
+                <Monitor className="h-5 w-5" />
+              ) : preference === "dark" ? (
+                <Moon className="h-5 w-5" />
+              ) : (
+                <Sun className="h-5 w-5" />
+              )}
             </button>
           </div>
           <Button className="w-full" link="/contact" onClick={handleClose}>

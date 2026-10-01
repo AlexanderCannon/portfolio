@@ -295,9 +295,9 @@ export default function Vista({
           <button
             type="button"
             onClick={() => setSeed((s) => (s + 7919) >>> 0)}
-            className="pointer-events-auto mt-6 self-center font-mono text-[11px] uppercase tracking-[0.14em] text-[hsl(var(--vista-text-muted))] underline-offset-4 hover:underline"
+            className="pointer-events-auto mt-10 self-center font-display text-xs font-medium uppercase tracking-[0.14em] text-[hsl(var(--vista-text))] hover:text-white dark:text-[hsl(var(--vista-text-muted))] dark:hover:text-[hsl(var(--vista-text))]"
           >
-            New trail
+            Fresh survey
           </button>
         </div>
       </div>

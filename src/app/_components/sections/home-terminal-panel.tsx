@@ -273,7 +273,7 @@ export default function HomeTerminalPanel() {
   }, [commandHistory, historyIndex, currentInput]);
 
   return (
-    <div className="leather rivet flex h-full min-h-[28rem] flex-col overflow-hidden rounded-sm">
+    <div className="leather flex h-full min-h-[28rem] flex-col overflow-hidden rounded-sm">
       <div className="flex items-center gap-2 border-b border-leather-edge bg-leather-edge/80 px-3 py-2">
         <span className="h-2.5 w-2.5 rounded-full bg-stamp" />
         <span className="h-2.5 w-2.5 rounded-full bg-accent" />

@@ -58,7 +58,7 @@ export default function RootLayout({
           id="theme-boot"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=document.cookie.match(/(?:^|; )preferred-theme=([^;]*)/);var v=t?decodeURIComponent(t[1]):"dark";if(v!=="light")document.documentElement.classList.add("dark");else document.documentElement.classList.remove("dark");}catch(e){document.documentElement.classList.add("dark");}})();`,
+            __html: `(function(){try{var t=document.cookie.match(/(?:^|; )preferred-theme=([^;]*)/);var v=t?decodeURIComponent(t[1]):"system";var dark=v==="dark"||(v!=="light"&&window.matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",dark);}catch(e){document.documentElement.classList.add("dark");}})();`,
           }}
         />
         <Script

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Sun, Moon, Github, Linkedin, Twitter } from "lucide-react";
+import { Menu, Sun, Moon, Monitor, Github, Linkedin, Twitter } from "lucide-react";
 import MobileMenu from "~/app/_components/ui/mobile-menu";
 import Button from "~/app/_components/ui/button";
 import SubstackIcon from "~/app/_components/ui/substack-icon";
@@ -35,7 +35,7 @@ export const socialLinks = [
 export default function HeaderSticky() {
   const pathname = usePathname();
   const {
-    state: { isDark },
+    state: { preference },
     toggleTheme,
   } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -111,13 +111,15 @@ export default function HeaderSticky() {
               <button
                 onClick={toggleTheme}
                 className="text-ink-muted transition-colors hover:text-ink"
-                aria-label="Toggle lantern"
+                aria-label={`Theme: ${preference}. Cycle theme.`}
                 type="button"
               >
-                {isDark ? (
-                  <Sun className="h-4 w-4" />
-                ) : (
+                {preference === "system" ? (
+                  <Monitor className="h-4 w-4" />
+                ) : preference === "dark" ? (
                   <Moon className="h-4 w-4" />
+                ) : (
+                  <Sun className="h-4 w-4" />
                 )}
               </button>
             </div>

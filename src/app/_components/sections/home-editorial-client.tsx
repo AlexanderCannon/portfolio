@@ -109,30 +109,22 @@ export default function HomeEditorialClient({
             <br />
             Cannon
           </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, ease: "easeOut", delay: 0.14 }}
-            className="mx-auto mt-5 max-w-sm text-base leading-relaxed text-[hsl(var(--vista-text-muted))]"
-          >
-            Products people come back to — apps, tools, and experiments.
-          </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: "easeOut", delay: 0.22 }}
-            className="mt-7 flex flex-wrap items-center justify-center gap-4"
+            className="mt-16 flex flex-wrap items-center justify-center gap-3 sm:mt-20"
           >
             <Button
               link="/projects"
-              className="border-0 bg-[hsl(var(--vista-text))] text-[hsl(var(--vista-sky-bottom))] hover:bg-stamp hover:text-paper"
+              className="border-ink bg-ink text-paper shadow-[0_1px_0_hsl(var(--ink)/0.25)] hover:bg-accent hover:border-accent hover:text-paper"
             >
               See the work
             </Button>
             <Button
               link="/contact"
-              variant="link"
-              className="text-[hsl(var(--vista-text))]"
+              variant="ghost"
+              className="border-ink bg-paper text-ink shadow-[0_1px_0_hsl(var(--ink)/0.15)] hover:bg-accent hover:border-accent hover:text-paper"
             >
               Say hello
             </Button>

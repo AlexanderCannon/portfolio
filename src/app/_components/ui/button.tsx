@@ -1,4 +1,5 @@
 import React, { forwardRef } from "react";
+import { cn } from "~/lib/utils";
 
 interface BaseProps {
   children: React.ReactNode;
@@ -34,7 +35,11 @@ const Button = forwardRef<
   HTMLButtonElement | HTMLAnchorElement,
   PolymorphicButtonProps
 >(({ children, link, className = "", variant = "solid", ...rest }, ref) => {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-sm px-5 py-2.5 font-display text-sm font-semibold tracking-[0.08em] uppercase transition-colors duration-150 disabled:opacity-50 ${variants[variant]} ${className}`;
+  const classes = cn(
+    "inline-flex items-center justify-center gap-2 rounded-sm px-5 py-2.5 font-display text-sm font-semibold tracking-[0.08em] uppercase transition-colors duration-150 disabled:opacity-50",
+    variants[variant],
+    className,
+  );
 
   if (link) {
     return (
