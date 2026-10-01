@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { projects } from "~/app/projects/data";
 
 interface HistoryEntry {
   type: "command" | "output";
@@ -45,18 +46,68 @@ const NAV: Record<string, string> = {
   home: "/",
 };
 
-function buildCommands(navigate: (path: string) => void): Record<
-  string,
-  CommandFn
-> {
-  return {
+const COMPASS: Record<string, { label: string; path: string }> = {
+  north: { label: "projects", path: "/projects" },
+  n: { label: "projects", path: "/projects" },
+  east: { label: "blog", path: "/blog" },
+  e: { label: "blog", path: "/blog" },
+  south: { label: "contact", path: "/contact" },
+  s: { label: "contact", path: "/contact" },
+  west: { label: "about", path: "/#about" },
+  w: { label: "about", path: "/#about" },
+};
+
+const TRANSMISSIONS = [
+  "Static clears. VOLUME is live on the App Store.",
+  "Field note: PathRanger was named after getting lost in a monorepo.",
+  "Weak signal from Eurovision Party — someone's still scoring songs.",
+  "CacheClip caches clipboard. Name does what it says on the tin.",
+  "lllanguage: learn from the conversation you already had.",
+  "Honey Do is cooking. Literally — family meal planning.",
+  "Sophia's Future Doctor Club: habits before white coats.",
+  "Radio check: LLMs in production, not just demos.",
+  "Bearing confirmed — farpointlabs.com still on the air.",
+  "Trail marker: TypeScript · Rust · Python · Go.",
+];
+
+// Project keys only — skip site pages so explore lands somewhere interesting
+const EXPLORE_KEYS = Object.keys(NAV).filter(
+  (k) =>
+    ![
+      "projects",
+      "about",
+      "contact",
+      "experience",
+      "blog",
+      "resume",
+      "home",
+      "sophia",
+      "honey",
+    ].includes(k),
+);
+
+function buildCommands(
+  navigate: (path: string) => void,
+  commandHistory: string[],
+): Record<string, CommandFn> {
+  const cmds: Record<string, CommandFn> = {
     help: () => [
       "Available commands:",
-      "  help / whoami / projects / skills / contact / about",
-      "  open <slug>  Jump to a project (e.g. open volume)",
-      "  resume       Printable resume",
-      "  clear / date / ls / cat <file>",
-      "  cannon       Easter egg",
+      "",
+      "  About me",
+      "    whoami / about / skills / contact / resume",
+      "    projects              Featured work",
+      "",
+      "  Explore",
+      "    map                   Site map with open targets",
+      "    explore / wander      Follow a random trail",
+      "    go <n|e|s|w>          Compass nav (or: compass)",
+      "    find <term>           Search projects",
+      "    scan                  Tune the radio",
+      "    open <slug>           Jump somewhere (e.g. open volume)",
+      "",
+      "  Misc",
+      "    tree / ls / cat <file> / date / history / clear",
     ],
     whoami: () => [
       "Alexander Cannon",
@@ -71,7 +122,7 @@ function buildCommands(navigate: (path: string) => void): Record<
       "  lllanguage                 — language from real conversation",
       "  PathRanger / CacheClip     — Rust CLIs",
       "",
-      'Try: open volume',
+      "Try: open volume | find rust | explore",
     ],
     skills: () => [
       "TypeScript · Rust · Python · Go",
@@ -104,10 +155,123 @@ function buildCommands(navigate: (path: string) => void): Record<
         return [
           `open: unknown target "${args?.[0] ?? ""}"`,
           "Try: volume, pathranger, cacheclip, eurovision, resume",
+          "Or: map",
         ];
       }
       navigate(path);
       return [`Opening ${path} …`];
+    },
+    map: () => [
+      "          [ N projects ]",
+      "                 |",
+      "  [ W about ] — ★ — [ E blog ]",
+      "                 |",
+      "          [ S contact ]",
+      "",
+      "  Landmarks:",
+      "    open projects    /projects",
+      "    open experience  /experience",
+      "    open blog        /blog",
+      "    open contact     /contact",
+      "    open resume      /print",
+      "    open volume      …and other project slugs",
+      "",
+      "  Or: go north | explore | find <term>",
+    ],
+    explore: () => {
+      const key =
+        EXPLORE_KEYS[Math.floor(Math.random() * EXPLORE_KEYS.length)] ??
+        "volume";
+      const path = NAV[key]!;
+      navigate(path);
+      return [`Following a trail to ${key} …`, `→ ${path}`];
+    },
+    wander: (args) => cmds.explore!(args),
+    go: (args) => {
+      const dir = (args?.[0] ?? "").toLowerCase();
+      if (!dir) {
+        return [
+          "Usage: go <north|east|south|west>",
+          "Or: compass",
+        ];
+      }
+      const dest = COMPASS[dir];
+      if (!dest) {
+        return [
+          `go: unknown bearing "${args?.[0]}"`,
+          "Try: north, east, south, west (or n/e/s/w)",
+        ];
+      }
+      navigate(dest.path);
+      return [`Heading ${dir} → ${dest.label} (${dest.path})`];
+    },
+    compass: () => [
+      "          N  projects",
+      "          |",
+      "   W ——— ★ ——— E",
+      "  about         blog",
+      "          |",
+      "          S  contact",
+      "",
+      "Try: go north",
+    ],
+    find: (args) => {
+      const term = (args ?? []).join(" ").trim().toLowerCase();
+      if (!term) return ["Usage: find <term>", "e.g. find rust"];
+      const hits = projects.filter((p) => {
+        const hay = [
+          p.title,
+          p.description,
+          p.slug,
+          ...p.stack,
+          ...p.body,
+        ]
+          .join(" ")
+          .toLowerCase();
+        return hay.includes(term);
+      });
+      if (hits.length === 0) return ["nothing on the radio"];
+      return [
+        `Heard ${hits.length} transmission${hits.length === 1 ? "" : "s"}:`,
+        ...hits.map(
+          (p) => `  ${p.slug.padEnd(28)} ${p.title}`,
+        ),
+        "",
+        `Try: open ${hits[0]!.slug}`,
+      ];
+    },
+    scan: () => {
+      const line =
+        TRANSMISSIONS[
+          Math.floor(Math.random() * TRANSMISSIONS.length)
+        ]!;
+      return ["*tuning…*", "", `  ≪ ${line} ≫`, ""];
+    },
+    tree: () => [
+      ".",
+      "├── about.txt",
+      "├── contact.md",
+      "├── skills.json",
+      "├── resume.json",
+      "└── projects/",
+      "    ├── volume/",
+      "    ├── sophias-future-doctor-club/",
+      "    ├── honey-do/",
+      "    ├── lllanguage/",
+      "    ├── pathranger/",
+      "    ├── cacheclip/",
+      "    ├── eurovision-party/",
+      "    ├── guitar-visualizer/",
+      "    └── plannet/",
+    ],
+    history: () => {
+      if (commandHistory.length === 0) {
+        return ["No breadcrumbs yet. Try: help"];
+      }
+      return [
+        "Breadcrumbs:",
+        ...commandHistory.map((c, i) => `  ${String(i + 1).padStart(3)}  ${c}`),
+      ];
     },
     cannon: () => [
       "",
@@ -119,6 +283,23 @@ function buildCommands(navigate: (path: string) => void): Record<
       "",
       "You found the easter egg. Hire the gunner.",
     ],
+    sudo: (args) => {
+      const phrase = (args ?? []).join(" ").toLowerCase();
+      if (phrase === "hire alexander") {
+        return [
+          "[sudo] password for guest: ********",
+          "permission granted.",
+          "",
+          "  alexander@farpointlabs.com",
+          "  LinkedIn  linkedin.com/in/alexandermcannon",
+          "",
+          "Welcome aboard.",
+        ];
+      }
+      return [
+        "alexander is not in the sudoers file. This incident will be reported.",
+      ];
+    },
     clear: () => "CLEAR",
     date: () => [new Date().toString()],
     ls: () => [
@@ -126,13 +307,14 @@ function buildCommands(navigate: (path: string) => void): Record<
     ],
     cat: (args) => {
       const file = args?.[0]?.toLowerCase();
-      if (file === "about.txt") return buildCommands(navigate).about!();
-      if (file === "contact.md") return buildCommands(navigate).contact!();
-      if (file === "skills.json") return buildCommands(navigate).skills!();
+      if (file === "about.txt") return cmds.about!();
+      if (file === "contact.md") return cmds.contact!();
+      if (file === "skills.json") return cmds.skills!();
       if (file === "resume.json") return ["Open /resume.json or /print."];
       return [`cat: ${args?.[0] ?? "?"}: No such file`];
     },
   };
+  return cmds;
 }
 
 const KONAMI = [
@@ -162,7 +344,7 @@ export default function HomeTerminalPanel() {
     router.push(path);
   };
 
-  const commands = buildCommands(navigate);
+  const commands = buildCommands(navigate, commandHistory);
 
   const executeCommand = (input: string) => {
     const trimmed = input.trim();

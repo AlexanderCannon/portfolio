@@ -248,7 +248,7 @@ export default function HomeEditorialClient({
         <div ref={trailRef} className="relative mx-auto w-full max-w-shell">
           <ScrollTrail containerRef={trailRef} />
           <PageShell className="relative z-[1] pb-12 pt-8 sm:pb-16 sm:pt-10 lg:pb-20 lg:pt-12">
-          <Section className="border-t-0 pt-0">
+          <Section className="pt-0">
             <SectionLabel reduced={reduced}>Field kit</SectionLabel>
             <ContourRule />
             <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 sm:gap-x-8">
@@ -297,7 +297,7 @@ export default function HomeEditorialClient({
           </Section>
 
           {desktop && (
-            <Section className="mt-16 border-t border-dashed border-line pt-12 lg:mt-20 lg:pt-16">
+            <Section className="mt-16 pt-12 lg:mt-20 lg:pt-16">
               <SectionLabel reduced={reduced}>Field radio</SectionLabel>
               <ContourRule />
               <motion.div
@@ -312,7 +312,7 @@ export default function HomeEditorialClient({
 
           <Section
             id="about"
-            className="mt-16 scroll-mt-24 border-t border-dashed border-line pt-12 lg:mt-20 lg:pt-16"
+            className="mt-16 scroll-mt-24 pt-12 lg:mt-20 lg:pt-16"
           >
             <SectionLabel reduced={reduced}>Dossier</SectionLabel>
             <ContourRule />
@@ -360,7 +360,7 @@ export default function HomeEditorialClient({
             </div>
           </Section>
 
-          <Section className="mt-16 border-t border-dashed border-line pt-12 lg:mt-20 lg:pt-16">
+          <Section className="mt-16 pt-12 lg:mt-20 lg:pt-16">
             <motion.h2
               variants={fadeUp}
               transition={{ duration: 0.45, ease: "easeOut" }}
@@ -397,7 +397,7 @@ export default function HomeEditorialClient({
             </ul>
           </Section>
 
-          <Section className="mt-16 border-t border-dashed border-line pt-10 lg:mt-20">
+          <Section className="mt-16 pt-10 lg:mt-20">
             <div className="flex flex-wrap items-baseline justify-between gap-4">
               <div>
                 <SectionLabel reduced={reduced}>Expedition log</SectionLabel>
@@ -449,7 +449,7 @@ export default function HomeEditorialClient({
             </ul>
           </Section>
 
-          <Section className="mt-16 border-t border-dashed border-line pt-10 lg:mt-20">
+          <Section className="mt-16 pt-10 lg:mt-20">
             <div className="flex flex-wrap items-baseline justify-between gap-4">
               <div>
                 <SectionLabel reduced={reduced}>Recent work</SectionLabel>
@@ -492,7 +492,7 @@ export default function HomeEditorialClient({
           </Section>
 
           {substack && (
-            <Section className="mt-16 border-t border-dashed border-line pt-10 lg:mt-20">
+            <Section className="mt-16 pt-10 lg:mt-20">
               <div className="flex flex-wrap items-baseline justify-between gap-4">
                 <div>
                   <SectionLabel reduced={reduced}>From Substack</SectionLabel>
@@ -534,7 +534,7 @@ export default function HomeEditorialClient({
             </Section>
           )}
 
-          <Section className="mt-16 border-t border-dashed border-line pt-12 lg:mt-20 lg:pt-16">
+          <Section className="mt-16 pt-12 lg:mt-20 lg:pt-16">
             <div className="max-w-measure">
               <motion.h2
                 variants={fadeUp}
@@ -544,13 +544,6 @@ export default function HomeEditorialClient({
                 Away from the keyboard
               </motion.h2>
               <ContourRule />
-              <motion.p
-                variants={fadeUp}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="mt-3 text-base leading-relaxed text-ink-muted sm:text-lg"
-              >
-                Hours that do not ship, and would be missed if they did.
-              </motion.p>
             </div>
             <ul className="mt-10 max-w-2xl divide-y divide-dashed divide-line border-y border-dashed border-line">
               {hobbies.map((hobby) => (
@@ -586,7 +579,7 @@ export default function HomeEditorialClient({
             </ul>
           </Section>
 
-          <Section className="mt-16 border-t border-dashed border-line pt-12 lg:mt-20 lg:pt-16">
+          <Section className="mt-16 pt-12 lg:mt-20 lg:pt-16">
             <motion.div
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
