@@ -35,7 +35,7 @@ const LeadCaptureFormSection: React.FC = () => {
     return (
       <div className="paper-card px-6 py-10">
         <span className="stamp">Received</span>
-        <h2 className="mt-5 font-display text-2xl tracking-wide text-ink">
+        <h2 className="mt-5 font-display text-2xl tracking-tight text-ink">
           Thank you
         </h2>
         <p className="mt-2 text-ink-muted">

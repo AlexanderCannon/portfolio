@@ -62,7 +62,7 @@ export default function ProjectsPage() {
     <PageShell>
       <header className="max-w-2xl">
         <p className="font-label text-accent">Catalog</p>
-        <h1 className="engraved mt-3 font-display text-4xl tracking-wide text-ink sm:text-5xl">
+        <h1 className="engraved mt-3 font-display text-4xl tracking-tight text-ink sm:text-5xl">
           Projects
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-ink-muted">
@@ -120,7 +120,7 @@ export default function ProjectsPage() {
                   {project.status === "cooking" ? "● Cooking" : "✓ Shipped"}
                 </span>
               </div>
-              <h2 className="engraved mt-2 font-display text-3xl tracking-wide text-ink sm:text-4xl">
+              <h2 className="engraved mt-2 font-display text-3xl tracking-tight text-ink sm:text-4xl">
                 <Link
                   href={`/projects/${project.slug}`}
                   className="hover:text-accent"

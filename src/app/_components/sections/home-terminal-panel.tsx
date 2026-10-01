@@ -278,7 +278,7 @@ export default function HomeTerminalPanel() {
         <span className="h-2.5 w-2.5 rounded-full bg-stamp" />
         <span className="h-2.5 w-2.5 rounded-full bg-accent" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#5a9e6f]" />
-        <span className="ml-2 font-mono text-[11px] tracking-wide text-[hsl(40_28%_68%)]">
+        <span className="ml-2 font-mono text-[11px] tracking-tight text-[hsl(40_28%_68%)]">
           field radio — zsh
         </span>
       </div>

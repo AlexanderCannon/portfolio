@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <PageShell>
       <p className="font-label text-accent">Survey incomplete</p>
-      <h1 className="engraved mt-3 font-display text-5xl tracking-wide text-ink sm:text-7xl">
+      <h1 className="engraved mt-3 font-display text-5xl tracking-tight text-ink sm:text-7xl">
         Off the map
       </h1>
       <p className="mt-6 max-w-measure text-lg leading-relaxed text-ink-muted">

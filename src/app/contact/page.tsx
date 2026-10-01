@@ -13,7 +13,7 @@ const ContactPage: React.FC = () => {
     <PageShell>
       <header className="max-w-measure">
         <p className="font-label text-accent">Correspondence</p>
-        <h1 className="engraved mt-3 font-display text-4xl tracking-wide text-ink sm:text-5xl">
+        <h1 className="engraved mt-3 font-display text-4xl tracking-tight text-ink sm:text-5xl">
           Say hello
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-ink-muted">

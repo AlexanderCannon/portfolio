@@ -58,7 +58,7 @@ export default function MobileMenu({
         }`}
       >
         <div className="flex items-center justify-between border-b border-dashed border-line bg-paper px-5 py-4">
-          <p className="engraved font-display text-lg tracking-wide text-ink">
+          <p className="engraved font-display text-lg tracking-tight text-ink">
             {title}
           </p>
           <button

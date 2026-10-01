@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
     <footer className="mt-auto border-t border-dashed border-line bg-leather text-[hsl(40_32%_86%)]">
       <div className="mx-auto grid max-w-shell gap-10 px-5 py-12 sm:px-8 md:grid-cols-[1.2fr_1fr_1fr_auto]">
         <div>
-          <p className="font-display text-xl tracking-wide text-[hsl(40_40%_90%)]">
+          <p className="font-display text-xl tracking-tight text-[hsl(40_40%_90%)]">
             Alexander Cannon
           </p>
           <p className="mt-2 max-w-xs text-sm leading-relaxed text-[hsl(36_20%_68%)]">

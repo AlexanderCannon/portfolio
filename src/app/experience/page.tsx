@@ -14,7 +14,7 @@ export default function ExperiencePage() {
     <PageShell>
       <header className="max-w-2xl">
         <p className="font-label text-accent">Expedition log</p>
-        <h1 className="engraved mt-3 font-display text-4xl tracking-wide text-ink sm:text-5xl">
+        <h1 className="engraved mt-3 font-display text-4xl tracking-tight text-ink sm:text-5xl">
           Professional experience
         </h1>
         <p className="mt-4 text-lg text-ink-muted">
@@ -33,7 +33,7 @@ export default function ExperiencePage() {
       </header>
 
       <section className="mt-14 border-t border-dashed border-line pt-12">
-        <h2 className="engraved mb-8 font-display text-3xl tracking-wide text-ink">
+        <h2 className="engraved mb-8 font-display text-3xl tracking-tight text-ink">
           Timeline
         </h2>
         <Timeline />

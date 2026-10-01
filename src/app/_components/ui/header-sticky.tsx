@@ -67,7 +67,7 @@ export default function HeaderSticky() {
         <div className="mx-auto flex max-w-shell items-center justify-between px-5 py-4 sm:px-8">
           <Link
             href="/"
-            className="engraved font-display text-lg tracking-wide text-ink sm:text-xl"
+            className="engraved font-display text-lg tracking-tight text-ink sm:text-xl"
           >
             Alexander Cannon
           </Link>

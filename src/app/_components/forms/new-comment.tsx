@@ -48,7 +48,7 @@ export function NewComment({ postId, slug }: NewCommentProps) {
 
   return (
     <div className="mt-10 border-t border-dashed border-line pt-8">
-      <h3 className="font-display text-xl tracking-wide text-ink">
+      <h3 className="font-display text-xl tracking-tight text-ink">
         Add a comment
       </h3>
 

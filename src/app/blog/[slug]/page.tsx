@@ -55,7 +55,7 @@ export default async function PostPage({ params }: BlogPageProps) {
         >
           {new Date(post.createdAt).toLocaleDateString()}
         </time>
-        <h1 className="engraved mt-3 font-display text-4xl tracking-wide text-ink sm:text-5xl">
+        <h1 className="engraved mt-3 font-display text-4xl tracking-tight text-ink sm:text-5xl">
           {post.name}
         </h1>
         <div className="prose prose-neutral mt-8 max-w-none dark:prose-invert">
@@ -64,7 +64,7 @@ export default async function PostPage({ params }: BlogPageProps) {
       </article>
 
       <section className="mt-16 border-t border-dashed border-line pt-10">
-        <h2 className="engraved font-display text-2xl tracking-wide text-ink">
+        <h2 className="engraved font-display text-2xl tracking-tight text-ink">
           Comments
         </h2>
         {post.comments.length === 0 ? (

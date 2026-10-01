@@ -27,23 +27,6 @@
       ]
     },
     {
-      "company": "Kellogg Brown & Root",
-      "location": "Los Angeles, California, United States",
-      "title": "Engineering Manager",
-      "period": "Dec 2023 - Feb 2025",
-      "responsibilities": [
-        "Led a team building an enterprise AI tool from prototype through deployment",
-        "Integrated and tuned language models for real client use cases",
-        "Compared models under production constraints and mentored the team on deployment and ethics"
-      ],
-      "technologies": [
-        "OpenAI",
-        "Azure",
-        "Python",
-        "PyTorch"
-      ]
-    },
-    {
       "company": "Mishcon De Reya (MDRX)",
       "location": "London, England, United Kingdom",
       "title": "Head of Engineering",

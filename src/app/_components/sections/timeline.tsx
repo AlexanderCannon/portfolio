@@ -12,7 +12,7 @@ const Timeline = () => {
             <span className="absolute left-0 top-1.5 h-3 w-3 rounded-sm border-2 border-accent bg-paper" />
 
             <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-              <h3 className="engraved font-display text-2xl tracking-wide text-ink">
+              <h3 className="engraved font-display text-2xl tracking-tight text-ink">
                 {exp.company}
               </h3>
               <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">

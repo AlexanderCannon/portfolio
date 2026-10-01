@@ -24,17 +24,17 @@ type PolymorphicButtonProps = AnchorProps | ButtonProps;
 
 const variants = {
   solid:
-    "bg-leather text-[hsl(40_38%_88%)] border border-accent/50 shadow-[inset_0_0_0_1px_hsl(var(--accent)/0.25),0_2px_0_hsl(var(--ink)/0.25)] hover:bg-stamp hover:border-stamp hover:text-paper active:translate-y-px active:shadow-none",
+    "bg-ink text-paper border border-ink shadow-[inset_0_0_0_1px_hsl(var(--paper)/0.2)] hover:bg-accent hover:border-accent hover:text-paper active:translate-y-px",
   ghost:
-    "bg-transparent text-ink border border-ink shadow-[inset_0_0_0_1px_hsl(var(--line))] hover:bg-ink hover:text-paper",
-  link: "bg-transparent text-accent underline decoration-dashed underline-offset-4 hover:text-stamp px-0 py-0 border-0 shadow-none",
+    "bg-transparent text-ink border border-ink/70 hover:bg-ink hover:text-paper",
+  link: "bg-transparent text-accent underline underline-offset-4 hover:text-ink px-0 py-0 border-0 shadow-none",
 };
 
 const Button = forwardRef<
   HTMLButtonElement | HTMLAnchorElement,
   PolymorphicButtonProps
 >(({ children, link, className = "", variant = "solid", ...rest }, ref) => {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-sm px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors duration-150 disabled:opacity-50 ${variants[variant]} ${className}`;
+  const classes = `inline-flex items-center justify-center gap-2 rounded-sm px-5 py-2.5 font-display text-sm font-semibold tracking-[0.08em] uppercase transition-colors duration-150 disabled:opacity-50 ${variants[variant]} ${className}`;
 
   if (link) {
     return (

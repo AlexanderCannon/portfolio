@@ -42,7 +42,7 @@ export default async function PostsPage() {
     <PageShell>
       <header className="max-w-measure">
         <p className="font-label text-accent">Field notes</p>
-        <h1 className="engraved mt-3 font-display text-4xl tracking-wide text-ink sm:text-5xl">
+        <h1 className="engraved mt-3 font-display text-4xl tracking-tight text-ink sm:text-5xl">
           Blog
         </h1>
         <p className="mt-4 text-lg text-ink-muted">
@@ -87,7 +87,7 @@ export default async function PostsPage() {
                     })}
                   </time>
                   <div>
-                    <h3 className="engraved font-display text-2xl tracking-wide text-ink transition-colors group-hover:text-accent sm:text-3xl">
+                    <h3 className="engraved font-display text-2xl tracking-tight text-ink transition-colors group-hover:text-accent sm:text-3xl">
                       {post.name}
                     </h3>
                     <p className="mt-2 max-w-measure text-ink-muted">

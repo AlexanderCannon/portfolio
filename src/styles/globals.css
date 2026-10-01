@@ -4,30 +4,30 @@
 
 @layer base {
   :root {
-    /* Field dossier — warm parchment, iron-gall ink, brass, postal stamp */
-    --paper: 38 42% 78%;
-    --ink: 24 32% 12%;
-    --ink-muted: 28 18% 34%;
-    --line: 34 22% 58%;
-    --accent: 38 68% 38%;
-    --accent-soft: 40 36% 72%;
-    --stamp: 8 68% 38%;
-    --leather: 24 38% 18%;
-    --leather-edge: 28 32% 28%;
-    --rope: 36 28% 48%;
-    --canvas: 40 22% 62%;
+    /* Atlas stock — tea-stained map, iron-gall ink, instrument bronze */
+    --paper: 42 24% 84%;
+    --ink: 220 18% 12%;
+    --ink-muted: 215 10% 36%;
+    --line: 40 12% 62%;
+    --accent: 32 42% 36%;
+    --accent-soft: 42 20% 78%;
+    --stamp: 355 42% 32%;
+    --leather: 220 16% 14%;
+    --leather-edge: 220 12% 20%;
+    --rope: 36 18% 48%;
+    --canvas: 42 14% 68%;
 
     --background: var(--paper);
     --foreground: var(--ink);
-    --card: 40 38% 82%;
+    --card: 42 20% 88%;
     --card-foreground: var(--ink);
-    --popover: 40 38% 82%;
+    --popover: 42 20% 88%;
     --popover-foreground: var(--ink);
     --primary: var(--ink);
-    --primary-foreground: 40 38% 86%;
-    --secondary: 36 28% 70%;
+    --primary-foreground: 42 24% 90%;
+    --secondary: 40 14% 76%;
     --secondary-foreground: var(--ink);
-    --muted: 36 28% 70%;
+    --muted: 40 14% 76%;
     --muted-foreground: var(--ink-muted);
     --accent-foreground: var(--ink);
     --destructive: var(--stamp);
@@ -63,17 +63,17 @@
   }
 
   .dark {
-    --paper: 24 28% 10%;
-    --ink: 40 32% 88%;
-    --ink-muted: 36 16% 62%;
-    --line: 28 18% 22%;
-    --accent: 40 62% 52%;
-    --accent-soft: 30 24% 16%;
-    --stamp: 8 58% 48%;
-    --leather: 22 32% 8%;
-    --leather-edge: 26 26% 16%;
-    --rope: 34 22% 38%;
-    --canvas: 30 18% 22%;
+    --paper: 220 14% 9%;
+    --ink: 42 18% 88%;
+    --ink-muted: 40 10% 58%;
+    --line: 220 10% 20%;
+    --accent: 36 38% 52%;
+    --accent-soft: 220 12% 14%;
+    --stamp: 355 36% 42%;
+    --leather: 220 16% 7%;
+    --leather-edge: 220 12% 14%;
+    --rope: 34 14% 38%;
+    --canvas: 220 10% 18%;
 
     --background: var(--paper);
     --foreground: var(--ink);
@@ -234,23 +234,19 @@
   }
 
   .font-label {
-    font-family: var(--font-mono), ui-monospace, monospace;
-    letter-spacing: 0.16em;
+    font-family: var(--font-display), ui-serif, Georgia, serif;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    font-size: 0.6875rem;
-    font-weight: 400;
+    font-size: 0.75rem;
+    font-weight: 600;
   }
 
   .engraved {
-    text-shadow:
-      0 1px 0 hsl(40 40% 92% / 0.35),
-      0 -1px 0 hsl(24 40% 10% / 0.35);
+    text-shadow: 0 1px 0 hsl(42 30% 92% / 0.25);
   }
 
   .dark .engraved {
-    text-shadow:
-      0 1px 0 hsl(40 50% 40% / 0.35),
-      0 -1px 0 hsl(20 40% 4% / 0.6);
+    text-shadow: 0 1px 0 hsl(220 20% 4% / 0.5);
   }
 
   /* Faint map hatch under section eyebrows */
@@ -311,22 +307,21 @@
 
   .stamp {
     display: inline-block;
-    padding: 0.2rem 0.55rem;
-    border: 2px double hsl(var(--stamp));
+    padding: 0.15rem 0.5rem;
+    border: 1px solid hsl(var(--stamp));
     color: hsl(var(--stamp));
-    font-family: var(--font-mono), ui-monospace, monospace;
-    font-size: 0.6875rem;
-    letter-spacing: 0.16em;
+    font-family: var(--font-display), ui-serif, Georgia, serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    transform: rotate(-3deg);
-    mix-blend-mode: multiply;
-    opacity: 0.85;
+    font-weight: 600;
+    transform: none;
+    opacity: 0.9;
     line-height: 1.2;
   }
 
   .dark .stamp {
-    mix-blend-mode: screen;
-    opacity: 0.9;
+    opacity: 0.95;
   }
 
   .rivet {

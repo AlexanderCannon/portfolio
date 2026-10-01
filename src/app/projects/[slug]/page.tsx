@@ -66,7 +66,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               {project.status === "cooking" ? "● Cooking" : "✓ Shipped"}
             </span>
           </div>
-          <h1 className="engraved mt-3 font-display text-4xl tracking-wide text-ink sm:text-5xl">
+          <h1 className="engraved mt-3 font-display text-4xl tracking-tight text-ink sm:text-5xl">
             {project.title}
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-ink-muted sm:text-xl">
@@ -139,7 +139,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <ProjectDemo slug={project.slug} />
 
         <section className="mt-16 border-t border-dashed border-line pt-12">
-          <h2 className="engraved font-display text-3xl tracking-wide text-ink">
+          <h2 className="engraved font-display text-3xl tracking-tight text-ink">
             Built with
           </h2>
           <p className="mt-5 max-w-measure text-lg leading-relaxed text-ink sm:text-xl">
@@ -148,7 +148,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </section>
 
         <section className="mt-16 border-t border-dashed border-line pt-12">
-          <h2 className="engraved font-display text-3xl tracking-wide text-ink">
+          <h2 className="engraved font-display text-3xl tracking-tight text-ink">
             Where it got hard
           </h2>
           <ol className="mt-8 max-w-2xl divide-y divide-dashed divide-line border-y border-dashed border-line">
@@ -169,10 +169,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </section>
 
         <section className="mt-16 border-t border-dashed border-line pt-12">
-          <h2 className="engraved font-display text-3xl tracking-wide text-ink">
+          <h2 className="engraved font-display text-3xl tracking-tight text-ink">
             Role
           </h2>
-          <p className="engraved mt-5 max-w-measure font-display text-2xl leading-snug tracking-wide text-ink sm:text-3xl">
+          <p className="engraved mt-5 max-w-measure font-display text-2xl leading-snug tracking-tight text-ink sm:text-3xl">
             {roleLabel(project)}
           </p>
         </section>

@@ -1,31 +1,24 @@
 import "~/styles/globals.css";
 
 import {
-  Alfa_Slab_One,
-  Special_Elite,
+  Cormorant_Garamond,
   Libre_Caslon_Text,
+  IBM_Plex_Mono,
 } from "next/font/google";
 import { type Metadata } from "next";
 import Script from "next/script";
 import HeaderSticky from "~/app/_components/ui/header-sticky";
 import Footer from "~/app/_components/ui/footer";
 import CookiePopup from "./_components/ui/cookie-popup";
-import PressStatus from "~/app/_components/ui/press-status";
+import PressStatus from "./_components/ui/press-status";
 
 import { TRPCReactProvider } from "~/trpc/react";
 import { ThemeProvider } from "./_components/withTheme";
 
-const alfaSlab = Alfa_Slab_One({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["500", "600", "700"],
   variable: "--font-display",
-  display: "swap",
-});
-
-const specialElite = Special_Elite({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-mono",
   display: "swap",
 });
 
@@ -33,6 +26,13 @@ const libreCaslon = Libre_Caslon_Text({
   subsets: ["latin"],
   weight: ["400", "700"],
   variable: "--font-sans",
+  display: "swap",
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -51,7 +51,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${alfaSlab.variable} ${libreCaslon.variable} ${specialElite.variable}`}
+      className={`${cormorant.variable} ${libreCaslon.variable} ${plexMono.variable}`}
     >
       <head>
         <Script

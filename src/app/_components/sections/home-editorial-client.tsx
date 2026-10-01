@@ -103,7 +103,7 @@ export default function HomeEditorialClient({
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="engraved font-display text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.95] tracking-wide text-[hsl(var(--vista-text))] [text-shadow:0_1px_0_hsl(var(--vista-sky-top)/0.55),0_0_28px_hsl(var(--vista-sun)/0.35)]"
+            className="engraved font-display text-[clamp(2.5rem,6vw,5.5rem)] font-semibold leading-[0.95] tracking-tight text-[hsl(var(--vista-text))]"
           >
             Alexander
             <br />
@@ -149,7 +149,7 @@ export default function HomeEditorialClient({
               {languages.map((lang) => (
                 <li
                   key={lang}
-                  className="engraved font-display text-[clamp(2.25rem,5vw,3.75rem)] leading-none tracking-wide text-ink"
+                  className="engraved font-display text-[clamp(2.25rem,5vw,3.75rem)] leading-none tracking-tight text-ink"
                 >
                   {lang}
                 </li>
@@ -220,7 +220,7 @@ export default function HomeEditorialClient({
           </section>
 
           <section className="mt-16 border-t border-dashed border-line pt-12 lg:mt-20 lg:pt-16">
-            <h2 className="engraved font-display text-3xl tracking-wide text-ink">
+            <h2 className="engraved font-display text-3xl tracking-tight text-ink">
               How I work
             </h2>
             <ul className="mt-6 max-w-measure space-y-3 text-base leading-relaxed text-ink-muted sm:text-lg">
@@ -248,7 +248,7 @@ export default function HomeEditorialClient({
                   className="flex flex-col gap-1 py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
                 >
                   <div>
-                    <p className="engraved font-display text-2xl tracking-wide text-ink sm:text-3xl">
+                    <p className="engraved font-display text-2xl tracking-tight text-ink sm:text-3xl">
                       {role.company}
                     </p>
                     <p className="mt-1 text-sm text-ink-muted sm:text-base">
@@ -290,7 +290,7 @@ export default function HomeEditorialClient({
                     href={item.href}
                     className="ticket group flex flex-col gap-1 px-4 py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
                   >
-                    <span className="engraved font-display text-2xl tracking-wide text-ink sm:text-3xl">
+                    <span className="engraved font-display text-2xl tracking-tight text-ink sm:text-3xl">
                       <span className="stamp mr-3 align-middle">
                         {String(index + 1).padStart(2, "0")}
                       </span>
@@ -322,7 +322,7 @@ export default function HomeEditorialClient({
                 href={substack.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 block engraved font-display text-2xl tracking-wide text-ink sm:text-3xl"
+                className="mt-4 block engraved font-display text-2xl tracking-tight text-ink sm:text-3xl"
               >
                 {substack.title}
               </a>
@@ -340,7 +340,7 @@ export default function HomeEditorialClient({
 
           <section className="mt-16 border-t border-dashed border-line pt-12 lg:mt-20 lg:pt-16">
             <div className="max-w-measure">
-              <h2 className="engraved font-display text-3xl tracking-wide text-ink">
+              <h2 className="engraved font-display text-3xl tracking-tight text-ink">
                 Away from the keyboard
               </h2>
               <p className="mt-3 text-base leading-relaxed text-ink-muted sm:text-lg">
@@ -363,7 +363,7 @@ export default function HomeEditorialClient({
                     />
                   </div>
                   <div>
-                    <h3 className="engraved font-display text-xl tracking-wide text-ink sm:text-2xl">
+                    <h3 className="engraved font-display text-xl tracking-tight text-ink sm:text-2xl">
                       {hobby.name}
                     </h3>
                     <p className="mt-2 text-base leading-relaxed text-ink-muted">
