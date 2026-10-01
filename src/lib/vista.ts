@@ -640,9 +640,8 @@ export function buildOak(
   // Secondary twigs off primaries (reach more leaf sites)
   const twigTips: Point[] = [];
   const twigsPer = 2;
-  for (let i = 0; i < primaryLimbs.length; i++) {
+  for (const parent of primaryLimbs) {
     for (let k = 0; k < twigsPer; k++) {
-      const parent = primaryLimbs[i]!;
       const t = 0.35 + rng() * 0.5;
       const px = parent.x0 + (parent.x1 - parent.x0) * t;
       const py = parent.y0 + (parent.y1 - parent.y0) * t;

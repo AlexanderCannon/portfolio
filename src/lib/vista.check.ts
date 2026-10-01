@@ -78,11 +78,11 @@ assert.equal(a.layers[1]!.forest, null, "Fuji layer has no trees");
 assert.ok(a.layers[2]!.forest, "chaparral/scrub starts on 3rd-far layer");
 assert.ok(a.layers[4]!.forest, "mid oak grove present");
 assert.ok(
-  (a.layers[4]!.forest!.match(/Z/g) ?? []).length >= 4,
+  (a.layers[4]!.forest.match(/Z/g) ?? []).length >= 4,
   "oaks use canopy lobes + trunk subpaths",
 );
 assert.ok(
-  (a.leftFrame.trees!.match(/Z/g) ?? []).length >= 8,
+  (a.leftFrame.trees.match(/Z/g) ?? []).length >= 8,
   "close-up oaks use canopy lobes + bole + limbs",
 );
 
@@ -93,7 +93,7 @@ assert.equal(vegKindForDepth(4), "oak", "L4 full oak");
 assert.equal(vegKindForDepth(5), "oak", "L5 full oak");
 assert.equal(vegKindForDepth(6), "oak", "L6 full oak");
 
-const scrubZ = (a.layers[2]!.forest!.match(/Z/g) ?? []).length;
+const scrubZ = (a.layers[2]!.forest.match(/Z/g) ?? []).length;
 assert.ok(scrubZ >= 20, `scrub layer has dense chaparral (${scrubZ})`);
 assert.ok(a.layers[3]!.forest, "second scrub band present");
 
