@@ -31,11 +31,11 @@ export default function ProjectDemo({ slug }: { slug: string }) {
   if (!lines) return null;
 
   return (
-    <section className="mt-16 border-t-2 border-ink pt-12">
-      <h2 className="misregister font-display text-3xl font-semibold tracking-tight text-ink">
+    <section className="mt-16 border-t border-dashed border-line pt-12">
+      <h2 className="engraved font-display text-3xl tracking-wide text-ink">
         Demo strip
       </h2>
-      <pre className="mt-6 max-w-2xl overflow-x-auto rounded-sm border-2 border-ink bg-[#12100e] px-4 py-4 font-mono text-[13px] leading-relaxed text-[#e8e2d9]">
+      <pre className="leather rivet mt-6 max-w-2xl overflow-x-auto rounded-sm px-4 py-4 font-mono text-[13px] leading-relaxed text-[hsl(40_32%_86%)]">
         {lines.join("\n")}
       </pre>
     </section>

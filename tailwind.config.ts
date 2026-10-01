@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
-        display: ["var(--font-display)", ...fontFamily.sans],
+        sans: ["var(--font-sans)", ...fontFamily.serif],
+        display: ["var(--font-display)", ...fontFamily.serif],
         mono: ["var(--font-mono)", ...fontFamily.mono],
       },
       maxWidth: {
@@ -27,6 +27,13 @@ export default {
           muted: "hsl(var(--ink-muted))",
         },
         line: "hsl(var(--line))",
+        stamp: "hsl(var(--stamp))",
+        leather: {
+          DEFAULT: "hsl(var(--leather))",
+          edge: "hsl(var(--leather-edge))",
+        },
+        rope: "hsl(var(--rope))",
+        canvas: "hsl(var(--canvas))",
         accent: {
           DEFAULT: "hsl(var(--accent))",
           soft: "hsl(var(--accent-soft))",
@@ -75,6 +82,7 @@ export default {
           sun: "hsl(var(--vista-sun))",
           cloud: "hsl(var(--vista-cloud))",
           pine: "hsl(var(--vista-pine))",
+          frame: "hsl(var(--vista-frame))",
           text: "hsl(var(--vista-text))",
           "text-muted": "hsl(var(--vista-text-muted))",
         },

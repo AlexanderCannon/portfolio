@@ -4,7 +4,7 @@ import resumeData from "public/resume.json";
 const Timeline = () => {
   return (
     <div className="relative max-w-3xl">
-      <div className="absolute left-[0.4rem] top-2 h-[calc(100%-1rem)] w-px bg-line" />
+      <div className="absolute left-[0.4rem] top-2 h-[calc(100%-1rem)] w-px border-l border-dashed border-line" />
 
       <ol className="space-y-10">
         {resumeData.experience.map((exp, index) => (
@@ -12,10 +12,12 @@ const Timeline = () => {
             <span className="absolute left-0 top-1.5 h-3 w-3 rounded-sm border-2 border-accent bg-paper" />
 
             <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-              <h3 className="font-display text-2xl font-semibold tracking-tight text-ink">
+              <h3 className="engraved font-display text-2xl tracking-wide text-ink">
                 {exp.company}
               </h3>
-              <span className="text-sm text-ink-muted">{exp.period}</span>
+              <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">
+                {exp.period}
+              </span>
             </div>
             <p className="mt-1 text-sm text-ink-muted">
               {exp.title}

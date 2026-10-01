@@ -22,8 +22,8 @@ export default function PrintResumePage() {
         </div>
       </div>
 
-      <header className="border-b-2 border-ink pb-6">
-        <h1 className="font-display text-4xl font-semibold tracking-tighter">
+      <header className="border-b border-line pb-6">
+        <h1 className="font-display text-4xl font-medium tracking-tight">
           {resume.personalInfo.name}
         </h1>
         <p className="mt-2 text-ink-muted">{resume.professionalSummary}</p>
@@ -33,7 +33,7 @@ export default function PrintResumePage() {
       </header>
 
       <section className="mt-8">
-        <h2 className="font-label text-accent">Stack</h2>
+        <h2 className="font-label text-ink-muted">Stack</h2>
         <p className="mt-2 text-sm leading-relaxed">
           {[
             ...resume.skills.languages,
@@ -46,12 +46,12 @@ export default function PrintResumePage() {
       </section>
 
       <section className="mt-8">
-        <h2 className="font-label text-accent">Experience</h2>
+        <h2 className="font-label text-ink-muted">Experience</h2>
         <ul className="mt-4 space-y-6">
           {resume.experience.slice(0, 6).map((exp) => (
             <li key={`${exp.company}-${exp.period}`}>
               <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <h3 className="font-display text-xl font-semibold tracking-tight">
+                <h3 className="font-display text-xl font-medium tracking-tight">
                   {exp.company}
                 </h3>
                 <span className="font-mono text-[11px] text-ink-muted">
@@ -72,7 +72,7 @@ export default function PrintResumePage() {
       </section>
 
       <section className="mt-8 border-t border-line pt-6">
-        <h2 className="font-label text-accent">Education</h2>
+        <h2 className="font-label text-ink-muted">Education</h2>
         <p className="mt-2 text-sm">
           {resume.education.degree}, {resume.education.institution} (
           {resume.education.graduationYear}) — {resume.education.honors}

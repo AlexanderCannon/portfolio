@@ -55,7 +55,7 @@ export default async function PostPage({ params }: BlogPageProps) {
         >
           {new Date(post.createdAt).toLocaleDateString()}
         </time>
-        <h1 className="mt-3 font-display text-4xl tracking-tight text-ink sm:text-5xl">
+        <h1 className="engraved mt-3 font-display text-4xl tracking-wide text-ink sm:text-5xl">
           {post.name}
         </h1>
         <div className="prose prose-neutral mt-8 max-w-none dark:prose-invert">
@@ -63,14 +63,19 @@ export default async function PostPage({ params }: BlogPageProps) {
         </div>
       </article>
 
-      <section className="mt-16 border-t border-line pt-10">
-        <h2 className="font-display text-2xl text-ink">Comments</h2>
+      <section className="mt-16 border-t border-dashed border-line pt-10">
+        <h2 className="engraved font-display text-2xl tracking-wide text-ink">
+          Comments
+        </h2>
         {post.comments.length === 0 ? (
           <p className="mt-4 text-ink-muted">No comments yet.</p>
         ) : (
           <div className="mt-6 space-y-6">
             {post.comments.map((comment) => (
-              <div key={comment.id} className="border-b border-line pb-5">
+              <div
+                key={comment.id}
+                className="border-b border-dashed border-line pb-5"
+              >
                 <div className="font-medium text-ink">
                   {comment.name ?? "Anonymous"}
                 </div>

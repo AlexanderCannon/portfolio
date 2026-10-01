@@ -53,12 +53,12 @@ export default function MobileMenu({
       />
 
       <div
-        className={`absolute inset-y-0 right-0 flex w-full max-w-sm flex-col border-l-2 border-ink bg-paper transition-transform duration-300 ease-out ${
+        className={`absolute inset-y-0 right-0 flex w-full max-w-sm flex-col border-l border-ink bg-paper map-rule transition-transform duration-300 ease-out ${
           isClosing ? "translate-x-full" : "translate-x-0"
         }`}
       >
-        <div className="flex items-center justify-between border-b-2 border-ink px-5 py-4">
-          <p className="font-display text-xl font-semibold tracking-tighter text-ink">
+        <div className="flex items-center justify-between border-b border-dashed border-line bg-paper px-5 py-4">
+          <p className="engraved font-display text-lg tracking-wide text-ink">
             {title}
           </p>
           <button
@@ -71,7 +71,7 @@ export default function MobileMenu({
           </button>
         </div>
 
-        <nav className="flex flex-1 flex-col gap-1 px-3 py-6">
+        <nav className="flex flex-1 flex-col gap-1 bg-paper/90 px-3 py-6">
           {menuItems.map((item) => {
             const active = pathname === item.path;
             return (
@@ -90,7 +90,7 @@ export default function MobileMenu({
           })}
         </nav>
 
-        <div className="border-t border-line px-5 py-5">
+        <div className="border-t border-dashed border-line bg-paper px-5 py-5">
           <div className="mb-5 flex items-center gap-5">
             {socialLinks.map((social) => {
               const Icon = social.icon;
@@ -110,7 +110,7 @@ export default function MobileMenu({
             <button
               onClick={toggleTheme}
               className="text-ink-muted hover:text-ink"
-              aria-label="Toggle theme"
+              aria-label="Toggle lantern"
               type="button"
             >
               {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}

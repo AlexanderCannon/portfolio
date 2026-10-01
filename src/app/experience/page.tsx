@@ -13,8 +13,8 @@ export default function ExperiencePage() {
   return (
     <PageShell>
       <header className="max-w-2xl">
-        <p className="font-label text-accent">Experience</p>
-        <h1 className="mt-3 font-display text-4xl font-semibold tracking-tighter text-ink sm:text-5xl">
+        <p className="font-label text-accent">Expedition log</p>
+        <h1 className="engraved mt-3 font-display text-4xl tracking-wide text-ink sm:text-5xl">
           Professional experience
         </h1>
         <p className="mt-4 text-lg text-ink-muted">
@@ -25,15 +25,15 @@ export default function ExperiencePage() {
           <Link
             href="/resume.json"
             target="_blank"
-            className="text-accent hover:underline"
+            className="text-accent underline decoration-dashed underline-offset-4 hover:underline"
           >
             Download resume.json
           </Link>
         </p>
       </header>
 
-      <section className="mt-14 border-t-2 border-ink pt-12">
-        <h2 className="mb-8 font-display text-3xl font-semibold tracking-tight text-ink">
+      <section className="mt-14 border-t border-dashed border-line pt-12">
+        <h2 className="engraved mb-8 font-display text-3xl tracking-wide text-ink">
           Timeline
         </h2>
         <Timeline />

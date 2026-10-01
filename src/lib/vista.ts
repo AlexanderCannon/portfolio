@@ -1102,9 +1102,9 @@ const LAYER_SPECS: Omit<RidgeSpec, "width" | "height">[] = [
     teeth: 0,
     swell: 0.25,
   },
-  // Mid-near: rolling center valley, gentle S
+  // Mid-near: rolling center valley — sit clearly below mid (was stacked on 600)
   {
-    baseline: 610,
+    baseline: 660,
     amplitude: 88,
     roughness: 7,
     valley: 0.95,
@@ -1122,7 +1122,7 @@ const LAYER_SPECS: Omit<RidgeSpec, "width" | "height">[] = [
   },
   // Near-mid: tall right rise, soft left
   {
-    baseline: 700,
+    baseline: 730,
     amplitude: 95,
     roughness: 7,
     valley: 0.8,
@@ -1159,7 +1159,7 @@ const LAYER_SPECS: Omit<RidgeSpec, "width" | "height">[] = [
 ];
 
 // Far almost pinned; near layers haul much harder — strong relative parallax
-const LAYER_DEPTHS = [0.06, 0.14, 0.32, 0.55, 0.9, 1.4, 1.95];
+const LAYER_DEPTHS = [0.072, 0.14, 0.32, 0.55, 0.9, 1.4, 1.95];
 const LAYER_OPACITY = [1, 1, 1, 1, 1, 1, 1];
 
 /** Far: no veg on jagged/Fuji. Then heavy chaparral → dots → oaks. */

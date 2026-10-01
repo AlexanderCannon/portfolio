@@ -1,9 +1,9 @@
 import "~/styles/globals.css";
 
 import {
-  Bricolage_Grotesque,
-  IBM_Plex_Sans,
-  IBM_Plex_Mono,
+  Alfa_Slab_One,
+  Special_Elite,
+  Libre_Caslon_Text,
 } from "next/font/google";
 import { type Metadata } from "next";
 import Script from "next/script";
@@ -15,23 +15,24 @@ import PressStatus from "~/app/_components/ui/press-status";
 import { TRPCReactProvider } from "~/trpc/react";
 import { ThemeProvider } from "./_components/withTheme";
 
-const bricolage = Bricolage_Grotesque({
+const alfaSlab = Alfa_Slab_One({
   subsets: ["latin"],
+  weight: "400",
   variable: "--font-display",
   display: "swap",
 });
 
-const plexSans = IBM_Plex_Sans({
+const specialElite = Special_Elite({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-sans",
+  weight: "400",
+  variable: "--font-mono",
   display: "swap",
 });
 
-const plexMono = IBM_Plex_Mono({
+const libreCaslon = Libre_Caslon_Text({
   subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-mono",
+  weight: ["400", "700"],
+  variable: "--font-sans",
   display: "swap",
 });
 
@@ -50,7 +51,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bricolage.variable} ${plexSans.variable} ${plexMono.variable}`}
+      className={`${alfaSlab.variable} ${libreCaslon.variable} ${specialElite.variable}`}
     >
       <head>
         <Script

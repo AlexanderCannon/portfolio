@@ -21,14 +21,14 @@ export default function PressStatus() {
   });
 
   return (
-    <div className="border-b-2 border-ink bg-secondary">
+    <div className="border-y border-dashed border-line bg-secondary/80">
       <div className="mx-auto flex max-w-shell flex-wrap items-center justify-between gap-x-6 gap-y-1 px-5 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-ink-muted sm:px-8">
         <span>
-          <span className="text-accent">●</span> Press · live
+          <span className="text-stamp">●</span> Field notes · live
         </span>
         <span className="hidden sm:inline">{stamp}</span>
-        <span>Edition 2026.09 · Los Angeles</span>
-        <span className="hidden md:inline">Sheet A · Folio</span>
+        <span>Los Angeles</span>
+        <span className="hidden md:inline">34.1°N · 117.7°W</span>
       </div>
     </div>
   );

@@ -11,7 +11,6 @@ import { useTheme } from "~/app/_components/withTheme";
 
 const menuItems = [
   { title: "Home", path: "/" },
-  { title: "About", path: "/#about" },
   { title: "Projects", path: "/projects" },
   { title: "Blog", path: "/blog" },
   { title: "Contact", path: "/contact" },
@@ -59,16 +58,16 @@ export default function HeaderSticky() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 border-b-2 transition-colors duration-200 ${
+        className={`sticky top-0 z-50 brass-stitch transition-colors duration-200 ${
           scrolled
-            ? "border-ink bg-paper/95 backdrop-blur-sm"
-            : "border-transparent bg-paper"
+            ? "border-b border-line bg-paper/95 backdrop-blur-sm"
+            : "border-b border-transparent bg-paper"
         }`}
       >
         <div className="mx-auto flex max-w-shell items-center justify-between px-5 py-4 sm:px-8">
           <Link
             href="/"
-            className="misregister font-display text-xl font-semibold tracking-tighter text-ink sm:text-2xl"
+            className="engraved font-display text-lg tracking-wide text-ink sm:text-xl"
           >
             Alexander Cannon
           </Link>
@@ -82,7 +81,9 @@ export default function HeaderSticky() {
                     key={item.path}
                     href={item.path}
                     className={`font-mono text-[11px] uppercase tracking-[0.14em] transition-colors ${
-                      active ? "text-accent" : "text-ink-muted hover:text-ink"
+                      active
+                        ? "text-accent underline decoration-accent underline-offset-4"
+                        : "text-ink-muted hover:text-ink"
                     }`}
                   >
                     {item.title}
@@ -91,7 +92,7 @@ export default function HeaderSticky() {
               })}
             </div>
 
-            <div className="flex items-center gap-3 border-l-2 border-line pl-5">
+            <div className="flex items-center gap-3 border-l border-dashed border-line pl-5">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
@@ -110,7 +111,7 @@ export default function HeaderSticky() {
               <button
                 onClick={toggleTheme}
                 className="text-ink-muted transition-colors hover:text-ink"
-                aria-label="Toggle theme"
+                aria-label="Toggle lantern"
                 type="button"
               >
                 {isDark ? (

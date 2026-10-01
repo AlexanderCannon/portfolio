@@ -273,13 +273,13 @@ export default function HomeTerminalPanel() {
   }, [commandHistory, historyIndex, currentInput]);
 
   return (
-    <div className="flex h-full min-h-[28rem] flex-col overflow-hidden rounded-sm border-2 border-ink bg-[#12100e]">
-      <div className="flex items-center gap-2 border-b-2 border-ink bg-[#1c1916] px-3 py-2">
-        <span className="h-2.5 w-2.5 rounded-full bg-[#c45c4a]" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[#c4a35a]" />
+    <div className="leather rivet flex h-full min-h-[28rem] flex-col overflow-hidden rounded-sm">
+      <div className="flex items-center gap-2 border-b border-leather-edge bg-leather-edge/80 px-3 py-2">
+        <span className="h-2.5 w-2.5 rounded-full bg-stamp" />
+        <span className="h-2.5 w-2.5 rounded-full bg-accent" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#5a9e6f]" />
-        <span className="ml-2 font-mono text-[11px] tracking-wide text-[#a39e97]">
-          alexander — zsh — terminal
+        <span className="ml-2 font-mono text-[11px] tracking-wide text-[hsl(40_28%_68%)]">
+          field radio — zsh
         </span>
       </div>
 
@@ -292,7 +292,7 @@ export default function HomeTerminalPanel() {
           {history.map((entry, i) => (
             <div key={`${i}-${entry.content.slice(0, 12)}`}>
               {entry.type === "command" ? (
-                <p className="text-[#e85d4c]">{entry.content}</p>
+                <p className="text-stamp">{entry.content}</p>
               ) : (
                 <pre
                   className={`whitespace-pre-wrap break-words ${
@@ -306,14 +306,14 @@ export default function HomeTerminalPanel() {
           ))}
 
           <div className="flex items-center gap-2 pt-1">
-            <span className="shrink-0 text-[#e85d4c]">~$</span>
+            <span className="shrink-0 text-stamp">~$</span>
             <input
               ref={inputRef}
               type="text"
               value={currentInput}
               onChange={(e) => setCurrentInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              className="min-w-0 flex-1 bg-transparent text-[#e8e2d9] caret-[#e85d4c] outline-none"
+              className="min-w-0 flex-1 bg-transparent text-[#e8e2d9] caret-stamp outline-none"
               autoComplete="off"
               spellCheck={false}
               aria-label="Terminal input"

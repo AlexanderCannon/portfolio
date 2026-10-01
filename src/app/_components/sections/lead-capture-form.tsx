@@ -5,7 +5,7 @@ import Button from "~/app/_components/ui/button";
 import { api } from "~/trpc/react";
 
 const fieldClass =
-  "w-full rounded-sm border-2 border-line bg-paper px-3 py-2.5 text-ink outline-none transition-colors focus:border-accent focus:ring-0";
+  "w-full border-0 border-b border-line bg-transparent px-0 py-2.5 font-mono text-sm text-ink outline-none transition-colors placeholder:text-ink-muted/60 focus:border-accent";
 
 const LeadCaptureFormSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -33,8 +33,9 @@ const LeadCaptureFormSection: React.FC = () => {
 
   if (submitted) {
     return (
-      <div className="rounded-sm border-2 border-ink bg-accent-soft px-6 py-10">
-        <h2 className="font-display text-2xl font-semibold tracking-tight text-ink">
+      <div className="paper-card px-6 py-10">
+        <span className="stamp">Received</span>
+        <h2 className="mt-5 font-display text-2xl tracking-wide text-ink">
           Thank you
         </h2>
         <p className="mt-2 text-ink-muted">
@@ -47,7 +48,7 @@ const LeadCaptureFormSection: React.FC = () => {
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <label className="block text-sm">
-        <span className="mb-1.5 block font-medium text-ink">Name</span>
+        <span className="mb-1.5 block font-label text-ink-muted">Name</span>
         <input
           type="text"
           name="name"
@@ -59,7 +60,7 @@ const LeadCaptureFormSection: React.FC = () => {
       </label>
 
       <label className="block text-sm">
-        <span className="mb-1.5 block font-medium text-ink">Email</span>
+        <span className="mb-1.5 block font-label text-ink-muted">Email</span>
         <input
           type="email"
           name="email"
@@ -71,8 +72,8 @@ const LeadCaptureFormSection: React.FC = () => {
       </label>
 
       <label className="block text-sm">
-        <span className="mb-1.5 block font-medium text-ink">
-          Company <span className="text-ink-muted">(optional)</span>
+        <span className="mb-1.5 block font-label text-ink-muted">
+          Company <span className="normal-case tracking-normal">(optional)</span>
         </span>
         <input
           type="text"
@@ -84,8 +85,9 @@ const LeadCaptureFormSection: React.FC = () => {
       </label>
 
       <label className="block text-sm">
-        <span className="mb-1.5 block font-medium text-ink">
-          Job title <span className="text-ink-muted">(optional)</span>
+        <span className="mb-1.5 block font-label text-ink-muted">
+          Job title{" "}
+          <span className="normal-case tracking-normal">(optional)</span>
         </span>
         <input
           type="text"
@@ -97,7 +99,7 @@ const LeadCaptureFormSection: React.FC = () => {
       </label>
 
       <label className="block text-sm">
-        <span className="mb-1.5 block font-medium text-ink">Message</span>
+        <span className="mb-1.5 block font-label text-ink-muted">Message</span>
         <textarea
           name="message"
           value={formData.message}

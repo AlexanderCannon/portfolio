@@ -16,6 +16,7 @@ import {
 } from "framer-motion";
 import {
   DEFAULT_VISTA_SEED,
+  FILL_EXTENT,
   generateVista,
   PARALLAX_RANGE,
   VISTA_HEIGHT,
@@ -39,7 +40,6 @@ function ParallaxLayer({
   return <motion.g style={{ y }}>{children}</motion.g>;
 }
 
-/** Valley only — no near frames/ground (those sit above the page body). */
 function VistaSvg({
   scene,
   progress,
@@ -51,7 +51,6 @@ function VistaSvg({
   reduced: boolean;
   isDark: boolean;
 }) {
-  // Sun eases down slowly — most of the set happens late in the scroll
   const sunY = useTransform(
     progress,
     [0, 0.45, 1],
@@ -88,7 +87,15 @@ function VistaSvg({
 
       <rect width={VISTA_WIDTH} height={VISTA_HEIGHT} fill="url(#vista-sky)" />
 
-      {/* Large centered sun — lower half clipped by the far ridge behind which it sits */}
+      {/* Opaque floor under ridges — parallax must never leave a parchment hole */}
+      <rect
+        x={0}
+        y={VISTA_HEIGHT * 0.7}
+        width={VISTA_WIDTH}
+        height={VISTA_HEIGHT * 0.4 + FILL_EXTENT}
+        fill="hsl(var(--vista-frame))"
+      />
+
       <motion.g style={reduced ? undefined : { y: sunY }}>
         <circle
           cx={scene.sun.cx}
@@ -148,7 +155,6 @@ function VistaSvg({
         ))}
       </g>
 
-      {/* Far ridges */}
       {scene.layers.slice(0, 2).map((layer) => (
         <ParallaxLayer
           key={layer.fillVar}
@@ -162,10 +168,7 @@ function VistaSvg({
             opacity={layer.opacity}
           />
           {layer.forest && (
-            <path
-              d={layer.forest}
-              fill="hsl(var(--vista-pine))"
-            />
+            <path d={layer.forest} fill="hsl(var(--vista-pine))" />
           )}
         </ParallaxLayer>
       ))}
@@ -185,11 +188,7 @@ function VistaSvg({
           {layer.forest && (
             <path
               d={layer.forest}
-              fill={
-                layer.depth >= 0.7
-                  ? "hsl(var(--vista-shadow))"
-                  : "hsl(var(--vista-pine))"
-              }
+              fill="hsl(var(--vista-pine))"
             />
           )}
         </ParallaxLayer>
@@ -198,7 +197,7 @@ function VistaSvg({
   );
 }
 
-/** Closest brown — side frames + ground lip. Stays above page body. */
+/** Fully opaque near ground + side frames — lives inside the sticky hero. */
 function NearPlaneOverlay({
   scene,
   progress,
@@ -220,20 +219,14 @@ function NearPlaneOverlay({
         progress={progress}
         reduced={reduced}
       >
-        <path d={scene.nearGround} fill="hsl(var(--vista-shadow))" />
-        <path
-          d={scene.rightFrame.path}
-          fill={`hsl(var(--${scene.rightFrame.fillVar}))`}
-        />
+        <path d={scene.nearGround} fill="hsl(var(--vista-frame))" />
+        <path d={scene.rightFrame.path} fill="hsl(var(--vista-frame))" />
         {scene.rightFrame.trees && (
-          <path d={scene.rightFrame.trees} fill="hsl(var(--vista-shadow))" />
+          <path d={scene.rightFrame.trees} fill="hsl(var(--vista-pine))" />
         )}
-        <path
-          d={scene.leftFrame.path}
-          fill={`hsl(var(--${scene.leftFrame.fillVar}))`}
-        />
+        <path d={scene.leftFrame.path} fill="hsl(var(--vista-frame))" />
         {scene.leftFrame.trees && (
-          <path d={scene.leftFrame.trees} fill="hsl(var(--vista-shadow))" />
+          <path d={scene.leftFrame.trees} fill="hsl(var(--vista-pine))" />
         )}
       </ParallaxLayer>
     </svg>
@@ -272,7 +265,10 @@ export default function Vista({
 
   return (
     <section ref={ref} className={`relative ${className}`}>
-      {/* Valley + hero copy — under near plane and under page body */}
+      {/*
+        One sticky stack: valley + opaque near plane + copy.
+        When sticky releases, the whole hero scrolls away — no dark lip lingering over content.
+      */}
       <div className="sticky top-0 z-0 h-[100svh] overflow-hidden">
         <div className="pointer-events-none absolute inset-0">
           <VistaSvg
@@ -280,6 +276,17 @@ export default function Vista({
             progress={scrollYProgress}
             reduced={reduced}
             isDark={isDark}
+          />
+        </div>
+
+        <div
+          className="pointer-events-none absolute inset-0 z-[5]"
+          aria-hidden
+        >
+          <NearPlaneOverlay
+            scene={scene}
+            progress={scrollYProgress}
+            reduced={reduced}
           />
         </div>
 
@@ -295,19 +302,8 @@ export default function Vista({
         </div>
       </div>
 
-      {/* Closest brown stays above page body so content tucks under it */}
-      <div
-        className="pointer-events-none sticky top-0 z-30 -mt-[100svh] h-[100svh]"
-        aria-hidden
-      >
-        <NearPlaneOverlay
-          scene={scene}
-          progress={scrollYProgress}
-          reduced={reduced}
-        />
-      </div>
-
-      <div className="h-[40svh]" aria-hidden />
+      {/* Parallax run-out past the fold — lets the valley breathe before content */}
+      <div className="h-[36svh]" aria-hidden />
     </section>
   );
 }

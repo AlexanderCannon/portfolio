@@ -41,51 +41,75 @@ export default async function PostsPage() {
   return (
     <PageShell>
       <header className="max-w-measure">
-        <p className="font-label text-accent">Writing</p>
-        <h1 className="mt-3 font-display text-4xl font-semibold tracking-tighter text-ink sm:text-5xl">
+        <p className="font-label text-accent">Field notes</p>
+        <h1 className="engraved mt-3 font-display text-4xl tracking-wide text-ink sm:text-5xl">
           Blog
         </h1>
         <p className="mt-4 text-lg text-ink-muted">
-          New writing lives on{" "}
+          I write about engineering, leadership and building things on{" "}
           <a
             href="https://alexandercannon.substack.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-accent underline-offset-4 hover:underline"
+            className="font-medium text-accent underline decoration-dashed underline-offset-4 hover:underline"
           >
             Substack
           </a>
-          . Older notes stay here.
+          . This is the archive of earlier notes, from before I moved there.
         </p>
       </header>
 
       {posts.length === 0 ? (
         <p className="mt-12 text-ink-muted">No posts yet.</p>
       ) : (
-        <ul className="mt-12 divide-y divide-line border-y-2 border-ink">
-          {posts.map((post) => (
-            <li key={post.id}>
-              <Link href={`/blog/${post.slug}`} className="group block py-8">
-                <time
-                  dateTime={post.createdAt.toISOString()}
-                  className="font-label text-ink-muted"
+        <>
+          <div className="mt-16 flex items-baseline justify-between border-b border-dashed border-ink pb-3">
+            <h2 className="font-label text-ink">Earlier notes</h2>
+            <span className="font-label text-ink-muted">
+              {postCount} {postCount === 1 ? "post" : "posts"}
+            </span>
+          </div>
+          <ul className="divide-y divide-dashed divide-line border-b border-dashed border-line">
+            {posts.map((post) => (
+              <li key={post.id}>
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="group grid gap-x-10 gap-y-2 py-8 transition-colors hover:bg-accent-soft/40 sm:grid-cols-[9rem_1fr_auto] sm:px-3"
                 >
-                  {post.createdAt.toLocaleDateString()}
-                </time>
-                <h2 className="misregister mt-2 font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
-                  {post.name}
-                </h2>
-                <p className="mt-2 max-w-measure text-ink-muted">
-                  {post.body?.slice(0, 160)}
-                  {post.body && post.body.length > 160 ? "…" : ""}
-                </p>
-                <p className="mt-3 text-sm text-ink-muted">
-                  {post.comments.length} comments
-                </p>
-              </Link>
-            </li>
-          ))}
-        </ul>
+                  <time
+                    dateTime={post.createdAt.toISOString()}
+                    className="font-label pt-1.5 text-ink-muted"
+                  >
+                    {post.createdAt.toLocaleDateString(undefined, {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </time>
+                  <div>
+                    <h3 className="engraved font-display text-2xl tracking-wide text-ink transition-colors group-hover:text-accent sm:text-3xl">
+                      {post.name}
+                    </h3>
+                    <p className="mt-2 max-w-measure text-ink-muted">
+                      {post.body?.slice(0, 160)}
+                      {post.body && post.body.length > 160 ? "…" : ""}
+                    </p>
+                    <p className="mt-3 text-sm text-ink-muted">
+                      {post.comments.length}{" "}
+                      {post.comments.length === 1 ? "comment" : "comments"}
+                    </p>
+                  </div>
+                  <span
+                    aria-hidden
+                    className="hidden pt-1 text-2xl text-ink-muted transition-all group-hover:translate-x-1 group-hover:text-accent sm:block"
+                  >
+                    →
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </>
       )}
 
       <p className="mt-8 text-sm text-ink-muted">

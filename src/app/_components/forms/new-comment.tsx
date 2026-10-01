@@ -11,7 +11,7 @@ interface NewCommentProps {
 }
 
 const fieldClass =
-  "w-full rounded-md border border-line bg-paper px-3 py-2.5 text-sm text-ink outline-none focus:border-accent focus:ring-1 focus:ring-accent";
+  "w-full border-0 border-b border-line bg-transparent px-0 py-2.5 font-mono text-sm text-ink outline-none focus:border-accent";
 
 export function NewComment({ postId, slug }: NewCommentProps) {
   const [name, setName] = useState("");
@@ -47,8 +47,10 @@ export function NewComment({ postId, slug }: NewCommentProps) {
   };
 
   return (
-    <div className="mt-10 border-t border-line pt-8">
-      <h3 className="font-display text-xl text-ink">Add a comment</h3>
+    <div className="mt-10 border-t border-dashed border-line pt-8">
+      <h3 className="font-display text-xl tracking-wide text-ink">
+        Add a comment
+      </h3>
 
       <form onSubmit={handleSubmit} className="mt-4 space-y-4">
         <input

@@ -4,109 +4,119 @@
 
 @layer base {
   :root {
-    /* Print shop light — denser newsprint so grain + red can pop */
-    --paper: 36 9% 87%;
-    --ink: 18 14% 6%;
-    --ink-muted: 20 8% 32%;
-    --line: 28 10% 62%;
-    --accent: 355 78% 40%;
-    --accent-soft: 355 55% 88%;
-    --cyan-bleed: 190 75% 36%;
+    /* Field dossier — warm parchment, iron-gall ink, brass, postal stamp */
+    --paper: 38 42% 78%;
+    --ink: 24 32% 12%;
+    --ink-muted: 28 18% 34%;
+    --line: 34 22% 58%;
+    --accent: 38 68% 38%;
+    --accent-soft: 40 36% 72%;
+    --stamp: 8 68% 38%;
+    --leather: 24 38% 18%;
+    --leather-edge: 28 32% 28%;
+    --rope: 36 28% 48%;
+    --canvas: 40 22% 62%;
 
     --background: var(--paper);
     --foreground: var(--ink);
-    --card: 40 14% 94%;
+    --card: 40 38% 82%;
     --card-foreground: var(--ink);
-    --popover: 40 14% 94%;
+    --popover: 40 38% 82%;
     --popover-foreground: var(--ink);
     --primary: var(--ink);
-    --primary-foreground: 40 14% 94%;
-    --secondary: 32 10% 80%;
+    --primary-foreground: 40 38% 86%;
+    --secondary: 36 28% 70%;
     --secondary-foreground: var(--ink);
-    --muted: 32 10% 80%;
+    --muted: 36 28% 70%;
     --muted-foreground: var(--ink-muted);
     --accent-foreground: var(--ink);
-    --destructive: 4 72% 42%;
-    --destructive-foreground: 40 14% 94%;
+    --destructive: var(--stamp);
+    --destructive-foreground: 40 38% 90%;
     --border: var(--line);
     --input: var(--line);
     --ring: var(--accent);
-    --chart-1: 355 78% 40%;
-    --chart-2: 190 75% 36%;
-    --chart-3: 40 20% 40%;
-    --chart-4: 25 40% 45%;
-    --chart-5: 20 10% 30%;
+    --chart-1: 38 68% 38%;
+    --chart-2: 8 68% 38%;
+    --chart-3: 28 22% 38%;
+    --chart-4: 42 32% 48%;
+    --chart-5: 24 28% 28%;
     --radius: 0.125rem;
 
-    /* Hollywood Hills vista — dusty gold, sage chaparral, peach sky */
-    --vista-sky-top: 12 72% 64%;
-    --vista-sky-mid: 28 78% 74%;
-    --vista-sky-bottom: 44 70% 84%;
-    --vista-sun: 46 100% 90%;
-    --vista-cloud: 25 40% 78% / 0.32;
-    --vista-ridge-1: 34 28% 76%;
-    --vista-ridge-2: 38 34% 62%;
-    --vista-ridge-3: 44 30% 50%;
-    --vista-ridge-4: 58 22% 40%;
-    --vista-ridge-5: 45 26% 28%;
-    --vista-ridge-6: 32 28% 17%;
-    --vista-ridge-7: 24 32% 10%;
-    --vista-shadow: 22 35% 7%;
-    --vista-pine: 70 18% 22%;
-    --vista-text: 24 28% 14%;
-    --vista-text-muted: 28 18% 28%;
+    /* Vista — same ochre/sienna/chestnut ramp as the page (no black wedge) */
+    --vista-sky-top: 18 62% 58%;
+    --vista-sky-mid: 32 68% 68%;
+    --vista-sky-bottom: 40 48% 76%;
+    --vista-sun: 44 95% 88%;
+    --vista-cloud: 32 32% 72% / 0.35;
+    --vista-ridge-1: 36 36% 74%;
+    --vista-ridge-2: 34 34% 66%;
+    --vista-ridge-3: 32 32% 58%;
+    --vista-ridge-4: 30 34% 48%;
+    --vista-ridge-5: 28 36% 38%;
+    --vista-ridge-6: 28 38% 28%;
+    --vista-ridge-7: 26 40% 22%;
+    --vista-shadow: 26 40% 16%;
+    --vista-frame: 26 42% 14%;
+    --vista-pine: 48 22% 22%;
+    --vista-text: 24 32% 12%;
+    --vista-text-muted: 28 20% 28%;
   }
 
   .dark {
-    --paper: 20 8% 8%;
-    --ink: 40 10% 92%;
-    --ink-muted: 35 6% 62%;
-    --line: 20 6% 20%;
-    --accent: 355 68% 52%;
-    --accent-soft: 355 30% 16%;
-    --cyan-bleed: 190 60% 48%;
+    --paper: 24 28% 10%;
+    --ink: 40 32% 88%;
+    --ink-muted: 36 16% 62%;
+    --line: 28 18% 22%;
+    --accent: 40 62% 52%;
+    --accent-soft: 30 24% 16%;
+    --stamp: 8 58% 48%;
+    --leather: 22 32% 8%;
+    --leather-edge: 26 26% 16%;
+    --rope: 34 22% 38%;
+    --canvas: 30 18% 22%;
 
     --background: var(--paper);
     --foreground: var(--ink);
-    --card: 20 8% 11%;
+    --card: 24 26% 13%;
     --card-foreground: var(--ink);
-    --popover: 20 8% 11%;
+    --popover: 24 26% 13%;
     --popover-foreground: var(--ink);
     --primary: var(--ink);
-    --primary-foreground: 20 8% 8%;
-    --secondary: 20 6% 14%;
+    --primary-foreground: 24 28% 10%;
+    --secondary: 26 22% 15%;
     --secondary-foreground: var(--ink);
-    --muted: 20 6% 14%;
+    --muted: 26 22% 15%;
     --muted-foreground: var(--ink-muted);
     --accent-foreground: var(--ink);
-    --destructive: 4 62% 48%;
-    --destructive-foreground: 40 10% 92%;
+    --destructive: var(--stamp);
+    --destructive-foreground: 40 32% 92%;
     --border: var(--line);
     --input: var(--line);
     --ring: var(--accent);
-    --chart-1: 355 68% 52%;
-    --chart-2: 190 60% 48%;
-    --chart-3: 40 20% 55%;
-    --chart-4: 25 40% 55%;
-    --chart-5: 20 10% 60%;
+    --chart-1: 40 62% 52%;
+    --chart-2: 8 58% 48%;
+    --chart-3: 34 18% 48%;
+    --chart-4: 42 36% 46%;
+    --chart-5: 26 14% 52%;
 
-    /* Hollywood dusk — violet haze, amber hills, deep scrub */
-    --vista-sky-top: 275 32% 14%;
-    --vista-sky-mid: 340 28% 18%;
-    --vista-sky-bottom: 22 58% 36%;
-    --vista-sun: 42 85% 84%;
-    --vista-cloud: 30 25% 40% / 0.2;
-    --vista-ridge-1: 30 22% 44%;
-    --vista-ridge-2: 34 26% 36%;
-    --vista-ridge-3: 40 24% 28%;
-    --vista-ridge-4: 55 16% 20%;
-    --vista-ridge-5: 38 22% 13%;
-    --vista-ridge-6: 28 26% 8%;
-    --vista-ridge-7: 22 30% 4%;
-    --vista-shadow: 20 35% 3%;
-    --vista-pine: 70 12% 12%;
-    --vista-text: 42 28% 94%;
-    --vista-text-muted: 35 16% 72%;
+    /* Hollywood dusk into torchlit leather */
+    --vista-sky-top: 268 28% 14%;
+    --vista-sky-mid: 18 42% 22%;
+    --vista-sky-bottom: 28 38% 18%;
+    --vista-sun: 40 78% 72%;
+    --vista-cloud: 30 22% 36% / 0.22;
+    --vista-ridge-1: 28 26% 36%;
+    --vista-ridge-2: 26 28% 28%;
+    --vista-ridge-3: 24 30% 22%;
+    --vista-ridge-4: 24 30% 17%;
+    --vista-ridge-5: 24 28% 14%;
+    --vista-ridge-6: 22 30% 10%;
+    --vista-ridge-7: 22 32% 8%;
+    --vista-shadow: 22 34% 6%;
+    --vista-frame: 22 36% 5%;
+    --vista-pine: 48 14% 12%;
+    --vista-text: 40 32% 90%;
+    --vista-text-muted: 36 18% 68%;
   }
 }
 
@@ -121,32 +131,78 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    /* Light: denser grain + slight ink wash so the surface reads like press stock */
+    color: hsl(var(--ink));
     background-color: hsl(var(--paper));
+    /* Fiber grain + coffee stains + edge burn — one parchment sheet */
     background-image:
-      linear-gradient(
-        180deg,
-        hsl(355 40% 50% / 0.03),
-        transparent 28%,
-        transparent 72%,
-        hsl(190 30% 40% / 0.025)
+      radial-gradient(
+        ellipse 55% 40% at 12% 18%,
+        hsl(28 42% 42% / 0.12),
+        transparent 70%
       ),
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.11'/%3E%3C/svg%3E");
+      radial-gradient(
+        ellipse 45% 35% at 88% 72%,
+        hsl(22 48% 36% / 0.1),
+        transparent 68%
+      ),
+      radial-gradient(
+        ellipse 40% 30% at 62% 28%,
+        hsl(34 36% 48% / 0.08),
+        transparent 65%
+      ),
+      radial-gradient(
+        ellipse 50% 40% at 30% 88%,
+        hsl(18 40% 32% / 0.09),
+        transparent 70%
+      ),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.11'/%3E%3C/svg%3E"),
+      linear-gradient(
+        to bottom,
+        hsl(var(--paper)),
+        hsl(var(--paper))
+      );
     background-attachment: fixed;
-    font-feature-settings: "ss01" on;
+    box-shadow: inset 0 0 12rem 2rem hsl(24 40% 18% / 0.12);
+    font-feature-settings: "kern" on, "liga" on;
   }
 
   .dark body,
   html.dark body {
     background-image:
-      linear-gradient(
-        180deg,
-        hsl(355 50% 40% / 0.06),
-        transparent 30%,
-        transparent 70%,
-        hsl(190 40% 40% / 0.04)
+      radial-gradient(
+        ellipse 50% 40% at 18% 22%,
+        hsl(28 50% 28% / 0.18),
+        transparent 70%
       ),
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+      radial-gradient(
+        ellipse 40% 35% at 82% 70%,
+        hsl(16 48% 22% / 0.16),
+        transparent 68%
+      ),
+      radial-gradient(
+        ellipse 35% 30% at 55% 40%,
+        hsl(38 40% 30% / 0.1),
+        transparent 65%
+      ),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.14'/%3E%3C/svg%3E"),
+      linear-gradient(
+        to bottom,
+        hsl(var(--paper)),
+        hsl(var(--paper))
+      );
+    box-shadow: inset 0 0 14rem 3rem hsl(20 40% 4% / 0.55);
+  }
+
+  /* ponytail: fixed multi-layer paint can jank on phones — flatten below sm */
+  @media (max-width: 640px) {
+    body,
+    .dark body,
+    html.dark body {
+      background-attachment: scroll;
+      background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+      box-shadow: none;
+    }
   }
 
   ::selection {
@@ -174,16 +230,218 @@
 
   .misregister:hover,
   .misregister:focus-visible {
-    text-shadow:
-      1.5px 0 0 hsl(var(--accent) / 0.95),
-      -1.5px 0 0 hsl(var(--cyan-bleed) / 0.7);
+    text-shadow: 1px 0 0 hsl(var(--accent) / 0.5);
   }
 
   .font-label {
     font-family: var(--font-mono), ui-monospace, monospace;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     font-size: 0.6875rem;
-    font-weight: 500;
+    font-weight: 400;
+  }
+
+  .engraved {
+    text-shadow:
+      0 1px 0 hsl(40 40% 92% / 0.35),
+      0 -1px 0 hsl(24 40% 10% / 0.35);
+  }
+
+  .dark .engraved {
+    text-shadow:
+      0 1px 0 hsl(40 50% 40% / 0.35),
+      0 -1px 0 hsl(20 40% 4% / 0.6);
+  }
+
+  /* Faint map hatch under section eyebrows */
+  .map-rule {
+    background-image: repeating-linear-gradient(
+      -18deg,
+      transparent,
+      transparent 5px,
+      hsl(var(--line) / 0.35) 5px,
+      hsl(var(--line) / 0.35) 6px
+    );
+  }
+
+  .paper-card {
+    position: relative;
+    background-color: hsl(var(--card));
+    border: 1px solid hsl(var(--ink) / 0.35);
+    box-shadow:
+      inset 0 0 0 1px hsl(var(--line) / 0.4),
+      0 2px 0 hsl(var(--ink) / 0.08);
+    background-image:
+      linear-gradient(
+        135deg,
+        transparent 48%,
+        hsl(var(--line) / 0.18) 49%,
+        hsl(var(--line) / 0.18) 51%,
+        transparent 52%
+      ),
+      linear-gradient(
+        45deg,
+        transparent 48%,
+        hsl(var(--line) / 0.12) 49%,
+        hsl(var(--line) / 0.12) 51%,
+        transparent 52%
+      );
+    background-size: 100% 100%;
+    clip-path: polygon(
+      0.4% 0.8%,
+      99.2% 0%,
+      100% 98.6%,
+      0.6% 100%,
+      0% 1.2%
+    );
+  }
+
+  .leather {
+    position: relative;
+    background-color: hsl(var(--leather));
+    color: hsl(var(--ink));
+    border: 1px solid hsl(var(--leather-edge));
+    box-shadow:
+      inset 0 0 0 1px hsl(var(--accent) / 0.25),
+      inset 0 0 40px hsl(20 40% 4% / 0.35);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.18'/%3E%3C/svg%3E");
+    outline: 1px dashed hsl(var(--accent) / 0.35);
+    outline-offset: -6px;
+  }
+
+  .stamp {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    border: 2px double hsl(var(--stamp));
+    color: hsl(var(--stamp));
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    transform: rotate(-3deg);
+    mix-blend-mode: multiply;
+    opacity: 0.85;
+    line-height: 1.2;
+  }
+
+  .dark .stamp {
+    mix-blend-mode: screen;
+    opacity: 0.9;
+  }
+
+  .rivet {
+    position: relative;
+  }
+
+  .rivet::before,
+  .rivet::after {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 9999px;
+    background: radial-gradient(
+      circle at 35% 30%,
+      hsl(42 70% 68%),
+      hsl(var(--accent)) 55%,
+      hsl(28 50% 28%) 100%
+    );
+    box-shadow: 0 0 0 1px hsl(24 40% 12% / 0.4);
+    z-index: 2;
+  }
+
+  .rivet::before {
+    top: 8px;
+    left: 8px;
+  }
+
+  .rivet::after {
+    top: 8px;
+    right: 8px;
+  }
+
+  .rule-dashed {
+    border: 0;
+    border-top: 1px dashed hsl(var(--line));
+    position: relative;
+  }
+
+  .rule-dashed::after {
+    content: "✕";
+    position: absolute;
+    right: 0;
+    top: -0.65em;
+    font-size: 0.65rem;
+    color: hsl(var(--accent));
+    letter-spacing: 0;
+  }
+
+  .photo-corners {
+    position: relative;
+    border: 1px solid hsl(var(--ink) / 0.55);
+    background: hsl(var(--card));
+    box-shadow: 0 1px 0 hsl(var(--ink) / 0.08);
+  }
+
+  .photo-corners::before,
+  .photo-corners::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .photo-corners::before {
+    top: -1px;
+    left: -1px;
+    border-width: 12px 12px 0 0;
+    border-color: hsl(var(--ink)) transparent transparent transparent;
+  }
+
+  .photo-corners::after {
+    bottom: -1px;
+    right: -1px;
+    border-width: 0 0 12px 12px;
+    border-color: transparent transparent hsl(var(--ink)) transparent;
+  }
+
+  .ticket {
+    position: relative;
+    border: 1px solid hsl(var(--ink) / 0.45);
+    background: hsl(var(--card));
+    box-shadow: inset 0 0 0 1px hsl(var(--line) / 0.35);
+  }
+
+  .ticket::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 6px;
+    background-image: radial-gradient(
+      circle at 4px 0,
+      transparent 3px,
+      hsl(var(--paper)) 3.5px
+    );
+    background-size: 10px 6px;
+    background-repeat: repeat-x;
+    transform: translateY(-100%);
+  }
+
+  .brass-stitch {
+    box-shadow: inset 0 -2px 0 0 hsl(var(--accent) / 0.55);
+  }
+
+  .torn-top {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 24' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 8 Q30 0 60 10 T120 8 T180 12 T240 6 T300 10 T360 4 T420 11 T480 7 T540 12 T600 5 T660 10 T720 6 T780 11 T840 7 T900 12 T960 5 T1020 10 T1080 6 T1140 11 T1200 8 V24 H0Z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 24' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 8 Q30 0 60 10 T120 8 T180 12 T240 6 T300 10 T360 4 T420 11 T480 7 T540 12 T600 5 T660 10 T720 6 T780 11 T840 7 T900 12 T960 5 T1020 10 T1080 6 T1140 11 T1200 8 V24 H0Z'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
   }
 }

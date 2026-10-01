@@ -24,15 +24,9 @@ function ThumbFrame({
   title: string;
 }) {
   return (
-    <div
-      className={
-        thumb === "phone"
-          ? "relative aspect-[16/10] w-full overflow-hidden rounded-sm border-2 border-ink bg-accent-soft"
-          : "relative aspect-[16/10] w-full overflow-hidden rounded-sm border-2 border-ink bg-secondary"
-      }
-    >
+    <div className="photo-corners relative aspect-[16/10] w-full overflow-hidden bg-secondary">
       {thumb === "phone" ? (
-        <div className="absolute inset-y-2 left-1/2 aspect-[3/4] -translate-x-1/2 overflow-hidden rounded-sm border-2 border-ink bg-card">
+        <div className="absolute inset-y-2 left-1/2 aspect-[3/4] -translate-x-1/2 overflow-hidden border border-ink bg-card">
           <Image
             src={image}
             alt={title}
@@ -67,8 +61,8 @@ export default function ProjectsPage() {
   return (
     <PageShell>
       <header className="max-w-2xl">
-        <p className="font-label text-accent">Work</p>
-        <h1 className="misregister mt-3 font-display text-4xl font-semibold tracking-tighter text-ink sm:text-5xl">
+        <p className="font-label text-accent">Catalog</p>
+        <h1 className="engraved mt-3 font-display text-4xl tracking-wide text-ink sm:text-5xl">
           Projects
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-ink-muted">
@@ -77,7 +71,7 @@ export default function ProjectsPage() {
         </p>
       </header>
 
-      <div className="mt-10 flex flex-wrap gap-2 border-y-2 border-ink py-3">
+      <div className="mt-10 flex flex-wrap gap-2 border-y border-dashed border-line py-3">
         {projectKinds.map((k) => (
           <button
             key={k}
@@ -94,7 +88,7 @@ export default function ProjectsPage() {
         ))}
       </div>
 
-      <ul className="mt-4 divide-y divide-line border-b-2 border-ink">
+      <ul className="mt-4 divide-y divide-dashed divide-line border-b border-dashed border-line">
         {filtered.map(({ project, index }, i) => (
           <motion.li
             key={project.id}
@@ -114,9 +108,7 @@ export default function ProjectsPage() {
 
             <div className="flex flex-col justify-center">
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                <span className="font-mono text-sm text-accent">
-                  {plateNumber(index)}
-                </span>
+                <span className="stamp">{plateNumber(index)}</span>
                 <p className="font-label text-ink-muted">{project.kind}</p>
                 <span
                   className={`font-mono text-[10px] uppercase tracking-[0.14em] ${
@@ -128,10 +120,10 @@ export default function ProjectsPage() {
                   {project.status === "cooking" ? "● Cooking" : "✓ Shipped"}
                 </span>
               </div>
-              <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+              <h2 className="engraved mt-2 font-display text-3xl tracking-wide text-ink sm:text-4xl">
                 <Link
                   href={`/projects/${project.slug}`}
-                  className="misregister"
+                  className="hover:text-accent"
                 >
                   {project.title}
                 </Link>
@@ -142,7 +134,7 @@ export default function ProjectsPage() {
               <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
                 <Link
                   href={`/projects/${project.slug}`}
-                  className="font-medium text-accent underline-offset-4 hover:underline"
+                  className="font-medium text-accent underline decoration-dashed underline-offset-4 hover:underline"
                 >
                   Read more
                 </Link>

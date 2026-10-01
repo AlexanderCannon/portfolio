@@ -20,12 +20,15 @@ const CookiePopup: React.FC = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-line bg-paper/95 px-5 py-4 backdrop-blur-md sm:px-8">
-      <div className="mx-auto flex max-w-shell flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <p className="max-w-2xl text-sm leading-relaxed text-ink-muted">
+    <div className="fixed inset-x-0 bottom-0 z-50 px-5 py-4 sm:px-8">
+      <div className="leather rivet mx-auto flex max-w-shell flex-col items-start gap-4 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+        <p className="max-w-2xl text-sm leading-relaxed text-[hsl(40_28%_78%)]">
           This site uses cookies for analytics. By continuing you agree — see
           the{" "}
-          <a href="/privacy-policy" className="text-accent hover:underline">
+          <a
+            href="/privacy-policy"
+            className="text-accent underline decoration-dashed underline-offset-4 hover:text-[hsl(40_40%_90%)]"
+          >
             privacy policy
           </a>
           .
