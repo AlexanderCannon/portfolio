@@ -21,7 +21,7 @@ const selectedRoles = resume.experience.slice(0, 4);
 const featured = [
   {
     title: "VOLUME",
-    blurb: "A calm reading companion — sessions, shelf, streaks.",
+    blurb: "A calm reading companion – sessions, shelf, streaks.",
     href: "/projects/volume",
   },
   {
@@ -73,7 +73,7 @@ const hobbies = [
   },
   {
     name: "Reading",
-    blurb: "Stacks that grow faster than evenings. I buy books the way other people buy intentions.",
+    blurb: "Stacks that grow faster than evenings. I mean well; the unread pile knows better.",
     image: "/images/reading.png",
   },
   {
@@ -125,7 +125,7 @@ export default function HomeEditorialClient({
 }: {
   substack: SubstackPost | null;
 }) {
-  // ponytail: terminal is desktop-only — don't mount (or hint) on mobile
+  // ponytail: terminal is desktop-only – don't mount (or hint) on mobile
   const [desktop, setDesktop] = useState(false);
   const reduced = useReducedMotion() ?? false;
 
@@ -174,8 +174,8 @@ export default function HomeEditorialClient({
         </div>
       </Vista>
 
-      {/* Solid parchment — sits close under the released sticky hero */}
-      <div className="relative z-20 -mt-20 bg-background sm:-mt-28">
+      {/* Solid parchment – sits close under the released sticky hero */}
+      <div className="parchment relative z-20 -mt-20 sm:-mt-28">
         <PageShell trail className="pb-12 pt-8 sm:pb-16 sm:pt-10 lg:pb-20 lg:pt-12">
           <Section className="pt-0">
             <SectionLabel>Field kit</SectionLabel>
@@ -252,20 +252,18 @@ export default function HomeEditorialClient({
                 className="max-w-measure space-y-5 text-base leading-relaxed text-ink-muted sm:text-lg"
               >
                 <p>
-                  I have spent most of my career in the places where software
-                  meets real weather – Discovery&apos;s early live streaming,
-                  regulated fintech, blockchain experiments, LLM tools that have
-                  to survive production data and a grudge. The job description
-                  always said implement and deliver. The actual work was taking
-                  ambiguity and bad incentives and somehow producing something
-                  sturdy enough that other people could stand on it.
+                  Most of my career has been in messy corners of software –
+                  Discovery&apos;s early live streaming, regulated fintech,
+                  blockchain experiments, LLM tools that have to cope with
+                  production data. The brief was usually implement and deliver.
+                  The work was turning unclear goals and awkward constraints into
+                  something people could rely on.
                 </p>
                 <p>
-                  These days I split time between shipping my own products and
-                  the unglamorous leadership work: noticing the wobble before
-                  anyone else does, keeping architecture honest, writing for the
-                  next person – including future me, who will be tired and
-                  annoyed.
+                  These days I split time between my own products and the quieter
+                  parts of leadership: catching problems early, keeping the
+                  architecture tidy, and writing things down for whoever comes
+                  next – including future me, who will be tired and annoyed.
                 </p>
                 <p>
                   Away from the keyboard: strings, early miles, trails, foreign
@@ -301,9 +299,9 @@ export default function HomeEditorialClient({
             <ul className="mt-6 max-w-measure space-y-3 text-base leading-relaxed text-ink-muted sm:text-lg">
               {[
                 "Small teams, clear ownership",
-                "Ship incremental, keep the joinery honest",
-                "Boring tech when it wins",
-                "Write for the next person – including future me",
+                "Ship in small steps, keep the joinery honest",
+                "Prefer boring tech when it fits",
+                "Write things down for the next person – including future me",
               ].map((item, i) => (
                 <motion.li
                   key={item}
@@ -560,8 +558,8 @@ export default function HomeEditorialClient({
                 <circle cx="18" cy="18" r="1.6" fill="currentColor" />
               </motion.svg>
               <p className="max-w-measure text-lg leading-relaxed text-ink-muted sm:text-xl">
-                Open to interesting work. If that sounds like something you are
-                building, say hello.
+                Happy to talk – a note is welcome whether you have a project
+                in mind or just want to say hello.
               </p>
             </motion.div>
             <motion.div

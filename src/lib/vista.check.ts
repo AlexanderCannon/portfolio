@@ -86,7 +86,7 @@ assert.ok(
   "close-up oaks use canopy lobes + bole + limbs",
 );
 
-// Chaparral LOD table — L0/L1 bare; scrub→dots→oaks forward
+// Chaparral LOD table – L0/L1 bare; scrub→dots→oaks forward
 assert.equal(vegKindForDepth(2), "scrub", "L2 scrub");
 assert.equal(vegKindForDepth(3), "scrub", "L3 scrub");
 assert.equal(vegKindForDepth(4), "oak", "L4 full oak");
@@ -97,7 +97,7 @@ const scrubZ = (a.layers[2]!.forest!.match(/Z/g) ?? []).length;
 assert.ok(scrubZ >= 20, `scrub layer has dense chaparral (${scrubZ})`);
 assert.ok(a.layers[3]!.forest, "second scrub band present");
 
-// Dot oaks stay tiny — stub + few lobes, not a limb tree
+// Dot oaks stay tiny – stub + few lobes, not a limb tree
 const dot = buildOak(mulberry32(11), 50, 300, 0.5, "dot");
 assert.ok(
   (dot.path.match(/Z/g) ?? []).length <= 8,

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { NewComment } from "~/app/_components/forms/new-comment";
 import { MarkdownRenderer } from "~/app/_components/ui/markdown-renderer";
 import PageShell from "~/app/_components/ui/page-shell";
+import { ContourRule, SectionLabel } from "~/app/_components/ui/survey-chrome";
 import { type Metadata } from "next";
 import { api } from "~/trpc/server";
 
@@ -51,7 +52,7 @@ export default async function PostPage({ params }: BlogPageProps) {
       <article className="mt-8">
         <time
           dateTime={post.createdAt.toISOString()}
-          className="text-xs uppercase tracking-[0.12em] text-ink-muted"
+          className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted"
         >
           {new Date(post.createdAt).toLocaleDateString()}
         </time>
@@ -63,10 +64,9 @@ export default async function PostPage({ params }: BlogPageProps) {
         </div>
       </article>
 
-      <section className="mt-16 pt-10">
-        <h2 className="engraved font-display text-2xl tracking-tight text-ink">
-          Comments
-        </h2>
+      <section className="mt-16 pt-4">
+        <SectionLabel>Comments</SectionLabel>
+        <ContourRule />
         {post.comments.length === 0 ? (
           <p className="mt-4 text-ink-muted">No comments yet.</p>
         ) : (
@@ -80,7 +80,7 @@ export default async function PostPage({ params }: BlogPageProps) {
                   {comment.name ?? "Anonymous"}
                 </div>
                 <div className="mt-1 text-ink-muted">{comment.body}</div>
-                <div className="mt-2 text-xs text-ink-muted">
+                <div className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted">
                   {new Date(comment.createdAt).toLocaleDateString()}
                 </div>
               </div>

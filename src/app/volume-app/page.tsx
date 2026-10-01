@@ -2,9 +2,9 @@ import Link from "next/link";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "VOLUME — reading companion",
+  title: "VOLUME – reading companion",
   description:
-    "Log focused reading sessions, keep your shelf and streaks in sync, and share progress with friends — built for people who still love paper and pixels."
+    "Log focused reading sessions, keep your shelf and streaks in sync, and share progress with friends – built for people who still love paper and pixels."
 };
 
 const features = [
@@ -14,7 +14,7 @@ const features = [
   },
   {
     title: "Shelf and progress in one place",
-    body: "Track books you are reading, finished, or want next — with pages and pace so you always know where you left off."
+    body: "Track books you are reading, finished, or want next – with pages and pace so you always know where you left off."
   },
   {
     title: "Streaks without shame spirals",
@@ -22,7 +22,7 @@ const features = [
   },
   {
     title: "A small social layer",
-    body: "Optional feed moments when you finish a book or hit a milestone — community without turning reading into a performance."
+    body: "Optional feed moments when you finish a book or hit a milestone – community without turning reading into a performance."
   },
   {
     title: "Sign in you can trust",
@@ -45,12 +45,12 @@ export default function VolumeAppLandingPage() {
           Calm tracking for people who actually read
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-[#F5F1E8]/90">
-          VOLUME helps you log minutes and pages, curate your shelf, and keep streaks — without turning books into a leaderboard you
+          VOLUME helps you log minutes and pages, curate your shelf, and keep streaks – without turning books into a leaderboard you
           did not ask for.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <span className="rounded-full border border-[#42C7A1]/50 bg-[#132C4B] px-6 py-3 text-sm font-semibold text-[#42C7A1]">
-            App Store &amp; Google Play — link here when live
+            App Store &amp; Google Play – link here when live
           </span>
           <Link
             href="/volume-app/privacy"
@@ -64,7 +64,7 @@ export default function VolumeAppLandingPage() {
       <section className="mx-auto max-w-5xl px-4 py-16">
         <h2 className="text-center font-serif text-3xl font-bold text-[#132C4B]">What you get</h2>
         <p className="mx-auto mt-3 max-w-2xl text-center text-[#6D7785]">
-          Built as a focused experience with a small surface area — fewer tabs, more
+          Built as a focused experience with a small surface area – fewer tabs, more
           chapters.
         </p>
         <ul className="mt-12 grid gap-6 sm:grid-cols-2">

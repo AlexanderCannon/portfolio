@@ -23,7 +23,7 @@ const CookiePopup: React.FC = () => {
     <div className="fixed inset-x-0 bottom-0 z-50 px-5 py-4 sm:px-8">
       <div className="leather rivet mx-auto flex max-w-shell flex-col items-start gap-4 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="max-w-2xl text-sm leading-relaxed text-[hsl(40_28%_78%)]">
-          This site uses cookies for analytics. By continuing you agree — see
+          This site uses cookies for analytics. By continuing you agree – see
           the{" "}
           <a
             href="/privacy-policy"

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy policy — VOLUME",
+  title: "Privacy policy – VOLUME",
   description: "How VOLUME collects, uses, and protects your information."
 };
 
@@ -11,7 +11,7 @@ export default function VolumePrivacyPage() {
     <main className="bg-[#F5F1E8] px-4 py-14 text-[#132C4B]">
       <div className="mx-auto max-w-3xl space-y-8 leading-relaxed">
         <header>
-          <h1 className="font-serif text-4xl font-bold text-[#132C4B]">Privacy policy — VOLUME</h1>
+          <h1 className="font-serif text-4xl font-bold text-[#132C4B]">Privacy policy – VOLUME</h1>
           <p className="mt-4 text-[#6D7785]">
             <strong className="text-[#132C4B]">Effective date:</strong> May 13, 2026. This policy describes the VOLUME mobile application
             and related pages at{" "}
@@ -25,7 +25,7 @@ export default function VolumePrivacyPage() {
         <section>
           <h2 className="mb-2 font-serif text-2xl font-bold text-[#132C4B]">Summary</h2>
           <p className="text-[#132C4B]">
-            VOLUME is a reading companion. We process account and reading data so the app can work — sign-in (Clerk), database and APIs
+            VOLUME is a reading companion. We process account and reading data so the app can work – sign-in (Clerk), database and APIs
             (Supabase), optional push notifications (Expo), and server-side book search (Google Books). We do not sell your personal
             information.
           </p>
@@ -84,10 +84,10 @@ export default function VolumePrivacyPage() {
           <h2 className="mb-2 font-serif text-2xl font-bold text-[#132C4B]">Processors and third parties</h2>
           <p className="mb-2 text-[#132C4B]">We use service providers that process data on our instructions, including:</p>
           <ul className="list-disc space-y-2 pl-5 text-[#132C4B]">
-            <li>Clerk — authentication.</li>
-            <li>Supabase — database, authentication bridge, and Edge Functions.</li>
-            <li>Expo — push notification infrastructure when enabled.</li>
-            <li>Google Books API — book metadata for search (server-side only).</li>
+            <li>Clerk – authentication.</li>
+            <li>Supabase – database, authentication bridge, and Edge Functions.</li>
+            <li>Expo – push notification infrastructure when enabled.</li>
+            <li>Google Books API – book metadata for search (server-side only).</li>
           </ul>
           <p className="mt-3 text-[#132C4B]">
             Those providers have their own privacy policies. We choose configurations intended to minimize data exposure (for example,

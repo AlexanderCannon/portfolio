@@ -6,6 +6,7 @@ import PageShell from "~/app/_components/ui/page-shell";
 import Button from "~/app/_components/ui/button";
 import GithubMeta from "~/app/_components/ui/github-meta";
 import ProjectDemo from "~/app/_components/ui/project-demo";
+import { ContourRule, SectionLabel } from "~/app/_components/ui/survey-chrome";
 import {
   getProjectBySlug,
   liveLabel,
@@ -55,7 +56,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <article className="mt-8">
         <header className="max-w-2xl">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-            <p className="font-label text-ink-muted">{project.kind}</p>
+            <SectionLabel>{project.kind}</SectionLabel>
             <span
               className={`font-mono text-[10px] uppercase tracking-[0.14em] ${
                 project.status === "cooking"
@@ -66,7 +67,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               {project.status === "cooking" ? "● Cooking" : "✓ Shipped"}
             </span>
           </div>
-          <h1 className="engraved mt-3 font-display text-4xl tracking-tight text-ink sm:text-5xl">
+          <ContourRule />
+          <h1 className="engraved mt-5 font-display text-4xl tracking-tight text-ink sm:text-5xl">
             {project.title}
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-ink-muted sm:text-xl">
@@ -138,19 +140,17 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         <ProjectDemo slug={project.slug} />
 
-        <section className="mt-16 pt-12">
-          <h2 className="engraved font-display text-3xl tracking-tight text-ink">
-            Built with
-          </h2>
+        <section className="mt-16 pt-4">
+          <SectionLabel>Built with</SectionLabel>
+          <ContourRule />
           <p className="mt-5 max-w-measure text-lg leading-relaxed text-ink sm:text-xl">
             {project.stack.join(" · ")}
           </p>
         </section>
 
-        <section className="mt-16 pt-12">
-          <h2 className="engraved font-display text-3xl tracking-tight text-ink">
-            Where it got hard
-          </h2>
+        <section className="mt-16 pt-4">
+          <SectionLabel>Where it got hard</SectionLabel>
+          <ContourRule />
           <ol className="mt-8 max-w-2xl divide-y divide-dashed divide-line border-y border-dashed border-line">
             {project.challenges.map((item, index) => (
               <li
@@ -168,10 +168,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </ol>
         </section>
 
-        <section className="mt-16 pt-12">
-          <h2 className="engraved font-display text-3xl tracking-tight text-ink">
-            Role
-          </h2>
+        <section className="mt-16 pt-4">
+          <SectionLabel>Role</SectionLabel>
+          <ContourRule />
           <p className="engraved mt-5 max-w-measure font-display text-2xl leading-snug tracking-tight text-ink sm:text-3xl">
             {roleLabel(project)}
           </p>

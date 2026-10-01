@@ -2,7 +2,7 @@ import Link from "next/link";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of service — VOLUME",
+  title: "Terms of service – VOLUME",
   description: "Terms governing use of the VOLUME mobile application."
 };
 
@@ -11,7 +11,7 @@ export default function VolumeTermsPage() {
     <main className="bg-[#F5F1E8] px-4 py-14 text-[#132C4B]">
       <div className="mx-auto max-w-3xl space-y-8 leading-relaxed">
         <header>
-          <h1 className="font-serif text-4xl font-bold text-[#132C4B]">Terms of service — VOLUME</h1>
+          <h1 className="font-serif text-4xl font-bold text-[#132C4B]">Terms of service – VOLUME</h1>
           <p className="mt-4 text-[#6D7785]">
             <strong className="text-[#132C4B]">Effective date:</strong> May 13, 2026. These terms apply to the VOLUME mobile application
             and related information published at{" "}
@@ -52,7 +52,7 @@ export default function VolumeTermsPage() {
           <p className="text-[#132C4B]">
             You retain rights to content you submit (for example profile text, session notes where supported, and feed posts). You grant
             us a worldwide, non-exclusive license to host, store, reproduce, and display that content solely to operate, secure, and
-            improve VOLUME — including showing it to other users when you use social features.
+            improve VOLUME – including showing it to other users when you use social features.
           </p>
           <p className="mt-3 text-[#132C4B]">
             You represent that you have the rights needed to submit your content and that it does not violate law or third-party
@@ -105,7 +105,7 @@ export default function VolumeTermsPage() {
           <h2 className="mb-2 font-serif text-2xl font-bold text-[#132C4B]">9. Indemnity</h2>
           <p className="text-[#132C4B]">
             You will defend and indemnify Alexander Cannon against any claims, damages, losses, and expenses (including reasonable
-            attorneys&apos; fees) arising from your content, your use of VOLUME, or your violation of these terms or law — except to
+            attorneys&apos; fees) arising from your content, your use of VOLUME, or your violation of these terms or law – except to
             the extent caused by our willful misconduct.
           </p>
         </section>

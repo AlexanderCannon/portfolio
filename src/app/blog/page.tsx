@@ -2,6 +2,7 @@ import Link from "next/link";
 import { count } from "drizzle-orm";
 import { type Metadata } from "next";
 import PageShell from "~/app/_components/ui/page-shell";
+import { ContourRule, SectionLabel } from "~/app/_components/ui/survey-chrome";
 import { db } from "~/server/db";
 import { posts as postsTable } from "~/server/db/schema";
 
@@ -40,9 +41,10 @@ export default async function PostsPage() {
 
   return (
     <PageShell>
-      <header className="max-w-measure" data-trail-section>
-        <p className="font-label text-accent">Field notes</p>
-        <h1 className="engraved mt-3 font-display text-4xl tracking-tight text-ink sm:text-5xl">
+      <header className="max-w-measure">
+        <SectionLabel>Field notes</SectionLabel>
+        <ContourRule />
+        <h1 className="engraved mt-5 font-display text-4xl tracking-tight text-ink sm:text-5xl">
           Blog
         </h1>
         <p className="mt-4 text-lg text-ink-muted">
@@ -62,17 +64,17 @@ export default async function PostsPage() {
       {posts.length === 0 ? (
         <p className="mt-12 text-ink-muted">No posts yet.</p>
       ) : (
-        <>
-          <div
-            className="mt-16 flex items-baseline justify-between border-b border-dashed border-ink pb-3"
-            data-trail-section
-          >
-            <h2 className="font-label text-ink">Earlier notes</h2>
-            <span className="font-label text-ink-muted">
+        <section className="mt-16">
+          <div className="flex flex-wrap items-baseline justify-between gap-4">
+            <div>
+              <SectionLabel>Earlier notes</SectionLabel>
+              <ContourRule />
+            </div>
+            <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">
               {postCount} {postCount === 1 ? "post" : "posts"}
             </span>
           </div>
-          <ul className="divide-y divide-dashed divide-line border-b border-dashed border-line">
+          <ul className="mt-6 divide-y divide-dashed divide-line border-b border-dashed border-line">
             {posts.map((post) => (
               <li key={post.id}>
                 <Link
@@ -81,7 +83,7 @@ export default async function PostsPage() {
                 >
                   <time
                     dateTime={post.createdAt.toISOString()}
-                    className="font-label pt-1.5 text-ink-muted"
+                    className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted sm:pt-2"
                   >
                     {post.createdAt.toLocaleDateString(undefined, {
                       year: "numeric",
@@ -97,7 +99,7 @@ export default async function PostsPage() {
                       {post.body?.slice(0, 160)}
                       {post.body && post.body.length > 160 ? "…" : ""}
                     </p>
-                    <p className="mt-3 text-sm text-ink-muted">
+                    <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted">
                       {post.comments.length}{" "}
                       {post.comments.length === 1 ? "comment" : "comments"}
                     </p>
@@ -112,10 +114,10 @@ export default async function PostsPage() {
               </li>
             ))}
           </ul>
-        </>
+        </section>
       )}
 
-      <p className="mt-8 text-sm text-ink-muted">
+      <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted">
         Showing {Math.min(offset + 1, postCount)}–
         {Math.min(offset + limit, postCount)} of {postCount}
       </p>

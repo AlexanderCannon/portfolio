@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import PageShell from "~/app/_components/ui/page-shell";
+import Button from "~/app/_components/ui/button";
 import GithubMeta from "~/app/_components/ui/github-meta";
 import { ContourRule, SectionLabel } from "~/app/_components/ui/survey-chrome";
 import {
@@ -68,25 +69,26 @@ export default function ProjectsPage() {
           Projects
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-ink-muted">
-          Catalog of things I have shipped – apps on phones, tools in terminals,
-          and a few experiments that stuck around.
+          A few of the things I have shipped – apps on phones, tools in terminals,
+          and some experiments that stuck around.
         </p>
       </header>
 
-      <div className="mt-10 flex flex-wrap gap-2 py-3">
+      <div className="mt-10 flex flex-wrap gap-3">
         {projectKinds.map((k) => (
-          <button
+          <Button
             key={k}
             type="button"
+            variant={kind === k ? "solid" : "ghost"}
             onClick={() => setKind(k)}
-            className={`px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors ${
+            className={
               kind === k
-                ? "bg-ink text-paper"
-                : "text-ink-muted hover:text-ink"
-            }`}
+                ? "border-ink bg-ink text-paper shadow-[0_1px_0_hsl(var(--ink)/0.25)] hover:bg-accent hover:border-accent hover:text-paper"
+                : "border-ink bg-paper text-ink shadow-[0_1px_0_hsl(var(--ink)/0.15)] hover:bg-accent hover:border-accent hover:text-paper"
+            }
           >
             {k}
-          </button>
+          </Button>
         ))}
       </div>
 

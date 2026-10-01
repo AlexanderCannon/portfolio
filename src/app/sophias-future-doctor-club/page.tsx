@@ -2,19 +2,19 @@ import Link from "next/link";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sophia's Future Doctor Club — daily picks for future doctors",
+  title: "Sophia's Future Doctor Club – daily picks for future doctors",
   description:
-    "Weekly club picks, quick reflections, badges, and streaks for students curious about medicine. No account, no ads — everything stays on your device.",
+    "Weekly club picks, quick reflections, badges, and streaks for students curious about medicine. No account, no ads – everything stays on your device.",
 };
 
 const features = [
   {
     title: "Weekly club picks",
-    body: "Science, math, reading, writing, service, and more — one small pick at a time, about 15–30 minutes each.",
+    body: "Science, math, reading, writing, service, and more – one small pick at a time, about 15–30 minutes each.",
   },
   {
     title: "Club Notes diary",
-    body: "Write short reflections after you finish a pick. One or two sentences is plenty — it's your private future-doctor journal.",
+    body: "Write short reflections after you finish a pick. One or two sentences is plenty – it's your private future-doctor journal.",
   },
   {
     title: "XP, ranks, and badges",
@@ -45,12 +45,12 @@ export default function SophiaFutureDoctorClubLandingPage() {
           Tiny picks. Big white-coat energy.
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-[#FBF7F0]/90">
-          Sophia&apos;s Future Doctor Club helps aspiring future doctors build the habits that matter — science curiosity,
+          Sophia&apos;s Future Doctor Club helps aspiring future doctors build the habits that matter – science curiosity,
           reading, writing, math confidence, service, and reflection.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <span className="rounded-full border border-[#20B0B8]/50 bg-[#1E3D42] px-6 py-3 text-sm font-semibold text-[#20B0B8]">
-            App Store — link here when live
+            App Store – link here when live
           </span>
           <Link
             href="/sophias-future-doctor-club/privacy"

@@ -87,7 +87,7 @@ function VistaSvg({
 
       <rect width={VISTA_WIDTH} height={VISTA_HEIGHT} fill="url(#vista-sky)" />
 
-      {/* Opaque floor under ridges — parallax must never leave a parchment hole */}
+      {/* Opaque floor under ridges – parallax must never leave a parchment hole */}
       <rect
         x={0}
         y={VISTA_HEIGHT * 0.7}
@@ -197,7 +197,7 @@ function VistaSvg({
   );
 }
 
-/** Fully opaque near ground + side frames — lives inside the sticky hero. */
+/** Fully opaque near ground + side frames – lives inside the sticky hero. */
 function NearPlaneOverlay({
   scene,
   progress,
@@ -267,7 +267,7 @@ export default function Vista({
     <section ref={ref} className={`relative ${className}`}>
       {/*
         One sticky stack: valley + opaque near plane + copy.
-        When sticky releases, the whole hero scrolls away — no dark lip lingering over content.
+        When sticky releases, the whole hero scrolls away – no dark lip lingering over content.
       */}
       <div className="sticky top-0 z-0 h-[100svh] overflow-hidden">
         <div className="pointer-events-none absolute inset-0">
@@ -302,7 +302,7 @@ export default function Vista({
         </div>
       </div>
 
-      {/* Parallax run-out past the fold — lets the valley breathe before content */}
+      {/* Parallax run-out past the fold – lets the valley breathe before content */}
       <div className="h-[36svh]" aria-hidden />
     </section>
   );

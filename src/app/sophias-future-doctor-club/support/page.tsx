@@ -2,11 +2,11 @@ import Link from "next/link";
 import { type Metadata } from "next";
 
 const SUPPORT_EMAIL = "a.m.t.cannon@gmail.com";
-const MAILTO = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent("Sophia's Future Doctor Club — Support")}`;
+const MAILTO = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent("Sophia's Future Doctor Club – Support")}`;
 
 export const metadata: Metadata = {
-  title: "Support — Sophia's Future Doctor Club",
-  description: "Get help with Sophia's Future Doctor Club — picks, reminders, progress, and more.",
+  title: "Support – Sophia's Future Doctor Club",
+  description: "Get help with Sophia's Future Doctor Club – picks, reminders, progress, and more.",
 };
 
 export default function SophiaSupportPage() {
@@ -15,7 +15,7 @@ export default function SophiaSupportPage() {
       <div className="mx-auto max-w-3xl space-y-8 leading-relaxed">
         <header>
           <h1 className="font-serif text-4xl font-bold text-[#1E3D42]">
-            Support — Sophia&apos;s Future Doctor Club
+            Support – Sophia&apos;s Future Doctor Club
           </h1>
           <p className="mt-4 text-[#7A6E88]">
             Need help with picks, reminders, or progress? Send us an email and we&apos;ll get back to you.

@@ -407,7 +407,7 @@ export function liveLabel(url: string) {
 
 export function roleLabel(project: Project) {
   if (project.role === "solo") {
-    return "Solo — design, code, and shipping.";
+    return "Solo – design, code, and shipping.";
   }
   return project.roleNote
     ? `Shared project. ${project.roleNote}`

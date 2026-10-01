@@ -19,7 +19,7 @@ const ContactPage: React.FC = () => {
           Say hello
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-ink-muted">
-          A question, a collaboration, or just a note — I read every message.
+          A question, a collaboration, or just a note – happy to hear from you.
         </p>
       </header>
 

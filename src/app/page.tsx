@@ -4,7 +4,7 @@ import HomeEditorial from "~/app/_components/sections/home-editorial";
 export const metadata: Metadata = {
   title: "Home",
   description:
-    "Alexander Cannon — engineering leader and builder of apps, tools, and systems.",
+    "Alexander Cannon – apps, tools, and systems.",
 };
 
 export default function Home() {

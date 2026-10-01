@@ -1,4 +1,4 @@
-/** Seeded valley vista — Firewatch-scale topology, tonal washes, forest bands. */
+/** Seeded valley vista – Firewatch-scale topology, tonal washes, forest bands. */
 
 export type Rng = () => number;
 
@@ -26,9 +26,9 @@ export type RidgeSpec = {
   peakT: number;
   /** Optional distant peak height as a fraction of amplitude. */
   peakH: number;
-  /** Distant jagged teeth (0–1) — sharp multi-peaks for far ranges. */
+  /** Distant jagged teeth (0–1) – sharp multi-peaks for far ranges. */
   teeth: number;
-  /** Crossing swell strength (0–1) — S-curve so layers weave past each other. */
+  /** Crossing swell strength (0–1) – S-curve so layers weave past each other. */
   swell: number;
   width: number;
   height: number;
@@ -67,7 +67,7 @@ export type VistaScene = {
   leftFrame: NearProp;
   /** Subtle front-right near frame. */
   rightFrame: NearProp;
-  /** Full-width near ground lip — page body scrolls under this. */
+  /** Full-width near ground lip – page body scrolls under this. */
   nearGround: string;
   /** Sun/moon nestled in the far valley bowl. */
   sun: { cx: number; cy: number; depth: number };
@@ -91,7 +91,7 @@ export function mulberry32(seed: number): Rng {
 }
 
 /**
- * Per-layer ridge profile — shifted bowls, tilt, and asymmetric shoulders
+ * Per-layer ridge profile – shifted bowls, tilt, and asymmetric shoulders
  * so stacked ridges don’t share one arc.
  */
 function valleyOffset(
@@ -138,14 +138,14 @@ function valleyOffset(
     (Math.sin(t * Math.PI * (2.2 + warp) + warp * 2) * 0.55 +
       Math.sin(t * Math.PI * (4.8 + warp * 1.5) + warp) * 0.4 +
       Math.sin(t * Math.PI * 8.5 + warp * 3) * 0.25);
-  // Soft cone peak (Mount Fuji) — wide base, sharp tip
+  // Soft cone peak (Mount Fuji) – wide base, sharp tip
   const peak =
     peakH > 0
       ? peakH *
         amplitude *
         Math.exp(-Math.pow((t - peakT) / 0.145, 2) * 1.85)
       : 0;
-  // LA front-range silhouette — clear peaks + saddles, not soft noise
+  // LA front-range silhouette – clear peaks + saddles, not soft noise
   let jagged = 0;
   if (teeth > 0) {
     const range = [
@@ -175,7 +175,7 @@ function valleyOffset(
       );
     jagged *= teeth * amplitude;
   }
-  // Crossing swell — phase via warp so neighboring layers weave past each other
+  // Crossing swell – phase via warp so neighboring layers weave past each other
   const weave =
     swell *
     amplitude *
@@ -257,7 +257,7 @@ export function ridgePoints(rng: Rng, spec: RidgeSpec): Point[] {
       ),
     ),
   })).map((p, i, arr) => {
-    // ponytail: long side-tails — never let the crest crash to the floor near edges
+    // ponytail: long side-tails – never let the crest crash to the floor near edges
     const t = p.x / width;
     const edge = Math.min(t, 1 - t);
     let y = p.y;
@@ -295,7 +295,7 @@ export function pointsToRidgePath(
   if (pts.length === 0) return "";
   const first = pts[0]!;
   const last = pts[pts.length - 1]!;
-  // Start/end flush to edges at crest height — long tails, no mid-frame cliff-off
+  // Start/end flush to edges at crest height – long tails, no mid-frame cliff-off
   let d = `M 0 ${first.y.toFixed(1)}`;
   for (let i = 1; i < pts.length - 1; i++) {
     const p = pts[i]!;
@@ -351,7 +351,7 @@ export type OakMetrics = {
 };
 
 /**
- * Noise-warped leaf lobe — lens profile with radius jitter.
+ * Noise-warped leaf lobe – lens profile with radius jitter.
  */
 function leafBlob(
   rng: Rng,
@@ -415,7 +415,7 @@ function trunkWedge(
 }
 
 /**
- * Chaparral scrub — low overlapping mounds along the crest, no trunks.
+ * Chaparral scrub – low overlapping mounds along the crest, no trunks.
  */
 export function scrubPath(
   rng: Rng,
@@ -440,7 +440,7 @@ export function scrubPath(
 }
 
 /**
- * Tiny distant oak — stub trunk + 3–4 lobe cloud (no limb skeleton).
+ * Tiny distant oak – stub trunk + 3–4 lobe cloud (no limb skeleton).
  */
 function oakDot(
   rng: Rng,
@@ -514,9 +514,9 @@ function oakDot(
 }
 
 /**
- * Coast live oak — bole → limb skeleton → leaf clusters at branch tips.
+ * Coast live oak – bole → limb skeleton → leaf clusters at branch tips.
  * Wood is drawn as tapering wedges so trunks/branches read under the canopy gap.
- * `dot` is a far LOD stub (no limbs) — see oakDot.
+ * `dot` is a far LOD stub (no limbs) – see oakDot.
  */
 export function buildOak(
   rng: Rng,
@@ -529,7 +529,7 @@ export function buildOak(
 
   const hMul = 0.85 + rng() * 0.3;
   const totalH = (kind === "near" ? 44 : 34) * scale * hMul;
-  // Bole only — limbs are separate and carry into the crown
+  // Bole only – limbs are separate and carry into the crown
   const trunkH = totalH * (0.17 + rng() * 0.06); // 17–23% ≤ 30%
   const canopyH = totalH * (0.5 + rng() * 0.08);
   const canopyW = canopyH * (1.35 + rng() * 0.4);
@@ -565,7 +565,7 @@ export function buildOak(
     w1: boleTopW,
   });
 
-  // Target tips on the canopy ellipse — each gets a limb from the bole/fork
+  // Target tips on the canopy ellipse – each gets a limb from the bole/fork
   const nPrimary =
     kind === "near" ? 5 + Math.floor(rng() * 2) : 4 + Math.floor(rng() * 2);
   const tips: Point[] = [];
@@ -666,7 +666,7 @@ export function buildOak(
     }
   }
 
-  // Leaf clusters at every tip — dense enough to read as a cloud, not a skeleton
+  // Leaf clusters at every tip – dense enough to read as a cloud, not a skeleton
   const lobes: string[] = [];
   let cMinX = Infinity;
   let cMaxX = -Infinity;
@@ -773,7 +773,7 @@ export type ForestOpts = {
 };
 
 /**
- * Place Claremont vegetation along a ridge — scrub far, sparse oak groves nearer.
+ * Place Claremont vegetation along a ridge – scrub far, sparse oak groves nearer.
  */
 export function forestBand(
   rng: Rng,
@@ -835,7 +835,7 @@ export function forestBand(
 }
 
 /**
- * Compact left near-frame cliff — close-up scale, big lip oaks.
+ * Compact left near-frame cliff – close-up scale, big lip oaks.
  */
 export function leftNearFrame(
   rng: Rng,
@@ -906,7 +906,7 @@ export function leftNearFrame(
   const last = face[face.length - 1]!;
   rock += ` L ${last.x.toFixed(1)} ${deep} Z`;
 
-  // Huge close-up oaks on the lip — sell near-plane scale
+  // Huge close-up oaks on the lip – sell near-plane scale
   const treeParts: string[] = [];
   const nTrees = 3 + Math.floor(rng() * 2); // 3–4 hero oaks on the lip
   for (let i = 0; i < nTrees; i++) {
@@ -920,7 +920,7 @@ export function leftNearFrame(
 }
 
 /**
- * Right near-frame — soft slope away to the edge (invite-in, not a jagged boulder).
+ * Right near-frame – soft slope away to the edge (invite-in, not a jagged boulder).
  */
 export function rightNearFrame(
   rng: Rng,
@@ -931,7 +931,7 @@ export function rightNearFrame(
   const topY = height * (0.55 + rng() * 0.04);
   const midY = height * (0.72 + rng() * 0.03);
 
-  // Few control points, mild displace — reads as a rounded bank
+  // Few control points, mild displace – reads as a rounded bank
   let face: Point[] = [
     { x: width, y: topY },
     { x: width * (0.93 + rng() * 0.02), y: topY + height * 0.06 },
@@ -981,7 +981,7 @@ export function rightNearFrame(
 }
 
 /**
- * Full-width near-plane lip — deep V so the page body tucks into the notch.
+ * Full-width near-plane lip – deep V so the page body tucks into the notch.
  */
 export function nearGroundLip(
   rng: Rng,
@@ -1028,9 +1028,9 @@ export function nearGroundLip(
   return d;
 }
 
-// Distinct characters that still weave — each layer keeps a readable silhouette + long edge tails
+// Distinct characters that still weave – each layer keeps a readable silhouette + long edge tails
 const LAYER_SPECS: Omit<RidgeSpec, "width" | "height">[] = [
-  // Farthest: LA mountains — distinct peaks/saddles, near the sun
+  // Farthest: LA mountains – distinct peaks/saddles, near the sun
   {
     baseline: 395,
     amplitude: 58,
@@ -1066,7 +1066,7 @@ const LAYER_SPECS: Omit<RidgeSpec, "width" | "height">[] = [
     teeth: 0,
     swell: 0.04,
   },
-  // Mid-far: short apron under Fuji — stays low so the cone reads
+  // Mid-far: short apron under Fuji – stays low so the cone reads
   {
     baseline: 520,
     amplitude: 48,
@@ -1084,7 +1084,7 @@ const LAYER_SPECS: Omit<RidgeSpec, "width" | "height">[] = [
     teeth: 0,
     swell: 0.2,
   },
-  // Mid: lower valley ridge (was climbing over Fuji) — stays in the lower half
+  // Mid: lower valley ridge (was climbing over Fuji) – stays in the lower half
   {
     baseline: 600,
     amplitude: 70,
@@ -1102,7 +1102,7 @@ const LAYER_SPECS: Omit<RidgeSpec, "width" | "height">[] = [
     teeth: 0,
     swell: 0.25,
   },
-  // Mid-near: rolling center valley — sit clearly below mid (was stacked on 600)
+  // Mid-near: rolling center valley – sit clearly below mid (was stacked on 600)
   {
     baseline: 660,
     amplitude: 88,
@@ -1158,14 +1158,14 @@ const LAYER_SPECS: Omit<RidgeSpec, "width" | "height">[] = [
   },
 ];
 
-// Far almost pinned; near layers haul much harder — strong relative parallax
+// Far almost pinned; near layers haul much harder – strong relative parallax
 const LAYER_DEPTHS = [0.072, 0.14, 0.32, 0.55, 0.9, 1.4, 1.95];
 const LAYER_OPACITY = [1, 1, 1, 1, 1, 1, 1];
 
 /** Far: no veg on jagged/Fuji. Then heavy chaparral → dots → oaks. */
 const FOREST_OPTS: Omit<ForestOpts, "depthIndex" | "viewHeight">[] = [
-  { density: 0, scale: 0.45, floorBias: 0.2 }, // L0 jagged — bare
-  { density: 0, scale: 0.55, floorBias: 0.25 }, // L1 Fuji — bare
+  { density: 0, scale: 0.45, floorBias: 0.2 }, // L0 jagged – bare
+  { density: 0, scale: 0.55, floorBias: 0.25 }, // L1 Fuji – bare
   { density: 0.95, scale: 0.65, floorBias: 0.2 }, // L2 heavy chaparral
   { density: 0.7, scale: 0.75, floorBias: 0.3 }, // L3 more scrub
   { density: 0.4, scale: 1.0, floorBias: 0.75 }, // L4 full oaks
@@ -1229,7 +1229,7 @@ export function generateVista(
   const leftFrame = {
     path: left.rock,
     trees: left.trees || null,
-    // Closest plane — hardest parallax haul
+    // Closest plane – hardest parallax haul
     depth: 2.4,
     fillVar: "vista-shadow",
   };

@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     default: "Alexander Cannon",
     template: "%s | Alexander Cannon",
   },
-  description: "Engineering leader and builder — apps, tools, and systems.",
+  description: "Engineering lead and builder – apps, tools, and systems.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
@@ -74,7 +74,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className="min-h-screen font-sans">
+      <body className="parchment min-h-screen font-sans">
         <TRPCReactProvider>
           <ThemeProvider>
             <PressStatus />

@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from "framer-motion";
 
 const viewport = { once: true, margin: "-60px" as const };
 
-/** OS triangulation tick — draws in when the section arrives. */
+/** OS triangulation tick – draws in when the section arrives. */
 export function SurveyMark() {
   const reduced = useReducedMotion() ?? false;
   return (

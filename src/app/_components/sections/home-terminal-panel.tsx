@@ -15,7 +15,7 @@ type CommandFn = (args?: string[]) => string[] | "CLEAR" | "NAV";
 const WELCOME: HistoryEntry[] = [
   {
     type: "output",
-    content: "Alexander Cannon — terminal",
+    content: "Alexander Cannon – terminal",
   },
   {
     type: "output",
@@ -60,17 +60,17 @@ const COMPASS: Record<string, { label: string; path: string }> = {
 const TRANSMISSIONS = [
   "Static clears. VOLUME is live on the App Store.",
   "Field note: PathRanger was named after getting lost in a monorepo.",
-  "Weak signal from Eurovision Party — someone's still scoring songs.",
+  "Weak signal from Eurovision Party – someone's still scoring songs.",
   "CacheClip caches clipboard. Name does what it says on the tin.",
   "lllanguage: learn from the conversation you already had.",
-  "Honey Do is cooking. Literally — family meal planning.",
+  "Honey Do is cooking. Literally – family meal planning.",
   "Sophia's Future Doctor Club: habits before white coats.",
   "Radio check: LLMs in production, not just demos.",
-  "Bearing confirmed — farpointlabs.com still on the air.",
+  "Bearing confirmed – farpointlabs.com still on the air.",
   "Trail marker: TypeScript · Rust · Python · Go.",
 ];
 
-// Project keys only — skip site pages so explore lands somewhere interesting
+// Project keys only – skip site pages so explore lands somewhere interesting
 const EXPLORE_KEYS = Object.keys(NAV).filter(
   (k) =>
     ![
@@ -90,6 +90,29 @@ function buildCommands(
   navigate: (path: string) => void,
   commandHistory: string[],
 ): Record<string, CommandFn> {
+  const jump = (raw: string | undefined, label: string): string[] => {
+    const token = (raw ?? "").trim().toLowerCase();
+    if (!token || token === "~" || token === "/" || token === "..") {
+      navigate("/");
+      return [`${label}: ~`];
+    }
+    // accept projects/volume, ./volume, volume/
+    const key = token
+      .replace(/^\.\//, "")
+      .replace(/^projects\//, "")
+      .replace(/\/$/, "");
+    const path = NAV[key];
+    if (!path) {
+      return [
+        `${label}: no such place "${raw}"`,
+        "Try: volume, pathranger, blog, contact, resume",
+        "Or: map",
+      ];
+    }
+    navigate(path);
+    return [`${label}: ${path}`];
+  };
+
   const cmds: Record<string, CommandFn> = {
     help: () => [
       "Available commands:",
@@ -104,7 +127,7 @@ function buildCommands(
       "    go <n|e|s|w>          Compass nav (or: compass)",
       "    find <term>           Search projects",
       "    scan                  Tune the radio",
-      "    open <slug>           Jump somewhere (e.g. open volume)",
+      "    open / cd <slug>      Jump somewhere (e.g. cd volume)",
       "",
       "  Misc",
       "    tree / ls / cat <file> / date / history / clear",
@@ -116,11 +139,11 @@ function buildCommands(
     ],
     projects: () => [
       "Featured:",
-      "  VOLUME                     — reading companion (App Store)",
-      "  Sophia's Future Doctor Club — habit app for future doctors",
-      "  Honey Do                   — family planner (cooking)",
-      "  lllanguage                 — language from real conversation",
-      "  PathRanger / CacheClip     — Rust CLIs",
+      "  VOLUME                     – reading companion (App Store)",
+      "  Sophia's Future Doctor Club – habit app for future doctors",
+      "  Honey Do                   – family planner (cooking)",
+      "  lllanguage                 – language from real conversation",
+      "  PathRanger / CacheClip     – Rust CLIs",
       "",
       "Try: open volume | find rust | explore",
     ],
@@ -139,32 +162,21 @@ function buildCommands(
       "Web       /contact",
     ],
     about: () => [
-      "I ship products people return to — apps, tools, and systems.",
+      "I work on apps, tools, and systems.",
       "Background across streaming, fintech, blockchain, and AI.",
-      "These days: hands-on building + the leadership work that",
-      "keeps architecture honest.",
+      "These days: hands-on building + quieter leadership work.",
     ],
     resume: () => {
       navigate("/print");
       return ["Opening printable resume …"];
     },
-    open: (args) => {
-      const key = (args?.[0] ?? "").toLowerCase();
-      const path = NAV[key];
-      if (!path) {
-        return [
-          `open: unknown target "${args?.[0] ?? ""}"`,
-          "Try: volume, pathranger, cacheclip, eurovision, resume",
-          "Or: map",
-        ];
-      }
-      navigate(path);
-      return [`Opening ${path} …`];
-    },
+    open: (args) => jump(args?.[0], "open"),
+    // ponytail: cd is open with path-ish aliases (~, .., projects/foo)
+    cd: (args) => jump(args?.[0], "cd"),
     map: () => [
       "          [ N projects ]",
       "                 |",
-      "  [ W about ] — ★ — [ E blog ]",
+      "  [ W about ] – ★ – [ E blog ]",
       "                 |",
       "          [ S contact ]",
       "",
@@ -175,6 +187,7 @@ function buildCommands(
       "    open contact     /contact",
       "    open resume      /print",
       "    open volume      …and other project slugs",
+      "    cd blog          same as open",
       "",
       "  Or: go north | explore | find <term>",
     ],
@@ -208,7 +221,7 @@ function buildCommands(
     compass: () => [
       "          N  projects",
       "          |",
-      "   W ——— ★ ——— E",
+      "   W ----- ★ ----- E",
       "  about         blog",
       "          |",
       "          S  contact",
@@ -461,7 +474,7 @@ export default function HomeTerminalPanel() {
         <span className="h-2.5 w-2.5 rounded-full bg-accent" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#5a9e6f]" />
         <span className="ml-2 font-mono text-[11px] tracking-tight text-[hsl(40_28%_68%)]">
-          field radio — zsh
+          field radio – zsh
         </span>
       </div>
 

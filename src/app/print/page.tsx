@@ -75,7 +75,7 @@ export default function PrintResumePage() {
         <h2 className="font-label text-ink-muted">Education</h2>
         <p className="mt-2 text-sm">
           {resume.education.degree}, {resume.education.institution} (
-          {resume.education.graduationYear}) — {resume.education.honors}
+          {resume.education.graduationYear}) – {resume.education.honors}
         </p>
       </section>
 

@@ -7,7 +7,7 @@ import Timeline from "~/app/_components/sections/timeline";
 export const metadata: Metadata = {
   title: "Experience",
   description:
-    "Alexander Cannon — a decade-plus of shipping software and leading teams.",
+    "Alexander Cannon – software and teams over the last decade-plus.",
 };
 
 export default function ExperiencePage() {
@@ -20,7 +20,7 @@ export default function ExperiencePage() {
           Professional experience
         </h1>
         <p className="mt-4 text-lg text-ink-muted">
-          A decade-plus of shipping software and leading teams.
+          Roles and projects from the last decade-plus.
         </p>
         <p className="mt-4 text-sm text-ink-muted">
           Prefer raw data?{" "}

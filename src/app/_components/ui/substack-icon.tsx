@@ -1,6 +1,6 @@
 import { type SVGProps } from "react";
 
-/** Official Substack mark — Lucide has no brand icon for it. */
+/** Official Substack mark – Lucide has no brand icon for it. */
 export default function SubstackIcon({
   className,
   ...props

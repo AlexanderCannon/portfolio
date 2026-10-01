@@ -4,9 +4,9 @@ import { type Metadata } from "next";
 const SUPPORT_EMAIL = "a.m.t.cannon@gmail.com";
 
 export const metadata: Metadata = {
-  title: "Privacy policy — Sophia's Future Doctor Club",
+  title: "Privacy policy – Sophia's Future Doctor Club",
   description:
-    "How Sophia's Future Doctor Club handles your information. Everything stays on your device — no account, no ads, no tracking.",
+    "How Sophia's Future Doctor Club handles your information. Everything stays on your device – no account, no ads, no tracking.",
 };
 
 export default function SophiaPrivacyPage() {
@@ -15,7 +15,7 @@ export default function SophiaPrivacyPage() {
       <div className="mx-auto max-w-3xl space-y-8 leading-relaxed">
         <header>
           <h1 className="font-serif text-4xl font-bold text-[#1E3D42]">
-            Privacy policy — Sophia&apos;s Future Doctor Club
+            Privacy policy – Sophia&apos;s Future Doctor Club
           </h1>
           <p className="mt-4 text-[#7A6E88]">
             <strong className="text-[#1E3D42]">Last updated:</strong> June 2026. This policy describes the Sophia&apos;s
@@ -76,7 +76,7 @@ export default function SophiaPrivacyPage() {
           <h2 className="mb-2 font-serif text-2xl font-bold text-[#1E3D42]">Reminders</h2>
           <p className="text-[#1E3D42]">
             You can set a daily reminder in Settings. The app only asks for permission when you turn that on. Reminders
-            come from the app on your device — not from us over the internet.
+            come from the app on your device – not from us over the internet.
           </p>
         </section>
 
@@ -101,7 +101,7 @@ export default function SophiaPrivacyPage() {
           <p className="text-[#1E3D42]">
             For questions about this policy, email{" "}
             <a
-              href={`mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent("Sophia's Future Doctor Club — Privacy")}`}
+              href={`mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent("Sophia's Future Doctor Club – Privacy")}`}
               className="font-semibold text-[#20B0B8] underline-offset-2 hover:underline"
             >
               {SUPPORT_EMAIL}

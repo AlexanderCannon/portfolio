@@ -122,7 +122,7 @@ export default function ScrollTrail({ containerRef }: ScrollTrailProps) {
       }
 
       const prevRail = (i - 1) % 2 === 0 ? right : left;
-      // Down previous rail, then cross — stop on the rail (no reverse stub)
+      // Down previous rail, then cross – stop on the rail (no reverse stub)
       pts.push({ x: prevRail, y }, { x: rail, y });
     });
 
@@ -151,12 +151,14 @@ export default function ScrollTrail({ containerRef }: ScrollTrailProps) {
     };
   }, [containerRef, rebuild]);
 
+  // Start once the content top is nearer mid-viewport (not as soon as it peeks in).
+  // End left alone so the X still lands while the tip is on screen.
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 0.55", "end 0.85"],
+    offset: ["start 0.45", "end 0.35"],
   });
 
-  const draw = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const draw = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
 
   const placeHead = useCallback(
     (t: number) => {
@@ -174,7 +176,7 @@ export default function ScrollTrail({ containerRef }: ScrollTrailProps) {
         y: p.y,
         angle,
         on: reduced || clamped > 0.001,
-        atEnd: reduced || clamped >= 0.998,
+        atEnd: reduced || clamped >= 0.99,
       });
     },
     [reduced],
@@ -208,7 +210,7 @@ export default function ScrollTrail({ containerRef }: ScrollTrailProps) {
           width={size.w}
           height={size.h}
         >
-          {/* Solid reveal stroke — pathLength only, no dash fight */}
+          {/* Solid reveal stroke – pathLength only, no dash fight */}
           <motion.path
             d={path}
             stroke="white"
@@ -255,7 +257,7 @@ export default function ScrollTrail({ containerRef }: ScrollTrailProps) {
                     : { rotate: head.angle, scale: 0.5, opacity: 1 }
                 }
                 animate={{
-                  // At least one full turn from the arrow heading into −28°
+                  // Full turn from the arrow heading into a slight tilt
                   rotate:
                     head.angle +
                     360 +

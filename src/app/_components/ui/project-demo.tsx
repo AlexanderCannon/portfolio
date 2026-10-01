@@ -1,4 +1,4 @@
-/** Lightweight ASCII “demo” plates — no video assets required. */
+/** Lightweight ASCII “demo” plates – no video assets required. */
 const demos: Record<string, string[]> = {
   pathranger: [
     "$ pathranger init --shell zsh",

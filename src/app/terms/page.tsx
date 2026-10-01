@@ -33,7 +33,7 @@ const TermsAndConditions: React.FC = () => {
       <section className="space-y-2 text-ink-muted">
         <h2 className="font-display text-2xl text-ink">3. Intellectual property</h2>
         <p>
-          Content — text, graphics, logos, images, and software — is protected by
+          Content – text, graphics, logos, images, and software – is protected by
           intellectual property laws and owned by the respective owners.
         </p>
       </section>
