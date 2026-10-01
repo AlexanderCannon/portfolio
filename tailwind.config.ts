@@ -68,15 +68,31 @@ export default {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+        vista: {
+          "sky-top": "hsl(var(--vista-sky-top))",
+          "sky-mid": "hsl(var(--vista-sky-mid))",
+          "sky-bottom": "hsl(var(--vista-sky-bottom))",
+          sun: "hsl(var(--vista-sun))",
+          cloud: "hsl(var(--vista-cloud))",
+          pine: "hsl(var(--vista-pine))",
+          text: "hsl(var(--vista-text))",
+          "text-muted": "hsl(var(--vista-text-muted))",
+        },
       },
       keyframes: {
         "fade-up": {
           from: { opacity: "0", transform: "translateY(10px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+        "cloud-drift": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(40px)" },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.55s ease-out both",
+        "cloud-drift": "cloud-drift 48s ease-in-out infinite alternate",
+        "cloud-drift-slow": "cloud-drift 72s ease-in-out infinite alternate",
       },
     },
   },

@@ -238,7 +238,7 @@ export default function HomeTerminalPanel() {
   };
 
   useEffect(() => {
-    inputRef.current?.focus();
+    inputRef.current?.focus({ preventScroll: true });
   }, []);
 
   useEffect(() => {

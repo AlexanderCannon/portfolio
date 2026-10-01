@@ -37,6 +37,24 @@
     --chart-4: 25 40% 45%;
     --chart-5: 20 10% 30%;
     --radius: 0.125rem;
+
+    /* Hollywood Hills vista — dusty gold, sage chaparral, peach sky */
+    --vista-sky-top: 12 72% 64%;
+    --vista-sky-mid: 28 78% 74%;
+    --vista-sky-bottom: 44 70% 84%;
+    --vista-sun: 46 100% 90%;
+    --vista-cloud: 25 40% 78% / 0.32;
+    --vista-ridge-1: 34 28% 76%;
+    --vista-ridge-2: 38 34% 62%;
+    --vista-ridge-3: 44 30% 50%;
+    --vista-ridge-4: 58 22% 40%;
+    --vista-ridge-5: 45 26% 28%;
+    --vista-ridge-6: 32 28% 17%;
+    --vista-ridge-7: 24 32% 10%;
+    --vista-shadow: 22 35% 7%;
+    --vista-pine: 70 18% 22%;
+    --vista-text: 24 28% 14%;
+    --vista-text-muted: 28 18% 28%;
   }
 
   .dark {
@@ -71,6 +89,24 @@
     --chart-3: 40 20% 55%;
     --chart-4: 25 40% 55%;
     --chart-5: 20 10% 60%;
+
+    /* Hollywood dusk — violet haze, amber hills, deep scrub */
+    --vista-sky-top: 275 32% 14%;
+    --vista-sky-mid: 340 28% 18%;
+    --vista-sky-bottom: 22 58% 36%;
+    --vista-sun: 42 85% 84%;
+    --vista-cloud: 30 25% 40% / 0.2;
+    --vista-ridge-1: 30 22% 44%;
+    --vista-ridge-2: 34 26% 36%;
+    --vista-ridge-3: 40 24% 28%;
+    --vista-ridge-4: 55 16% 20%;
+    --vista-ridge-5: 38 22% 13%;
+    --vista-ridge-6: 28 26% 8%;
+    --vista-ridge-7: 22 30% 4%;
+    --vista-shadow: 20 35% 3%;
+    --vista-pine: 70 12% 12%;
+    --vista-text: 42 28% 94%;
+    --vista-text-muted: 35 16% 72%;
   }
 }
 

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import PageShell from "~/app/_components/ui/page-shell";
 import Button from "~/app/_components/ui/button";
+import Vista from "~/app/_components/ui/vista";
 import HomeTerminalPanel from "~/app/_components/sections/home-terminal-panel";
 import { projects } from "~/app/projects/data";
 import { type SubstackPost } from "~/lib/substack";
@@ -95,9 +96,9 @@ export default function HomeEditorialClient({
   }, []);
 
   return (
-    <PageShell className="py-12 sm:py-16 lg:py-20">
-      <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-14">
-        <div className="max-w-2xl">
+    <>
+      <Vista>
+        <div className="mx-auto max-w-2xl">
           <motion.h1
             initial={{
               opacity: 0,
@@ -109,7 +110,7 @@ export default function HomeEditorialClient({
               textShadow: "0 0 0 transparent, 0 0 0 transparent",
             }}
             transition={{ duration: 0.45, ease: "easeOut" }}
-            className="font-display text-[clamp(3.25rem,8vw,7.5rem)] font-semibold leading-[0.92] tracking-tighter text-ink"
+            className="font-display text-[clamp(2.75rem,6.5vw,6rem)] font-semibold leading-[0.92] tracking-tighter text-[hsl(var(--vista-text))] [text-shadow:0_1px_0_hsl(var(--vista-sky-top)/0.85),0_0_24px_hsl(var(--vista-sky-mid)/0.55)]"
           >
             Alexander
             <br />
@@ -119,37 +120,35 @@ export default function HomeEditorialClient({
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, ease: "easeOut", delay: 0.12 }}
-            className="mt-6 max-w-md text-lg leading-relaxed text-ink-muted sm:text-xl"
+            className="mx-auto mt-4 max-w-sm text-base leading-relaxed text-[hsl(var(--vista-text-muted))]"
           >
-            I build products people come back to — reading apps, family tools,
-            language experiments, and CLI utilities that stay out of the way.
+            Products people come back to — apps, tools, and experiments.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, ease: "easeOut", delay: 0.18 }}
-            className="mt-8 flex flex-wrap items-center gap-4"
+            className="mt-6 flex flex-wrap items-center justify-center gap-4"
           >
-            <Button link="/projects">See the work</Button>
-            <Button link="/contact" variant="link">
+            <Button
+              link="/projects"
+              className="border-0 bg-[hsl(var(--vista-text))] text-[hsl(var(--vista-sky-top))] hover:bg-accent hover:text-paper"
+            >
+              See the work
+            </Button>
+            <Button
+              link="/contact"
+              variant="link"
+              className="text-[hsl(var(--vista-text))]"
+            >
               Say hello
             </Button>
           </motion.div>
         </div>
+      </Vista>
 
-        {desktop && (
-          <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.55, ease: "easeOut", delay: 0.14 }}
-            className="h-full max-h-[36rem]"
-          >
-            <HomeTerminalPanel />
-          </motion.div>
-        )}
-      </div>
-
-      <section className="mt-16 border-t-2 border-ink pt-12 lg:mt-20 lg:pt-16">
+      <PageShell className="relative z-20 bg-background py-12 sm:py-16 lg:py-20">
+      <section className="border-t-0 pt-0">
         <p className="font-label text-ink-muted">Stack</p>
         <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 sm:gap-x-8">
           {languages.map((lang) => (
@@ -174,6 +173,15 @@ export default function HomeEditorialClient({
           </Link>
         </p>
       </section>
+
+      {desktop && (
+        <section className="mt-16 border-t-2 border-ink pt-12 lg:mt-20 lg:pt-16">
+          <p className="font-label text-ink-muted">Terminal</p>
+          <div className="mt-6 h-[28rem] max-w-3xl">
+            <HomeTerminalPanel />
+          </div>
+        </section>
+      )}
 
       <section
         id="about"
@@ -404,5 +412,6 @@ export default function HomeEditorialClient({
         </div>
       </section>
     </PageShell>
+    </>
   );
 }
