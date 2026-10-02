@@ -57,7 +57,7 @@ export default function ProjectsPage() {
     if (kind === "All") return projects.map((p, i) => ({ project: p, index: i }));
     return projects
       .map((p, i) => ({ project: p, index: i }))
-      .filter(({ project }) => project.kind === kind);
+      .filter(({ project }) => project.kind.includes(kind));
   }, [kind]);
 
   return (

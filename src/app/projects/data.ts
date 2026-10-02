@@ -254,7 +254,7 @@ export const projects: Project[] = [
     image: "/images/guitar-visualiser.png",
     github: "https://github.com/alexandercannon/guitarvisualizer",
     live: "https://guitarvisualizer.com",
-    kind: "App",
+    kind: "App / Web",
     thumb: "wide",
   },
   {
@@ -284,7 +284,7 @@ export const projects: Project[] = [
     image: "/images/plannet.png",
     github: "https://github.com/plannet-ai/plannet",
     live: "https://www.plannet.dev/",
-    kind: "Tool",
+    kind: "CLI",
     thumb: "wide",
   },
   {
@@ -292,7 +292,7 @@ export const projects: Project[] = [
     slug: "koi-cd",
     title: "Koi CD",
     description:
-      "Concourse-as-a-service – automate delivery pipelines without babysitting the machinery.",
+      "Hosted Concourse infrastructure with CLI tools and a web platform – automate delivery pipelines without babysitting the machinery.",
     body: [
       "Delivery pipelines are great until you are the person babysitting Concourse. Koi CD was our answer at Farpoint: Concourse-as-a-service so teams could ship without owning every piece of the machinery.",
       "The interesting part was the product shape – make the hard ops layer feel like a service someone else keeps healthy, so engineers can stay on the pipeline definition.",
@@ -307,7 +307,7 @@ export const projects: Project[] = [
     image: "/images/koi-cd.png",
     github: "https://github.com/farpointlabs/koi-cd",
     live: "http://farpointlabs.com",
-    kind: "Tool",
+    kind: "CLI / Web",
     thumb: "wide",
   },
   {
@@ -334,7 +334,7 @@ export const projects: Project[] = [
     image: "/images/infraedge.png",
     github: "https://github.com/alexandercannon/infraedge",
     live: "https://www.infraedge.dev",
-    kind: "Tool",
+    kind: "CLI",
     thumb: "wide",
   },
   {
@@ -418,5 +418,5 @@ export function plateNumber(index: number) {
   return String(index + 1).padStart(2, "0");
 }
 
-export const projectKinds = ["All", "App", "CLI", "Tool", "Web"] as const;
+export const projectKinds = ["All", "App", "CLI", "Web"] as const;
 
