@@ -36,14 +36,35 @@ const plexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
+const description = "Engineering lead and builder – apps, tools, and systems.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://alexandercannon.dev"),
   title: {
     default: "Alexander Cannon",
     template: "%s | Alexander Cannon",
   },
-  description: "Engineering lead and builder – apps, tools, and systems.",
+  description,
   icons: [{ rel: "icon", url: "/favicon.ico" }],
+  alternates: { canonical: "./" },
+  openGraph: {
+    type: "website",
+    siteName: "Alexander Cannon",
+    title: "Alexander Cannon",
+    description,
+    images: ["/images/portfolio.png"],
+  },
+  twitter: { card: "summary_large_image" },
 };
+
+const personJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Alexander Cannon",
+  url: "https://alexandercannon.dev",
+  jobTitle: "Engineering Lead",
+  sameAs: ["https://github.com/AlexanderCannon"],
+});
 
 export default function RootLayout({
   children,
@@ -54,6 +75,10 @@ export default function RootLayout({
       className={`${cormorant.variable} ${libreCaslon.variable} ${plexMono.variable}`}
     >
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: personJsonLd }}
+        />
         <Script
           id="theme-boot"
           strategy="beforeInteractive"

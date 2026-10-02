@@ -30,6 +30,8 @@ export async function generateMetadata({
     title: post.name,
     description:
       post.body?.slice(0, 160) ?? "Read this blog post by Alexander Cannon",
+    alternates: { canonical: `/blog/${post.slug}` },
+    openGraph: { type: "article", publishedTime: post.createdAt.toISOString() },
   };
 }
 
