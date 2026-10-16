@@ -42,7 +42,7 @@ export default async function PostsPage() {
   return (
     <PageShell>
       <header className="max-w-measure">
-        <SectionLabel>Field notes</SectionLabel>
+        <SectionLabel>Writing</SectionLabel>
         <ContourRule />
         <h1 className="engraved mt-5 font-display text-4xl tracking-tight text-ink sm:text-5xl">
           Blog

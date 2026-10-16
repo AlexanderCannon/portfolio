@@ -25,10 +25,10 @@ export const projects: Project[] = [
     slug: "volume",
     title: "VOLUME",
     description:
-      "A reading companion – sessions, shelf, streaks that do not stage a performance about it.",
+      "A reading app for logging sessions, tracking books, and sharing progress.",
     body: [
-      "I kept losing the thread of what I was reading. Somewhere between the review-shaped apps and the ones that treat a missed day like a moral failure, I wanted somewhere quieter: log a session, see the shelf, know where I left off.",
-      "VOLUME does that. Timed reading blocks you can pause when life happens. Pages and pace on the books you are in the middle of. Streaks that celebrate showing up without inventing a personality crisis for Tuesday. Optional social layer – finish a book, hit a milestone – kept optional on purpose.",
+      "I wanted a way to track what I was reading and where I had left off, so I built VOLUME.",
+      "You can time and pause reading sessions, record pages, and keep a shelf of books. It also tracks streaks and lets you share finished books and milestones with friends.",
     ],
     stack: [
       "Expo / React Native (TypeScript)",
@@ -57,10 +57,10 @@ export const projects: Project[] = [
     slug: "sophias-future-doctor-club",
     title: "Sophia's Future Doctor Club",
     description:
-      "Weekly missions, club notes, badges, and streaks for a kid who wants the white coat someday – all on-device.",
+      "Weekly activities and a journal for kids interested in medicine. Everything stays on the device.",
     body: [
-      "This started for a kid who talks about becoming a doctor the way other kids talk about dinosaurs. I wanted something she would open because it felt like hers.",
-      "Each week: small picks across science, math, reading, writing, service. Finish one, jot a Club Note, earn XP and badges. Swap today's pick or log your own when the plan and the day refuse to agree. No account, no ads, no cloud.",
+      "I built this for a kid who wants to become a doctor, with activities she could do each week and a place to write about them.",
+      "Each week includes activities in science, math, reading, writing, and service. Kids can write Club Notes, earn XP and badges, swap activities, or add their own. There are no accounts or ads, and data is stored locally.",
     ],
     stack: [
       "Expo / React Native (TypeScript)",
@@ -70,7 +70,7 @@ export const projects: Project[] = [
       "EAS Build / App Store",
     ],
     challenges: [
-      "Deterministic weekly mission selection: seeded RNG, rank-gated pools, difficulty budgets, and an eight-week template exclusion so the lineup does not repeat itself into boredom.",
+      "Deterministic weekly mission selection: seeded RNG, rank-gated pools, difficulty budgets, and an eight-week template exclusion to avoid repeating recent activities.",
       "Versioned SQLite migrations and week-plan invalidation when the catalog or rank at selection changes – without an ORM or a backend.",
       "Shipping a privacy-first kids' app: everything stays on device; notifications only after the user opts in.",
     ],
@@ -87,10 +87,10 @@ export const projects: Project[] = [
     slug: "honey-do",
     title: "Honey Do",
     description:
-      "Family planner with shared calendars, assigned tasks, and a points system for the chore wars.",
+      "A family planner with shared calendars, recurring chores, and household points.",
     body: [
-      "Family logistics are a shared calendar someone forgets to open, a chore list nobody owns, and a recurring chorus of “I thought you were doing that.”",
-      "Honey Do is shared calendars, assignable recurring chores, household invites, and a points ledger so the household can finish the boring stuff together. Still cooking, but the shape of it is there.",
+      "Honey Do brings household calendars and chores into one app, with tasks assigned to individual family members.",
+      "It supports recurring chores, household invites, and a points ledger. The app is still in development.",
     ],
     stack: [
       "Expo / React Native client",
@@ -118,10 +118,10 @@ export const projects: Project[] = [
     slug: "lllanguage",
     title: "lllanguage",
     description:
-      "Language learning from the gaps in real conversation – speak, catch what you needed, bring it back later.",
+      "A language practice app that saves vocabulary from conversations for later review.",
     body: [
-      "Most language apps teach phrases you will never say. Real conversation is messier – you need a word mid-sentence, stay quiet, and forget to look it up later.",
-      "lllanguage is built around that gap. Speak with a partner, catch what you needed in the moment, bring it back when you have time. The vocabulary that actually showed up in your life.",
+      "When you need a word during a conversation, it is easy to forget to look it up afterwards. I am building lllanguage to capture those moments.",
+      "The app combines spoken practice with vocabulary review, using words from your conversations. It is still in development.",
     ],
     stack: [
       "Expo / React Native (audio streaming)",
@@ -133,8 +133,8 @@ export const projects: Project[] = [
     challenges: [
       "Continuous PCM over WebSocket from a mobile client that cannot stream raw frames through Expo's stock recorder.",
       "Realtime speak path: partial ASR, adaptive endpointing, barge-in, and stripping partner TTS echo from the learner's transcript.",
-      "A deterministic pedagogy reducer that owns durable conversation policy while the LLM proposes actions – so the model does not quietly rewrite the lesson.",
-      "A local Docker inference path so a pilot can run without burning a hosted model budget.",
+      "Keeping lesson state and conversation rules in a deterministic reducer, with the LLM proposing actions for the reducer to validate.",
+      "Running speech and language models locally in Docker to test without hosted inference costs.",
     ],
     role: "solo",
     status: "cooking",
@@ -151,8 +151,8 @@ export const projects: Project[] = [
     description:
       "Rust CLI that remembers where you work and jumps you there – tags, recents, fuzzy search.",
     body: [
-      "I spend more time jumping between project folders than I would like to admit. Bookmarks help until you have forty of them. Tab-complete helps until the path is six directories deep and you mistype the third.",
-      "PathRanger remembers where you work. Tags, recents, fuzzy search – pick a place and land there. Once it is in your shell, Monday mornings involve a lot less typing the same path twice.",
+      "I built PathRanger to spend less time typing paths when switching between projects.",
+      "It keeps a history of visited directories and lets you find them with tags or fuzzy search. Shell hooks handle the directory change in bash, zsh, and fish.",
     ],
     stack: [
       "Rust",
@@ -161,8 +161,8 @@ export const projects: Project[] = [
       "bash / zsh / fish init hooks",
     ],
     challenges: [
-      "Wrapping `cd` in bash, zsh, and fish without breaking return codes or feeling invasive.",
-      "A `goto` stdout contract the shell wrapper can capture, so tags jump you without a second process language.",
+      "Wrapping `cd` in bash, zsh, and fish while preserving exit codes and normal shell behaviour.",
+      "Returning the selected path on stdout so the shell wrapper can change the current directory.",
       "Fuzzy search over the visit database with sensible ranking for day-to-day use.",
     ],
     role: "solo",
@@ -206,10 +206,10 @@ export const projects: Project[] = [
     slug: "eurovision-party",
     title: "Eurovision Party",
     description:
-      "Live voting for Eurovision nights – parties, scores, and a leaderboard that survives the interval act.",
+      "Private Eurovision voting rooms with shared scores and a live leaderboard.",
     body: [
-      "Eurovision nights are better with a room full of opinions and somewhere to put the scores before the interval act ends.",
-      "Private rooms, drag-and-drop voting, a real-time leaderboard, official-style points. Pull it up next May and invite whoever is watching with you.",
+      "I built Eurovision Party for watching and scoring the contest with friends.",
+      "Create a private room, invite friends, and rank the songs by dragging them into order. Votes update a shared leaderboard using Eurovision-style points.",
     ],
     stack: [
       "Expo / React Native",
@@ -218,7 +218,7 @@ export const projects: Project[] = [
       "EAS Build / App Store",
     ],
     challenges: [
-      "Supabase Realtime on vote rows that needed replica identity and stable upsert IDs – otherwise the leaderboard goes quiet mid-show.",
+      "Supabase Realtime on vote rows that needed replica identity and stable upsert IDs – to keep leaderboard updates flowing.",
       "Reordering a filtered semi-final subset without destroying the full ballot ranks underneath.",
       "Client-side contest phase filters (semi / final / NQ) driven by wall-clock show times, plus platform-split lyrics and points UX.",
     ],
@@ -235,10 +235,10 @@ export const projects: Project[] = [
     slug: "guitar-visualizer",
     title: "Guitar Visualizer",
     description:
-      "Mobile guitar chords and scales with a fretboard you can actually read under your fingers.",
+      "An interactive guitar fretboard for exploring chords, scales, and voicings on your phone.",
     body: [
       "I play guitar badly and learn better when I can see the fretboard.",
-      "Chords, scales, and voicings mapped onto a phone-sized neck – CAGED shapes, jazz voicings, muted strings included. Built for practice, for the same reason a good instrument can briefly convince you that you sound like someone else.",
+      "The app maps chords, scales, and voicings onto an interactive fretboard. It includes CAGED shapes, jazz voicings, muted strings, and multiple tunings, with a layout that fits a phone.",
     ],
     stack: [
       "Next.js (App Router)",
@@ -262,10 +262,10 @@ export const projects: Project[] = [
     slug: "plannet",
     title: "Plannet.dev",
     description:
-      "LLM-powered CLI that spins up and manages ticketing systems – Jira, Slack, less copy-paste.",
+      "A CLI for generating tickets and tracking work with Jira and Git context.",
     body: [
-      "Ticket systems eat half a day if you let them. Copying context into Jira, pinging Slack, updating the same three fields in three places.",
-      "Plannet is a terminal-first assistant for that surface: LLM generation, optional Jira flows, and work tracking that attaches git context when you are already in a repo. BYO model or the hosted proxy.",
+      "I built Plannet to create tickets and track work from the terminal, using context from the current repository.",
+      "It uses an LLM to generate content, supports Jira workflows, and attaches branch, commit, and file changes to work records. You can use your own model or the hosted proxy.",
     ],
     stack: [
       "Go (Cobra CLI)",
@@ -276,7 +276,7 @@ export const projects: Project[] = [
     ],
     challenges: [
       "Jira REST flows with validation and rate limits, plus `plannet track` that persists non-git work and attaches branch, commit, and changed files when cwd is a repo.",
-      "Two LLM client shapes (completions vs chat) aimed at the same product surface.",
+      "Supporting both completion and chat model APIs through the same CLI commands.",
       "Hosted API keys (`pk_…`) verified with bcrypt, cache-aside in Redis, and usage recorded against the proxy.",
     ],
     role: "solo",
@@ -292,17 +292,17 @@ export const projects: Project[] = [
     slug: "koi-cd",
     title: "Koi CD",
     description:
-      "Hosted Concourse infrastructure with CLI tools and a web platform – automate delivery pipelines without babysitting the machinery.",
+      "Hosted Concourse CI with a CLI and web interface for managing delivery pipelines.",
     body: [
-      "Delivery pipelines are great until you are the person babysitting Concourse. Koi CD was our answer at Farpoint: Concourse-as-a-service so teams could ship without owning every piece of the machinery.",
-      "The interesting part was the product shape – make the hard ops layer feel like a service someone else keeps healthy, so engineers can stay on the pipeline definition.",
+      "At Farpoint Labs, we built Koi CD to offer Concourse as a hosted service.",
+      "Teams could define their delivery pipelines while we managed the underlying Concourse infrastructure. The product included CLI tools and a web interface.",
     ],
     stack: ["Go", "Concourse"],
     challenges: [
-      "Productizing an ops layer so teams own pipeline definitions, not the cluster underneath them.",
+      "Separating customer pipeline configuration from the operation of the hosted Concourse clusters.",
     ],
     role: "shared",
-    roleNote: "Built with the Farpoint Labs crew.",
+    roleNote: "Built with the team at Farpoint Labs.",
     status: "shipped",
     image: "/images/koi-cd.png",
     github: "https://github.com/farpointlabs/koi-cd",
@@ -315,10 +315,10 @@ export const projects: Project[] = [
     slug: "infraedge",
     title: "Infraedge",
     description:
-      "Cloud resources as a graph – architecture you can actually look at.",
+      "An experimental Go CLI for planning AWS infrastructure changes.",
     body: [
-      "Cloud consoles are a maze of tabs. You know the architecture in your head; the UI makes you rediscover it every time you open a new service.",
-      "Infraedge was an experiment in making infrastructure feel declarative and visible: a Go CLI with plan/state against AWS, starting as an S3-shaped proof of concept.",
+      "Infraedge explored defining AWS resources in configuration and comparing them with stored state before making changes.",
+      "The proof of concept focused on S3, with a Go CLI, a plan engine, and an initial AWS provider abstraction.",
     ],
     stack: [
       "Go",
@@ -329,7 +329,7 @@ export const projects: Project[] = [
       "A minimal plan engine that diffs desired config against JSON state, with an early provider abstraction over AWS.",
     ],
     role: "shared",
-    roleNote: "Built with the Farpoint Labs crew.",
+    roleNote: "Built with the team at Farpoint Labs.",
     status: "shipped",
     image: "/images/infraedge.png",
     github: "https://github.com/alexandercannon/infraedge",
@@ -342,10 +342,10 @@ export const projects: Project[] = [
     slug: "scratcher",
     title: "Scratcher",
     description:
-      "A creator publishing app – articles, roles, comments, and the social bits around a post.",
+      "A publishing app with articles, editorial roles, comments, and follows.",
     body: [
-      "Scratcher started in a stretch when I was deep in crypto and curious whether creators could own distribution. The curiosity was useful. What shipped is a more boring and honest stack.",
-      "Articles with roles, comments, stars, follows, and image uploads – a T3-style publisher you can actually click. Ambitious earlier ideas about ledgers did not survive contact with shipping something people could use.",
+      "Scratcher began as an experiment in creator-owned distribution while I was working on crypto projects. I later narrowed it to a publishing app.",
+      "It supports articles, contributor and editor roles, comments, stars, follows, and image uploads. The earlier ledger ideas were dropped from the implementation.",
     ],
     stack: [
       "Next.js + tRPC",
@@ -355,7 +355,7 @@ export const projects: Project[] = [
     ],
     challenges: [
       "Role-gated procedures (contributor / editor / admin) around a full article CMS with cursor pagination.",
-      "Image pipeline: client upload through sharp resize into Cloudinary without turning every post into a binary blob in the DB.",
+      "Image pipeline: client upload through sharp resize into Cloudinary while keeping image files out of the database.",
     ],
     role: "solo",
     status: "shipped",
@@ -370,10 +370,10 @@ export const projects: Project[] = [
     slug: "this-site",
     title: "This site",
     description:
-      "The portfolio you are on – Next.js, occasional redesigns, and whatever I am shipping next.",
+      "My portfolio, project writeups, and blog archive, built with Next.js.",
     body: [
-      "This is the portfolio you are on. Next.js, older notes that still live here, project writeups, and the occasional redesign when the previous look starts to feel like someone else's taste.",
-      "It doubles as a sandbox. New UI ideas, a terminal on the home page, app privacy pages that need a real URL for the stores – they all land here first.",
+      "I use this site to share projects, keep an archive of earlier writing, and provide a printable resume.",
+      "It is also where I try UI ideas, including the homepage terminal, and host support and privacy pages for my apps.",
     ],
     stack: [
       "Next.js 15 (App Router)",
@@ -383,7 +383,7 @@ export const projects: Project[] = [
     ],
     challenges: [
       "Keeping a typed static project catalog as the source of truth while also hosting App Store landing pages, contact, and a Postgres-backed blog.",
-      "Editorial redesign without a CMS – voice and layout have to stay coherent across a decade of side projects.",
+      "Updating shared layouts and project copy directly in the codebase, without a CMS.",
     ],
     role: "solo",
     status: "shipped",
@@ -407,7 +407,7 @@ export function liveLabel(url: string) {
 
 export function roleLabel(project: Project) {
   if (project.role === "solo") {
-    return "Solo – design, code, and shipping.";
+    return "I designed, built, and released it.";
   }
   return project.roleNote
     ? `Shared project. ${project.roleNote}`

@@ -21,17 +21,17 @@ const selectedRoles = resume.experience.slice(0, 4);
 const featured = [
   {
     title: "VOLUME",
-    blurb: "A calm reading companion – sessions, shelf, streaks.",
+    blurb: "Track reading sessions, books, and progress.",
     href: "/projects/volume",
   },
   {
     title: "Sophia's Future Doctor Club",
-    blurb: "Weekly missions for kids who want the white coat someday.",
+    blurb: "Weekly activities for kids interested in medicine.",
     href: "/projects/sophias-future-doctor-club",
   },
   {
     title: "PathRanger",
-    blurb: "Jump to the directories you already live in.",
+    blurb: "Find and jump to project folders from your shell.",
     href: "/projects/pathranger",
   },
 ];
@@ -51,35 +51,35 @@ const hobbies = [
   {
     name: "Guitar",
     blurb:
-      "Left-handed, not especially well, on instruments that take up more air than my playing has earned.",
+      "I play left-handed guitar. Still learning.",
     image: "/images/guitar.png",
   },
   {
     name: "Running",
     blurb:
-      "Most mornings before the day has formed an opinion. Hills when I can, pavement when I cannot.",
+      "I run most mornings, on hills when I can.",
     image: "/images/running.png",
   },
   {
     name: "Hiking",
-    blurb: "A sandwich in a pocket, boots, and weather that refuses to stay on message.",
+    blurb: "Boots on, sandwich packed, out for a walk.",
     image: "/images/hiking.png",
   },
   {
     name: "Travel",
     blurb:
-      "Cities arrived at with a loose plan. I wander until hunger becomes a compass.",
+      "I like exploring a new city on foot, with a loose plan and stops for food.",
     image: "/images/travel.png",
   },
   {
     name: "Reading",
-    blurb: "Stacks that grow faster than evenings. I mean well; the unread pile knows better.",
+    blurb: "I buy books faster than I finish them.",
     image: "/images/reading.png",
   },
   {
     name: "Cycling",
     blurb:
-      "A folding bike for trains, stairwells, and hotels with mixed sincerity about cyclists.",
+      "I travel with a folding bike.",
     image: "/images/cycling.png",
   },
 ];
@@ -178,7 +178,7 @@ export default function HomeEditorialClient({
       <div className="parchment relative z-20 -mt-20 sm:-mt-28">
         <PageShell trail className="pb-12 pt-8 sm:pb-16 sm:pt-10 lg:pb-20 lg:pt-12">
           <Section className="pt-0">
-            <SectionLabel>Field kit</SectionLabel>
+            <SectionLabel>Languages & tools</SectionLabel>
             <ContourRule />
             <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 sm:gap-x-8">
               {languages.map((lang) => (
@@ -215,7 +215,7 @@ export default function HomeEditorialClient({
               transition={{ duration: 0.4, ease: "easeOut" }}
               className="mt-4 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted"
             >
-              Last ship ·{" "}
+              Latest release ·{" "}
               <Link
                 href={`/projects/${latest.slug}`}
                 className="text-accent underline decoration-dashed underline-offset-4 hover:underline"
@@ -227,7 +227,7 @@ export default function HomeEditorialClient({
 
           {desktop && (
             <Section className="mt-16 pt-12 lg:mt-20 lg:pt-16">
-              <SectionLabel>Field radio</SectionLabel>
+              <SectionLabel>Terminal</SectionLabel>
               <ContourRule />
               <motion.div
                 variants={fadeUp}
@@ -243,7 +243,7 @@ export default function HomeEditorialClient({
             id="about"
             className="mt-16 scroll-mt-24 pt-12 lg:mt-20 lg:pt-16"
           >
-            <SectionLabel>Dossier</SectionLabel>
+            <SectionLabel>About me</SectionLabel>
             <ContourRule />
             <div className="mt-8 grid gap-12 md:grid-cols-[1.2fr_0.8fr] md:items-start md:gap-16">
               <motion.div
@@ -252,22 +252,20 @@ export default function HomeEditorialClient({
                 className="max-w-measure space-y-5 text-base leading-relaxed text-ink-muted sm:text-lg"
               >
                 <p>
-                  Most of my career has been in messy corners of software –
-                  Discovery&apos;s early live streaming, regulated fintech,
-                  blockchain experiments, LLM tools that have to cope with
-                  production data. The brief was usually implement and deliver.
-                  The work was turning unclear goals and awkward constraints into
-                  something people could rely on.
+                  I&apos;m a software engineer, engineering lead, and founder.
+                  I helped build Discovery&apos;s first online streaming platform,
+                  founded a fintech company, and led a 30-person engineering team
+                  at MDRX. My work has also included blockchain projects and LLM
+                  tools.
                 </p>
                 <p>
-                  These days I split time between my own products and the quieter
-                  parts of leadership: catching problems early, keeping the
-                  architecture tidy, and writing things down for whoever comes
-                  next – including future me, who will be tired and annoyed.
+                  These days I split my time between building my own products and
+                  leading engineering teams. I still write code, review technical
+                  decisions, and document how things work.
                 </p>
                 <p>
-                  Away from the keyboard: strings, early miles, trails, foreign
-                  sidewalks, unread spines, and a bike that folds into luggage.
+                  Outside work, I play guitar, run, hike, read, and travel.
+                  The folding bike usually comes along.
                 </p>
               </motion.div>
               <motion.div
@@ -299,9 +297,9 @@ export default function HomeEditorialClient({
             <ul className="mt-6 max-w-measure space-y-3 text-base leading-relaxed text-ink-muted sm:text-lg">
               {[
                 "Small teams, clear ownership",
-                "Ship in small steps, keep the joinery honest",
-                "Prefer boring tech when it fits",
-                "Write things down for the next person – including future me",
+                "Make small changes that are easy to review and release",
+                "Use tools the team can maintain",
+                "Document decisions and how to run the software",
               ].map((item, i) => (
                 <motion.li
                   key={item}
@@ -327,7 +325,7 @@ export default function HomeEditorialClient({
           <Section className="mt-16 pt-10 lg:mt-20">
             <div className="flex flex-wrap items-baseline justify-between gap-4">
               <div>
-                <SectionLabel>Expedition log</SectionLabel>
+                <SectionLabel>Experience</SectionLabel>
                 <ContourRule />
               </div>
               <motion.div variants={fadeUp}>

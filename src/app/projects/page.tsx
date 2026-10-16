@@ -69,8 +69,8 @@ export default function ProjectsPage() {
           Projects
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-ink-muted">
-          A few of the things I have shipped – apps on phones, tools in terminals,
-          and some experiments that stuck around.
+          Apps, command-line tools, and experiments I have worked on.
+          Some are released; others are still in development.
         </p>
       </header>
 
@@ -121,7 +121,7 @@ export default function ProjectsPage() {
                       : "text-ink-muted"
                   }`}
                 >
-                  {project.status === "cooking" ? "● Cooking" : "✓ Shipped"}
+                  {project.status === "cooking" ? "● In development" : "✓ Shipped"}
                 </span>
               </div>
               <h2 className="engraved mt-2 font-display text-3xl tracking-tight text-ink sm:text-4xl">

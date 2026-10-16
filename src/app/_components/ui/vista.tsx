@@ -61,7 +61,7 @@ function VistaSvg({
     <svg
       className="absolute inset-0 h-full w-full"
       viewBox={`0 0 ${VISTA_WIDTH} ${VISTA_HEIGHT}`}
-      preserveAspectRatio="none"
+      preserveAspectRatio="xMidYMax slice"
       aria-hidden
     >
       <defs>
@@ -211,7 +211,7 @@ function NearPlaneOverlay({
     <svg
       className="absolute inset-0 h-full w-full"
       viewBox={`0 0 ${VISTA_WIDTH} ${VISTA_HEIGHT}`}
-      preserveAspectRatio="none"
+      preserveAspectRatio="xMidYMax slice"
       aria-hidden
     >
       <ParallaxLayer
@@ -268,6 +268,7 @@ export default function Vista({
       {/*
         One sticky stack: valley + opaque near plane + copy.
         When sticky releases, the whole hero scrolls away – no dark lip lingering over content.
+        SVGs use slice so a tall phone crops the 16:9 scene instead of stretching it.
       */}
       <div className="sticky top-0 z-0 h-[100svh] overflow-hidden">
         <div className="pointer-events-none absolute inset-0">

@@ -13,7 +13,7 @@ const ContactPage: React.FC = () => {
   return (
     <PageShell>
       <header className="max-w-measure">
-        <SectionLabel>Correspondence</SectionLabel>
+        <SectionLabel>Contact</SectionLabel>
         <ContourRule />
         <h1 className="engraved mt-5 font-display text-4xl tracking-tight text-ink sm:text-5xl">
           Say hello

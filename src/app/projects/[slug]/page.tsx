@@ -72,7 +72,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   : "text-ink-muted"
               }`}
             >
-              {project.status === "cooking" ? "● Cooking" : "✓ Shipped"}
+              {project.status === "cooking" ? "● In development" : "✓ Shipped"}
             </span>
           </div>
           <ContourRule />
@@ -157,7 +157,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </section>
 
         <section className="mt-16 pt-4">
-          <SectionLabel>Where it got hard</SectionLabel>
+          <SectionLabel>Technical challenges</SectionLabel>
           <ContourRule />
           <ol className="mt-8 max-w-2xl divide-y divide-dashed divide-line border-y border-dashed border-line">
             {project.challenges.map((item, index) => (

@@ -54,13 +54,12 @@ const Footer: React.FC = () => {
             Alexander Cannon
           </p>
           <p className="mt-2 max-w-xs text-sm leading-relaxed text-[hsl(36_20%_68%)]">
-            Engineering leader and builder. Apps, tools, and systems that earn
-            their keep.
+            Software engineer, engineering lead, and founder.
           </p>
         </div>
 
         <div>
-          <p className="font-label text-accent">Correspondence</p>
+          <p className="font-label text-accent">Links</p>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
               <Link

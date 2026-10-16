@@ -7,20 +7,20 @@ import Timeline from "~/app/_components/sections/timeline";
 export const metadata: Metadata = {
   title: "Experience",
   description:
-    "Alexander Cannon – software and teams over the last decade-plus.",
+    "Alexander Cannon – engineering roles, projects, and teams.",
 };
 
 export default function ExperiencePage() {
   return (
     <PageShell>
       <header className="max-w-2xl">
-        <SectionLabel>Expedition log</SectionLabel>
+        <SectionLabel>Experience</SectionLabel>
         <ContourRule />
         <h1 className="engraved mt-5 font-display text-4xl tracking-tight text-ink sm:text-5xl">
           Professional experience
         </h1>
         <p className="mt-4 text-lg text-ink-muted">
-          Roles and projects from the last decade-plus.
+          Engineering roles since 2009.
         </p>
         <p className="mt-4 text-sm text-ink-muted">
           Prefer raw data?{" "}

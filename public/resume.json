@@ -5,7 +5,7 @@
     "phone": "+1 840 233 2754",
     "email": "alexander@farpointlabs.com"
   },
-  "professionalSummary": "Engineering lead and founder. I work on products people use day to day – streaming, fintech, blockchain, and LLM tools that have to hold up in production.",
+  "professionalSummary": "Software engineer, engineering lead, and founder with experience in streaming, fintech, blockchain, and LLM tools.",
   "experience": [
     {
       "company": "Zinguist",
@@ -13,7 +13,7 @@
       "location": "Berlin, Germany",
       "period": "Nov 2023 - Present",
       "responsibilities": [
-        "Automated the workflows that kept operations stuck in the same three tools",
+        "Automated workflows across operations tools",
         "Scaled infrastructure for a sharp rise in user activity, including video streaming for online classes",
         "Led engineering alongside product and marketing"
       ],
@@ -169,7 +169,7 @@
     "frameworks": ["React", "React Native", "Expo", "Next.js"],
     "cloud": ["AWS", "Azure", "GCP"],
     "data": ["Postgres", "Redis", "Kafka"],
-    "notes": ["LLMs where the pager still rings"]
+    "notes": ["LLM tools"]
   },
   "education": {
     "institution": "University of Oxford",

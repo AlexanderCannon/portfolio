@@ -36,7 +36,7 @@ const plexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
-const description = "Engineering lead and builder – apps, tools, and systems.";
+const description = "Software engineer, engineering lead, and founder.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://alexandercannon.dev"),

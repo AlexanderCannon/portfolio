@@ -58,16 +58,16 @@ const COMPASS: Record<string, { label: string; path: string }> = {
 };
 
 const TRANSMISSIONS = [
-  "Static clears. VOLUME is live on the App Store.",
-  "Field note: PathRanger was named after getting lost in a monorepo.",
-  "Weak signal from Eurovision Party – someone's still scoring songs.",
-  "CacheClip caches clipboard. Name does what it says on the tin.",
-  "lllanguage: learn from the conversation you already had.",
-  "Honey Do is cooking. Literally – family meal planning.",
-  "Sophia's Future Doctor Club: habits before white coats.",
-  "Radio check: LLMs in production, not just demos.",
-  "Bearing confirmed – farpointlabs.com still on the air.",
-  "Trail marker: TypeScript · Rust · Python · Go.",
+  "VOLUME is available on the App Store.",
+  "PathRanger finds project directories using tags and fuzzy search.",
+  "Eurovision Party lets friends vote in private rooms.",
+  "CacheClip keeps clipboard history in the terminal.",
+  "lllanguage combines conversation practice and vocabulary review.",
+  "Honey Do is a family calendar and chore planner, currently in development.",
+  "Sophia's Future Doctor Club has weekly activities for kids interested in medicine.",
+  "My work includes LLM tools and production infrastructure.",
+  "Farpoint Labs: farpointlabs.com",
+  "Languages: TypeScript · Rust · Python · Go.",
 ];
 
 // Project keys only – skip site pages so explore lands somewhere interesting
@@ -134,14 +134,14 @@ function buildCommands(
     ],
     whoami: () => [
       "Alexander Cannon",
-      "Engineering leader & builder",
+      "Software engineer, engineering lead & founder",
       "alexander@farpointlabs.com",
     ],
     projects: () => [
       "Featured:",
       "  VOLUME                     – reading companion (App Store)",
       "  Sophia's Future Doctor Club – habit app for future doctors",
-      "  Honey Do                   – family planner (cooking)",
+      "  Honey Do                   – family planner (in development)",
       "  lllanguage                 – language from real conversation",
       "  PathRanger / CacheClip     – Rust CLIs",
       "",
@@ -152,7 +152,7 @@ function buildCommands(
       "React · React Native · Expo · Next.js",
       "AWS · Azure · GCP",
       "Postgres · Redis · Kafka",
-      "LLMs in production, not just demos",
+      "LLM tools",
     ],
     contact: () => [
       "Email     alexander@farpointlabs.com",
@@ -164,7 +164,7 @@ function buildCommands(
     about: () => [
       "I work on apps, tools, and systems.",
       "Background across streaming, fintech, blockchain, and AI.",
-      "These days: hands-on building + quieter leadership work.",
+      "I build my own products and lead engineering teams.",
     ],
     resume: () => {
       navigate("/print");
@@ -243,9 +243,9 @@ function buildCommands(
           .toLowerCase();
         return hay.includes(term);
       });
-      if (hits.length === 0) return ["nothing on the radio"];
+      if (hits.length === 0) return ["No matching projects."];
       return [
-        `Heard ${hits.length} transmission${hits.length === 1 ? "" : "s"}:`,
+        `Found ${hits.length} project${hits.length === 1 ? "" : "s"}:`,
         ...hits.map(
           (p) => `  ${p.slug.padEnd(28)} ${p.title}`,
         ),
@@ -294,7 +294,7 @@ function buildCommands(
       "   | |      | |",
       "   |_|______|_|",
       "",
-      "You found the easter egg. Hire the gunner.",
+      "You found the easter egg.",
     ],
     sudo: (args) => {
       const phrase = (args ?? []).join(" ").toLowerCase();
